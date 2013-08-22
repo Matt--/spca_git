@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130821050504) do
+ActiveRecord::Schema.define(:version => 20130822075814) do
 
   create_table "notepads", :force => true do |t|
     t.string   "title"
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(:version => 20130821050504) do
   end
 
   add_index "notepads", ["volunteers_id"], :name => "index_notepads_on_volunteers_id"
+
+  create_table "volcoordinators", :force => true do |t|
+    t.string   "email"
+    t.string   "email_header"
+    t.string   "appEmailAcknowledgeText"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
 
   create_table "volunteers", :force => true do |t|
     t.string   "title"

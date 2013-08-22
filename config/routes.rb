@@ -1,9 +1,9 @@
 SPCA::Application.routes.draw do
   resources :notepads
 
-
   resources :volunteers
 
+  resources :volcoordinators
 
   get "home/index"
 
