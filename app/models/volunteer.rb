@@ -9,7 +9,7 @@ class Volunteer < ActiveRecord::Base
   :validates :email, :presence => true
   
   #We only want one of these 2 to be required
-  :validates :mobile, :presence => true
+  :validates :moblie, :presence => true
   :validates :home, :presence => true
   
   :validates :background, :presence => true
