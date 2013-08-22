@@ -1,5 +1,6 @@
 <%= image_tag 'SPCA.jpg' %>
-<h1>SPCA Volunteer 3000 v2.0</h1>
+<h1>SPCA Volunteer Portal</h1>
 
 <%= link_to "Volunteers", volunteers_path %>
 <%= link_to "Notepad", notepads_path %>
+s
