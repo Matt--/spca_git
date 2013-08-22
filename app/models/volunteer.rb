@@ -1,8 +1,5 @@
 class Volunteer < ActiveRecord::Base
   attr_accessible :address, :background, :dob, :email, :firstname, :home, :lastname, :moblie, :title
-<<<<<<< HEAD
-  has_many :whiteboards
-=======
   
   :validates :title, :presence => true
   :validates :dob, :presence => true
@@ -17,6 +14,5 @@ class Volunteer < ActiveRecord::Base
   
   :validates :background, :presence => true
   
-  has_many :notepads
->>>>>>> b4e227079c7941e353b0c45e2bd56a0b3e5baf5b
+  has_many :whiteboards
 end
