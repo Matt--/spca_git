@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class NotepadTest < ActiveSupport::TestCase
+class WhiteboardsControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end

@@ -11,7 +11,8 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130822075814) do
+
+ActiveRecord::Schema.define(:version => 20130822054131) do
 
   create_table "notepads", :force => true do |t|
     t.string   "title"
@@ -44,5 +45,15 @@ ActiveRecord::Schema.define(:version => 20130822075814) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "whiteboards", :force => true do |t|
+    t.string   "title"
+    t.text     "body"
+    t.integer  "volunteer_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  add_index "whiteboards", ["volunteer_id"], :name => "index_whiteboards_on_volunteer_id"
 
 end
