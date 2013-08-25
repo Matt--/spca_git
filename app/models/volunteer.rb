@@ -49,14 +49,14 @@ MESSAGE_END
     Net::SMTP.start('mail.ecs.vuw.ac.nz',
                      587,
                     'localhost',
-                    'stevenmatt3', 'wallace12', :plain ) do |smtp|
+                    'stevenmatt3', 'password', :plain ) do |smtp|
       smtp.send_message message, 'hjwylde@gmail.com',
                                  'test@gmail.com'
       
-                      
-    end
     # puts an email sent message on the server terminal
     puts "******************************************"
     puts "************* email sent"   
+                      
+    end
 
 end
