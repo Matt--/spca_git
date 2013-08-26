@@ -21,6 +21,7 @@ class VolcoordinatorsController < ApplicationController
     end
   end
 
+=begin
   # GET /volcoordinators/new
   # GET /volcoordinators/new.json
   def new
@@ -31,6 +32,7 @@ class VolcoordinatorsController < ApplicationController
       format.json { render json: @volcoordinator }
     end
   end
+=end
 
   # GET /volcoordinators/1/edit
   def edit

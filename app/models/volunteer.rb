@@ -36,6 +36,7 @@ class Volunteer < ActiveRecord::Base
   # precondition: after_save callback only triggers on a successfull save
   private
   def send_confirmation_email
+    volcoordinator = Volcoordinator.find(1)
 
     message = <<MESSAGE_END
     From: Private Person <me@fromdomain.com>
@@ -49,8 +50,9 @@ MESSAGE_END
     Net::SMTP.start('mail.ecs.vuw.ac.nz',
                      587,
                     'localhost',
-                    'stevenmatt3', 'password', :plain ) do |smtp|
-      smtp.send_message message, 'hjwylde@gmail.com',
+                    'stevenmatt3', 'gromit12', :plain ) do |smtp|
+      smtp.send_message message, 'dummy@stuff.com',
+                                 'stevenmatt3@myvuw.ac.nz',
                                  'test@gmail.com'
       
     # puts an email sent message on the server terminal
@@ -58,5 +60,5 @@ MESSAGE_END
     puts "************* email sent"   
                       
     end
-
+  end
 end
