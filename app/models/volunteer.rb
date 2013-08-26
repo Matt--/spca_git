@@ -36,7 +36,7 @@ class Volunteer < ActiveRecord::Base
   # precondition: after_save callback only triggers on a successfull save
   private
   def send_confirmation_email
-    volcoordinator = Volcoordinator.find(1)
+    volcoordinator = Volcoordinator.find(:first)
 
     message = <<MESSAGE_END
     From: Private Person <me@fromdomain.com>
