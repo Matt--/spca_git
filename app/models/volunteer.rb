@@ -19,10 +19,12 @@ class Volunteer < ActiveRecord::Base
                      :presence => true, :if => "home.blank?"
   validates :home, :numericality => {:only_integer => true},
                    :presence => true, :if => "moblie.blank?"
+
   
   validate :over_18
   
-  has_many :notepads
+
+  has_many :whiteboards
   
   def over_18
     if dob + 18.years >= Date.today
@@ -32,7 +34,7 @@ class Volunteer < ActiveRecord::Base
 
 
 
-  after_save :send_confirmation_email
+  #after_save :send_confirmation_email
   # precondition: after_save callback only triggers on a successfull save
   private
   def send_confirmation_email
