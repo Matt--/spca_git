@@ -60,5 +60,5 @@ MESSAGE_END
     puts "************* email sent"   
                       
     end
-
+  end
 end
