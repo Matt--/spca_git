@@ -34,7 +34,7 @@ class Volunteer < ActiveRecord::Base
 
 
 
-  after_save :send_confirmation_email
+  #after_save :send_confirmation_email
   # precondition: after_save callback only triggers on a successfull save
   private
   def send_confirmation_email
