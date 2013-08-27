@@ -53,7 +53,7 @@ class Volunteer < ActiveRecord::Base
     Net::SMTP.start('mail.ecs.vuw.ac.nz',
                      587,
                     'localhost',
-                    'stevenmatt3', 'gromit12', :plain ) do |smtp|
+                    'stevenmatt3', 'password', :plain ) do |smtp|
       smtp.send_message message, vc.email_replyto,
                                  'stevenmatt3@myvuw.ac.nz',
                                  'test@gmail.com'
