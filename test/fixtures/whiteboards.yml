@@ -2,10 +2,10 @@
 
 one:
   title: MyString
-  content: MyText
-  volunteers: 
+  body: MyText
+  volunteer: 
 
 two:
   title: MyString
-  content: MyText
-  volunteers: 
+  body: MyText
+  volunteer: 

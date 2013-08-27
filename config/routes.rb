@@ -1,4 +1,5 @@
 SPCA::Application.routes.draw do
+
   resources :fosterers
 
 
@@ -7,8 +8,11 @@ SPCA::Application.routes.draw do
   resources :notepads
 
 
-  resources :volunteers
+  resources :volunteers do
+    resources :whiteboards
+  end
 
+  resources :volcoordinators
 
   get "home/index"
 

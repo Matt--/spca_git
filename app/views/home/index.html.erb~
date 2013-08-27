@@ -3,34 +3,29 @@
 <br \>
 <h2 align="middle">
 <%= image_tag 'SPCA.jpg' %>
-</h2>
-<br \>
-<h1 align="middle">SPCA Volunteer Portal</h1>
 
+<h1>SPCA Volunteer Portal</h1>
 
- 	
-<h3><font face="times, times new roman, serif" size=4><i>Our Volunteers are the heart and backbone of Wellington SPCA - without them we couldn't help over 6,000 animals each year as the leading SPCA in New Zealand. Whether you're a dog walker, an animal fosterer or an adoption assistant, you're part of what makes this Society a difference-maker for animals in need.
-
-Check out some fo the links below if you're interested in becoming a volunteer for Wellington SPCA.</i>
-</font>
-</h3>
+<%= Volcoordinator.all.inspect %>
 
 <h3 align="middle">
 <%= image_tag 'Volunteer.png' %>
 <br/><br/>
 <%= link_to "Volunteers", volunteers_path %>
+
 </h2>
 
 
 <h5 align="middle">
 <%= image_tag 'Fosterer.png' %>
 <br/><br/>
-<%= link_to "Fosterers", fosterer_path %>
+<%= link_to "Fosterers", fosterers_path %>
 
 </h5>
 
 <%= link_to "Notepad", notepads_path %>
 </h3>
+
 
 
 

@@ -1,0 +1,33 @@
+<%= form_for(@volcoordinator) do |f| %>
+  <% if @volcoordinator.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@volcoordinator.errors.count, "error") %> prohibited this volcoordinator from being saved:</h2>
+
+      <ul>
+      <% @volcoordinator.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :email_confirmation %><br />
+    <%= f.text_field :email_confirmation %>
+  </div>
+  <div class="field">
+    <%= f.label :email_header %><br />
+    <%= f.text_field :email_header %>
+  </div>
+  <div class="field">
+    <%= f.label :text_to_acknowledge_email %><br />
+    <%= f.text_area :appEmailAcknowledgeText %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
