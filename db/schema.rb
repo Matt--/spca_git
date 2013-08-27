@@ -13,16 +13,6 @@
 
 ActiveRecord::Schema.define(:version => 20130822075814) do
 
-  create_table "notepads", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "volunteers_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "notepads", ["volunteers_id"], :name => "index_notepads_on_volunteers_id"
-
   create_table "volcoordinators", :force => true do |t|
     t.string   "email_replyto"
     t.string   "email_header"
