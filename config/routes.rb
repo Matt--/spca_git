@@ -11,7 +11,7 @@ SPCA::Application.routes.draw do
   resources :volunteers do
     resources :whiteboards
   end
-
+  resources :whiteboards
   resources :volcoordinators
 
   get "home/index"

@@ -1,17 +1,15 @@
-<h1>Listing volunteers</h1>
+<h1>Listing Notes</h1>
 
 <table>
   <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th></th>
-    <th></th>
+    <th>Title</th>
+    <th>Contents</th>
     <th></th>
   </tr>
 
 <% @whiteboards.each do |whiteboard| %>
   <tr>
-    <th><%= whiteboard.title %></th>
+    <td><%= whiteboard.title %></td>
     <td><%= whiteboard.body %></td>
     <td><%= link_to 'Destroy', whiteboard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
@@ -19,4 +17,3 @@
 </table>
 
 <br />
-
