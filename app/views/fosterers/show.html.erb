@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @fosterer.firstname %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @fosterer.lastname %>
+</p>
+
+<p>
+  <b>Unitnumber:</b>
+  <%= @fosterer.unitNumber %>
+</p>
+
+<p>
+  <b>Streetnumber:</b>
+  <%= @fosterer.streetNumber %>
+</p>
+
+<p>
+  <b>Street:</b>
+  <%= @fosterer.street %>
+</p>
+
+<p>
+  <b>Suburb:</b>
+  <%= @fosterer.suburb %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @fosterer.city %>
+</p>
+
+<p>
+  <b>Zipcode:</b>
+  <%= @fosterer.zipCode %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @fosterer.email %>
+</p>
+
+
+<%= link_to 'Edit', edit_fosterer_path(@fosterer) %> |
+<%= link_to 'Back', fosterers_path %>

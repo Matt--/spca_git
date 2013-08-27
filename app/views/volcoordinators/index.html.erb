@@ -27,4 +27,13 @@ Data used for replying to new applications.
 
 <br />
 
+<h1>Notes from Volunteers</h1>
+
+<% @whiteboards.each do |whiteboard| %>
+  <tr>
+    <td><%= whiteboard.title %></td>
+    <td><%= whiteboard.body %></td>
+    <td><%= link_to 'Destroy', whiteboard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
 
