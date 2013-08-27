@@ -14,6 +14,8 @@ class Volunteer < ActiveRecord::Base
                      :presence => true, :if => "home.blank?"
   validates :home, :numericality => {:only_integer => true},
                    :presence => true, :if => "moblie.blank?"
+  #There is a bug atm - if one of them is there, it doesn't
+  #check that the other one is numerical. Don't care atm!
   
   validate :over_18
   
