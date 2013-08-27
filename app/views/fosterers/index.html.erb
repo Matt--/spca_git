@@ -1,0 +1,96 @@
+<h1>Listing fosterers</h1>
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Unitnumber</th>
+    <th>Streetnumber</th>
+    <th>Street</th>
+    <th>Suburb</th>
+    <th>City</th>
+    <th>Zipcode</th>
+    <th>Email</th>
+    <th>Homecontact</th>
+    <th>Mobilecontact</th>
+    <th>workcontact</th>
+    <th>Theirname</th>
+     <th>Homecontact2</th>
+    <th>Mobilecontact2</th>
+    <th>workcontact2</th>
+    <th>relationship</th>
+    <th>kitcat</th>
+    <th>p1</th>
+    <th>p2</th>
+    <th>p31</th>
+    <th>p32</th>
+    <th>p33</th>
+    <th>p34</th>
+    <th>p35</th>
+    <th>p36</th>
+    <th>p4</th>
+    <th>p51</th>
+    <th>p52</th>
+    <th>p53</th>
+    <th>personal1</th>
+    <th>personal1if</th>
+    <th>personal2</th>
+    <th>personal3</th>
+    <th>personal4</th>
+    <th>personal5</th>
+    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  
+
+
+<% @fosterers.each do |fosterer| %>
+  <tr>
+    <td><%= fosterer.firstname %></td>
+    <td><%= fosterer.lastname %></td>
+    <td><%= fosterer.unitNumber %></td>
+    <td><%= fosterer.streetNumber %></td>
+    <td><%= fosterer.street %></td>
+    <td><%= fosterer.suburb %></td>
+    <td><%= fosterer.city %></td>
+    <td><%= fosterer.zipCode %></td>
+    <td><%= fosterer.email %></td>
+    <td><%= fosterer.homecontact %></td>
+    <td><%= fosterer.mobilecontact %></td>
+    <td><%= fosterer.workcontact %></td>
+    <td><%= fosterer.theirname %></td>
+    <td><%= fosterer.homecontact2 %></td>
+    <td><%= fosterer.mobilecontact2 %></td>
+    <td><%= fosterer.workcontact2 %></td>
+    <td><%= fosterer.relationship %></td>
+    <td><%= fosterer.kitcat %></td>
+    <td><%= fosterer.p1 %></td>
+    <td><%= fosterer.p2 %></td>
+    <td><%= fosterer.p31 %></td>
+    <td><%= fosterer.p32 %></td>
+    <td><%= fosterer.p33 %></td>
+    <td><%= fosterer.p34 %></td>
+    <td><%= fosterer.p35 %></td>
+    <td><%= fosterer.p36 %></td>
+    <td><%= fosterer.p4 %></td>
+    <td><%= fosterer.p51 %></td>
+    <td><%= fosterer.p52 %></td>
+    <td><%= fosterer.p53 %></td>
+    <td><%= fosterer.personal1 %></td>
+    <td><%= fosterer.personal1if %></td>
+    <td><%= fosterer.personal2 %></td>
+    <td><%= fosterer.personal3 %></td>
+    <td><%= fosterer.personal4 %></td>
+    <td><%= fosterer.personal5 %></td>
+    <td><%= link_to 'Show', fosterer %></td>
+    <td><%= link_to 'Edit', edit_fosterer_path(fosterer) %></td>
+    <td><%= link_to 'Destroy', fosterer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Fosterer', new_fosterer_path %>
