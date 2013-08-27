@@ -1,0 +1,28 @@
+<h1>Listing fosterers</h1>
+
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  
+  
+
+<% @fosterers.each do |fosterer| %>
+  <tr>
+    <td><%= fosterer.firstname %></td>
+    <td><%= fosterer.lastname %></td>
+    <td><%= link_to 'Show', fosterer %></td>
+    <td><%= link_to 'Edit', edit_fosterer_path(fosterer) %></td>
+    <td><%= link_to 'Destroy', fosterer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Fosterer', new_fosterer_path %>

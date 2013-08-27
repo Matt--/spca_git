@@ -13,6 +13,8 @@
 
 ActiveRecord::Schema.define(:version => 20130826023518) do
 
+<<<<<<< HEAD
+=======
   create_table "fosterers", :force => true do |t|
     t.string   "firstname"
     t.string   "lastname"
@@ -54,6 +56,7 @@ ActiveRecord::Schema.define(:version => 20130826023518) do
     t.datetime "updated_at",     :null => false
   end
 
+>>>>>>> 10be292dce8ae10d062818e6275f5d923b30f770
   create_table "volcoordinators", :force => true do |t|
     t.string   "email_replyto"
     t.string   "email_header"

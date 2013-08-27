@@ -1,0 +1,349 @@
+<link rel='stylesheet' href='/u/students/maddahhami/rails3/SPCA/app/assets/stylesheets/fosterers.css.scss'>
+
+<%= form_for(@fosterer) do |f| %>
+  <% if @fosterer.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@fosterer.errors.count, "error") %> prohibited this fosterer from being saved:</h2>
+
+      <ul>
+      <% @fosterer.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+
+ <div class="field1">
+    <%= f.label :firstname %><br />
+    <%= f.text_field :firstname %>
+  </div>
+ 
+  
+
+  
+  <div class="field1">
+    <%= f.label :lastname %><br />
+    <%= f.text_field :lastname %>
+  </div>
+  
+  
+  <h2>------------------------------------</h2>
+  <h2>Address:</h2>
+  
+  <div class="field">
+    <%= f.label :"unit Number" %><br />
+    <%= f.text_field :unitNumber %>
+  </div>
+  <div class="field">
+    <%= f.label :"street Number" %><br />
+    <%= f.text_field :streetNumber %>
+  </div>
+  <div class="field">
+    <%= f.label :street %><br />
+    <%= f.text_field :street %>
+  </div>
+  <div class="field">
+    <%= f.label :suburb %><br />
+    <%= f.text_field :suburb %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </div>
+  <div class="field">
+    <%= f.label :"zip Code" %><br />
+    <%= f.text_field :zipCode %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </div>
+  
+  
+
+  
+
+
+<!-- content will go here -->
+<h2>------------------------------------</h2>
+  <h2>Contact Numbers:</h2>
+     <div class="field">
+    <%= f.label :"home" %><br />
+    <%= f.text_field :homecontact %>
+  </div>
+
+ 
+   <div class="field">
+    <%= f.label :"Mobile" %><br />
+    <%= f.select :mobilecontact, [['021','021'],['022','022'],['027','027']]%>
+    <%= f.text_field :mobilecontact %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :"Work" %><br />
+    <%= f.text_field :workcontact %>
+  </div>
+
+  
+  
+  
+  <!--
+  
+  
+  
+   <h2>------------------------------------</h2>
+  <h2>2nd Contact Person (if applicable):</h2>
+  
+  
+     <div class="field">
+    <%= f.label :"Their name" %><br />
+    <%= f.text_field :theirname %>
+  </div>
+
+ <h2>Contact Numbers:</h2>
+ <h2>*******************</h2>
+ <div class="field">
+    <%= f.label :"home" %><br />
+    <%= f.text_field :homecontact2 %>
+  </div>
+ 
+   <div class="field">
+    <%= f.label :"Mobile" %><br />
+    <%= f.select :mobilecontact2, [['021','021'],['022','022'],['027','027']]%>
+    <%= f.text_field :mobilecontact2 %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :"Work" %><br />
+    <%= f.text_field :workcontact2 %>
+  </div>
+   <h2>*******************</h2>
+    <div class="field">
+    <%= f.label :"Relationship to you" %><br />
+    <%= f.text_field :relationship %>
+  </div>
+  
+  
+  <br />
+  <h4>Foster Animals(tick one or more categories)</h4>
+  <div class="field">
+    <%= f.label :"Cats and kittens" %><br />
+    <h5><%=check_box_tag 'tick'%> Nursing cats with  kittens</h5>
+    <h5><%=check_box_tag 'tick'%> Cats and kittens-self feeding</h5>
+    <h5><%=check_box_tag 'good'%> Bottle feeding kittens(Note: may require 2 hourly feeding throughout the night)</h5>
+    <h5><%=check_box_tag 'good'%> Injured or sick cats and kittens</h5>
+    
+  </div>
+  
+  
+  
+    <div class="field">
+    <%= f.label :"Dogs and Puppies" %><br />
+    <h5><%=check_box_tag 'tick'%> Nursing dogs with puppies</h5>
+    <h5><%=check_box_tag 'tick'%> self-feeding puppies</h5>
+    <h5><%=check_box_tag 'good'%> Bottle feeding puppies(Note: may require 2 hourly feeding throughout the night)</h5>
+    <h5><%=check_box_tag 'good'%> Injured or sick dogs and puppies</h5>
+  </div>
+  
+   <div class="field">
+    <%= f.label :"Wildlife & Other Animals" %><br />
+    <h5><%=check_box_tag 'tick'%> Rabbits & guinea</h5>
+    <h5><%=check_box_tag 'tick'%> Hedgehogs-sick or injured young</h5>
+    <h5><%=check_box_tag 'good'%> Hedgehogs-bottle feeding(Note: may require 2 hourly feeding throughout the night)</h5>
+    <h5><%=check_box_tag 'good'%> Birds-adults or injured</h5>
+    <h5><%=check_box_tag 'good'%> Birds-young (Note: you may require hourly feeding during dayligh hours)</h5>
+    <h5><%=check_box_tag 'good'%> Livestock-how many hectares do you have?</h5>
+  </div>
+  
+  
+  -->
+  
+  
+  <!--
+  
+  
+  <h2>------------------------------------</h2>
+  <h2>Properties:</h2>
+   
+     <div class="field">
+    <!--<%= f.label :"p1" %><br />-->
+    
+    
+    <!--
+    
+    <h5>1. Do you have your own home?<br />(if renting you will need to provide written consent from your landlord to foster animals)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :p1, [['Yes','Yes'],['No','No']]%></h5>
+  </div>
+  
+  
+  
+  <div class="field">
+    <!--<%= f.label :"p2" %><br />-->
+      
+  <!--
+  
+  
+    <h5>2. Do you agree to an SPCA staff member inspecting your property prior to fostering?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :p2, [['Yes','Yes'],['No','No']]%></h5>
+  </div>
+  
+  
+  <h5>3. You must be able to provide the following which is applicable to the animals you wish to foster:</h5>
+  
+  <div class="field">
+    <!--<%= f.label :"p31" %><br />-->
+      
+  <!--
+  
+  
+    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Separate room inside your house (cats, kittens, baby birds)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :p31, [['Yes','Yes'],['No','No']]%></h5>
+  </div>  
+  
+  <div class="field">
+    <!--<%= f.label :"p32" %><br />-->
+      
+  <!--
+  
+  
+    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Separate room/warm garage & fenced property (dogs, pups)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :p32, [['Yes','Yes'],['No','No']]%></h5>
+  </div> 
+  
+  <div class="field">
+    <!--<%= f.label :"p33" %><br />-->
+      
+  <!--
+  
+  
+    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hutch?fenced area with shelter (degenhogs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :p33, [['Yes','Yes'],['No','No']]%></h5>
+  </div> 
+  
+  <div class="field">
+    <!--<%= f.label :"p34" %><br />-->
+      
+  <!--
+  
+  
+    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hutch or separate room (rabbits)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :p34, [['Yes','Yes'],['No','No']]%></h5>
+  </div> 
+  
+  <div class="field">
+    <!--<%= f.label :"p35" %><br />-->
+      
+  <!--
+  
+  
+    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aviary(adult birds)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :p35, [['Yes','Yes'],['No','No']]%></h5>
+  </div> 
+  
+  
+  <div class="field">
+    <!--<%= f.label :"p36" %><br />-->
+      
+  <!--
+  
+  
+    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Livestock-fully fenced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :p36, [['Yes','Yes'],['No','No']]%></h5>
+  </div>
+  <br/>
+  
+  
+  
+   <div class="field">
+   <h5>4. Please describe the area you plan to use for the animals<br/>
+   Attach(via email) 5 photos of that area to your application:</h5>
+    <%= f.text_area :p4 %>
+   </div> 
+  
+  
+   
+   
+     <h5>5. How many people liv in your home/rented accomodation?</h5>
+  <div class="field">
+    <%= f.label :"Number of adults"%>
+    <%= f.number_field :p51 %>
+   </div> 
+   <div class="field">
+    <%= f.label :"Number of children"%>
+    <%= f.number_field :p52 %>
+   </div> 
+   <div class="field">
+    <%= f.label :"Ages of children"%>
+    <%= f.number_field :p53 %>
+   </div>
+   
+   
+   
+     <h2>------------------------------------</h2>
+   <h1>Personal:</h1>
+   
+   <div class="field">
+    <!--<%= f.label :"personal1" %><br />-->
+      
+  <!--
+  
+  
+    <h5>1. Have you ever had an animal welfare complaint made against you?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :personal1, [['Yes','Yes'],['No','No']]%></h5>
+  </div>
+
+  
+ 
+  <div class="field">
+    <!--<%= f.label :"personal1if" %><br />-->
+      
+  <!--
+  
+  
+      <h5>If yes, please provide details</h5>
+    <%= f.text_area :personal1if %>
+   </div>
+  <br/>
+  
+  <div class="field">
+    <!--<%= f.label :"personal2" %><br />-->
+      
+  <!--
+  
+  
+      <h5>2. Why do you want to foster animals?</h5>
+    <%= f.text_area :personal2 %>
+   </div>
+  <br/>
+  
+  
+  
+  <div class="field">
+    <!--<%= f.label :"personal3" %><br />-->
+      
+  <!--
+  
+  
+      <h5>3. When do you want to start fostering?</h5>
+    <%= f.text_area :personal3 %>
+   </div>
+  <br/>
+   
+   
+    <div class="field">
+    <!--<%= f.label :"personal4" %><br />-->
+      
+  <!--
+  
+  
+      <h5>4. What experience do you have fostering or caring for animals?</h5>
+    <%= f.text_area :personal4 %>
+   </div>
+  <br/>
+   
+   
+   <div class="field">
+    <!--<%= f.label :"personal5" %><br />-->
+      
+  <!--
+  
+  
+    <h5>5. Arw you or anyone else in the house pregnant or planning to ge pregnant during the time you are fostering?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :personal1, [['Yes','Yes'],['No','No']]%></h5>
+  </div>
+   -->
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
