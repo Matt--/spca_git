@@ -11,7 +11,6 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-
 ActiveRecord::Schema.define(:version => 20130826023518) do
 
   create_table "fosterers", :force => true do |t|
@@ -54,17 +53,6 @@ ActiveRecord::Schema.define(:version => 20130826023518) do
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end
-
-
-  create_table "notepads", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.integer  "volunteers_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
-  add_index "notepads", ["volunteers_id"], :name => "index_notepads_on_volunteers_id"
 
   create_table "volcoordinators", :force => true do |t|
     t.string   "email_replyto"

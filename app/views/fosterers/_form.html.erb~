@@ -342,7 +342,7 @@
   
     <h5>5. Arw you or anyone else in the house pregnant or planning to ge pregnant during the time you are fostering?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :personal1, [['Yes','Yes'],['No','No']]%></h5>
   </div>
-   
+   -->
   <div class="actions">
     <%= f.submit %>
   </div>

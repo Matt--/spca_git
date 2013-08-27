@@ -1,34 +1,25 @@
-
-<br \>
-<br \>
-<h2 align="middle">
+<center>
+<br />
+<br />
 <%= image_tag 'SPCA.jpg' %>
 
 <h1>SPCA Volunteer Portal</h1>
 
-<%= Volcoordinator.all.inspect %>
 
-<h3 align="middle">
 <%= image_tag 'Volunteer.png' %>
 <br/><br/>
 <%= link_to "Volunteers", volunteers_path %>
 
-</h2>
-
-
-<h5 align="middle">
+<br />
 <%= image_tag 'Fosterer.png' %>
 <br/><br/>
 <%= link_to "Fosterers", fosterers_path %>
-
-</h5>
-
-<%= link_to "Notepad", notepads_path %>
-</h3>
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+<br />
+<%= link_to "Coordinator Page", volcoordinators_path %>
 
 
 
 
 
-
-
+</center>
