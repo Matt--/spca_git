@@ -19,7 +19,8 @@ class Volunteer < ActiveRecord::Base
                      :presence => true, :if => "home.blank?"
   validates :home, :numericality => {:only_integer => true},
                    :presence => true, :if => "moblie.blank?"
-
+  #There is a bug atm - if one of them is there, it doesn't
+  #check that the other one is numerical. Don't care atm!
   
   validate :over_18
   
@@ -34,30 +35,33 @@ class Volunteer < ActiveRecord::Base
 
 
 
-  #after_save :send_confirmation_email
+  after_save :send_confirmation_email
   # precondition: after_save callback only triggers on a successfull save
   private
   def send_confirmation_email
+    vc = Volcoordinator.find(:first)
 
-    message = <<MESSAGE_END
-    From: Private Person <me@fromdomain.com>
-    To: A Test User <hamid.maddah1991@gmail.com>
-    Subject: SMTP e-mail test
+    message = <<-MESSAGE_END
+    From: #{vc.email_replyto}
+    To: #{email}
+    Subject: #{vc.email_header}
 
-    This is a test e-mail message.
+    #{vc.email_content}
     
-MESSAGE_END
+    MESSAGE_END
 
     Net::SMTP.start('mail.ecs.vuw.ac.nz',
                      587,
                     'localhost',
-                    'stevenmatt3', 'password', :plain ) do |smtp|
-      smtp.send_message message, 'hjwylde@gmail.com',
+                    'stevenmatt3', 'gromit12', :plain ) do |smtp|
+      smtp.send_message message, vc.email_replyto,
+                                 'stevenmatt3@myvuw.ac.nz',
                                  'test@gmail.com'
-      
+
     # puts an email sent message on the server terminal
-    puts "******************************************"
-    puts "************* email sent"   
+    puts "\n******************************************"
+    puts "************* email sent"
+    puts message
                       
     end
   end

@@ -1,5 +1,7 @@
 <%= image_tag 'SPCA.jpg' %>
 <h1>SPCA Volunteer Portal</h1>
 
+<%= Volcoordinator.all.inspect %>
+
 <%= link_to "Volunteers", volunteers_path %>
 <%= link_to "Volunteer Coordinator Page", volcoordinators_path %>

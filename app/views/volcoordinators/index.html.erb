@@ -1,25 +1,29 @@
-<h1>Listing volcoordinators</h1>
+<h1>Volunteer Coordinators</h1>
+
+Data used for replying to new applications.
 
 <table>
   <tr>
-    <th>Email</th>
-    <th>Appemailacknowledgetext</th>
-    <th></th>
+    <th>Email_replyto</th>
+    <th>Header</th>
+    <th>Body</th>
     <th></th>
     <th></th>
   </tr>
 
+
+
 <% @volcoordinators.each do |volcoordinator| %>
   <tr>
-    <td><%= volcoordinator.email %></td>
-    <td><%= volcoordinator.appEmailAcknowledgeText %></td>
+    <td><%= volcoordinator.email_replyto %></td>
+    <td><%= volcoordinator.email_header %></td>
+    <td><%= volcoordinator.email_content %></td>
     <td><%= link_to 'Show', volcoordinator %></td>
     <td><%= link_to 'Edit', edit_volcoordinator_path(volcoordinator) %></td>
-    <td><%= link_to 'Destroy', volcoordinator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Volcoordinator', new_volcoordinator_path %>
+
