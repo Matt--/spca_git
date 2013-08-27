@@ -11,6 +11,10 @@ gem 'sqlite3'
 gem 'rspec-rails'
 gem 'selenium-webdriver'
 gem 'capybara'
+gem 'guard-rspec'
+gem 'spork-rails', github: 'sporkrb/spork-rails'
+gem 'guard-spork'
+gem 'childprocess'
 
 # Gems used only for assets and not required
 # in production environments by default.
