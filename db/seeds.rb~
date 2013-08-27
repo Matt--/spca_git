@@ -9,6 +9,33 @@
 volcoordinator = Volcoordinator.create([{
   email_replyto: 'coordinator@test.com', 
   email_header: 'SPCA Application', 
-  email_content: 'Thank you for your application to become ans SPCA Volunteer. We value all our volunteers and appreciate the many ways you can help us out. Please bear with us while your application is processed and we will reply to you by email in aprroximately 10 working days.'
+  email_content: 'Thank you for your application to become an SPCA Volunteer. We value all our volunteers and appreciate the many ways you can help us out. Please bear with us while your application is processed and we will reply to you by email in aprroximately 10 working days.'
 }])
 
+volunteer = Volunteer.create([{
+  title: 'fosterer', 
+  dob: 'SPCA Application', 
+  firstname: 'Andrew',
+  lastname: 'Blah blah',
+  address: '3/1 Braithwaite st, karori, wellington',
+  email: 'andrew@gmail.com',
+  mobile: 02265,
+  home: 0447747,
+  background: 'blah blah'                           
+  
+}])
+
+fosterer = Fosterer.create([{
+  firstname: 'Hamid', 
+  lastname: 'Maddah', 
+  unitNumber: 3,
+  streetNumber: 1,
+  street: 'braithwaite',
+  suburb: 'karori',                              
+  city: 'wellingotn',
+  email: 'hamid.maddah1991@gmail.com',
+  homecontact: 04647,
+  mobilecontact: 02265,
+  workcontact: 0465,              
+                              
+}])
