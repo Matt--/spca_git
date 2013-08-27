@@ -38,38 +38,29 @@ class Volunteer < ActiveRecord::Base
   # precondition: after_save callback only triggers on a successfull save
   private
   def send_confirmation_email
-    vc = Volcoordinator.find(2)
+    vc = Volcoordinator.find(:first)
 
-    if vc.nil?
-      puts "\n************************** arse vc is empty ******"
-    else
-      puts "\n************************** vc is not empty *******"
-    end
+    message = <<-MESSAGE_END
+    From: #{vc.email_replyto}
+    To: #{email}
+    Subject: #{vc.email_header}
 
-    message = <<MESSAGE_END
-    From: Private Person <me@fromdomain.com>
-    To: A Test User <hamid.maddah1991@gmail.com>
-    Subject: SMTP e-mail test
-
-    This is a test e-mail message.
+    #{vc.email_content}
     
-MESSAGE_END
+    MESSAGE_END
 
     Net::SMTP.start('mail.ecs.vuw.ac.nz',
                      587,
                     'localhost',
                     'stevenmatt3', 'gromit12', :plain ) do |smtp|
-      smtp.send_message message, 'dummy@stuff.com',
+      smtp.send_message message, vc.email_replyto,
                                  'stevenmatt3@myvuw.ac.nz',
                                  'test@gmail.com'
 
     # puts an email sent message on the server terminal
     puts "\n******************************************"
     puts "************* email sent"
-    puts "************* Send to: "  + email
-    puts "************* Reply to: " + vc.email_replyto
-    puts "************* Header: "   + vc.email_header
-    puts "************* Body: "     + vc.email_content
+    puts message
                       
     end
   end
