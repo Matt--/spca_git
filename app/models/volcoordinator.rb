@@ -5,8 +5,10 @@
 class Volcoordinator < ActiveRecord::Base
   attr_accessible :email_replyto, :email_header, :email_content
 
-  validates :email_replyto, confirmation: true
-  validates :email_content, presence: true
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  validates :email_replyto, presence: true, 
+    format: { with: VALID_EMAIL_REGEX }
   validates :email_header, presence: true,
     length: { minimum: 5, too_short: "must have at least %{count} characters"}
   validates :email_content, presence: true, 
