@@ -1,4 +1,9 @@
 SPCA::Application.routes.draw do
+  resources :fosterers
+
+
+  get "fosterer/index"
+
   resources :notepads
 
 
