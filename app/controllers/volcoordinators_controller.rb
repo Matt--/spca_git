@@ -3,7 +3,7 @@ class VolcoordinatorsController < ApplicationController
   # GET /volcoordinators.json
   def index
     @volcoordinators = Volcoordinator.all
-
+    @whiteboards = Whiteboard.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @volcoordinators }
