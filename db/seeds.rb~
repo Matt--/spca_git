@@ -14,7 +14,7 @@ volcoordinator = Volcoordinator.create([{
 
 volunteer = Volunteer.create([{
   title: 'fosterer', 
-  dob: 'SPCA Application', 
+  dob: '12-10-1991', 
   firstname: 'Andrew',
   lastname: 'Blah blah',
   address: '3/1 Braithwaite st, karori, wellington',
