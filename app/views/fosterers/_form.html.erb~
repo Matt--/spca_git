@@ -17,10 +17,9 @@
   <% end %>
   
   
-  <div id="main-container" style="width: 960px; margin: 0px;">
+  <div id="main-container" style="width: 960px; float:center; margin: 0px;">
   
- 
-      <div id="DetailsBox" style="width:500px;float:left">
+ <!--<div id="DetailsBox" style="width:500px;float:left">
 	  <div id="header" style="background-color:#FFA500;width:400px">
 	  <h5 style="margin-bottom:0;">Details</h5></div>
 	  
@@ -108,12 +107,10 @@
 		  
 </div>
 </div>
+-->
 
 
-
-
-
-<div id="ContactPersonBox" style="width:500px;float:right">
+<!-- <div id="ContactPersonBox" style="width:500px;float:right">
   <div id="header2" style="background-color:#FFA500;height:30px;width:350px">
       <h1 style="margin-bottom:0;">2nd Contact Person</h1></div>
 
@@ -162,6 +159,10 @@
 
 </div>
 
+
+
+
+-->
 
 
 
@@ -252,78 +253,61 @@
 
 
 
-  <div id="menu2" style="background-color:#FFD700;height:850px;width:90px;float:left;">
+  <div id="menu2" style="background-color:#FFD700;height:250px;width:90px;float:left;">
     <b>Motivation</b><br>
   </div>
   
-  <div id="content2" style="background-color:#EEEEEE;height:850px;width:350px;float:left">
+  <div id="content2" style="background-color:#EEEEEE;height:250px;width:350px;float:left">
   
     <!-- Contents must be here-->
-   
+    
+    
+  <!-- 
   <div class="field">
-    <!--<%= f.label :"personal1" %><br />-->
-      
-  
-  
-  
     <h5>1. Have you ever had an animal welfare complaint made against you?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :personal1, [['Yes','Yes'],['No','No']]%></h5>
   </div>
-
+  -->
   
- 
+  <!--
   <div class="field">
-    <!--<%= f.label :"personal1if" %><br />-->
-      
-  
-  
   
       <h5>If yes, please provide details</h5>
     <%= f.text_area :personal1if,:rows=>"5", :cols=>"45" %>
    </div>
   <br/>
-  
+  -->
   <div class="field">
-    <!--<%= f.label :"personal2" %><br />-->
-      
-
-  
-  
-      <h5>2. Why do you want to foster animals?</h5>
-    <%= f.text_area :personal2,:rows=>"5", :cols=>"45" %>
+      <h5> Why do you want to foster animals?</h5>
+    <%= f.text_area :personal2,:rows=>"10", :cols=>"45" %>
    </div>
   <br/>
   
   
-  
+  <!--
   <div class="field">
-    <!--<%= f.label :"personal3" %><br />-->
-      
-
-  
-  
       <h5>3. When do you want to start fostering?</h5>
     <%= f.text_area :personal3,:rows=>"5", :cols=>"45"%>
    </div>
   <br/>
+   -->
    
    
+   <!--
     <div class="field">
-    <!--<%= f.label :"personal4" %><br />-->
-      
- 
-  
-  
       <h5>4. What experience do you have fostering or caring for animals?</h5>
     <%= f.text_area :personal4 ,:rows=>"5", :cols=>"45"%>
    </div>
   <br/>
    
+   -->
    
+   
+   <!--
    <div class="field">
-    <!--<%= f.label :"personal5" %><br />-->
       
     <h5>5. Are you or anyone else in the house pregnant or planning to ge pregnant during the time you are fostering?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :personal1, [['Yes','Yes'],['No','No']]%></h5>
   </div>
+  -->
   
 
 
