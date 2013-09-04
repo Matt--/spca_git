@@ -4,12 +4,23 @@
   <tr>
     <th>personal2</th>
     
-    <th>send_email</th>
-    
-    <th>nursing</th>
+    <th>catnursing</th>
     <th>catfeeding</th>
     <th>catbottlefeed</th>
-    <th>injuredcat</th>
+    <th>catinjured</th>
+    
+    <th>dognursing</th>
+    <th>dogfeeding</th>
+    <th>dogbottlefeed</th>
+    <th>doginjured</th>
+    
+    
+    <th>rabgui</th>
+    <th>hedgehoginjured</th>
+    <th>hedgehogbottle</th>
+    <th>birdsinjured</th>
+    <th>birdstoung</th>
+    <th>livestock</th>
     
     
     <th></th>
@@ -22,11 +33,23 @@
 <% @fosterers.each do |fosterer| %>
   <tr>
     <td><%= fosterer.personal2 %></td>
-    <td><%= fosterer.send_email %></td>
+    
     <td><%= fosterer.catnursing %></td>
     <td><%= fosterer.catfeeding %></td>
     <td><%= fosterer.catbottlefeed %></td>
-    <td><%= fosterer.injuredcat %></td>
+    <td><%= fosterer.catinjured %></td>
+    
+    <td><%= fosterer.dognursing %></td>
+    <td><%= fosterer.dogfeeding %></td>
+    <td><%= fosterer.dogbottlefeed %></td>
+    <td><%= fosterer.doginjured %></td>
+    
+    <td><%= fosterer.rabgui %></td>
+    <td><%= fosterer.hedgehoginjured %></td>
+    <td><%= fosterer.hedgehogbottle %></td>
+    <td><%= fosterer.birdsinjured %></td>
+    <td><%= fosterer.birdstoung %></td>
+    <td><%= fosterer.livestock %></td>
     
     
     

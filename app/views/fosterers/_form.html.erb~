@@ -36,93 +36,123 @@
   <div id="content2" style="background-color:#EEEEEE;height:800px;width:350px;float:left">
   
     <!-- Contents must be here-->
-   
+  <!-- 
   <div class="field">
-    <h2><%= f.label :"Cats and kittens" %></h2>
-    <h5><%=check_box_tag 'test'%> Nursing cats with  kittens</h5>
-    <h5><%=check_box_tag 'tick'%> Cats and kittens-self feeding</h5>
-    <h5><%=check_box_tag 'good'%> Bottle feeding kittens(Note: may require 2 hourly feeding throughout the night)</h5>
-    <h5><%=check_box_tag 'good'%> Injured or sick cats and kittens</h5>
-    
+    <h2><%= f.label :"Cats and kittens" %></h2>    
   </div>
   
+  -->
   
   
-  
-  <div class="field">
-  
-   <%= f.label "Get Email" %>
-   <%= f.check_box :send_email, {}, true, false %> <br />
-   
-   
 
-
-  <input name="object[boolean_attribute]" type="hidden" value="false" />test
-  <input id="object_boolean_attribute" name="object[boolean_attribute]" type="checkbox" value="true" />  
-  </div>
   
   
   
    
+  <h2>Cats and kittens</h2>   
   
-  
-  
-  <div class="field">
-   <%= f.label "Get Email" %>
-   <%= f.check_box :send_email, {}, true, false %> <br />
+
+    <div class="field">
+   <h5><%= f.label "Nursing cats with kittens" %>
+   <%= f.check_box :catnursing, {}, true, false %></h2>
   </div>
-  
-  
-  
   
    <div class="field">
-   <%= f.label "Cats and kittens-self feeding" %>
-   <%= f.check_box :catfeeding, {}, true, false %> <br />
+   <h5><%= f.label "Cats and kittens-self feeding" %>
+   <%= f.check_box :catfeeding, {}, true, false %></h2>
   </div>
   
   <div class="field">
-   <%= f.label "Bottle feeding kittens(Note: may require 2 hourly feeding throughout the night)" %>
-   <%= f.check_box :catbottlefeed, {}, true, false %> <br />
+   <h5><%= f.label "Bottle feeding kittens(Note: may require 2 hourly feeding throughout the night)" %>
+   <%= f.check_box :catbottlefeed, {}, true, false %></h2>
   </div>
+  
+  
+  
+  <div class="field">
+   <h5><%= f.label "Injured or sick cats and kittens" %>
+   <%= f.check_box :catinjured, {}, true, false %></h2>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
 
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   <br />
+   <h2>Dogs and Puppies</h2>
+  
+  <div class="field">
+   <h5><%= f.label "Nursing dogs with puppies" %>
+   <%= f.check_box :dognursing, {}, true, false %></h2>
+  </div>
+  
     <div class="field">
-    <h2><%= f.label :"Dogs and Puppies" %></h2>
-    <h5><%=check_box_tag 'tick'%> Nursing dogs with puppies</h5>
-    <h5><%=check_box_tag 'tick'%> self-feeding puppies</h5>
-    <h5><%=check_box_tag 'good'%> Bottle feeding puppies(Note: may require 2 hourly feeding throughout the night)</h5>
-    <h5><%=check_box_tag 'good'%> Injured or sick dogs and puppies</h5>
+   <h5><%= f.label "self-feeding puppies" %>
+   <%= f.check_box :dogfeeding, {}, true, false %></h2>
   </div>
   
    <div class="field">
-   <br />
-   <h2>
-    <%= f.label :"Wildlife & Other Animals" %><br />
-    </h2>
-    <h5><%=check_box_tag 'tick'%> Rabbits & guinea</h5>
-    <h5><%=check_box_tag 'tick'%> Hedgehogs-sick or injured young</h5>
-    <h5><%=check_box_tag 'good'%> Hedgehogs-bottle feeding(Note: may require 2 hourly feeding throughout the night)</h5>
-    <h5><%=check_box_tag 'good'%> Birds-adults or injured</h5>
-    <h5><%=check_box_tag 'good'%> Birds-young (Note: you may require hourly feeding during dayligh hours)</h5>
-    <h5><%=check_box_tag 'good'%> Livestock-how many hectares do you have?</h5>
+   <h5><%= f.label "Bottle feeding puppies(Note: may require 2 hourly feeding throughout the night" %>
+   <%= f.check_box :dogbottlefeed, {}, true, false %></h2>
+  </div>
+  
+   <div class="field">
+   <h5><%= f.label "Injured or sick dogs and puppies" %>
+   <%= f.check_box :doginjured, {}, true, false %></h2>
   </div>
   
 
+  
+  <br />
+  
+    <h2>Wildlife & Other Animals</h2>
+  <div class="field">
+   <h5><%= f.label "Rabbits & guinea" %>
+   <%= f.check_box :rabgui, {}, true, false %></h2>
+  </div>
+
+   <div class="field">
+   <h5><%= f.label "Hedgehogs-sick or injured young" %>
+   <%= f.check_box :hedgehoginjured, {}, true, false %></h2>
+  </div>
+  
+  
+  
+  <div class="field">
+   <h5><%= f.label "Hedgehogs-bottle feeding(Note: may require 2 hourly feeding throughout the night)" %>
+   <%= f.check_box :hedgehogbottle, {}, true, false %></h2>
+  </div>
+  
+  
+  
+  <div class="field">
+   <h5><%= f.label "Birds-adults or injured" %>
+   <%= f.check_box :birdsinjured, {}, true, false %></h2>
+  </div>
+  
+  
+  <div class="field">
+   <h5><%= f.label "Birds-young(Note: you may require hourly feeding during dayligh hours)" %>
+   <%= f.check_box :birdstoung, {}, true, false %></h2>
+  </div>
+  
+  
+  <div class="field">
+   <h5><%= f.label "Livestock-how many hectares do you have?" %>
+   <%= f.check_box :livestock, {}, true, false %></h2>
+  </div>
+  
+  
+  
 
 
 </div>
