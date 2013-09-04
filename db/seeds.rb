@@ -19,23 +19,10 @@ volunteer = Volunteer.create([{
   lastname: 'Blah blah',
   address: '3/1 Braithwaite st, karori, wellington',
   email: 'andrew@gmail.com',
-  mobile: 02265,
+#  mobile: 02265,
   home: 0447747,
   background: 'blah blah'                           
   
 }])
 
-fosterer = Fosterer.create([{
-  firstname: 'Hamid', 
-  lastname: 'Maddah', 
-  unitNumber: 3,
-  streetNumber: 1,
-  street: 'braithwaite',
-  suburb: 'karori',                              
-  city: 'wellingotn',
-  email: 'hamid.maddah1991@gmail.com',
-  homecontact: 04647,
-  mobilecontact: 02265,
-  workcontact: 0465,              
-                              
-}])
+# Hamid to add new Fosterer seed
