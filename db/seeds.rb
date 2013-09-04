@@ -25,4 +25,9 @@ volunteer = Volunteer.create([{
   
 }])
 
-# Hamid to add new Fosterer seed
+fosterer = Fosterer.create([{
+  personal2: 'I like fostering',   
+                        
+                              
+}])
+

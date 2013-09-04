@@ -19,12 +19,8 @@ class Volunteer < ActiveRecord::Base
                      :presence => true, :if => "home.blank?"
   validates :home, :numericality => {:only_integer => true},
                    :presence => true, :if => "moblie.blank?"
-<<<<<<< HEAD
   #There is a bug atm - if one of them is there, it doesn't
   #check that the other one is numerical. Don't care atm!
-=======
-
->>>>>>> 91b28e065afdb63ab21a38a0cfe0ea8136ea88ab
   
   validate :over_18
   
@@ -43,39 +39,40 @@ class Volunteer < ActiveRecord::Base
   # precondition: after_save callback only triggers on a successfull save
   private
   def send_confirmation_email
-    vc = Volcoordinator.find(2)
+    vc = Volcoordinator.find(:first)
 
-    if vc.nil?
-      puts "\n************************** arse vc is empty ******"
-    else
-      puts "\n************************** vc is not empty *******"
-    end
+    message = <<-MESSAGE_END
+    From: #{vc.email_replyto}
+    To: #{email}
+    Subject: #{vc.email_header}
 
-    message = <<MESSAGE_END
-    From: Private Person <me@fromdomain.com>
-    To: A Test User <hamid.maddah1991@gmail.com>
-    Subject: SMTP e-mail test
-
-    This is a test e-mail message.
+    #{vc.email_content}
     
-MESSAGE_END
+    MESSAGE_END
 
-    Net::SMTP.start('mail.ecs.vuw.ac.nz',
-                     587,
-                    'localhost',
-                    'stevenmatt3', 'gromit12', :plain ) do |smtp|
-      smtp.send_message message, 'dummy@stuff.com',
-                                 'stevenmatt3@myvuw.ac.nz',
-                                 'test@gmail.com'
+<<<<<<< HEAD
+ #   Net::SMTP.start('mail.ecs.vuw.ac.nz',
+ #                    587,
+ #                   'localhost',
+ #                   'stevenmatt3', 'password', :plain ) do |smtp|
+ #     smtp.send_message message, vc.email_replyto,
+ #                                'stevenmatt3@myvuw.ac.nz',
+ #                                'test@gmail.com'
+=======
+#    Net::SMTP.start('mail.ecs.vuw.ac.nz',
+#                     587,
+#                    'localhost',
+#                    'stevenmatt3', 'password', :plain ) do |smtp|
+#      smtp.send_message message, vc.email_replyto,
+#                                 'stevenmatt3@myvuw.ac.nz',
+#                                 'test@gmail.com'
+>>>>>>> 4aef7f687970f8bfea17d988179114ef64c622a8
 
     # puts an email sent message on the server terminal
     puts "\n******************************************"
     puts "************* email sent"
-    puts "************* Send to: "  + email
-    puts "************* Reply to: " + vc.email_replyto
-    puts "************* Header: "   + vc.email_header
-    puts "************* Body: "     + vc.email_content
+    puts message
                       
-    end
+#    end
   end
 end

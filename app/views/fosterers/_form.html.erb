@@ -19,150 +19,7 @@
   
   <div id="main-container" style="width: 960px; float:center; margin: 0px;">
   
- <!--<div id="DetailsBox" style="width:500px;float:left">
-	  <div id="header" style="background-color:#FFA500;width:400px">
-	  <h5 style="margin-bottom:0;">Details</h5></div>
-	  
-	  
-	
 
-
-		<div id="menu" style="background-color:#FFD700;height:750px;width:50px;float:left">
-		<b>Details</b><br>
-		</div>
-		
-		
-		
-		
-		<div id="content" style="background-color:#EEEEEE;height:750px;width:350px;float:left">
-
-		  
-
-		      <div class="field1">
-			<%= f.label :firstname %><br />
-			<%= f.text_field :firstname %>
-		      </div>
-		      
-		      <div class="field1">
-			<%= f.label :lastname %><br />
-			<%= f.text_field :lastname %>
-		      </div>
-		      
-		      <h2>-----------------------------------</h2>
-		      <h2>Address:</h2>
-		      
-		      <div class="field">
-			<%= f.label :"unit Number" %><br />
-			<%= f.text_field :unitNumber %>
-		      </div>
-		      
-		      <div class="field">
-			<%= f.label :"street Number" %><br />
-			<%= f.text_field :streetNumber %>
-		      </div>
-		      
-		      <div class="field">
-			<%= f.label :street %><br />
-			<%= f.text_field :street %>
-		      </div>
-		      
-		      <div class="field">
-			<%= f.label :suburb %><br />
-			<%= f.text_field :suburb %>
-		      </div>
-		      
-		      <div class="field">
-			<%= f.label :city %><br />
-			<%= f.text_field :city %>
-		      </div>
-		      
-		      <div class="field">
-			<%= f.label :"zip Code" %><br />
-			<%= f.text_field :zipCode %>
-		      </div>
-		      
-		      <div class="field">
-			<%= f.label :email %><br />
-			<%= f.text_field :email %>
-		      </div>
-		  
-		  <h2>-----------------------------------</h2>
-		  <h2>Contact Numbers:</h2>
-		    <div class="field">
-		    <%= f.label :"home" %><br />
-		    <%= f.text_field :homecontact %>
-		  </div>
-		  
-		  <div class="field">
-		    <%= f.label :"Mobile" %><br />
-		    <%= f.select :mobilecontact, [['021','021'],['022','022'],['027','027']]%>
-		    <%= f.text_field :mobilecontact %>
-		  </div>
-		  
-		  <div class="field">
-		    <%= f.label :"Work" %><br />
-		    <%= f.text_field :workcontact %>
-		  </div>
-		  
-		  
-</div>
-</div>
--->
-
-
-<!-- <div id="ContactPersonBox" style="width:500px;float:right">
-  <div id="header2" style="background-color:#FFA500;height:30px;width:350px">
-      <h1 style="margin-bottom:0;">2nd Contact Person</h1></div>
-
-
-
-  <div id="menu2" style="background-color:#FFD700;height:400px;width:90px;float:left;">
-    <b>2nd Person</b><br>
-  </div>
-  <div id="content2" style="background-color:#EEEEEE;height:400px;width:260px;float:left">
-     <div class="field">
-	<%= f.label :"Their name" %><br />
-	<%= f.text_field :theirname %>
-     </div>
-
-     <h2>Contact Numbers:</h2>
-     <h2>******************</h2>
-     
-     <div class="field">
-	<%= f.label :"home" %><br />
-	<%= f.text_field :homecontact2 %>
-     </div>
- 
-     <div class="field">
-	<%= f.label :"Mobile" %><br />
-	<%= f.select :mobilecontact2, [['021','021'],['022','022'],['027','027']]%>
-	<%= f.text_field :mobilecontact2 %>
-     </div>
-  
-     <div class="field">
-	<%= f.label :"Work" %><br />
-	<%= f.text_field :workcontact2 %>
-     </div>
-     
-     <h2>******************</h2>
-     <div class="field">
-	<%= f.label :"Relationship to you" %><br />
-	<%= f.text_field :relationship %>
-     </div>
-  
-  
-     <h2>--------------------------</h2>
-
-
-</div>
-
-
-</div>
-
-
-
-
--->
 
 
 
@@ -182,12 +39,58 @@
    
   <div class="field">
     <h2><%= f.label :"Cats and kittens" %></h2>
-    <h5><%=check_box_tag 'tick'%> Nursing cats with  kittens</h5>
+    <h5><%=check_box_tag 'test'%> Nursing cats with  kittens</h5>
     <h5><%=check_box_tag 'tick'%> Cats and kittens-self feeding</h5>
     <h5><%=check_box_tag 'good'%> Bottle feeding kittens(Note: may require 2 hourly feeding throughout the night)</h5>
     <h5><%=check_box_tag 'good'%> Injured or sick cats and kittens</h5>
     
   </div>
+  
+  
+  
+  
+  <div class="field">
+   
+   
+    <%= check_box 'object', 'boolean_attribute', {}, 'true', 'false' %>
+
+  <input name="object[boolean_attribute]" type="hidden" value="false" />test
+  <input id="object_boolean_attribute" name="object[boolean_attribute]" type="checkbox" value="true" />  
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
+  
+  
+  
+  <div class="field">
+   <%= f.label "Get Email" %> <br />
+   <%= f.check_box :send_email, {}, true, false %> <br />
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   <br />
@@ -258,24 +161,7 @@
   </div>
   
   <div id="content2" style="background-color:#EEEEEE;height:250px;width:350px;float:left">
-  
-    <!-- Contents must be here-->
-    
-    
-  <!-- 
-  <div class="field">
-    <h5>1. Have you ever had an animal welfare complaint made against you?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :personal1, [['Yes','Yes'],['No','No']]%></h5>
-  </div>
-  -->
-  
-  <!--
-  <div class="field">
-  
-      <h5>If yes, please provide details</h5>
-    <%= f.text_area :personal1if,:rows=>"5", :cols=>"45" %>
-   </div>
-  <br/>
-  -->
+
   <div class="field">
       <h5> Why do you want to foster animals?</h5>
     <%= f.text_area :personal2,:rows=>"10", :cols=>"45" %>
@@ -283,32 +169,7 @@
   <br/>
   
   
-  <!--
-  <div class="field">
-      <h5>3. When do you want to start fostering?</h5>
-    <%= f.text_area :personal3,:rows=>"5", :cols=>"45"%>
-   </div>
-  <br/>
-   -->
-   
-   
-   <!--
-    <div class="field">
-      <h5>4. What experience do you have fostering or caring for animals?</h5>
-    <%= f.text_area :personal4 ,:rows=>"5", :cols=>"45"%>
-   </div>
-  <br/>
-   
-   -->
-   
-   
-   <!--
-   <div class="field">
-      
-    <h5>5. Are you or anyone else in the house pregnant or planning to ge pregnant during the time you are fostering?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :personal1, [['Yes','Yes'],['No','No']]%></h5>
-  </div>
-  -->
-  
+
 
 
 

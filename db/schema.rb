@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130826023518) do
+ActiveRecord::Schema.define(:version => 20130904013420) do
 
   create_table "fosterers", :force => true do |t|
     t.string   "kitcat"
@@ -27,8 +27,12 @@ ActiveRecord::Schema.define(:version => 20130826023518) do
     t.integer  "p51"
     t.integer  "p52"
     t.integer  "p53"
+    t.string   "send_email"
+    t.string   "personal2"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "personal"
+
   end
 
   create_table "volcoordinators", :force => true do |t|
