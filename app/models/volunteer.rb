@@ -58,6 +58,7 @@ class Volunteer < ActiveRecord::Base
  #                                'stevenmatt3@myvuw.ac.nz',
  #                                'test@gmail.com'
 
+
     # puts an email sent message on the server terminal
     puts "\n******************************************"
     puts "************* email sent"

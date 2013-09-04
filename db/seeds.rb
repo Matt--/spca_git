@@ -19,7 +19,7 @@ volunteer = Volunteer.create([{
   lastname: 'Blah blah',
   address: '3/1 Braithwaite st, karori, wellington',
   email: 'andrew@gmail.com',
- # mobile: 02265,
+#  mobile: 02265,
   home: 0447747,
   background: 'blah blah'                           
   
@@ -30,3 +30,4 @@ fosterer = Fosterer.create([{
                         
                               
 }])
+

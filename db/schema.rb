@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20130904013420) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "personal"
+
   end
 
   create_table "volcoordinators", :force => true do |t|
