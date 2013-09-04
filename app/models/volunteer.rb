@@ -33,6 +33,9 @@ class Volunteer < ActiveRecord::Base
     end
   end
 
+  def test_email_confirmation_message
+    return send_confirmation_email
+  end
 
 
   after_save :send_confirmation_email
@@ -41,28 +44,34 @@ class Volunteer < ActiveRecord::Base
   def send_confirmation_email
     vc = Volcoordinator.find(:first)
 
-    message = <<-MESSAGE_END
-    From: #{vc.email_replyto}
-    To: #{email}
-    Subject: #{vc.email_header}
+    puts "\n******************************************"
+    puts "############## see me"
+    puts defined?(vc.email_replyto).nil?
 
-    #{vc.email_content}
+    message = <<-MESSAGE_END
+    From: #{defined?(vc.email_replyto).nil? ? 'test from' : vc.email_replyto }
+    To: #{email.nil? ? 'test to' : email}
+    Subject: #{defined?(vc.email_header).nil? ? 'test header' : vc.email_header}
+
+    #{defined?(vc.content).nil? ? 'test content' : vc.email_content}
     
     MESSAGE_END
 
-    #Net::SMTP.start('mail.ecs.vuw.ac.nz',
-    #                 587,
-    #                'localhost',
-    #                'stevenmatt3', 'password', :plain ) do |smtp|
-    #  smtp.send_message message, vc.email_replyto,
-    #                             'stevenmatt3@myvuw.ac.nz',
-    #                             'test@gmail.com'
+ #   Net::SMTP.start('mail.ecs.vuw.ac.nz',
+ #                    587,
+ #                   'localhost',
+ #                   'stevenmatt3', 'password', :plain ) do |smtp|
+ #     smtp.send_message message, vc.email_replyto,
+ #                                'stevenmatt3@myvuw.ac.nz',
+ #                                'test@gmail.com'
+
 
     # puts an email sent message on the server terminal
     puts "\n******************************************"
     puts "************* email sent"
     puts message
-                      
-    end
+
+    return message # used in test
+#    end
   end
 end
