@@ -5,7 +5,10 @@
   <%= @fosterer.personal2 %>
 </p>
 
-
+<p>
+  <b>P1:</b>
+  <%= @fosterer.hamid %>
+</p>
 
 
 <%= link_to 'Edit', edit_fosterer_path(@fosterer) %> |

@@ -15,7 +15,8 @@ class CreateFosterers < ActiveRecord::Migration
       t.integer :p51
       t.integer :p52
       t.integer :p53   
-      
+      t.string :send_email
+      t.string :personal2
       
       t.timestamps
     end

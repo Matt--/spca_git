@@ -50,19 +50,19 @@ class Volunteer < ActiveRecord::Base
     
     MESSAGE_END
 
-    Net::SMTP.start('mail.ecs.vuw.ac.nz',
-                     587,
-                    'localhost',
-                    'stevenmatt3', 'password', :plain ) do |smtp|
-      smtp.send_message message, vc.email_replyto,
-                                 'stevenmatt3@myvuw.ac.nz',
-                                 'test@gmail.com'
+ #   Net::SMTP.start('mail.ecs.vuw.ac.nz',
+ #                    587,
+ #                   'localhost',
+ #                   'stevenmatt3', 'password', :plain ) do |smtp|
+ #     smtp.send_message message, vc.email_replyto,
+ #                                'stevenmatt3@myvuw.ac.nz',
+ #                                'test@gmail.com'
 
     # puts an email sent message on the server terminal
     puts "\n******************************************"
     puts "************* email sent"
     puts message
                       
-    end
+#    end
   end
 end

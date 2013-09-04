@@ -2,8 +2,9 @@
 
 <table>
   <tr>
-    <th>Kitcat</th>
     <th>personal2</th>
+    
+    <th>send_email</th>
     
     <th></th>
     <th></th>
@@ -15,7 +16,7 @@
 <% @fosterers.each do |fosterer| %>
   <tr>
     <td><%= fosterer.personal2 %></td>
-    <td><%= fosterer.personal2 %></td>
+    <td><%= fosterer.send_email %></td>
     <td><%= link_to 'Show', fosterer %></td>
     <td><%= link_to 'Edit', edit_fosterer_path(fosterer) %></td>
     <td><%= link_to 'Destroy', fosterer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
