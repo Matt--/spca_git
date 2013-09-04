@@ -14,9 +14,20 @@ class CreateFosterers < ActiveRecord::Migration
       t.string :p4
       t.integer :p51
       t.integer :p52
-      t.integer :p53   
-      t.string :hamid
+      t.integer :p53
       t.string :personal2
+      
+      
+      t.boolean :catnursing
+      t.boolean :catfeeding
+      t.boolean :catbottlefeed
+      t.boolean :catinjured
+      
+      t.boolean :dognursing
+      t.boolean :dogfeeding
+      t.boolean :dogbottlefeed
+      t.boolean :doginjured
+      
       
       t.timestamps
     end
