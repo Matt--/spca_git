@@ -6,6 +6,12 @@
     
     <th>send_email</th>
     
+    <th>catnursing</th>
+    <th>catfeeding</th>
+    <th>catbottlefeed</th>
+    <th>catinjured</th>
+    
+    
     <th></th>
     <th></th>
     <th></th>
@@ -17,6 +23,13 @@
   <tr>
     <td><%= fosterer.personal2 %></td>
     <td><%= fosterer.send_email %></td>
+    <td><%= fosterer.catnursing %></td>
+    <td><%= fosterer.catfeeding %></td>
+    <td><%= fosterer.catbottlefeed %></td>
+    <td><%= fosterer.catinjured %></td>
+    
+    
+    
     <td><%= link_to 'Show', fosterer %></td>
     <td><%= link_to 'Edit', edit_fosterer_path(fosterer) %></td>
     <td><%= link_to 'Destroy', fosterer, method: :delete, data: { confirm: 'Are you sure?' } %></td>

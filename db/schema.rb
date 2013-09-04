@@ -29,10 +29,13 @@ ActiveRecord::Schema.define(:version => 20130904013420) do
     t.integer  "p53"
     t.string   "send_email"
     t.string   "personal2"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.boolean  "catnursing"
+    t.boolean  "catfeeding"
+    t.boolean  "catbottlefeed"
+    t.boolean  "catinjured"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
     t.string   "personal"
-
   end
 
   create_table "volcoordinators", :force => true do |t|

@@ -18,6 +18,13 @@ class CreateFosterers < ActiveRecord::Migration
       t.string :send_email
       t.string :personal2
       
+      
+      t.boolean :catnursing
+      t.boolean :catfeeding
+      t.boolean :catbottlefeed
+      t.boolean :catinjured
+      
+      
       t.timestamps
     end
   end

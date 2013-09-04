@@ -50,28 +50,16 @@
   
   
   <div class="field">
+  
+   <%= f.label "Get Email" %>
+   <%= f.check_box :send_email, {}, true, false %> <br />
    
    
-    <%= check_box 'object', 'boolean_attribute', {}, 'true', 'false' %>
+
 
   <input name="object[boolean_attribute]" type="hidden" value="false" />test
   <input id="object_boolean_attribute" name="object[boolean_attribute]" type="checkbox" value="true" />  
   </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
   
   
   
@@ -80,9 +68,35 @@
   
   
   <div class="field">
-   <%= f.label "Get Email" %> <br />
+   <%= f.label "Get Email" %>
    <%= f.check_box :send_email, {}, true, false %> <br />
   </div>
+  
+  
+  
+    <div class="field">
+   <%= f.label "Nursing cats with kittens" %>
+   <%= f.check_box :catnursing, {}, true, false %> <br />
+  </div>
+  
+   <div class="field">
+   <%= f.label "Cats and kittens-self feeding" %>
+   <%= f.check_box :catfeeding, {}, true, false %> <br />
+  </div>
+  
+  <div class="field">
+   <%= f.label "Bottle feeding kittens(Note: may require 2 hourly feeding throughout the night)" %>
+   <%= f.check_box :catbottlefeed, {}, true, false %> <br />
+  </div>
+  
+  
+  
+  <div class="field">
+   <%= f.label "Injured or sick cats and kittens" %>
+   <%= f.check_box :catinjured, {}, true, false %> <br />
+  </div>
+  
+  
   
   
   
