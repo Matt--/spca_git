@@ -2,6 +2,9 @@ SPCA::Application.routes.draw do
 
 
 
+  resources :fosterer2s
+
+
 #  get "fosterer/index"
   resources :fosterers
 

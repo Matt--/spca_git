@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @fosterer2.ownhome %>
+</p>
+
+
+<%= link_to 'Edit', edit_fosterer2_path(@fosterer2) %> |
+<%= link_to 'Back', fosterer2s_path %>

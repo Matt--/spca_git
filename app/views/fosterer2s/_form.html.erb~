@@ -1,0 +1,207 @@
+<link rel='stylesheet' href='/u/students/maddahhami/rails3/SPCA/app/assets/stylesheets/fosterer2s.css.scss'>
+
+<%= form_for(@fosterer2) do |f| %>
+  <% if @fosterer2.errors.any? %>
+  
+    <div id="error_explanation">
+      <h2><%= pluralize(@fosterer2.errors.count, "error") %> prohibited this fosterer2 from being saved:</h2>
+
+      <ul>
+      <% @fosterer2.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  
+  
+    <div id="main-container" style="width: 500px; float:center; margin: 0px;">
+      
+      
+      <div id="PropertyBox" style="width:500px;float:right">
+    <div id="header2" style="background-color:#FFA500;height:30px;width:490px">
+      <h1 style="margin-bottom:0;">Property Details</h1></div>
+
+
+
+  <div id="menu2" style="background-color:#FFD700;height:900px;width:20px;float:left;">
+  
+  </div>
+  
+  <div id="content2" style="background-color:#EEEEEE;height:900px;width:480px;float:left">
+  
+    <!-- Contents must be here-->
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h2>Properties:</h2>
+   
+    <div class="field">
+      <h5>1. Do you have your own home?<br />(if renting you will need to provide written consent from your landlord to foster animals)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :ownhome, [['Yes','Yes'],['No','No']]%></h5>
+    </div>
+    
+    
+    
+    
+    
+    <div class="field">
+      <h5>2. Do you agree to an SPCA staff member inspecting your property prior to fostering?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :inspecting, [['Yes','Yes'],['No','No']]%></h5>
+    </div>
+    
+    <div class="field">
+      <h5>3. You must be able to provide the following which is applicable to the animals you wish to foster:</h5>
+    </div>
+    
+    <div class="field">
+      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Separate room inside your house (cats, kittens, baby birds)&nbsp;<%= f.select :rooms, [['Yes','Yes'],['No','No']]%></h5>
+    </div>  
+  
+ 
+    <div class="field">
+      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Separate room/warm garage & fenced property (dogs, pups)&nbsp;<%= f.select :roomwarm, [['Yes','Yes'],['No','No']]%></h5>
+    </div> 
+    
+    <div class="field">
+      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hutch/fenced area with shelter (degenhogs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :hutch, [['Yes','Yes'],['No','No']]%></h5>
+    </div> 
+    
+      
+  
+    <div class="field">
+      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hutch or separate room (rabbits)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :rabbithutch, [['Yes','Yes'],['No','No']]%></h5>
+    </div> 
+  
+    <div class="field">
+      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aviary(adult birds)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :aviary, [['Yes','Yes'],['No','No']]%></h5>
+    </div> 
+    
+    <div class="field">
+      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Livestock-fully fenced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :livestockfenced, [['Yes','Yes'],['No','No']]%></h5>
+      </div>
+  <br/>
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="field">
+   <h5>4. Please describe the area you plan to use for the animals<br/>
+   Attach(via email) 5 photos of that area to your application:</h5>
+    <%= f.text_area :homedesc, :rows=>"10", :cols=>"45"%>
+   </div> 
+  
+  
+  
+  
+     <h5>5. How many people liv in your home/rented accomodation?</h5>
+  <div class="field">
+    <%= f.label :"Number of adults"%>
+    <%= f.number_field :numadulta, :size=>"5" %>
+   </div> 
+   <div class="field">
+    <%= f.label :"Number of children"%>
+    <%= f.number_field :numchild, :size=>"5" %>
+   </div> 
+   <div class="field">
+    <%= f.label :"Ages of children(eg: 5-8-12)"%>
+    <%= f.number_field :ages%>
+   </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  </div>
+
+
+  </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

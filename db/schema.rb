@@ -11,22 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130904013420) do
+ActiveRecord::Schema.define(:version => 20130905030755) do
+
+  create_table "fosterer2s", :force => true do |t|
+    t.string   "ownhome"
+    t.string   "inspecting"
+    t.string   "rooms"
+    t.string   "roomwarm"
+    t.string   "hutch"
+    t.string   "rabbithutch"
+    t.string   "aviary"
+    t.string   "livestockfenced"
+    t.text     "homedesc"
+    t.integer  "numadulta"
+    t.integer  "numchild"
+    t.string   "ages"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "fosterers", :force => true do |t|
-    t.string   "kitcat"
-    t.string   "p1"
-    t.string   "p2"
-    t.string   "p31"
-    t.string   "p32"
-    t.string   "p33"
-    t.string   "p34"
-    t.string   "p35"
-    t.string   "p36"
-    t.string   "p4"
-    t.integer  "p51"
-    t.integer  "p52"
-    t.integer  "p53"
     t.string   "personal2"
     t.boolean  "catnursing"
     t.boolean  "catfeeding"

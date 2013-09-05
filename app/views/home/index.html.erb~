@@ -2,24 +2,26 @@
 <br />
 <br />
 <%= image_tag 'SPCA.jpg' %>
-
+<br />
 <h1>SPCA Volunteer Portal</h1>
 
 
 <%= image_tag 'Volunteer.png' %>
-<br/><br/>
+<br/>
 <%= link_to "Volunteers", volunteers_path %>
 
-<br />
+<br /><br/><br/>
 <%= image_tag 'Fosterer.png' %>
-<br/><br/>
-<%= link_to "Fosterers", fosterers_path %>
+<br/>
+
+<%# fosters_path is upsetting tests... not sure why, will look at later %>
+<%= link_to "Fosterers", '/fosterers' %>
 <br /><br /><br /><br /><br /><br /><br /><br /><br />
 <br />
 <%= link_to "Coordinator Page", volcoordinators_path %>
 
 
 
-
+<%= link_to "Fosterer2", fosterer2s_path %>
 
 </center>
