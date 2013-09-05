@@ -19,7 +19,21 @@
     left: 00px;  
   }
   
+  #TimeCommitmentBox{
+    position :absolute;
+    top: 20px;
+    left: 550px;  
+  }
   
+  
+  
+  
+  
+  #TermsAndConditionsBox{
+    position :absolute;
+    top: 1000px;
+    left: 100px;  
+  }
   /*
    Non resizeable textarea
    */

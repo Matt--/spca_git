@@ -16,6 +16,15 @@ class CreateFosterer2s < ActiveRecord::Migration
       t.integer :numchild
       t.string :ages
       
+      t.integer :numhoursperday
+      t.string :worktype
+      t.text :secondperson
+      t.string :allmembersagree
+      t.string :bringcentre
+      t.text :transportdesc
+      
+      t.boolean :agreement
+      
       
 
       t.timestamps

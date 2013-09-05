@@ -26,6 +26,13 @@ ActiveRecord::Schema.define(:version => 20130905030755) do
     t.integer  "numadulta"
     t.integer  "numchild"
     t.string   "ages"
+    t.integer  "numhoursperday"
+    t.string   "worktype"
+    t.text     "secondperson"
+    t.string   "allmembersagree"
+    t.string   "bringcentre"
+    t.text     "transportdesc"
+    t.boolean  "agreement"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
