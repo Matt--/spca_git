@@ -2,4 +2,6 @@
 
 <%= render 'form' %>
 
+
+<%= button_tag "Foo"%> 
 <%= link_to 'Back', fosterers_path %>

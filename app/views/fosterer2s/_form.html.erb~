@@ -1,6 +1,6 @@
 <link rel='stylesheet' href='/u/students/maddahhami/rails3/SPCA/app/assets/stylesheets/fosterer2s.css.scss'>
 
-<%= form_for(@fosterer2) do |f| %>
+
   <% if @fosterer2.errors.any? %>
   
     <div id="error_explanation">
@@ -15,7 +15,7 @@
   <% end %>
 
   
-  
+  <%= form_for(@fosterer2) do |f| %>
     <div id="main-container" style="width: 500px; float:center; margin: 0px;">
       
       
@@ -31,7 +31,7 @@
 	      
 		<!-- Contents must be here-->
 		
-	      <h2>Properties:</h2>
+	      
 	      
 		<div class="field">
 		  <h5>1. Do you have your own home?<br />(if renting you will need to provide written consent from your landlord to foster animals)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :ownhome, [['Yes','Yes'],['No','No']]%></h5>
@@ -115,7 +115,7 @@
       
       <div class="field">
       <h5>1. How many hours per day can you devote to fostering?</h5>
-		<%= f.number_field :numhoursperday, :size=>"5" %>
+		&nbsp;&nbsp;&nbsp;<%= f.number_field :numhoursperday, :size=>"5" %>
 	      </div> 
       
       
@@ -123,7 +123,7 @@
       
       
 	  <div class="field">
-	    <h5>2. Do you work:<%= f.select :worktype, [['Full time','Full time'],['Part time','Part time'], ['At home','At home'], ['Away from home','Away from home'], ['Dont work','Dont work']]%></h5>
+	    <h5>2. Do you work:&nbsp;&nbsp;&nbsp;<%= f.select :worktype, [['Full time','Full time'],['Part time','Part time'], ['At home','At home'], ['Away from home','Away from home'], ['Dont work','Dont work']]%></h5>
 	  </div> 
 	
 	
@@ -159,9 +159,8 @@
       <div id="TermsAndConditionsBox" style="width:1000px;float:right">
 	<div id="header2" style="background-color:#FFA500;height:30px;width:920px">
 	  <h1 style="margin-bottom:0;">Terms and Conditions</h1></div>
-	<div id="menu2" style="background-color:#FFD700;height:500px;width:20px;float:left;"></div>
 	
-	<div id="content" style="background-color:#EEEEEE;height:500px;width:900px;float:left">
+	<div id="content" style="background-color:#EEEEEE;height:600px;width:920px;float:left">
 	  
 	  <h5>
 	  1. The animals being fostered remain the sole property of Wellington SPCA
@@ -187,20 +186,20 @@
 	  
 	  
 	  
-	  <div class="field">
-   <h5><%= f.label "In order to be fosterer for Wellington SPCA, I Agrree to the above conditions" %>
-   <%= f.check_box :agreement, {checked_value: "I agree", unchecked_value: "Disagree"} %></h2>
-  </div>
+      <div class="field">
+	<h5><%= f.label "In order to be fosterer for Wellington SPCA, I Agrree to the above conditions" %>
+	<%= f.check_box :agreement, {checked_value: "I agree", unchecked_value: "Disagree"} %></h2>
+      </div>
 	  
 	  
-	  
+	<div class="actions" align="center">
+	  <%= f.submit "test" %>
+	</div>
 	  
 	</div>
       </div>
       
     </div>
-<div class="actions">
-    <%= f.submit %>
-  </div>
+
   
 <% end %>

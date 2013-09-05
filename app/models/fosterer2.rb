@@ -3,4 +3,9 @@ class Fosterer2 < ActiveRecord::Base
 		  :homedesc, :numadulta, :numchild, :ages,
 		  :numhoursperday, :worktype, :secondperson, :allmembersagree, :bringcentre, :transportdesc,
 		  :agreement
+  
+  
+  validates :agreement, :presence => true
+  # on_save .....
+  
 end
