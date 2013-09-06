@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130905224256) do
+ActiveRecord::Schema.define(:version => 20130906015724) do
 
   create_table "fosterer2s", :force => true do |t|
     t.string   "ownhome"
@@ -58,6 +58,13 @@ ActiveRecord::Schema.define(:version => 20130905224256) do
     t.string   "personal"
   end
 
+  create_table "schedulejobtypes", :force => true do |t|
+    t.integer  "volscheduler_id"
+    t.string   "job"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "volcoordinators", :force => true do |t|
     t.string   "email_replyto"
     t.string   "email_header"
@@ -67,7 +74,6 @@ ActiveRecord::Schema.define(:version => 20130905224256) do
   end
 
   create_table "volschedulers", :force => true do |t|
-    t.string   "job"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

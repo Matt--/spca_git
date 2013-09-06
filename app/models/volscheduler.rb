@@ -1,3 +1,5 @@
 class Volscheduler < ActiveRecord::Base
-  attr_accessible :job
+
+
+  has_many :schedulejobtypes
 end

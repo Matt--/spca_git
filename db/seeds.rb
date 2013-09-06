@@ -31,13 +31,18 @@ Fosterer.create([{
                               
 }])
 
-Volscheduler.create([
-  { job: 'Morning 8-12' },
-  { job: 'Afternoon 1-5' },
-  { job: 'Cat walking' },
-  { job: 'Cat rescue' },
-  { job: 'Cat hugging' },
-  { job: 'Cat Admin' },
+Volscheduler.create([{
+  
+}])
+
+
+Schedulejobtype.create([
+  { volscheduler_id: 1, job: 'Morning 8-12' },
+  { volscheduler_id: 1, job: 'Afternoon 1-5' },
+  { volscheduler_id: 1, job: 'Cat walking' },
+  { volscheduler_id: 1, job: 'Cat rescue' },
+  { volscheduler_id: 1, job: 'Cat hugging' },
+  { volscheduler_id: 1, job: 'Cat Admin' }
 ])
 
 

@@ -1,19 +1,23 @@
 <h1>Volunteer Scheduler for the Cat Department</h1>
 
-
+<%########### variables #########%>
 <% time = Time.now %>
+
+<%########### Table Header #########%>
 <table id="volschedule_table">
   <tr>
-    <th></th>
-      <th><%= I18n.t("date.month_names")[time.month] %></th>
-<% (1..31).each do |c| %>
-  <% t = time + (c * (60*60*24)) %>
-  <% if(t.day == 1) %>
-    <th><%= I18n.t("date.month_names")[t.month] %></th>
-  <% else %>
-    <th></th>
+    <th class='volschedule_col'></th>
+    <th class='volschedule_col'>
+                            <%= I18n.t("date.month_names")[time.month] %></th>
+  <% (1..31).each do |c| %>
+    <% t = time + (c * (60*60*24)) %>
+    <% if(t.day == 1) %>
+      <th class='volschedule_col'>
+                            <%= I18n.t("date.month_names")[t.month] %></th>
+    <% else %>
+      <th class='volschedule_col'></th>
+    <% end %>
   <% end %>
-<% end %>
   </tr>
 
   <tr>
@@ -30,6 +34,18 @@
     <% end %>
   <% end %>
   </tr>
+
+<%########### Table Content #########%>
+    <% @volscheduler.schedulejobtypes.each do |v| %>
+      <tr>
+      <td><%= v.job %></td>      
+      <% (0..31).each do |c| %>
+        <% t = time + (c * (60*60*24)) %>
+        <td><%= t.day %></td>
+      <% end %>
+      </tr>
+    <% end %>
+
 </table>
 
 
@@ -37,38 +53,6 @@
 
 
 
+<br/><br/><br/><br/><br/>
+<h3> Code to add and remove jobs from the list </h3>
 
-
-
-
-
-
-
-
-
-
-
-
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-<h3> Legacy stuff - will remove later </h3>
-<table>
-  <tr>
-    <th>Job</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @volschedulers.each do |volscheduler| %>
-  <tr>
-    <td><%= volscheduler.job %></td>
-    <td><%= link_to 'Show', volscheduler %></td>
-    <td><%= link_to 'Edit', edit_volscheduler_path(volscheduler) %></td>
-    <td><%= link_to 'Destroy', volscheduler, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Volscheduler', new_volscheduler_path %>
