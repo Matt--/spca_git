@@ -21,9 +21,38 @@ Volunteer.create([{
   email: 'andrew@gmail.com',
 #  mobile: 02265,
   home: 0447747,
-  background: 'blah blah'                           
-  
-}])
+  background: 'blah blah'},
+  {
+  title: 'cat walker', 
+  dob: '12-10-1991', 
+  firstname: 'Matt',
+  lastname: 'Blah de blah blah',
+  address: '4 CamelCase st, karori, wellington',
+  email: 'matt@something.com',
+#  mobile: 02265,
+  home: 04123456,
+  background: 'like cats and walking'},
+  {
+  title: 'handyman', 
+  dob: '12-10-1991', 
+  firstname: 'James',
+  lastname: 'Whoop de whoop',
+  address: '5 snakeCase st, karori, wellington',
+  email: 'james@overhere.com',
+#  mobile: 02265,
+  home: '0425469',
+  background: 'like afternoons, mornings are for hangover recovery'},
+  {
+  title: 'dude', 
+  dob: '12-10-1991', 
+  firstname: 'Hamid',
+  lastname: 'Dum de Dum',
+  address: '6 lowercase st, karori, wellington',
+  email: 'hamid@doinstuff.com',
+#  mobile: 02265,
+  home: '04985423',
+  background: 'hate paperwork'}
+])
 
 Fosterer.create([{
   personal2: 'I like fostering',   
@@ -49,5 +78,17 @@ Availableday.create([
   { volunteer_id: 1, day: 'Sun', dayint: 0, schedulejobtype_id: 4 },
   { volunteer_id: 1, day: 'Mon', dayint: 1, schedulejobtype_id: 4 },
   { volunteer_id: 1, day: 'Thu', dayint: 4, schedulejobtype_id: 4 },
-  { volunteer_id: 1, day: 'Fri', dayint: 5, schedulejobtype_id: 4 }
+  { volunteer_id: 1, day: 'Fri', dayint: 5, schedulejobtype_id: 4 },
+  { volunteer_id: 2, day: 'Mon', dayint: 1, schedulejobtype_id: 3 },
+  { volunteer_id: 2, day: 'Tue', dayint: 2, schedulejobtype_id: 3 },
+  { volunteer_id: 2, day: 'Wed', dayint: 3, schedulejobtype_id: 3 },
+  { volunteer_id: 3, day: 'Mon', dayint: 1, schedulejobtype_id: 2 },
+  { volunteer_id: 3, day: 'Tue', dayint: 2, schedulejobtype_id: 2 },
+  { volunteer_id: 3, day: 'Thu', dayint: 4, schedulejobtype_id: 2 },
+  { volunteer_id: 3, day: 'Sat', dayint: 6, schedulejobtype_id: 2 },
+  { volunteer_id: 4, day: 'Mon', dayint: 1, schedulejobtype_id: 6 },
+  { volunteer_id: 4, day: 'Mon', dayint: 1, schedulejobtype_id: 1 },
+  { volunteer_id: 4, day: 'Wed', dayint: 3, schedulejobtype_id: 1 },
+  { volunteer_id: 4, day: 'Wed', dayint: 3, schedulejobtype_id: 2 },
+  { volunteer_id: 4, day: 'Wed', dayint: 3, schedulejobtype_id: 3 }
 ])

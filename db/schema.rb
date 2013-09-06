@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(:version => 20130906024554) do
     t.integer  "dayint"
     t.integer  "volunteer_id"
     t.integer  "schedulejobtype_id"
-    t.datetime "created_at",   :null => false
-    t.datetime "updated_at",   :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "fosterer2s", :force => true do |t|
