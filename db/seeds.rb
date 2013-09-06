@@ -51,7 +51,17 @@ Volunteer.create([{
   email: 'hamid@doinstuff.com',
 #  mobile: 02265,
   home: '04985423',
-  background: 'hate paperwork'}
+  background: 'hate paperwork'},
+  {
+  title: 'newbie', 
+  dob: '12-10-1991', 
+  firstname: 'Mymom',
+  lastname: 'Hey you',
+  address: '6 UPPERCASE st, karori, wellington',
+  email: 'mymom@givingmeshite.com',
+#  mobile: 02265,
+  home: '0498999999',
+  background: 'hate student layabouts'}
 ])
 
 Fosterer.create([{

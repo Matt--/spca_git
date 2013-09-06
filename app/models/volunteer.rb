@@ -28,7 +28,6 @@ class Volunteer < ActiveRecord::Base
 
   has_many :whiteboards
   has_many :availabledays
-  has_many :volJobs
   
   def over_18
     if dob + 18.years >= Date.today
@@ -40,6 +39,19 @@ class Volunteer < ActiveRecord::Base
     return send_confirmation_email
   end
 
+  # returns availabledays object
+  def next_working
+    d = nil
+    time = Time.now
+    (0..31).each do |y|
+      t = time + (y * (60*60*24))
+      # a bit basic, will need to tie in dates etc
+      d = time.day != t.day ? availabledays.where(
+                  dayint: t.wday)[0] : nil
+      break if !d.nil?
+    end
+    return d
+  end
 
   after_save :send_confirmation_email
   # precondition: after_save callback only triggers on a successfull save
