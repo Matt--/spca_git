@@ -2,6 +2,9 @@ SPCA::Application.routes.draw do
 
 
 
+  resources :volschedulers
+
+
   resources :fosterer2s
 
 

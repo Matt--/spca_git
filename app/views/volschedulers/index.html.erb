@@ -1,0 +1,74 @@
+<h1>Volunteer Scheduler for the Cat Department</h1>
+
+
+<% time = Time.now %>
+<table id="volschedule_table">
+  <tr>
+    <th></th>
+      <th><%= I18n.t("date.month_names")[time.month] %></th>
+<% (1..31).each do |c| %>
+  <% t = time + (c * (60*60*24)) %>
+  <% if(t.day == 1) %>
+    <th><%= I18n.t("date.month_names")[t.month] %></th>
+  <% else %>
+    <th></th>
+  <% end %>
+<% end %>
+  </tr>
+
+  <tr>
+    <th>Job</th>
+  <% (0..31).each do |c| %>
+    <% t = time + (c * (60*60*24)) %>
+
+    <% if (t.wday > 0 && t.wday <= 5) %>
+      <th class='weekday'>
+      <%= t.day %>
+      </th>
+    <% else %>
+      <th><%= t.day %></th>
+    <% end %>
+  <% end %>
+  </tr>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<h3> Legacy stuff - will remove later </h3>
+<table>
+  <tr>
+    <th>Job</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @volschedulers.each do |volscheduler| %>
+  <tr>
+    <td><%= volscheduler.job %></td>
+    <td><%= link_to 'Show', volscheduler %></td>
+    <td><%= link_to 'Edit', edit_volscheduler_path(volscheduler) %></td>
+    <td><%= link_to 'Destroy', volscheduler, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Volscheduler', new_volscheduler_path %>

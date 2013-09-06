@@ -6,13 +6,13 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-volcoordinator = Volcoordinator.create([{
+Volcoordinator.create([{
   email_replyto: 'coordinator@test.com', 
   email_header: 'SPCA Application', 
   email_content: 'Thank you for your application to become an SPCA Volunteer. We value all our volunteers and appreciate the many ways you can help us out. Please bear with us while your application is processed and we will reply to you by email in aprroximately 10 working days.'
 }])
 
-volunteer = Volunteer.create([{
+Volunteer.create([{
   title: 'fosterer', 
   dob: '12-10-1991', 
   firstname: 'Andrew',
@@ -25,9 +25,19 @@ volunteer = Volunteer.create([{
   
 }])
 
-fosterer = Fosterer.create([{
+Fosterer.create([{
   personal2: 'I like fostering',   
                         
                               
 }])
+
+Volscheduler.create([
+  { job: 'Morning 8-12' },
+  { job: 'Afternoon 1-5' },
+  { job: 'Cat walking' },
+  { job: 'Cat rescue' },
+  { job: 'Cat hugging' },
+  { job: 'Cat Admin' },
+])
+
 

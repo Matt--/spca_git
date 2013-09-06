@@ -44,16 +44,12 @@ class Volunteer < ActiveRecord::Base
   def send_confirmation_email
     vc = Volcoordinator.find(:first)
 
-    puts "\n******************************************"
-    puts "############## see me"
-    puts defined?(vc.email_replyto).nil?
-
     message = <<-MESSAGE_END
     From: #{defined?(vc.email_replyto).nil? ? 'test from' : vc.email_replyto }
     To: #{email.nil? ? 'test to' : email}
     Subject: #{defined?(vc.email_header).nil? ? 'test header' : vc.email_header}
 
-    #{defined?(vc.content).nil? ? 'test content' : vc.email_content}
+    #{defined?(vc.email_content).nil? ? 'test content' : vc.email_content}
     
     MESSAGE_END
 

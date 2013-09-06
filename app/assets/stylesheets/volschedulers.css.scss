@@ -1,0 +1,15 @@
+// Place all the styles related to the volschedulers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#volschedule_table {
+  border: 1px solid black;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.weekday{
+  background: #00FF00;
+}
+
+
