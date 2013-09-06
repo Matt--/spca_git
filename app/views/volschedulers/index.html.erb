@@ -36,12 +36,22 @@
   </tr>
 
 <%########### Table Content #########%>
-    <% @volscheduler.schedulejobtypes.each do |v| %>
+    <% @volscheduler.schedulejobtypes.each do |j| %>
       <tr>
-      <td><%= v.job %></td>      
+      <td><%= j.job %></td>      
       <% (0..31).each do |c| %>
         <% t = time + (c * (60*60*24)) %>
-        <td><%= t.day %></td>
+        <td>
+
+          <% @volunteers.each do |v| %>
+            <% d = v.availabledays.where(
+                  dayint: t.wday, schedulejobtype_id: j.id)[0] %>
+
+            <%= d.nil? ? '' : v.firstname %>   
+            
+          <% end  %>
+
+        </td>
       <% end %>
       </tr>
     <% end %>

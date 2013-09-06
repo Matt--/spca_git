@@ -4,7 +4,8 @@ require 'net/smtp'
 
 class Volunteer < ActiveRecord::Base
 
-  attr_accessible :address, :background, :dob, :email, :firstname, :home, :lastname, :moblie, :title
+  attr_accessible :address, :background, :dob, :email, :firstname, :home, 
+            :lastname, :moblie, :title
   
   validates :title, :presence => true#, :message => ""
   validates :dob, :presence => true
@@ -26,6 +27,8 @@ class Volunteer < ActiveRecord::Base
   
 
   has_many :whiteboards
+  has_many :availabledays
+  has_many :volJobs
   
   def over_18
     if dob + 18.years >= Date.today

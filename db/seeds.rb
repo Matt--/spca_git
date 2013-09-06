@@ -45,4 +45,9 @@ Schedulejobtype.create([
   { volscheduler_id: 1, job: 'Cat Admin' }
 ])
 
-
+Availableday.create([
+  { volunteer_id: 1, day: 'Sun', dayint: 0, schedulejobtype_id: 4 },
+  { volunteer_id: 1, day: 'Mon', dayint: 1, schedulejobtype_id: 4 },
+  { volunteer_id: 1, day: 'Thu', dayint: 4, schedulejobtype_id: 4 },
+  { volunteer_id: 1, day: 'Fri', dayint: 5, schedulejobtype_id: 4 }
+])
