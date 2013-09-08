@@ -1,11 +1,20 @@
 require 'net/smtp'
-
-
-
 class Volunteer < ActiveRecord::Base
 
   attr_accessible :address, :background, :dob, :email, :firstname, :home, 
-            :lastname, :moblie, :title
+            :lastname, :moblie, :title,
+            :ondays_attributes, :dojobs_attributes
+
+  has_many :whiteboards
+
+  has_many :ondays
+  has_many :dojobs,
+           :through => :ondays
+
+  accepts_nested_attributes_for :ondays,
+       #    :reject_if => :all_blank,
+           :allow_destroy => true
+  accepts_nested_attributes_for :dojobs
   
   validates :title, :presence => true#, :message => ""
   validates :dob, :presence => true
@@ -26,8 +35,6 @@ class Volunteer < ActiveRecord::Base
   validate :over_18
   
 
-  has_many :whiteboards
-  has_many :availabledays
   
   def over_18
     if dob + 18.years >= Date.today
@@ -46,7 +53,7 @@ class Volunteer < ActiveRecord::Base
     (0..31).each do |y|
       t = time + (y * (60*60*24))
       # a bit basic, will need to tie in dates etc
-      d = time.day != t.day ? availabledays.where(
+      d = time.day != t.day ? ondays.where(
                   dayint: t.wday)[0] : nil
       break if !d.nil?
     end

@@ -1,5 +1,5 @@
 class Volscheduler < ActiveRecord::Base
 
 
-  has_many :schedulejobtypes
+  has_many :dojobs
 end

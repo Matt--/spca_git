@@ -75,7 +75,7 @@ Volscheduler.create([{
 }])
 
 
-Schedulejobtype.create([
+Dojob.create([
   { volscheduler_id: 1, job: 'Morning 8-12' },
   { volscheduler_id: 1, job: 'Afternoon 1-5' },
   { volscheduler_id: 1, job: 'Cat walking' },
@@ -84,21 +84,21 @@ Schedulejobtype.create([
   { volscheduler_id: 1, job: 'Cat Admin' }
 ])
 
-Availableday.create([
-  { volunteer_id: 1, day: 'Sun', dayint: 0, schedulejobtype_id: 4 },
-  { volunteer_id: 1, day: 'Mon', dayint: 1, schedulejobtype_id: 4 },
-  { volunteer_id: 1, day: 'Thu', dayint: 4, schedulejobtype_id: 4 },
-  { volunteer_id: 1, day: 'Fri', dayint: 5, schedulejobtype_id: 4 },
-  { volunteer_id: 2, day: 'Mon', dayint: 1, schedulejobtype_id: 3 },
-  { volunteer_id: 2, day: 'Tue', dayint: 2, schedulejobtype_id: 3 },
-  { volunteer_id: 2, day: 'Wed', dayint: 3, schedulejobtype_id: 3 },
-  { volunteer_id: 3, day: 'Mon', dayint: 1, schedulejobtype_id: 2 },
-  { volunteer_id: 3, day: 'Tue', dayint: 2, schedulejobtype_id: 2 },
-  { volunteer_id: 3, day: 'Thu', dayint: 4, schedulejobtype_id: 2 },
-  { volunteer_id: 3, day: 'Sat', dayint: 6, schedulejobtype_id: 2 },
-  { volunteer_id: 4, day: 'Mon', dayint: 1, schedulejobtype_id: 6 },
-  { volunteer_id: 4, day: 'Mon', dayint: 1, schedulejobtype_id: 1 },
-  { volunteer_id: 4, day: 'Wed', dayint: 3, schedulejobtype_id: 1 },
-  { volunteer_id: 4, day: 'Wed', dayint: 3, schedulejobtype_id: 2 },
-  { volunteer_id: 4, day: 'Wed', dayint: 3, schedulejobtype_id: 3 }
+Onday.create([
+  { volunteer_id: 1, day: 'Sun', dayint: 0, dojob_id: 4 },
+  { volunteer_id: 1, day: 'Mon', dayint: 1, dojob_id: 4 },
+  { volunteer_id: 1, day: 'Thu', dayint: 4, dojob_id: 4 },
+  { volunteer_id: 1, day: 'Fri', dayint: 5, dojob_id: 4 },
+  { volunteer_id: 2, day: 'Mon', dayint: 1, dojob_id: 3 },
+  { volunteer_id: 2, day: 'Tue', dayint: 2, dojob_id: 3 },
+  { volunteer_id: 2, day: 'Wed', dayint: 3, dojob_id: 3 },
+  { volunteer_id: 3, day: 'Mon', dayint: 1, dojob_id: 2 },
+  { volunteer_id: 3, day: 'Tue', dayint: 2, dojob_id: 2 },
+  { volunteer_id: 3, day: 'Thu', dayint: 4, dojob_id: 2 },
+  { volunteer_id: 3, day: 'Sat', dayint: 6, dojob_id: 2 },
+  { volunteer_id: 4, day: 'Mon', dayint: 1, dojob_id: 6 },
+  { volunteer_id: 4, day: 'Mon', dayint: 1, dojob_id: 1 },
+  { volunteer_id: 4, day: 'Wed', dayint: 3, dojob_id: 1 },
+  { volunteer_id: 4, day: 'Wed', dayint: 3, dojob_id: 2 },
+  { volunteer_id: 4, day: 'Wed', dayint: 3, dojob_id: 3 }
 ])

@@ -13,13 +13,11 @@
 
 ActiveRecord::Schema.define(:version => 20130906024554) do
 
-  create_table "availabledays", :force => true do |t|
-    t.string   "day"
-    t.integer  "dayint"
-    t.integer  "volunteer_id"
-    t.integer  "schedulejobtype_id"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+  create_table "dojobs", :force => true do |t|
+    t.integer  "volscheduler_id"
+    t.string   "job"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "fosterer2s", :force => true do |t|
@@ -67,11 +65,13 @@ ActiveRecord::Schema.define(:version => 20130906024554) do
     t.string   "personal"
   end
 
-  create_table "schedulejobtypes", :force => true do |t|
-    t.integer  "volscheduler_id"
-    t.string   "job"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+  create_table "ondays", :force => true do |t|
+    t.string   "day"
+    t.integer  "dayint"
+    t.integer  "volunteer_id"
+    t.integer  "dojob_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "volcoordinators", :force => true do |t|

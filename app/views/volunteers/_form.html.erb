@@ -28,21 +28,35 @@
     <%= f.text_field :lastname %>
   </div>
 
-  <div class="field">
-    <%= f.label :days_to_work %><br />
-    <%#= f.text_field :availableday %>
-  </div>
 
-  Job preference<br/>
+<%#### new ################################## %>
+<table>
+  <tr>
+    <th><%= f.label :days_to_work %></th>
+    <th><%= f.label :Job_preference %></th>
+  </tr>
+  <tr>
+    <td>
+    <div class="field">
+      <%= f.fields_for :ondays do |ff| %>
+        <% if !ff.object.day.nil? %>
+          <%= ff.text_field :day %>
+        <% end %>
+      <% end %>
+    </div>
+    </td>
+    <td>    
+      <div class="field">
+       <%= f.fields_for :dojobs do |ff| %>
+          <%= ff.text_field :job %>
+        <% end %>
+      </div>
+    </td>
+  </tr>
+</table>
 
-  <%#= f.collection_select( :schedulejobtype_id,
-                                     Schedulejobtype.all, :id, :job) %><br/>
 
-  <%= @volunteer.firstname %>
-  <%= @volunteer.availabledays %>
-  <%= @availableday.nil? ? 'a nill' : @availableday.volunteer_id %>
 
-  <%#= @availableday.schedulejobtype_id.nil? ? 'nil' : @availableday.schedulejobtype_id %>
 
   <div class="field">
     <%= f.label :address %><br />

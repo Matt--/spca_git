@@ -36,7 +36,7 @@
   </tr>
 
 <%########### Table Content #########%>
-    <% @volscheduler.schedulejobtypes.each do |j| %>
+    <% @volscheduler.dojobs.each do |j| %>
       <tr>
       <td><%= j.job %></td>      
       <% (0..31).each do |c| %>
@@ -44,8 +44,8 @@
         <td>
 
           <% @volunteers.each do |v| %>
-            <% d = v.availabledays.where(
-                  dayint: t.wday, schedulejobtype_id: j.id)[0] %>
+            <% d = v.ondays.where(
+                  dayint: t.wday, dojob_id: j.id)[0] %>
 
             <%= d.nil? ? '' : v.firstname %>   
             

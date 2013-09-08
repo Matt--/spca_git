@@ -25,7 +25,7 @@ class VolunteersController < ApplicationController
   # GET /volunteers/new.json
   def new
     @volunteer = Volunteer.new
-    @availabledays = Availableday.new
+    @onday = Onday.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,8 +36,8 @@ class VolunteersController < ApplicationController
   # GET /volunteers/1/edit
   def edit
     @volunteer = Volunteer.find(params[:id])
-    @availableday = @volunteer.availabledays.build(params[:availableday])
-    @jobtypes = Schedulejobtype.new
+    @onday = @volunteer.ondays.build(params[:availableday])
+    @dojob = Dojob.new
 
   end
 
