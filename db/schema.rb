@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(:version => 20130906024554) do
   create_table "dojobs", :force => true do |t|
     t.integer  "volscheduler_id"
     t.string   "job"
+    t.integer  "dayint"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -66,8 +67,6 @@ ActiveRecord::Schema.define(:version => 20130906024554) do
   end
 
   create_table "ondays", :force => true do |t|
-    t.string   "day"
-    t.integer  "dayint"
     t.integer  "volunteer_id"
     t.integer  "dojob_id"
     t.datetime "created_at",   :null => false

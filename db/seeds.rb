@@ -74,31 +74,64 @@ Volscheduler.create([{
   
 }])
 
-
-Dojob.create([
-  { volscheduler_id: 1, job: 'Morning 8-12' },
-  { volscheduler_id: 1, job: 'Afternoon 1-5' },
-  { volscheduler_id: 1, job: 'Cat walking' },
-  { volscheduler_id: 1, job: 'Cat rescue' },
-  { volscheduler_id: 1, job: 'Cat hugging' },
-  { volscheduler_id: 1, job: 'Cat Admin' }
+Onday.create([
+  { volunteer_id: 1, dojob_id: 1 },
+  { volunteer_id: 1, dojob_id: 2 },
+  { volunteer_id: 1, dojob_id: 5 },
+  { volunteer_id: 1, dojob_id: 6 },
+  { volunteer_id: 2, dojob_id: 6 },
+  { volunteer_id: 2, dojob_id: 8 },
+  { volunteer_id: 2, dojob_id: 12 },
+  { volunteer_id: 3, dojob_id: 11 },
+  { volunteer_id: 3, dojob_id: 15 },
+  { volunteer_id: 3, dojob_id: 16 },
+  { volunteer_id: 3, dojob_id: 17 },
+  { volunteer_id: 4, dojob_id: 18 },
+  { volunteer_id: 4, dojob_id: 19 },
+  { volunteer_id: 4, dojob_id: 20 },
+  { volunteer_id: 4, dojob_id: 22 },
+  { volunteer_id: 4, dojob_id: 23 }
 ])
 
-Onday.create([
-  { volunteer_id: 1, day: 'Sun', dayint: 0, dojob_id: 4 },
-  { volunteer_id: 1, day: 'Mon', dayint: 1, dojob_id: 4 },
-  { volunteer_id: 1, day: 'Thu', dayint: 4, dojob_id: 4 },
-  { volunteer_id: 1, day: 'Fri', dayint: 5, dojob_id: 4 },
-  { volunteer_id: 2, day: 'Mon', dayint: 1, dojob_id: 3 },
-  { volunteer_id: 2, day: 'Tue', dayint: 2, dojob_id: 3 },
-  { volunteer_id: 2, day: 'Wed', dayint: 3, dojob_id: 3 },
-  { volunteer_id: 3, day: 'Mon', dayint: 1, dojob_id: 2 },
-  { volunteer_id: 3, day: 'Tue', dayint: 2, dojob_id: 2 },
-  { volunteer_id: 3, day: 'Thu', dayint: 4, dojob_id: 2 },
-  { volunteer_id: 3, day: 'Sat', dayint: 6, dojob_id: 2 },
-  { volunteer_id: 4, day: 'Mon', dayint: 1, dojob_id: 6 },
-  { volunteer_id: 4, day: 'Mon', dayint: 1, dojob_id: 1 },
-  { volunteer_id: 4, day: 'Wed', dayint: 3, dojob_id: 1 },
-  { volunteer_id: 4, day: 'Wed', dayint: 3, dojob_id: 2 },
-  { volunteer_id: 4, day: 'Wed', dayint: 3, dojob_id: 3 }
+
+
+
+
+Dojob.create([
+  { volscheduler_id: 1, job: 'Morning 8-12', dayint: 1 },
+  { volscheduler_id: 1, job: 'Morning 8-12', dayint: 2 },
+  { volscheduler_id: 1, job: 'Morning 8-12', dayint: 3 },
+  { volscheduler_id: 1, job: 'Morning 8-12', dayint: 4 },
+  { volscheduler_id: 1, job: 'Morning 8-12', dayint: 5 },
+  { volscheduler_id: 1, job: 'Afternoon 1-5', dayint: 1 },
+  { volscheduler_id: 1, job: 'Afternoon 1-5', dayint: 2 },
+  { volscheduler_id: 1, job: 'Afternoon 1-5', dayint: 3 },
+  { volscheduler_id: 1, job: 'Afternoon 1-5', dayint: 4 },
+  { volscheduler_id: 1, job: 'Afternoon 1-5', dayint: 5 },
+  { volscheduler_id: 1, job: 'Cat walking', dayint: 1 },
+  { volscheduler_id: 1, job: 'Cat walking', dayint: 2 },
+  { volscheduler_id: 1, job: 'Cat walking', dayint: 3 },
+  { volscheduler_id: 1, job: 'Cat walking', dayint: 4 },
+  { volscheduler_id: 1, job: 'Cat walking', dayint: 5 },
+  { volscheduler_id: 1, job: 'Cat walking', dayint: 6 },
+  { volscheduler_id: 1, job: 'Cat walking', dayint: 7 },
+  { volscheduler_id: 1, job: 'Cat rescue', dayint: 1 },
+  { volscheduler_id: 1, job: 'Cat rescue', dayint: 2 },
+  { volscheduler_id: 1, job: 'Cat rescue', dayint: 3 },
+  { volscheduler_id: 1, job: 'Cat rescue', dayint: 4 },
+  { volscheduler_id: 1, job: 'Cat rescue', dayint: 5 },
+  { volscheduler_id: 1, job: 'Cat rescue', dayint: 6 },
+  { volscheduler_id: 1, job: 'Cat rescue', dayint: 7 },
+  { volscheduler_id: 1, job: 'Cat hugging', dayint: 1 },
+  { volscheduler_id: 1, job: 'Cat hugging', dayint: 2 },
+  { volscheduler_id: 1, job: 'Cat hugging', dayint: 3 },
+  { volscheduler_id: 1, job: 'Cat hugging', dayint: 4 },
+  { volscheduler_id: 1, job: 'Cat hugging', dayint: 5 },
+  { volscheduler_id: 1, job: 'Cat hugging', dayint: 6 },
+  { volscheduler_id: 1, job: 'Cat hugging', dayint: 7 },
+  { volscheduler_id: 1, job: 'Cat Admin', dayint: 1 },
+  { volscheduler_id: 1, job: 'Cat Admin', dayint: 2 },
+  { volscheduler_id: 1, job: 'Cat Admin', dayint: 3 },
+  { volscheduler_id: 1, job: 'Cat Admin', dayint: 4 },
+  { volscheduler_id: 1, job: 'Cat Admin', dayint: 5 }
 ])

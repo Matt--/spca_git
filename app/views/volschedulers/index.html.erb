@@ -44,8 +44,8 @@
         <td>
 
           <% @volunteers.each do |v| %>
-            <% d = v.ondays.where(
-                  dayint: t.wday, dojob_id: j.id)[0] %>
+            <% d = v.dojobs.where(
+                  dayint: t.wday, id: j.id)[0] %>
 
             <%= d.nil? ? '' : v.firstname %>   
             

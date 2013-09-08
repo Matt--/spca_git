@@ -35,24 +35,25 @@
     <th><%= f.label :days_to_work %></th>
     <th><%= f.label :Job_preference %></th>
   </tr>
-  <tr>
-    <td>
-    <div class="field">
-      <%= f.fields_for :ondays do |ff| %>
-        <% if !ff.object.day.nil? %>
-          <%= ff.text_field :day %>
-        <% end %>
-      <% end %>
-    </div>
-    </td>
-    <td>    
+  <% (1..7).each do |row| %> 
+    <tr>
+      <td>
       <div class="field">
-       <%= f.fields_for :dojobs do |ff| %>
-          <%= ff.text_field :job %>
-        <% end %>
+        <%= ['Monday', 'Tuesday', 'Wednesday', 'Thursday',
+                                    'Friday', 'Saturday', 'Sunday'][row-1] %>
       </div>
-    </td>
-  </tr>
+      </td>
+      <td>    
+        <div class="field">
+          <%= f.fields_for :dojobs do |ff| %>
+            <% if (ff.object.dayint == row) %>
+              <%= ff.text_field :job %>
+            <% end %>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
 </table>
 
 

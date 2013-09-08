@@ -1,5 +1,5 @@
 class Onday < ActiveRecord::Base
-  attr_accessible :day, :dayint, :dojob_id, :volunteer_id,
+  attr_accessible :dojob_id, :volunteer_id,
                   :dojob_attributes
 
   belongs_to :dojob
