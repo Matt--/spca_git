@@ -102,7 +102,7 @@ Onday.create([
   { volunteer_id: 4, dojob_id: 43 },
   { volunteer_id: 4, dojob_id: 43 },
   { volunteer_id: 4, dojob_id: 43 },
-  { volunteer_id: 4, dojob_id: 44 },
+  { volunteer_id: 4, dojob_id: 7 },
   { volunteer_id: 5, dojob_id: 1 },
   { volunteer_id: 5, dojob_id: 2 },
   { volunteer_id: 5, dojob_id: 3 },
@@ -126,13 +126,13 @@ Jobdescription.create([
 
 
 Dojob.create([
-  { volscheduler_id: 1, jobdescription_id: 0, dayint: 1 },
-  { volscheduler_id: 1, jobdescription_id: 0, dayint: 2 },
-  { volscheduler_id: 1, jobdescription_id: 0, dayint: 3 },
-  { volscheduler_id: 1, jobdescription_id: 0, dayint: 4 },
-  { volscheduler_id: 1, jobdescription_id: 0, dayint: 5 },
-  { volscheduler_id: 1, jobdescription_id: 0, dayint: 6 },
-  { volscheduler_id: 1, jobdescription_id: 0, dayint: 7 },
+  { volscheduler_id: 1, jobdescription_id: 1, dayint: 1 },
+  { volscheduler_id: 1, jobdescription_id: 1, dayint: 2 },
+  { volscheduler_id: 1, jobdescription_id: 1, dayint: 3 },
+  { volscheduler_id: 1, jobdescription_id: 1, dayint: 4 },
+  { volscheduler_id: 1, jobdescription_id: 1, dayint: 5 },
+  { volscheduler_id: 1, jobdescription_id: 1, dayint: 6 },
+  { volscheduler_id: 1, jobdescription_id: 1, dayint: 7 },
   { volscheduler_id: 1, jobdescription_id: 2, dayint: 1 },
   { volscheduler_id: 1, jobdescription_id: 2, dayint: 2 },
   { volscheduler_id: 1, jobdescription_id: 2, dayint: 3 },
@@ -168,5 +168,5 @@ Dojob.create([
   { volscheduler_id: 1, jobdescription_id: 7, dayint: 2 },
   { volscheduler_id: 1, jobdescription_id: 7, dayint: 3 },
   { volscheduler_id: 1, jobdescription_id: 7, dayint: 4 },
-  { volscheduler_id: 1, jobdescription_id: 7, dayint: 5 },
+  { volscheduler_id: 1, jobdescription_id: 7, dayint: 5 }
 ])

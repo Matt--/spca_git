@@ -21,6 +21,8 @@ class Dojob < ActiveRecord::Base
   end
 
   def name=(n)
+    puts "###################################################"
+    puts "############### here"
     jobdescription.name = n
   end
 

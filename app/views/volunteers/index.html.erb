@@ -15,12 +15,12 @@
 
 <% @volunteers.each do |volunteer| %>
   <tr>
-    <% j = volunteer.next_working %>
+    <% job = volunteer.next_working %>
     <td><%= volunteer.firstname %></td>
     <td><%= volunteer.lastname %></td>
-    <td><%= j.nil? ? 'no' : j.day %></td>
-<%= j %>
-    <td><%#= j.nil? ? 'no' : j.name %></td>
+    <td><%= (job.nil? or job.name == "none") ? 'no' : job.day %></td>
+
+    <td><%= (job.nil? or job.name == "none") ? 'no' : job.name %></td>
     <td><%= link_to 'Show', volunteer %></td>
     <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %></td>
     <td><%= link_to 'Destroy', volunteer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
