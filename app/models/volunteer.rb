@@ -48,16 +48,16 @@ class Volunteer < ActiveRecord::Base
 
   # returns availabledays object
   def next_working
-    d = nil
+    j = nil
     time = Time.now
     (0..31).each do |y|
       t = time + (y * (60*60*24))
       # a bit basic, will need to tie in dates etc
-      d = time.day != t.day ? ondays.where(
-                  dayint: t.wday)[0] : nil
-      break if !d.nil?
+      j = (time.day != t.day) ? dojobs.where(
+                  dayint: (t.wday))[0] : nil
+      break if !j.nil?
     end
-    return d
+    return j
   end
 
   after_save :send_confirmation_email

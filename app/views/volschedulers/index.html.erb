@@ -36,25 +36,30 @@
   </tr>
 
 <%########### Table Content #########%>
-    <% @volscheduler.dojobs.each do |j| %>
-      <tr>
-      <td><%= j.job %></td>      
-      <% (0..31).each do |c| %>
-        <% t = time + (c * (60*60*24)) %>
-        <td>
+  <% jd = Jobdescription.all %>
+  <% (1..jd.length-1).each do |i| %>
+  <tr>
+    <td><%= jd[i].name %></td>
+    <% (0..31).each do |c| %>
+      <% t = time + (c * (60*60*24)) %>
+    <td>
+      <% @volunteers.each do |v| %>
+        <%##### t.wday starts at 0=>Sunday, dayint starts at 1=>Monday ###%>
+        <% d = (t.wday == 0) ?
+          v.dojobs.where(
+              dayint: 7, jobdescription_id: jd[i].id )[0] :
+          v.dojobs.where(
+              dayint: t.wday, jobdescription_id: jd[i].id )[0] %>
 
-          <% @volunteers.each do |v| %>
-            <% d = v.dojobs.where(
-                  dayint: t.wday, id: j.id)[0] %>
 
-            <%= d.nil? ? '' : v.firstname %>   
+         <%= d.nil? ? '' : v.firstname %>   
             
-          <% end  %>
-
-        </td>
-      <% end %>
-      </tr>
+      <% end  %>
+    </td>
     <% end %>
+  </tr>
+
+  <% end %>
 
 </table>
 

@@ -41,11 +41,11 @@
 </p>
 
 <p>
-  <%# d = @volunteer.next_working %>
+  <% j = @volunteer.next_working %>
   <b>Next working:</b>
-  <%#= d.nil? ? '' : d.day %>
+  <%= j.nil? ? '' : j.day %>
   <b>in job:</b>
-  <%#= d.nil? ? '' : d.dojob.job %>
+  <%#= j.nil? ? '' : j.name %>
 </p>
 
 <p>

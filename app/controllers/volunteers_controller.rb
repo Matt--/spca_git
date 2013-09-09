@@ -25,7 +25,7 @@ class VolunteersController < ApplicationController
   # GET /volunteers/new.json
   def new
     @volunteer = Volunteer.new
-    @onday = Onday.new
+#    @onday = Onday.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,7 +45,7 @@ class VolunteersController < ApplicationController
   # POST /volunteers.json
   def create
     @volunteer = Volunteer.new(params[:volunteer])
-    @availableday = @volunteer.availabledays.build(params[:availableday])
+#    @availableday = @volunteer.availabledays.build(params[:availableday])
 
     respond_to do |format|
       if @volunteer.save

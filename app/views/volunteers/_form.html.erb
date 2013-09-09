@@ -35,7 +35,8 @@
     <th><%= f.label :days_to_work %></th>
     <th><%= f.label :Job_preference %></th>
   </tr>
-  <% (1..7).each do |row| %> 
+  <% row = 1 %>
+  <%= f.fields_for :dojobs do |ff| %>
     <tr>
       <td>
       <div class="field">
@@ -45,14 +46,12 @@
       </td>
       <td>    
         <div class="field">
-          <%= f.fields_for :dojobs do |ff| %>
-            <% if (ff.object.dayint == row) %>
-              <%= ff.text_field :job %>
-            <% end %>
-          <% end %>
+          <%= ff.collection_select(:jobdescription_id, Jobdescription.all,
+                         :id, :name) %>
         </div>
       </td>
     </tr>
+    <% row = row+1 %>
   <% end %>
 </table>
 
