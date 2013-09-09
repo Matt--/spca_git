@@ -1,3 +1,6 @@
+
+
+
 <%= form_for(@volunteer) do |f| %>
   <% if @volunteer.errors.any? %>
     <div id="error_explanation">
@@ -47,6 +50,14 @@
     <%= f.label :background %><br />
     <%= f.text_area :background %>
   </div>
+  
+  <div class="field">
+   <h5><%= f.label "Do you want be a fosterer?" %>
+   <%= f.check_box :befosterer, {checked_value: "false", unchecked_value: "true"} %></h2>
+  </div>
+  
+  
+  
   <div class="actions">
     <%= f.submit %>
   </div>

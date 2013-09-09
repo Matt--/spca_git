@@ -7,9 +7,10 @@ class CreateVolunteers < ActiveRecord::Migration
       t.string :lastname
       t.text :address
       t.string :email
-      t.string :mobile
+      t.string :moblie
       t.string :home
       t.text :background
+      t.boolean :befosterer
 
       t.timestamps
     end

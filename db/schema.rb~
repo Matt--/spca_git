@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(:version => 20130905030755) do
   end
 
   create_table "fosterers", :force => true do |t|
-    t.string   "personal2"
+    t.string   "motivation"
     t.boolean  "catnursing"
     t.boolean  "catfeeding"
     t.boolean  "catbottlefeed"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(:version => 20130905030755) do
     t.boolean  "birdsinjured"
     t.boolean  "birdstoung"
     t.boolean  "livestock"
+    t.integer  "volunteer_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
     t.string   "personal"
@@ -76,6 +77,7 @@ ActiveRecord::Schema.define(:version => 20130905030755) do
     t.string   "moblie"
     t.string   "home"
     t.text     "background"
+    t.boolean  "befosterer"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

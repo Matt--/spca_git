@@ -204,7 +204,7 @@
   
   <div class="field">
       <h5> Why do you want to foster animals?</h5>
-    <%= f.text_area :personal2,:rows=>"10", :cols=>"45" %>
+    <%= f.text_area :motivation,:rows=>"10", :cols=>"45" %>
    </div>
   <br/>
   
@@ -246,6 +246,11 @@
    
   
   <br />
+
+  <div class="actions">
+
+	    <%= f.submit %>
+	  </div>
 
 
 </div>

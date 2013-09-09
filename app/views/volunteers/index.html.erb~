@@ -28,7 +28,7 @@
     <td><%= link_to 'Destroy', volunteer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     
     
-    <% if volunteer.befosterer==true %>
+        <% if volunteer.befosterer==true %>
         <td><%= link_to 'Fosterer form', new_fosterer_path%></td>
     <% end %>
     
