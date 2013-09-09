@@ -11,7 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130906024554) do
+ActiveRecord::Schema.define(:version => 20130906024557) do
+
+  create_table "availabledays", :force => true do |t|
+    t.string   "day"
+    t.integer  "dayint"
+    t.integer  "volunteer_id"
+    t.integer  "schedulejobtype_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "dojobs", :force => true do |t|
     t.integer  "volscheduler_id"
@@ -71,6 +80,13 @@ ActiveRecord::Schema.define(:version => 20130906024554) do
     t.integer  "dojob_id"
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
+  end
+
+  create_table "schedulejobtypes", :force => true do |t|
+    t.integer  "volscheduler_id"
+    t.string   "job"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "volcoordinators", :force => true do |t|

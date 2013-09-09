@@ -5,13 +5,12 @@
 <br />
 <h1>SPCA Volunteer Portal</h1>
 
-
-<%= image_tag 'Volunteer.png' %>
+<%= link_to image_tag("Volunteer.png", :border=>0), volunteers_path %>
 <br/>
 <%= link_to "Volunteers", volunteers_path %>
 
 <br /><br/><br/>
-<%= image_tag 'Fosterer.png' %>
+<%= link_to image_tag("Fosterer.png", :border=>0), '/fosterers' %>
 <br/>
 
 <%= link_to "Fosterers", '/fosterers' %>
