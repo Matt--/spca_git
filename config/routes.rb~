@@ -1,9 +1,25 @@
 SPCA::Application.routes.draw do
 
+<<<<<<< HEAD
+  get "help/volunteer"
+
+  get "help/foster"
+
+  get "help/coordinator"
+
   resources :fosterers
+=======
+>>>>>>> cc2a23d7841633a24a15568e6fa4cee931f699b5
 
 
-  get "fosterer/index"
+  resources :volschedulers
+
+
+  resources :fosterer2s
+
+
+#  get "fosterer/index"
+  resources :fosterers
 
   resources :notepads
 
@@ -11,10 +27,10 @@ SPCA::Application.routes.draw do
   resources :volunteers do
     resources :whiteboards
   end
-
+  resources :whiteboards
   resources :volcoordinators
 
-  get "home/index"
+#  get "home/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

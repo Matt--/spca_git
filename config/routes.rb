@@ -1,5 +1,10 @@
 SPCA::Application.routes.draw do
 
+  get "help/volunteer"
+
+  get "help/foster"
+
+  get "help/coordinator"
 
 
   resources :volschedulers
