@@ -1,0 +1,68 @@
+<h1>Volunteer Scheduler for the Cat Department</h1>
+
+<%########### variables #########%>
+<% time = Time.now %>
+
+<%########### Table Header #########%>
+<table id="volschedule_table">
+  <tr>
+    <th class='volschedule_col'></th>
+    <th class='volschedule_col'>
+                            <%= I18n.t("date.month_names")[time.month] %></th>
+  <% (1..31).each do |c| %>
+    <% t = time + (c * (60*60*24)) %>
+    <% if(t.day == 1) %>
+      <th class='volschedule_col'>
+                            <%= I18n.t("date.month_names")[t.month] %></th>
+    <% else %>
+      <th class='volschedule_col'></th>
+    <% end %>
+  <% end %>
+  </tr>
+
+  <tr>
+    <th>Job</th>
+  <% (0..31).each do |c| %>
+    <% t = time + (c * (60*60*24)) %>
+
+    <% if (t.wday > 0 && t.wday <= 5) %>
+      <th class='weekday'>
+      <%= t.day %>
+      </th>
+    <% else %>
+      <th><%= t.day %></th>
+    <% end %>
+  <% end %>
+  </tr>
+
+<%########### Table Content #########%>
+    <% @volscheduler.dojobs.each do |j| %>
+      <tr>
+      <td><%= j.job %></td>      
+      <% (0..31).each do |c| %>
+        <% t = time + (c * (60*60*24)) %>
+        <td>
+
+          <% @volunteers.each do |v| %>
+            <% d = v.dojobs.where(
+                  dayint: t.wday, id: j.id)[0] %>
+
+            <%= d.nil? ? '' : v.firstname %>   
+            
+          <% end  %>
+
+        </td>
+      <% end %>
+      </tr>
+    <% end %>
+
+</table>
+
+
+
+
+
+
+<br/><br/><br/><br/><br/>
+<h3> Code to add and remove jobs from the list </h3>
+

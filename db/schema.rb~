@@ -11,58 +11,95 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130826023518) do
+ActiveRecord::Schema.define(:version => 20130906024557) do
 
-<<<<<<< HEAD
-=======
-  create_table "fosterers", :force => true do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "unitNumber"
-    t.string   "streetNumber"
-    t.string   "street"
-    t.string   "suburb"
-    t.string   "city"
-    t.string   "zipCode"
-    t.string   "email"
-    t.string   "homecontact"
-    t.string   "mobilecontact"
-    t.string   "workcontact"
-    t.string   "theirname"
-    t.string   "homecontact2"
-    t.string   "mobilecontact2"
-    t.string   "workcontact2"
-    t.string   "relationship"
-    t.string   "kitcat"
-    t.string   "p1"
-    t.string   "p2"
-    t.string   "p31"
-    t.string   "p32"
-    t.string   "p33"
-    t.string   "p34"
-    t.string   "p35"
-    t.string   "p36"
-    t.string   "p4"
-    t.integer  "p51"
-    t.integer  "p52"
-    t.integer  "p53"
-    t.string   "personal1"
-    t.string   "personal1if"
-    t.string   "personal2"
-    t.string   "personal3"
-    t.string   "personal4"
-    t.string   "personal5"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+  create_table "availabledays", :force => true do |t|
+    t.string   "day"
+    t.integer  "dayint"
+    t.integer  "volunteer_id"
+    t.integer  "schedulejobtype_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
->>>>>>> 10be292dce8ae10d062818e6275f5d923b30f770
+  create_table "dojobs", :force => true do |t|
+    t.integer  "volscheduler_id"
+    t.string   "job"
+    t.integer  "dayint"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "fosterer2s", :force => true do |t|
+    t.string   "ownhome"
+    t.string   "inspecting"
+    t.string   "rooms"
+    t.string   "roomwarm"
+    t.string   "hutch"
+    t.string   "rabbithutch"
+    t.string   "aviary"
+    t.string   "livestockfenced"
+    t.text     "homedesc"
+    t.integer  "numadulta"
+    t.integer  "numchild"
+    t.string   "ages"
+    t.integer  "numhoursperday"
+    t.string   "worktype"
+    t.text     "secondperson"
+    t.string   "allmembersagree"
+    t.string   "bringcentre"
+    t.text     "transportdesc"
+    t.boolean  "agreement"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "fosterers", :force => true do |t|
+    t.string   "personal2"
+    t.boolean  "catnursing"
+    t.boolean  "catfeeding"
+    t.boolean  "catbottlefeed"
+    t.boolean  "catinjured"
+    t.boolean  "dognursing"
+    t.boolean  "dogfeeding"
+    t.boolean  "dogbottlefeed"
+    t.boolean  "doginjured"
+    t.boolean  "rabgui"
+    t.boolean  "hedgehoginjured"
+    t.boolean  "hedgehogbottle"
+    t.boolean  "birdsinjured"
+    t.boolean  "birdstoung"
+    t.boolean  "livestock"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+    t.string   "personal"
+  end
+
+  create_table "ondays", :force => true do |t|
+    t.integer  "volunteer_id"
+    t.integer  "dojob_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "schedulejobtypes", :force => true do |t|
+    t.integer  "volscheduler_id"
+    t.string   "job"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "volcoordinators", :force => true do |t|
     t.string   "email_replyto"
     t.string   "email_header"
     t.string   "email_content"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "volschedulers", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "volunteers", :force => true do |t|

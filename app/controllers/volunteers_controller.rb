@@ -25,6 +25,7 @@ class VolunteersController < ApplicationController
   # GET /volunteers/new.json
   def new
     @volunteer = Volunteer.new
+    @onday = Onday.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,12 +36,16 @@ class VolunteersController < ApplicationController
   # GET /volunteers/1/edit
   def edit
     @volunteer = Volunteer.find(params[:id])
+    @onday = @volunteer.ondays.build(params[:availableday])
+    @dojob = Dojob.new
+
   end
 
   # POST /volunteers
   # POST /volunteers.json
   def create
     @volunteer = Volunteer.new(params[:volunteer])
+    @availableday = @volunteer.availabledays.build(params[:availableday])
 
     respond_to do |format|
       if @volunteer.save

@@ -1,0 +1,21 @@
+<%= form_for(@volscheduler) do |f| %>
+  <% if @volscheduler.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@volscheduler.errors.count, "error") %> prohibited this volscheduler from being saved:</h2>
+
+      <ul>
+      <% @volscheduler.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :job %><br />
+    <%= f.text_field :job %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

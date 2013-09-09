@@ -1,10 +1,20 @@
 require 'net/smtp'
-
-
-
 class Volunteer < ActiveRecord::Base
 
-  attr_accessible :address, :background, :dob, :email, :firstname, :home, :lastname, :moblie, :title
+  attr_accessible :address, :background, :dob, :email, :firstname, :home, 
+            :lastname, :moblie, :title,
+            :ondays_attributes, :dojobs_attributes
+
+  has_many :whiteboards
+
+  has_many :ondays
+  has_many :dojobs,
+           :through => :ondays
+
+  accepts_nested_attributes_for :ondays,
+       #    :reject_if => :all_blank,
+           :allow_destroy => true
+  accepts_nested_attributes_for :dojobs
   
   validates :title, :presence => true#, :message => ""
   validates :dob, :presence => true
@@ -25,7 +35,6 @@ class Volunteer < ActiveRecord::Base
   validate :over_18
   
 
-  has_many :whiteboards
   
   def over_18
     if dob + 18.years >= Date.today
@@ -33,7 +42,23 @@ class Volunteer < ActiveRecord::Base
     end
   end
 
+  def test_email_confirmation_message
+    return send_confirmation_email
+  end
 
+  # returns availabledays object
+  def next_working
+    d = nil
+    time = Time.now
+    (0..31).each do |y|
+      t = time + (y * (60*60*24))
+      # a bit basic, will need to tie in dates etc
+      d = time.day != t.day ? ondays.where(
+                  dayint: t.wday)[0] : nil
+      break if !d.nil?
+    end
+    return d
+  end
 
   after_save :send_confirmation_email
   # precondition: after_save callback only triggers on a successfull save
@@ -42,27 +67,29 @@ class Volunteer < ActiveRecord::Base
     vc = Volcoordinator.find(:first)
 
     message = <<-MESSAGE_END
-    From: #{vc.email_replyto}
-    To: #{email}
-    Subject: #{vc.email_header}
+    From: #{defined?(vc.email_replyto).nil? ? 'test from' : vc.email_replyto }
+    To: #{email.nil? ? 'test to' : email}
+    Subject: #{defined?(vc.email_header).nil? ? 'test header' : vc.email_header}
 
-    #{vc.email_content}
+    #{defined?(vc.email_content).nil? ? 'test content' : vc.email_content}
     
     MESSAGE_END
 
-    Net::SMTP.start('mail.ecs.vuw.ac.nz',
-                     587,
-                    'localhost',
-                    'stevenmatt3', 'password', :plain ) do |smtp|
-      smtp.send_message message, vc.email_replyto,
-                                 'stevenmatt3@myvuw.ac.nz',
-                                 'test@gmail.com'
+ #   Net::SMTP.start('mail.ecs.vuw.ac.nz',
+ #                    587,
+ #                   'localhost',
+ #                   'stevenmatt3', 'password', :plain ) do |smtp|
+ #     smtp.send_message message, vc.email_replyto,
+ #                                'stevenmatt3@myvuw.ac.nz',
+ #                                'test@gmail.com'
+
 
     # puts an email sent message on the server terminal
     puts "\n******************************************"
     puts "************* email sent"
     puts message
-                      
-    end
+
+    return message # used in test
+#    end
   end
 end

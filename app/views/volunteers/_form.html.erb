@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :dob %><br />
-    <%= f.date_select :dob %>
+    <%= f.date_select :dob, :start_year => 1930, :end_year => 1999 %>
   </div>
   <div class="field">
     <%= f.label :firstname %><br />
@@ -27,6 +27,38 @@
     <%= f.label :lastname %><br />
     <%= f.text_field :lastname %>
   </div>
+
+
+<%#### new ################################## %>
+<table>
+  <tr>
+    <th><%= f.label :days_to_work %></th>
+    <th><%= f.label :Job_preference %></th>
+  </tr>
+  <% (1..7).each do |row| %> 
+    <tr>
+      <td>
+      <div class="field">
+        <%= ['Monday', 'Tuesday', 'Wednesday', 'Thursday',
+                                    'Friday', 'Saturday', 'Sunday'][row-1] %>
+      </div>
+      </td>
+      <td>    
+        <div class="field">
+          <%= f.fields_for :dojobs do |ff| %>
+            <% if (ff.object.dayint == row) %>
+              <%= ff.text_field :job %>
+            <% end %>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+
+
+
   <div class="field">
     <%= f.label :address %><br />
     <%= f.text_area :address %>

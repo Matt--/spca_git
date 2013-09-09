@@ -1,0 +1,40 @@
+// Place all the styles related to the fosterer2s controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+  
+  
+  
+  
+  
+  #main-container{
+    position: absolute;
+    top: 25%;
+    left: 15%;
+  }
+  
+  
+  #PropertyBox{
+    position :absolute;
+    top: 20px;
+    left: 00px;  
+  }
+  
+  #TimeCommitmentBox{
+    position :absolute;
+    top: 20px;
+    left: 550px;  
+  }
+  
+  
+  
+  
+  
+  #TermsAndConditionsBox{
+    position :absolute;
+    top: 1000px;
+    left: 100px;  
+  }
+  /*
+   Non resizeable textarea
+   */
+  textarea { resize: none; }
