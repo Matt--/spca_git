@@ -2,14 +2,14 @@
 
 <h1>Listing volunteers</h1>
 
-
-
-
+ 
 <table>
   <tr>
     <th>Firstname</th>
     <th>Lastname</th>
     <th>Be a Fosterer</th>
+    <th>Next Working</th>
+    <th>in job</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,18 +17,22 @@
 
 <% @volunteers.each do |volunteer| %>
   <tr>
+    <% job = volunteer.next_working %>
     <td><%= volunteer.firstname %></td>
     <td><%= volunteer.lastname %></td>
     <td><%= volunteer.befosterer%></td>
    
     
     
+    <td><%= (job.nil? or job.name == "none") ? 'no' : job.day %></td>
+
+    <td><%= (job.nil? or job.name == "none") ? 'no' : job.name %></td>
     <td><%= link_to 'Show', volunteer %></td>
     <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %></td>
     <td><%= link_to 'Destroy', volunteer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     
     
-        <% if volunteer.befosterer==true %>
+    <% if volunteer.befosterer==true %>
         <td><%= link_to 'Fosterer form', new_fosterer_path%></td>
     <% end %>
     
@@ -39,3 +43,4 @@
 <br />
 
 <%= link_to 'New Volunteer', new_volunteer_path %>
+<%= link_to "Home", root_path %>

@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130905030755) do
+ActiveRecord::Schema.define(:version => 20130909023716) do
+
+  create_table "availabledays", :force => true do |t|
+    t.string   "day"
+    t.integer  "dayint"
+    t.integer  "volunteer_id"
+    t.integer  "schedulejobtype_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "dojobs", :force => true do |t|
+    t.integer  "volscheduler_id"
+    t.integer  "dayint"
+    t.integer  "jobdescription_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
   create_table "fosterer2s", :force => true do |t|
     t.string   "ownhome"
@@ -59,12 +76,30 @@ ActiveRecord::Schema.define(:version => 20130905030755) do
     t.string   "personal"
   end
 
+  create_table "jobdescriptions", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "ondays", :force => true do |t|
+    t.integer  "volunteer_id"
+    t.integer  "dojob_id"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
   create_table "volcoordinators", :force => true do |t|
     t.string   "email_replyto"
     t.string   "email_header"
     t.string   "email_content"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+  end
+
+  create_table "volschedulers", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "volunteers", :force => true do |t|
@@ -78,8 +113,9 @@ ActiveRecord::Schema.define(:version => 20130905030755) do
     t.string   "home"
     t.text     "background"
     t.boolean  "befosterer"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "scheduledjobtype_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   create_table "whiteboards", :force => true do |t|

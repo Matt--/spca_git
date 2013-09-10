@@ -30,6 +30,37 @@
     <%= f.label :lastname %><br />
     <%= f.text_field :lastname %>
   </div>
+
+
+<%#### new ################################## %>
+<table>
+  <tr>
+    <th><%= f.label :days_to_work %></th>
+    <th><%= f.label :Job_preference %></th>
+  </tr>
+  <% row = 1 %>
+  <%= f.fields_for :dojobs do |ff| %>
+    <tr>
+      <td>
+      <div class="field">
+        <%= ['Monday', 'Tuesday', 'Wednesday', 'Thursday',
+                                    'Friday', 'Saturday', 'Sunday'][row-1] %>
+      </div>
+      </td>
+      <td>    
+        <div class="field">
+          <%= ff.collection_select(:jobdescription_id, Jobdescription.all,
+                         :id, :name) %>
+        </div>
+      </td>
+    </tr>
+    <% row = row+1 %>
+  <% end %>
+</table>
+
+
+
+
   <div class="field">
     <%= f.label :address %><br />
     <%= f.text_area :address %>
@@ -62,3 +93,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+<%= link_to 'Help', help_volunteer_path %> |

@@ -11,3 +11,33 @@
  *= require_self
  *= require_tree .
  */
+body {
+  background-color: #999999;
+  font-family: Tahoma, Geneva, sans-serif;
+  color: #030303;
+  text-align: center;
+  margin: 1em 0 0 0;
+  vertical-align: middle; 
+}
+.rangaWrapper{
+  width: 885px;
+  height: 100%;
+  text-align: left;
+  margin: 0 auto;
+  background-color: #007ac3;
+}
+.logo {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.rangaContent {
+  height: 100%;
+  background-color: #ffffff;
+}
+.railsWrapper {
+  padding-left:20px;
+  padding-bottom:20px;
+}
