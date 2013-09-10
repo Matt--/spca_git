@@ -38,6 +38,7 @@ class Volunteer < ActiveRecord::Base
   
 
   has_many :whiteboards
+  
   has_one :fosterer
   
   def over_18

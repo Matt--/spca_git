@@ -15,11 +15,12 @@
   <tr>
     <% if !v.fosterer.nil? %>
       <td><%= v.firstname %> <%= v.lastname %></td>
+      <td><%= link_to 'Show', fosterers_path %></td>
+      <td><%= link_to 'Edit', edit_fosterer_path(fosterers_path) %></td>
+      <td><%= link_to 'Destroy', fosterers_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
     
-    <td><%= link_to 'Show', fosterers_path %></td>
-    <td><%= link_to 'Edit', edit_fosterer_path(fosterers_path) %></td>
-    <td><%= link_to 'Destroy', fosterers_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+   
     
   </tr>
 <% end %>
@@ -27,5 +28,4 @@
 
 <br />
 
-
-<%= link_to 'New Fosterer', new_fosterer_path %> <%= link_to "Home", root_path %>
+ <%= link_to "Home", root_path %>

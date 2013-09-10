@@ -25,6 +25,7 @@ class FosterersController < ApplicationController
   # GET /fosterers/new.json
   def new
     @fosterer = Fosterer.new
+#     @fosterer = Fosterer.find_by_volunteer_id(params[:vol])
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @fosterer }
