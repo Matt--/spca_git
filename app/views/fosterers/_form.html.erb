@@ -1,11 +1,23 @@
 <link rel='stylesheet' href='/u/students/maddahhami/rails3/SPCA/app/assets/stylesheets/fosterers.css.scss'>
 
+<%= 'Hello' %>
+<%= @fosterer.volunteer_id %><br/>
+
+<% volunteer = Volunteer.find(@fosterer.volunteer_id) %>
+
+<%#= volunteer.firstname %>
 
 <%#= @newfosterer.firstname %>
 
 
 
 <%= form_for(@fosterer) do |f| %>
+  <%= f.hidden_field :volunteer_id, :value => @fosterer.volunteer_id %>
+  <%# f.object.volunteer_id = volunteer.id %>
+  <%# f.object.save %>
+  <%= 'again' %>
+  <%= @fosterer.volunteer.firstname %>
+  
   <% if @fosterer.errors.any? %>
   
   

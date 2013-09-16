@@ -4,6 +4,7 @@
 <table>
   <tr>
     <th>Fosterer Name</th>
+<!--     <th>ID </th> -->
     <th></th>
     <th></th>
     <th></th>
@@ -14,6 +15,10 @@
 <% @volunteers.each do |v| %>
   <tr>
     <% if !v.fosterer.nil? %>
+    <%#= @fosterer = Fosterer.find(5)%>
+    <%#= link_to "Fosterer Record", fosterer_path(@fosterer) %>
+    
+<!--       <td><%#= @fosterer.volunteer_ID %></td> -->
       <td><%= v.firstname %> <%= v.lastname %></td>
       <td><%= link_to 'Show', fosterers_path %></td>
       <td><%= link_to 'Edit', edit_fosterer_path(fosterers_path) %></td>

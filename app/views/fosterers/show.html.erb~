@@ -5,8 +5,22 @@
 
 <p>
   <b>ID:</b>
-  <%#= @fosterer.volunteer_id.nil? ? "no id set" : @fosterer.volunteer_id %>
-</p>
+  <%= 'hello' %>
+  <%#= @fosterer.volunteer_id %>
+
+  
+  
+  
+  <%if !@volunteer.@fosterer.nil?%>
+	<%= 'Here' %>
+  <%end%>
+      
+      
+      
+  <%= @fosterer.volunteer_id.nil? ? "No ID" : @fosterer.volunteer_id %>
+<!--  <%#= @fosterer = Fosterer.find(5)%>
+  <%#= link_to "Fosterer Record", fosterer_path(@fosterer) %>-->
+  </p>
 
 <p>
   <b>Motivation:</b>

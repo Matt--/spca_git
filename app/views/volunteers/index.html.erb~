@@ -25,8 +25,8 @@
     
     <td>
      <%if !volunteer.fosterer.nil?%>
-	<%= link_to 'Become fosterer', new_fosterer_path %>
-      <%else%>
+        <%= link_to 'Become fosterer', {:controller => '/fosterers', :action => 'new', :volunteer_id => volunteer.id} %>
+     <%else%>
 	<%= link_to 'Details', fosterers_path %>
       <%end%>
   

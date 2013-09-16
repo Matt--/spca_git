@@ -3,7 +3,7 @@ class Volunteer < ActiveRecord::Base
 
   attr_accessible :address, :background, :dob, :email, :firstname, :home, 
             :lastname, :moblie, :title,
-            :ondays_attributes, :dojobs_attributes
+            :ondays_attributes, :dojobs_attributes, :id
 
   has_many :whiteboards
 
@@ -39,7 +39,10 @@ class Volunteer < ActiveRecord::Base
 
   has_many :whiteboards
   
+  
+  
   has_one :fosterer
+  accepts_nested_attributes_for :fosterer
   
   def over_18
     if dob + 18.years >= Date.today

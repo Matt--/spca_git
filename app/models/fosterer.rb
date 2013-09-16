@@ -5,5 +5,6 @@ class Fosterer < ActiveRecord::Base
 		:volunteer_id
       
   belongs_to :volunteer
-  has_one :fosterer2
+#   has_one :fosterer2
+#   accepts_nested_attributes_for :volunteer
 end
