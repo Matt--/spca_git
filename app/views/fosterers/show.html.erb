@@ -5,13 +5,18 @@
 
 <p>
   <b>ID:</b>
-  <%= 'hello' %>
-  <%#= @fosterer.volunteer_id %>
 
   <%= @fosterer.volunteer_id.nil? ? "No ID" : @fosterer.volunteer_id %>
 <!--  <%#= @fosterer = Fosterer.find(5)%>
   <%#= link_to "Fosterer Record", fosterer_path(@fosterer) %>-->
+  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+  <b>First Name:</b>
+  <%= @fosterer.volunteer.firstname %>
+  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+  <b>Last Name:</b>
+  <%= @fosterer.volunteer.lastname %>
   </p>
+  </br>
 
 <p>
   <b>Motivation:</b>
