@@ -14,17 +14,18 @@
 <% @volunteers.each do |v| %>
   <tr>
   
-  <% if !v.fosterer2.nil? %>  
+    <% if !v.fosterer2.nil? %>  
   
 
-    <td><%= v.firstname %> <%= v.lastname %></td>
-    <td><%= link_to 'Show', v.fosterer2 %></td>
-    <td><%= link_to 'Edit', edit_fosterer2_path(v.fosterer2) %></td>
-    <td><%= link_to 'Destroy', v.fosterer2, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+      <td><%= v.firstname %> <%= v.lastname %></td>
+      <td><%= link_to 'Show', v.fosterer2 %></td>
+      <td><%= link_to 'Edit', edit_fosterer2_path(v.fosterer2) %></td>
+      <td><%= link_to 'Destroy', v.fosterer2, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
 <% end %>
 </table>
-<%end%>
+
 <br />
 
 <%= link_to "Home", root_path %>

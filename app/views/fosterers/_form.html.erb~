@@ -248,11 +248,16 @@
   <br />
 
   <div class="actions">
-
 	    <%= f.submit "Submit"%>
 	  </div>
 
+<div>
 
+
+	<%= link_to 'Second Page', {:controller => '/fosterer2s', :action => 'new', :volunteer_id => @volunteer.id} %>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+</div>
 </div>
 
 
