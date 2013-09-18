@@ -3,7 +3,8 @@ class Fosterer2sController < ApplicationController
   # GET /fosterer2s.json
   def index
     @fosterer2s = Fosterer2.all
-
+    @volunteers=Volunteer.all
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @fosterer2s }
@@ -25,7 +26,7 @@ class Fosterer2sController < ApplicationController
   # GET /fosterer2s/new.json
   def new
     @fosterer2 = Fosterer2.new
-
+    @fosterer2.volunteer_id = params[:volunteer_id]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @fosterer2 }

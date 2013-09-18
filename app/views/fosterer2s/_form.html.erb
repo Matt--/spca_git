@@ -1,6 +1,14 @@
 <link rel='stylesheet' href='/u/students/maddahhami/rails3/SPCA/app/assets/stylesheets/fosterer2s.css.scss'>
 
+<% volunteer = Volunteer.find(@fosterer2.volunteer_id) %>
 
+
+  
+
+  
+  <%= form_for(@fosterer2) do |f| %>
+  <%= f.hidden_field :volunteer_id, :value => @fosterer2.volunteer_id %>
+  
   <% if @fosterer2.errors.any? %>
   
     <div id="error_explanation">
@@ -13,9 +21,7 @@
       </ul>
     </div>
   <% end %>
-
   
-  <%= form_for(@fosterer2) do |f| %>
     <div id="main-container" style="width: 500px; float:center; margin: 0px;">
       
       

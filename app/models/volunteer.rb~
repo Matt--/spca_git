@@ -42,7 +42,8 @@ class Volunteer < ActiveRecord::Base
   
   
   has_one :fosterer
-  accepts_nested_attributes_for :fosterer
+  has_one :fosterer2
+#   accepts_nested_attributes_for :fosterer
   
   def over_18
     if dob + 18.years >= Date.today

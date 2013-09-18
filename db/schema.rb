@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(:version => 20130909023716) do
     t.string   "bringcentre"
     t.text     "transportdesc"
     t.boolean  "agreement"
+    t.integer  "volunteer_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

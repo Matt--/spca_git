@@ -42,6 +42,7 @@ class Volunteer < ActiveRecord::Base
   
   
   has_one :fosterer
+  has_one :fosterer2
 #   accepts_nested_attributes_for :fosterer
   
   def over_18

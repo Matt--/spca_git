@@ -1,5 +1,20 @@
 <p id="notice"><%= notice %></p>
 
+
+
+<p>
+  <b>ID:</b>
+
+  <%= @fosterer2.volunteer_id.nil? ? "No ID" : @fosterer2.volunteer_id %>
+  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+  <b>First Name:</b>
+  <%= @fosterer2.volunteer.firstname %>
+  &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;
+  <b>Last Name:</b>
+  <%= @fosterer2.volunteer.lastname %>
+</p>
+
+
 <p>
   <b>Ownhome:</b>
   <%= @fosterer2.ownhome %>
@@ -7,10 +22,6 @@
 <p>
   <b>inspecting:</b>
   <%= @fosterer2.inspecting %>
-</p>
-<p>
-  <b>Ownhome:</b>
-  <%= @fosterer2.ownhome %>
 </p>
 <p>
   <b>rooms:</b>

@@ -25,7 +25,7 @@ class CreateFosterer2s < ActiveRecord::Migration
       
       t.boolean :agreement
       
-      
+      t.integer :volunteer_id
 
       t.timestamps
     end

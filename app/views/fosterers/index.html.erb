@@ -4,7 +4,6 @@
 <table>
   <tr>
     <th>Fosterer Name</th>
-<!--     <th>ID </th> -->
     <th></th>
     <th></th>
     <th></th>
@@ -14,17 +13,16 @@
 
 <% @volunteers.each do |v| %>
   <tr>
-    <% if !v.fosterer.nil? %>
-    <%#= @fosterer = Fosterer.find(5)%>
-    <%#= link_to "Fosterer Record", fosterer_path(@fosterer) %>
     
-<!--       <td><%#= @fosterer.volunteer_ID %></td> -->
+  <% if !v.fosterer.nil? %>
+    
+    
       <td><%= v.firstname %> <%= v.lastname %></td>
       <td><%= link_to 'Show', v.fosterer %></td>
       <td><%= link_to 'Edit', edit_fosterer_path(v.fosterer) %></td>
       <td><%= link_to 'Destroy', v.fosterer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
     <% end %>
-    
    
     
   </tr>

@@ -9,6 +9,7 @@
     <th>Firstname</th>
     <th>Lastname</th>
     <th>Be a Fosterer</th>
+    <th>Test Fosterer2</th>
     <th>Next Working</th>
     <th>in job</th>
     <th></th>
@@ -32,6 +33,15 @@
   
     </td>
     
+    
+     <td>
+     <%if !volunteer.fosterer2.nil?%>
+        <%= link_to 'edit details', {:controller => '/fosterer2s', :id => volunteer.fosterer2.id, :action => 'edit', :volunteer_id => volunteer.id} %>
+     <%else%>
+	<%= link_to 'Become a fosterer', {:controller => '/fosterer2s', :action => 'new', :volunteer_id => volunteer.id} %>
+      <%end%>
+  
+    </td>
     
     
     
