@@ -1,6 +1,8 @@
 class Orientation < ActiveRecord::Base
-  attr_accessible :presenter, :date
+  attr_accessible :presenter, :datetime
   
+  
+  has_many :volunteers
   
  # validate :currentDate
   

@@ -71,8 +71,7 @@
   
   <div class="field">
    <h5><%= f.label "Injured or sick cats and kittens" %>
-   <%= f.check_box :catinjured, {checked_value: "true", unchecked_value: "false"} %></h2>
-   
+   <%= f.check_box :catinjured, {checked_value: "true", unchecked_value: "false"} %></h2> 
   </div>
   
   
@@ -86,7 +85,6 @@
   
   
   
-
   
   <br />
    <h2>Dogs and Puppies</h2>
@@ -251,13 +249,7 @@
 	    <%= f.submit "Submit"%>
 	  </div>
 
-<div>
 
-
-	<%= link_to 'Second Page', {:controller => '/fosterer2s', :action => 'new', :volunteer_id => @volunteer.id} %>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-</div>
 </div>
 
 

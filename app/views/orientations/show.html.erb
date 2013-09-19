@@ -5,9 +5,19 @@
   <%= @orientation.presenter %>
 </p>
 
-<p>
+<!--<p>
   <b>Date:</b>
-  <%= @orientation.date %>
+  <%#= @orientation.date %>
+</p>-->
+
+<!--<p>
+  <b>Time:</b>
+  <%#= @orientation.time %>
+</p>-->
+
+<p>
+  <b>Datetime:</b>
+  <%= @orientation.datetime %>
 </p>
 
 <%= link_to 'Edit', edit_orientation_path(@orientation) %> |

@@ -202,6 +202,22 @@ Fosterer2.create([{
 
 
 
+Orientation.create([{
+presenter: 'Matt',
+datetime: 2013-12-12-10-10
+},{
+presenter: 'Hamid',
+datetime: 2014-02-02-05-11
+}])
+
+
+
+
+
+
+
+
+
 Volscheduler.create([{
   
 }])

@@ -3,8 +3,10 @@ class Volunteer < ActiveRecord::Base
 
   attr_accessible :address, :background, :dob, :email, :firstname, :home, 
             :lastname, :moblie, :title,
-            :ondays_attributes, :dojobs_attributes, :id
-
+            :ondays_attributes, :dojobs_attributes, :id, :orientation_id
+  
+  
+  belongs_to :orientation
   has_many :whiteboards
 
   has_many :ondays

@@ -93,6 +93,8 @@ ActiveRecord::Schema.define(:version => 20130918031609) do
   create_table "orientations", :force => true do |t|
     t.string   "presenter"
     t.date     "date"
+    t.time     "time"
+    t.datetime "datetime"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -122,6 +124,7 @@ ActiveRecord::Schema.define(:version => 20130918031609) do
     t.text     "background"
     t.boolean  "befosterer"
     t.integer  "scheduledjobtype_id"
+    t.integer  "orientation_id"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end

@@ -12,6 +12,7 @@ class CreateVolunteers < ActiveRecord::Migration
       t.text :background
       t.boolean :befosterer
       t.integer :scheduledjobtype_id
+      t.references :orientation
 
       t.timestamps
     end
