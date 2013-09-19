@@ -1,5 +1,8 @@
 SPCA::Application.routes.draw do
 
+  resources :orientations
+
+
   get "help/volunteer"
 
   get "help/foster"

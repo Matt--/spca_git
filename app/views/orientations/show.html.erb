@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Presenter:</b>
+  <%= @orientation.presenter %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @orientation.date %>
+</p>
+
+<%= link_to 'Edit', edit_orientation_path(@orientation) %> |
+<%= link_to 'Back', orientations_path %>

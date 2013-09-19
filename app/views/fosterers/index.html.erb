@@ -19,10 +19,7 @@
   <% if !v.fosterer.nil? %>
     
       
-      <tr>
-      
-    
-    
+    <tr>
       <td><%= v.firstname %> <%= v.lastname %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
       <td>
 	<%= link_to 'Second Page', {:controller => '/fosterer2s', :action => 'new', :volunteer_id => v.fosterer.id} %>
@@ -42,4 +39,4 @@
 
 
 
- <%= link_to "Home", root_path %>
+<%= link_to "Home", root_path %>

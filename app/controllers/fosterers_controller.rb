@@ -41,10 +41,10 @@ class FosterersController < ApplicationController
   # POST /fosterers.json
   def create
     @fosterer = Fosterer.new(params[:fosterer])
-
+  #  @fosterer2.volunteer_id = params[:volunteer_id]
     respond_to do |format|
       if @fosterer.save
-        format.html { redirect_to @fosterer, notice: 'Fosterer was successfully created.' }
+        format.html { redirect_to fosterers_path, notice: 'Fosterer was successfully created.'}
         format.json { render json: @fosterer, status: :created, location: @fosterer }
       else
         format.html { render action: "new" }
