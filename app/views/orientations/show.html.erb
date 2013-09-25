@@ -20,5 +20,21 @@
   <%= @orientation.datetime %>
 </p>
 
+
+<p>
+  <b>Participants:</b>
+  
+  <% vols = Volunteer.all %>
+<!--   vols[p].orientation.datetime -->
+  <% (0..vols.length-1).each do |p| %>
+    <%#= if (!(vols[p].orientation.nil?))%>
+      <% if (vols[p].orientation_id == @orientation.id)%>
+	<%= vols[p].orientation.nil? ? '' : vols[p].firstname%>
+      <% end %>
+    <% # end %>
+ <% end %>
+
+
+</p>
 <%= link_to 'Edit', edit_orientation_path(@orientation) %> |
 <%= link_to 'Back', orientations_path %>

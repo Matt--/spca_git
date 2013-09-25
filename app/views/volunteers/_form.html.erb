@@ -87,6 +87,12 @@
   </div>
   
   
+  <div>
+     <h5><%= f.label "Your orientation date" %>
+     <%= f.collection_select(:orientation_id, Orientation.all, :id, :datetime, :prompt => 'None') %>
+<!--      <h5>Hutch<%#= f.select :hutch, [['Yes','Yes'],['No','No']]%></h5> -->
+<!--      <%#= f.check_box :befosterer, {checked_value: "false", unchecked_value: "true"} %></h2> -->
+  </div>
   
   <div class="actions">
     <%= f.submit %>
