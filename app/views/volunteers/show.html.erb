@@ -1,0 +1,93 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @volunteer.title %>
+</p>
+
+<p>
+  <b>Dob:</b>
+  <%= @volunteer.dob %>
+</p>
+
+<p>
+  <b>Firstname:</b>
+  <%= @volunteer.firstname %>
+</p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @volunteer.lastname %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @volunteer.address %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @volunteer.email %>
+</p>
+
+<p>
+  <b>Moblie:</b>
+  <%= @volunteer.moblie %>
+</p>
+
+<p>
+  <b>Home:</b>
+  <%= @volunteer.home %>
+</p>
+
+<p>
+
+  <b>Be a Fosterer:</b>
+
+<%########## commented out, revert to Hamids version on merge #####%>
+  <%#= @volunteer.befosterer %>
+
+  <% job = next_working @volunteer %>
+  <b>Next working:</b>
+  <%= (job[0].nil? or job[0] == "none") ? 'no' : job[1] +job[2] %>
+  <b>in job:</b>
+
+  <%= (job[0].nil? or job[0] == "none") ? 'no' : job[0] %>
+</p>
+
+<p>
+  <b>Background:</b>
+  <%= @volunteer.background %>
+</p>
+
+<h2>Notes</h2>
+<% @volunteer.whiteboards.each do |whiteboard| %>
+<div class="note">
+<h3>
+    <%= whiteboard.title %>
+</h3>
+  <p>
+    <b>Content:</b>
+    <%= whiteboard.body %>
+  </p>
+</div>
+<% end %>
+
+<h2>Add a note:</h2>
+<%= form_for([@volunteer, @volunteer.whiteboards.build]) do |f| %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+
+<%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
+<%= link_to 'Back', volunteers_path %>

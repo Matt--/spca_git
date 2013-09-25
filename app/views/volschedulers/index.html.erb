@@ -1,0 +1,64 @@
+<h1>Volunteer Scheduler for the Cat Department</h1>
+
+<%########### variables #########%>
+<% time = Time.now %>
+
+<%########### Table Header #########%>
+<table id="volschedule_table">
+  <tr>
+    <th class='volschedule_col'></th>
+    <th class='volschedule_col'>
+                            <%= I18n.t("date.month_names")[time.month] %></th>
+  <% (1..31).each do |c| %>
+    <% t = time + (c * (60*60*24)) %>
+    <% if(t.day == 1) %>
+      <th class='volschedule_col'>
+                            <%= I18n.t("date.month_names")[t.month] %></th>
+    <% else %>
+      <th class='volschedule_col'></th>
+    <% end %>
+  <% end %>
+  </tr>
+
+  <tr>
+    <th>Job</th>
+  <% (0..31).each do |c| %>
+    <% t = time + (c * (60*60*24)) %>
+
+    <% if (t.wday > 0 && t.wday <= 5) %>
+      <th class='weekday'>
+      <%= t.day %>
+      </th>
+    <% else %>
+      <th><%= t.day %></th>
+    <% end %>
+  <% end %>
+  </tr>
+
+<%########### Table Content #########%>
+  <% jd = @volscheduler.department.jobdescriptions.all %>
+  <% (1..jd.length-1).each do |i| %>
+  <tr>
+    <td><%= jd[i].name %></td>
+    <% (0..31).each do |c| %>
+      <% t = time + (c * (60*60*24)) %>
+      <% dayno = (t.wday == 0) ? 7 : t.wday %> <%# mon => 1, sun => 7 %>
+    <td>
+      <% @volunteers.each do |v| %>
+        <% vjd = v.vol_job_day.where( onday_id: dayno, jobdescription_id: jd[i].id )[0]%>
+        <% if !vjd.nil? && !check_frequency?(vjd, t) then vjd = nil end %>
+
+         <%= vjd.nil? ? '' : v.firstname %>   
+            
+      <% end  %>
+    </td>
+    <% end %>
+  </tr>
+
+  <% end %>
+
+</table>
+
+<br/><br/><br/><br/><br/>
+<%= link_to "Home", root_path %>
+

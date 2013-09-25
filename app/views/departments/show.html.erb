@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Department:</b>
+  <%= @department.name %>
+</p>
+
+<p>
+  <% @department.jobdescriptions.each do |jd| %>
+    <%= jd.name %><br />
+  <% end %>
+</p>
+
+<%= link_to 'Edit', edit_department_path(@department) %> |
+<%= link_to 'Back', department_path %>

@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @volcoordinator.email %>
+</p>
+
+<p>
+  <b>Appemailacknowledgetext:</b>
+  <%= @volcoordinator.appEmailAcknowledgeText %>
+</p>
+
+
+<%= link_to 'Edit', edit_volcoordinator_path(@volcoordinator) %> |
+<%= link_to 'Back', volcoordinators_path %>

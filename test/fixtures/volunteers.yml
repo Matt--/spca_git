@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: Doctor
+  dob: 2013-08-21
+  firstname: Matt
+  lastname: McGoo
+  address: 9 Anywhere street
+  email: matt@mcgoo.com
+  moblie: 
+  home: 01234
+  background: I like cats
+
+two:
+  title: Colonel
+  dob: 2013-08-21
+  firstname: Fred
+  lastname: Dagg
+  address: 1234 Backblocks
+  email: dagg@farm.co.nz
+  moblie: 
+  home: 0123456
+  background: I like dogs
