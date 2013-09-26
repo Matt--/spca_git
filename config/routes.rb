@@ -2,6 +2,7 @@ SPCA::Application.routes.draw do
 
   resources :dept_supervisors
   resources :departments
+  resources :jobdescriptions
 
   get "help/volunteer"
 

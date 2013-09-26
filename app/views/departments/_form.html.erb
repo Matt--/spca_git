@@ -16,17 +16,21 @@
     <%= f.text_field :name %>
   </div>
 
-  <% if !(f.object.jobdescriptions.empty?) %>
-    <%= f.label :jobs %><br />
+  <%= f.label :jobs %><br />
 
-<%= f.object.jobdescriptions.inspect %>
-
-    <%= f.fields_for :jobdescriptions do |ff| %>
-      <% if ff.object.name.eql?("none") then next end %>
-      <div class="field">
-        <%= ff.text_field :name %><br />
-      </div>
-    <% end %>
+  <%#= f.object.jobdescriptions.inspect %>
+  <%= f.fields_for :jobdescriptions do |ff| %>
+    <% if ff.object.name.eql?("none") then next end %>
+    <div class="field">
+      <%= ff.text_field :name %>
+      <% if !(ff.object == f.object.jobdescriptions.last) %>
+        <%= link_to 'Delete', ff.object, method: :delete, 
+                                      data: { confirm: 'Are you sure?' } %>
+      <% else %>
+        New job role
+      <% end %>
+      <br />
+    </div>
   <% end %>
   
 
