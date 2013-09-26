@@ -35,6 +35,27 @@
   <% end %>
   </tr>
 
+<% ########## create vol_array[day number] -> list of volunteers data ##### %>
+  <% vol_array = Array.new(32) %>
+  <% (0..31).each do |c| %>
+    <% vol_array[c] = Array.new %>
+  <% end %>
+
+  <% ####### slow nested algorythm, maybe improve later ##### %>
+  <% @volunteers.each   do |v| %>
+    <% v.vol_job_day.each do |vjd| %>
+      <% (0..31).each         do |c| %>
+        <% t = time + (c * (60*60*24)) %>
+        <% dayno = (t.wday == 0) ? 7 : t.wday %> <%# mon => 1, sun => 7 %>
+
+        <% if check_frequency?(vjd, t) %>
+          <% vol_array[c] << v %> 
+        <% end %>
+
+      <% end %>
+    <% end %>
+  <% end %>
+
 <%########### Table Content #########%>
   <% jd = @volscheduler.department.jobdescriptions.all %>
   <% (1..jd.length-1).each do |i| %>
@@ -42,23 +63,42 @@
     <td><%= jd[i].name %></td>
     <% (0..31).each do |c| %>
       <% t = time + (c * (60*60*24)) %>
-      <% dayno = (t.wday == 0) ? 7 : t.wday %> <%# mon => 1, sun => 7 %>
     <td>
-      <% @volunteers.each do |v| %>
-        <% vjd = v.vol_job_day.where( onday_id: dayno, jobdescription_id: jd[i].id )[0]%>
-        <% if !vjd.nil? && !check_frequency?(vjd, t) then vjd = nil end %>
-
-         <%= vjd.nil? ? '' : v.firstname %>   
-            
-      <% end  %>
+      <% vol_array[c].each do |v2| %>
+        <% v2.vol_job_day.each do |vjd2| %>
+          <% if vjd2.jobdescription.name == jd[i].name && check_frequency?(vjd2, t) %>
+            <%= v2.firstname %>
+          <% end %>
+        <% end %>
+      <% end %>
     </td>
     <% end %>
   </tr>
-
   <% end %>
 
 </table>
+<br/><br/>
+<% ######## Exception Reporting, note the absences ###### %>
+<%= "TODO, restrict this part of the view to Department Supervisors" %><br/>
+<%= "TODO, enable noting this for... say up to a week ago" %><br/><br/>
 
+<h4><%= "Note absences for #{time}" %></h4>
+
+
+<%= form_tag(action: "/volschedules", method: "update") do %>
+
+  <% vol_array[0].each do |v| %>
+    <%= check_box_tag v.id %>
+    <%= label_tag v.id, v.firstname %>
+    <br/>
+  <% end %>
+
+  <div class="actions">
+    <br/><%= submit_tag "note absences"%>
+  </div>
+<% end %>
+
+<p id="notice"><%= notice %></p>
 <br/><br/><br/><br/><br/>
 <%= link_to "Home", root_path %>
 

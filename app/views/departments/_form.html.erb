@@ -19,12 +19,14 @@
   <% if !(f.object.jobdescriptions.empty?) %>
     <%= f.label :jobs %><br />
 
-<%= f.object.jobdescriptions.inspect %>
+<%#= f.object.jobdescriptions.inspect %>
 
     <%= f.fields_for :jobdescriptions do |ff| %>
       <% if ff.object.name.eql?("none") then next end %>
       <div class="field">
-        <%= ff.text_field :name %><br />
+        <%= ff.text_field :name %>
+
+        <br />
       </div>
     <% end %>
   <% end %>

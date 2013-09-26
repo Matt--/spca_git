@@ -31,21 +31,33 @@ module VolunteersHelper
 #   works out if the volunteer is working.
 # returns boolean
   def check_frequency? (vjd, time)
-    if !vjd.volunteer.break_from.nil? &&            # volunteer is on a break
-        vjd.volunteer.break_from <= time.to_date &&
-        time.to_date <= vjd.volunteer.break_to
-        return false
-    elsif vjd.frequency.name == "weekly"
-       return true 
-    elsif vjd.frequency.name == "fortnightly" &&
-       vjd.frequency.week == (time.strftime("%W").to_i)%2+1
-       return true 
-    elsif vjd.frequency.name == "monthly" &&
-       nth_monday(vjd, time)
-       return true 
-    else
-      return false
+    raise StandardError, "check_frequency method, vjd cannot be a nil object" if 
+      vjd.nil?     
+    raise StandardError, "check_frequency method, time cannot be nil" if 
+      time.nil?
+    return false if vjd.jobdescription.name == "none"
+
+    dayno = (time.wday == 0) ? 7 : time.wday #mon => 1, sun => 7
+    result = false
+#    if (vjd.onday_id == dayno)
+      if   !vjd.volunteer.break_from.nil? &&            # volunteer is on a break
+            vjd.volunteer.break_from <= time.to_date &&
+            time.to_date <= vjd.volunteer.break_to
+        result = false
+      elsif vjd.frequency.name == "weekly" && 
+            vjd.onday_id == dayno
+        result = true 
+      elsif vjd.frequency.name == "fortnightly" &&
+            vjd.frequency.week == (time.strftime("%W").to_i)%2+1 &&
+            vjd.onday_id == dayno
+        result = true 
+      elsif  vjd.frequency.name == "monthly" &&
+            nth_monday(vjd, time) && 
+            vjd.onday_id == dayno
+        result = true 
+#      end
     end
+    return result
   end
 
 # is this the nth 'Monday' this month?

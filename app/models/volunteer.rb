@@ -9,6 +9,7 @@ class Volunteer < ActiveRecord::Base
 
   has_many :whiteboards
   has_one  :fosterer
+  has_many :absences
 
   has_many :vol_job_day
     accepts_nested_attributes_for :vol_job_day,
