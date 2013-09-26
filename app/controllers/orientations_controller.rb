@@ -69,6 +69,10 @@ class OrientationsController < ApplicationController
     end
   end
 
+
+  
+  
+  
   # DELETE /orientations/1
   # DELETE /orientations/1.json
   def destroy

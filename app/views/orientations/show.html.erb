@@ -25,14 +25,19 @@
   <b>Participants:</b>
   
   <% vols = Volunteer.all %>
-<!--   vols[p].orientation.datetime -->
   <% (0..vols.length-1).each do |p| %>
     <%#= if (!(vols[p].orientation.nil?))%>
       <% if (vols[p].orientation_id == @orientation.id)%>
-	<%= vols[p].orientation.nil? ? '' : vols[p].firstname%>
+	<table>
+	  <td><%= vols[p].orientation.nil? ? '' : vols[p].firstname%></td>
+	  <td><%= vols[p].orientation.nil? ? '' : vols[p].lastname%></td>
+	  
+	  <td><%= link_to 'Delete', Orientation, vols[p].orientation=nil, data: { confirm: 'Are you sure?' } %></td>
+	  <td><%#= link_to 'Delete', Volunteer, method: :deleteOrienVol, data: { confirm: 'Are you sure?' } %></td>
+	  
+	</table>
       <% end %>
-    <% # end %>
- <% end %>
+    <% end %>
 
 
 </p>
