@@ -12,4 +12,15 @@ class Jobdescription < ActiveRecord::Base
 
   belongs_to :volscheduler
 
+  before_destroy :no_dependencies?
+
+
+  def no_dependencies?
+    if !(self.volunteers.empty?)
+      errors.add( :base, 
+                    "The job description, #{name}, is in use by a Volunteer.")
+    end
+    self.volunteers.empty?
+  end
+
 end
