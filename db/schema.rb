@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130918031609) do
+ActiveRecord::Schema.define(:version => 20130925041534) do
 
   create_table "availabledays", :force => true do |t|
     t.string   "day"
@@ -20,6 +20,11 @@ ActiveRecord::Schema.define(:version => 20130918031609) do
     t.integer  "schedulejobtype_id"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "data_files", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "dojobs", :force => true do |t|
@@ -97,6 +102,15 @@ ActiveRecord::Schema.define(:version => 20130918031609) do
     t.datetime "datetime"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "encrypted_password"
+    t.string   "salt"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "volcoordinators", :force => true do |t|

@@ -1,5 +1,10 @@
 SPCA::Application.routes.draw do
 
+  resources :people
+
+
+  get "users/new"
+
   resources :orientations
 
 
@@ -27,7 +32,7 @@ SPCA::Application.routes.draw do
   end
   resources :whiteboards
   resources :volcoordinators
-
+  resources :upload
 #  get "home/index"
 
   # The priority is based upon order of creation:
