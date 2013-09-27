@@ -5,7 +5,9 @@
 
 <p>
   <b>Title:</b>
+  <% if @volunteer.orientation != nil %>
   <%= @volunteer.orientation.datetime %>
+  <% end %>
 </p>
 
 
