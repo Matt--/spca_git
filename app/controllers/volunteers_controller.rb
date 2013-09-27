@@ -45,6 +45,7 @@ class VolunteersController < ApplicationController
   # POST /volunteers.json
   def create
     @volunteer = Volunteer.new(params[:volunteer])
+    #@volunteer.status = "New"
 #    @availableday = @volunteer.availabledays.build(params[:availableday])
 
     respond_to do |format|

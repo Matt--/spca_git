@@ -20,14 +20,24 @@ SPCA::Application.routes.draw do
   resources :fosterers
 
   resources :notepads
-
-
+  
   resources :volunteers do
     resources :whiteboards
   end
   resources :whiteboards
   resources :volcoordinators
-
+  
+  #get "volcoordinator/:reviewtype", to: 'volcoordinators#showvolunteers'
+  #^ doesn't work because volcoordinator is is a class, rather than just a page
+  #it is getting confused with the get "volcoordinator/:id", to: 'volcoordinators#show'
+  #route generated from resources :volcoordinators
+  
+  get "volcoordinator/newvolunteers", to: 'volcoordinators#newvolunteers'
+  get "volcoordinator/orientedvolunteers", to: 'volcoordinators#orientedvolunteers'
+  
+  get "volcoordinator/:reviewtype/review/:id", to: 'volcoordinators#review'
+  post "volcoordinator/:reviewtype/review/:id", to: 'volcoordinators#approve'
+   
 #  get "home/index"
 
   # The priority is based upon order of creation:
