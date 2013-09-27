@@ -41,7 +41,14 @@
 	<%= check_box_tag "vol_#{vols[p].id}" %></h2>
 	
 	
-	
+	<% if params[:posted_reviewed]==true %>
+	<%= vols[p].orientation_id=0 %>
+	Checked
+	<% end %>
+<!-- 	if checked then delete (change the orientation_id of volunteer to ZERO) -->
+	<% if vols[p].orientation_id==0 %>
+	Here we go
+	<% end %>
 	
 	
 	
