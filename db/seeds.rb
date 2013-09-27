@@ -212,3 +212,15 @@ DepartmentJobdescription.create([
 
 Onday.create([{name: 'Monday'}, {name: 'Tuesday'}, {name: 'Wednesday'}, {name: 'Thursday'}, {name: 'Friday'}, {name: 'Saturday'}, {name: 'Sunday'}])
 
+Absence.create([
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+])
+

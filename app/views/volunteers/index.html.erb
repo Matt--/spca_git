@@ -7,6 +7,7 @@
     <th>Be a Fosterer</th>
     <th>Next Working</th>
     <th>in job</th>
+    <th>Recent<br/>absences</th>
     <th></th>
     <th></th>
     <th></th>
@@ -35,6 +36,7 @@
       <% job = next_working volunteer %>
       <td><%= (job.nil? or job[0] == "none") ? 'no' : job[1] + job[2] %></td>
       <td><%= (job.nil? or job[0] == "none") ? 'no' : job[0] %></td>
+      <td><%= (job.nil? or job[0] == "none") ? 'no' : volunteer.absences.size %></td>
 
       <td><%= link_to 'Show', volunteer %></td>
       <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %></td>
@@ -47,6 +49,11 @@
       <%# end %>
     
     </tr>
+hello
+<% n = volunteer.absences.all(:group => :day) %>
+<%= n.inspect %>
+<%#= n[1] %>
+
   <% end %>
 </table>
 

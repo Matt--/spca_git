@@ -11,7 +11,9 @@ SPCA::Application.routes.draw do
   get "help/coordinator"
 
 
-  resources :volschedulers
+  resources :volschedulers do
+    resources :volunteers
+  end
 
 
   resources :fosterer2s

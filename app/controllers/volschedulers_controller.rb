@@ -14,11 +14,16 @@ class VolschedulersController < ApplicationController
   def update
     @volscheduler = Volscheduler.first
     @volunteers = Volunteer.all
-    @absence = Absence.build
+    @absence = Absence.new
 
     if !params[:id].nil?
-      puts "#######################################"
-      puts "not empty"
+      params.each do |p|
+        if p[0].to_s.match("vol_*")
+          id = p[0].to_s.slice(4..-1).to_i
+          absent = Absence.new(day: Date.parse(params["date"]), volunteer_id: id)
+          absent.save
+        end
+      end
     end
 
     respond_to do |format|
