@@ -77,13 +77,7 @@ class VolunteersController < ApplicationController
   end
   
   
-  # Make orientation time to nil
-  def deleteOrienVol
-    @volunteer = Volunteer.find(params[:id])
-    if (@volunteer.Orientation.datetime != nil)
-      @volunteer.Orientation.datetime=nil
-    end
-  end
+
   
 
   # DELETE /volunteers/1

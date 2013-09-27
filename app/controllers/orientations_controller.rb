@@ -57,7 +57,28 @@ class OrientationsController < ApplicationController
   # PUT /orientations/1.json
   def update
     @orientation = Orientation.find(params[:id])
+    
+   puts "#################################"
+    puts "here instead"
+    puts params.inspect
+    
+    vols = Volunteer.all
+    (0..vols.length-1).each do |p|
+#       if(vols[p].orientation_id==@orientation.id)
+# 	  vols[p].orientation_id=0
+#       end
+      
+      
+#       if (vols[p].orientation_id==0)
+# 	puts "testeddddddddddddddddddddddddddddddddddddddddd"
+#       end
 
+      
+      
+   
+    end
+#     @volunteer.Orientation.datetime=nil
+      
     respond_to do |format|
       if @orientation.update_attributes(params[:orientation])
         format.html { redirect_to @orientation, notice: 'Orientation was successfully updated.' }
@@ -70,7 +91,20 @@ class OrientationsController < ApplicationController
   end
 
 
-  
+  # Make orientation time to nil
+  def deleteOrienVol
+     puts "#############################################"
+#     @orientation = Orientation.find(params[:id])
+    @volunteer = Volunteer.find(params[:id])
+    if (@volunteer.Orientation.datetime != nil)
+	@volunteer.Orientation.datetime=nil
+     
+#       respond_to do |format|
+# 	format.html # show.html.erb
+# 	format.json { render json: @orientation }
+#       end
+    end
+  end
   
   
   # DELETE /orientations/1

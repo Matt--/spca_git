@@ -1,45 +1,66 @@
-<p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Presenter:</b>
-  <%= @orientation.presenter %>
-</p>
+    <p>
+      <b>Presenter:</b>
+      <%= @orientation.presenter %>
+    </p>
 
-<!--<p>
-  <b>Date:</b>
-  <%#= @orientation.date %>
-</p>-->
+    <!--<p>
+      <b>Date:</b>
+      <%#= @orientation.date %>
+    </p>-->
 
-<!--<p>
-  <b>Time:</b>
-  <%#= @orientation.time %>
-</p>-->
+    <!--<p>
+      <b>Time:</b>
+      <%#= @orientation.time %>
+    </p>-->
 
-<p>
-  <b>Datetime:</b>
-  <%= @orientation.datetime %>
-</p>
+    <p>
+      <b>Datetime:</b>
+      <%= @orientation.datetime %>
+    </p>
 
 
-<p>
-  <b>Participants:</b>
+    <p>
+      <b>Participants:</b>
+      
+      <% vols = Volunteer.all %>
+      <% (0..vols.length-1).each do |p| %>
+<!-- 	<%#= if (!(vols[p].orientation.nil?))%> -->
+	 <% if (vols[p].orientation_id == @orientation.id)%>
+<!-- 	      <td><%#= vols[p].orientation.nil? ? '' : vols[p].firstname%></td> -->
+<!-- 	      <td><%#= vols[p].orientation.nil? ? '' : vols[p].lastname%></td> -->
+	      
+	      
+<!--     	  <%#= form_for(@orienatation) do |o| %> -->
+<!--     	   <div class="field"> -->
+    	  <table>
+   <%= form_tag "/orientations/1", method: "put", action: "deleteOrienVol"  do %>
+     <td><%#= vols[p].orientation.nil? ? '' : vols[p].firstname%>  
+	<%= label_tag(:post_reviewed, vols[p].orientation.nil? ? '' : vols[p].firstname) %>
+	<%= check_box_tag "vol_#{vols[p].id}" %></h2>
+	
+	
+	
+	
+	
+	
+	
+     </td>
+    <td><%#= link_to 'Delete', Orientation, vols[p].orientation=nil, data: { confirm: 'Are you sure?' } %></td>
+	    
+	     
+    <div class="actions">
+	<%= submit_tag 'Submit' %>
+    </div>
+  <% end %>
+   <% end %>
+  <% end %>
+	         </table>
   
-  <% vols = Volunteer.all %>
-  <% (0..vols.length-1).each do |p| %>
-    <%#= if (!(vols[p].orientation.nil?))%>
-      <% if (vols[p].orientation_id == @orientation.id)%>
-	<table>
-	  <td><%= vols[p].orientation.nil? ? '' : vols[p].firstname%></td>
-	  <td><%= vols[p].orientation.nil? ? '' : vols[p].lastname%></td>
-	  
-	  <td><%= link_to 'Delete', Orientation, vols[p].orientation=nil, data: { confirm: 'Are you sure?' } %></td>
-	  <td><%#= link_to 'Delete', Volunteer, method: :deleteOrienVol, data: { confirm: 'Are you sure?' } %></td>
-	  
-	</table>
-      <% end %>
-    <% end %>
-
-
-</p>
-<%= link_to 'Edit', edit_orientation_path(@orientation) %> |
-<%= link_to 'Back', orientations_path %>
+	 
+    </p>
+    
+    
+    <%= link_to 'Edit', edit_orientation_path(@orientation) %> |
+    <%= link_to 'Back', orientations_path %>
