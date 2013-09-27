@@ -1,5 +1,10 @@
 SPCA::Application.routes.draw do
 
+  resources :people
+
+
+  get "users/new"
+
   resources :orientations
 
 
@@ -37,7 +42,8 @@ SPCA::Application.routes.draw do
   
   get "volcoordinator/:reviewtype/review/:id", to: 'volcoordinators#review'
   post "volcoordinator/:reviewtype/review/:id", to: 'volcoordinators#approve'
-   
+  
+  resources :upload
 #  get "home/index"
 
   # The priority is based upon order of creation:

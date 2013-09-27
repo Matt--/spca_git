@@ -38,6 +38,8 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.find(params[:id])
     @onday = @volunteer.ondays.build(params[:availableday])
     @dojob = Dojob.new
+#     @orientation = Orientation.new
+#     @orientation = @volunteer.datetime.build(params[:datetime])
 
   end
 
@@ -74,6 +76,10 @@ class VolunteersController < ApplicationController
       end
     end
   end
+  
+  
+
+  
 
   # DELETE /volunteers/1
   # DELETE /volunteers/1.json

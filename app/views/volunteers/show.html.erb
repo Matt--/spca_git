@@ -4,8 +4,13 @@
 
 
 <p>
-  <b>Title:</b>
-  <%= @volunteer.orientation.datetime %>
+  <b>Orientation Date:</b>
+<!--   Test -->
+  <% if (@volunteer.orientation_id.nil?)%>
+    No orientation selected
+   <% else %> 
+    <%= @volunteer.orientation.datetime%>
+  <% end %>
 </p>
 
 

@@ -87,6 +87,12 @@
   </div>
   
   
+  <div>
+  <% #if (@volunteer.orientation.datetime>Date.today)%>
+     <h5><%= f.label "Your orientation date" %>
+     <%= f.collection_select(:orientation_id, Orientation.order('datetime ASC'), :id, :datetime, :prompt => 'None') %>
+  <% #end %>
+  </div>
   
   <div class="actions">
     <%= f.submit %>

@@ -38,6 +38,11 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.find(params[:id])
     @onday = @volunteer.ondays.build(params[:availableday])
     @dojob = Dojob.new
+<<<<<<< HEAD
+=======
+#     @orientation = Orientation.new
+#     @orientation = @volunteer.datetime.build(params[:datetime])
+>>>>>>> ce755efabb88b89909345e711cc3c5271ce7d676
 
   end
 
@@ -45,7 +50,10 @@ class VolunteersController < ApplicationController
   # POST /volunteers.json
   def create
     @volunteer = Volunteer.new(params[:volunteer])
+<<<<<<< HEAD
     #@volunteer.status = "Awaiting Orientation"
+=======
+>>>>>>> ce755efabb88b89909345e711cc3c5271ce7d676
 #    @availableday = @volunteer.availabledays.build(params[:availableday])
 
     respond_to do |format|
@@ -74,6 +82,10 @@ class VolunteersController < ApplicationController
       end
     end
   end
+  
+  
+
+  
 
   # DELETE /volunteers/1
   # DELETE /volunteers/1.json
