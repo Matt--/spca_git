@@ -4,14 +4,5 @@ class Orientation < ActiveRecord::Base
   
   has_many :volunteers
   
- # validate :currentDate
-  
-  
-# def currentDate
-#     if date < Date.today
-#       errors.add(:Date,"must be valid")
-#     end
-#   end
-  
   
 end

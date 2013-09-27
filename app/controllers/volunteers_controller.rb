@@ -38,6 +38,8 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.find(params[:id])
     @onday = @volunteer.ondays.build(params[:availableday])
     @dojob = Dojob.new
+#     @orientation = Orientation.new
+#     @orientation = @volunteer.datetime.build(params[:datetime])
 
   end
 
@@ -73,6 +75,16 @@ class VolunteersController < ApplicationController
       end
     end
   end
+  
+  
+  # Make orientation time to nil
+  def deleteOrienVol
+    @volunteer = Volunteer.find(params[:id])
+    if (@volunteer.Orientation.datetime != nil)
+      @volunteer.Orientation.datetime=nil
+    end
+  end
+  
 
   # DELETE /volunteers/1
   # DELETE /volunteers/1.json
