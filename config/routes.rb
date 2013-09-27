@@ -1,5 +1,8 @@
 SPCA::Application.routes.draw do
 
+  resources :people
+
+
   get "users/new"
 
   resources :orientations
