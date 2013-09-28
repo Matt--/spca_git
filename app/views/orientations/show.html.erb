@@ -1,0 +1,73 @@
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <b>Presenter:</b>
+      <%= @orientation.presenter %>
+    </p>
+
+    <!--<p>
+      <b>Date:</b>
+      <%#= @orientation.date %>
+    </p>-->
+
+    <!--<p>
+      <b>Time:</b>
+      <%#= @orientation.time %>
+    </p>-->
+
+    <p>
+      <b>Datetime:</b>
+      <%= @orientation.datetime %>
+    </p>
+
+
+    <p>
+      <b>Participants:</b>
+      
+      <% vols = Volunteer.all %>
+      <% (0..vols.length-1).each do |p| %>
+<!-- 	<%#= if (!(vols[p].orientation.nil?))%> -->
+	 <% if (vols[p].orientation_id == @orientation.id)%>
+<!-- 	      <td><%#= vols[p].orientation.nil? ? '' : vols[p].firstname%></td> -->
+<!-- 	      <td><%#= vols[p].orientation.nil? ? '' : vols[p].lastname%></td> -->
+	      
+	      
+<!--     	  <%#= form_for(@orienatation) do |o| %> -->
+<!--     	   <div class="field"> -->
+    	  <table>
+   <%= form_tag "/orientations/1", method: "put", action: "deleteOrienVol"  do %>
+     <td><%#= vols[p].orientation.nil? ? '' : vols[p].firstname%>  
+	<%= label_tag(:post_reviewed, vols[p].orientation.nil? ? '' : vols[p].firstname) %>
+	<%= check_box_tag "vol_#{vols[p].id}" %></h2>
+	
+	
+	<% if params[:posted_reviewed]==true %>
+	<%= vols[p].orientation_id=0 %>
+	Checked
+	<% end %>
+<!-- 	if checked then delete (change the orientation_id of volunteer to ZERO) -->
+	<% if vols[p].orientation_id==0 %>
+	Here we go
+	<% end %>
+	
+	
+	
+	
+     </td>
+    <td><%#= link_to 'Delete', Orientation, vols[p].orientation=nil, data: { confirm: 'Are you sure?' } %></td>
+	    
+	     
+    <div class="actions">
+	<%= submit_tag 'Submit' %>
+    </div>
+  <% end %>
+   <% end %>
+  <% end %>
+	         </table>
+  
+	 
+    </p>
+    
+    
+    <%= link_to 'Edit', edit_orientation_path(@orientation) %> |
+    <%= link_to 'Back', orientations_path %>

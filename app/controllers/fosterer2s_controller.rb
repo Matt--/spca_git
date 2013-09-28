@@ -3,7 +3,7 @@ class Fosterer2sController < ApplicationController
   # GET /fosterer2s.json
   def index
     @fosterer2s = Fosterer2.all
-
+    @volunteers=Volunteer.all
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @fosterer2s }
@@ -25,7 +25,7 @@ class Fosterer2sController < ApplicationController
   # GET /fosterer2s/new.json
   def new
     @fosterer2 = Fosterer2.new
-
+    @fosterer2.volunteer_id = params[:volunteer_id]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @fosterer2 }
@@ -44,11 +44,14 @@ class Fosterer2sController < ApplicationController
 
     respond_to do |format|
       if @fosterer2.save
-        format.html { redirect_to @fosterer2, notice: 'Fosterer2 was successfully created.' }
-        format.json { render json: @fosterer2, status: :created, location: @fosterer2 }
+        format.html { redirect_to @fosterer2, 
+              notice: 'Fosterer2 was successfully created.' }
+        format.json { render json: @fosterer2, 
+              status: :created, location: @fosterer2 }
       else
         format.html { render action: "new" }
-        format.json { render json: @fosterer2.errors, status: :unprocessable_entity }
+        format.json { render json: @fosterer2.errors, 
+              status: :unprocessable_entity }
       end
     end
   end
@@ -60,11 +63,13 @@ class Fosterer2sController < ApplicationController
 
     respond_to do |format|
       if @fosterer2.update_attributes(params[:fosterer2])
-        format.html { redirect_to @fosterer2, notice: 'Fosterer2 was successfully updated.' }
+        format.html { redirect_to @fosterer2, 
+              notice: 'Fosterer2 was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
-        format.json { render json: @fosterer2.errors, status: :unprocessable_entity }
+        format.json { render json: @fosterer2.errors, 
+              status: :unprocessable_entity }
       end
     end
   end

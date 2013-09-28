@@ -2,14 +2,16 @@ require 'net/smtp'
 
 class Volunteer < ActiveRecord::Base
 
-  attr_accessible :address, :background, :dob, :email, :firstname, :home, 
-            :lastname, :moblie, :title, :befosterer,
+  attr_accessible :id, :address, :background, :dob, :email, :firstname, :home, 
+            :lastname, :moblie, :title, :orientation_id, :befosterer,
             :break_from, :break_to,  :vol_job_day_attributes,
             :ondays_attributes, :jobdescriptions_attributes
 
   has_many :whiteboards
   has_one  :fosterer
+  has_one :fosterer2
   has_many :absences
+  belongs_to :orientation
 
   has_many :vol_job_day
     accepts_nested_attributes_for :vol_job_day,
@@ -64,7 +66,6 @@ class Volunteer < ActiveRecord::Base
   end
 
   def breakdate_validator
-#raise break_to.inspect
     return if(break_from.nil? && break_to.nil?)
     start =  break_from.class == Date ? break_from : Date.new(break_from.to_s)
     finish = break_to.class == Date   ? break_to   : Date.new(break_to.to_s)
@@ -89,6 +90,7 @@ class Volunteer < ActiveRecord::Base
   private
   def send_confirmation_email
     vc = Volcoordinator.find(:first)
+
     message = <<-MESSAGE_END
     From: #{defined?(vc.email_replyto).nil? ? 'test from' : vc.email_replyto }
     To: #{email.nil? ? 'test to' : email}

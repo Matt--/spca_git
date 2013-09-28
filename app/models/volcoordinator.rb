@@ -1,6 +1,5 @@
 # Model for the Volunteer Recruiter
 
-
 # Volunteer coordinator model. Used to generate an acknowledgement text to the applicant.
 # Supplies an email address and the body of the acknowledgement text.
 

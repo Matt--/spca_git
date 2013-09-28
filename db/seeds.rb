@@ -1,3 +1,10 @@
+# This file should contain all the record creation needed to seed the database with its default values.
+# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+#
+# Examples:
+#
+# cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+# Mayor.create(name: 'Emanuel', city: cities.first)
 
 Volcoordinator.create([{
   email_replyto: 'coordinator@test.com',
@@ -27,8 +34,6 @@ DeptSupervisor.create([
     title: "Mr",
     department_id: 3}
 ])
-
-
 
 Frequency.create([{name: "monthly", week: 2}])
 
@@ -80,6 +85,81 @@ Volunteer.create([
     background: 'hate student layabouts'}
 ])
 
+Volscheduler.create([{
+  department_id: 1
+}])
+
+VolJobDay.create([
+  { volunteer_id: 1, jobdescription_id: 1, onday_id: 1, frequency_id: 1 },
+  { volunteer_id: 1, jobdescription_id: 1, onday_id: 2 },
+  { volunteer_id: 1, jobdescription_id: 1, onday_id: 3 },
+  { volunteer_id: 1, jobdescription_id: 1, onday_id: 4 },
+  { volunteer_id: 1, jobdescription_id: 2, onday_id: 5 },
+  { volunteer_id: 1, jobdescription_id: 1, onday_id: 6 },
+  { volunteer_id: 1, jobdescription_id: 1, onday_id: 7 },
+  { volunteer_id: 2, jobdescription_id: 1, onday_id: 1 },
+  { volunteer_id: 2, jobdescription_id: 1, onday_id: 2 },
+  { volunteer_id: 2, jobdescription_id: 1, onday_id: 3 },
+  { volunteer_id: 2, jobdescription_id: 1, onday_id: 4 },
+  { volunteer_id: 2, jobdescription_id: 3, onday_id: 5 },
+  { volunteer_id: 2, jobdescription_id: 1, onday_id: 6 },
+  { volunteer_id: 2, jobdescription_id: 1, onday_id: 7 },
+  { volunteer_id: 3, jobdescription_id: 1, onday_id: 1 },
+  { volunteer_id: 3, jobdescription_id: 3, onday_id: 2 },
+  { volunteer_id: 3, jobdescription_id: 1, onday_id: 3 },
+  { volunteer_id: 3, jobdescription_id: 1, onday_id: 4 },
+  { volunteer_id: 3, jobdescription_id: 1, onday_id: 5 },
+  { volunteer_id: 3, jobdescription_id: 1, onday_id: 6 },
+  { volunteer_id: 3, jobdescription_id: 1, onday_id: 7 },
+  { volunteer_id: 4, jobdescription_id: 1, onday_id: 1 },
+  { volunteer_id: 4, jobdescription_id: 4, onday_id: 2 },
+  { volunteer_id: 4, jobdescription_id: 1, onday_id: 3 },
+  { volunteer_id: 4, jobdescription_id: 1, onday_id: 4 },
+  { volunteer_id: 4, jobdescription_id: 1, onday_id: 5 },
+  { volunteer_id: 4, jobdescription_id: 3, onday_id: 6 },
+  { volunteer_id: 4, jobdescription_id: 3, onday_id: 7 },
+  { volunteer_id: 5, jobdescription_id: 1, onday_id: 1 },
+  { volunteer_id: 5, jobdescription_id: 5, onday_id: 2 },
+  { volunteer_id: 5, jobdescription_id: 6, onday_id: 3 },
+  { volunteer_id: 5, jobdescription_id: 7, onday_id: 4 },
+  { volunteer_id: 5, jobdescription_id: 1, onday_id: 5 },
+  { volunteer_id: 5, jobdescription_id: 1, onday_id: 6 },
+  { volunteer_id: 5, jobdescription_id: 1, onday_id: 7 },
+])
+
+Jobdescription.create([
+  { department_id: 1, name: 'none'},
+  { department_id: 1, name: 'Morning 8-12'},
+  { department_id: 1, name: 'Afternoon 1-5'},
+  { department_id: 1, name: 'Cat walking'},
+  { department_id: 1, name: 'Cat rescue'},
+  { department_id: 1, name: 'Cat hugging'},
+  { department_id: 1, name: 'Cat Admin'}
+])
+
+DepartmentJobdescription.create([
+  { department_id: 1, jobdescription_id: 1},
+  { department_id: 1, jobdescription_id: 2},
+  { department_id: 1, jobdescription_id: 3},
+  { department_id: 1, jobdescription_id: 4},
+  { department_id: 1, jobdescription_id: 5},
+  { department_id: 1, jobdescription_id: 6},
+  { department_id: 1, jobdescription_id: 7}
+])
+
+Onday.create([{name: 'Monday'}, {name: 'Tuesday'}, {name: 'Wednesday'}, {name: 'Thursday'}, {name: 'Friday'}, {name: 'Saturday'}, {name: 'Sunday'}])
+
+Absence.create([
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+])
 
 Fosterer.create([{ 
                              
@@ -137,90 +217,79 @@ Fosterer.create([{
  volunteer_id: 3 
 }])
 
-
-Volscheduler.create([{
-  department_id: 1
+Fosterer2.create([{
+ ownhome: 'Yes', 
+ inspecting: 'No',
+ rooms: 'Yes', 
+ roomwarm: 'No', 
+ hutch: 'No',	
+ rabbithutch: 'No', 
+ aviary: 'No',
+ livestockfenced: 'No',
+ homedesc: 'Blah Blah',
+ numadulta: 2, 
+ numchild: 1,
+ ages: 5,
+ numhoursperday: 3,
+ worktype: 'Full time',
+ secondperson: 'Blah Blah',
+ allmembersagree: 'Yes',
+ bringcentre: 'Yes',
+ transportdesc: 'Boom Boom',
+ agreement: 'I agree',
+ volunteer_id: 1
+}, { 
+                             
+ ownhome: 'Yes', 
+ inspecting: 'No',
+ rooms: 'Yes', 
+ roomwarm: 'No', 
+ hutch: 'No',	
+ rabbithutch: 'No', 
+ aviary: 'No',
+ livestockfenced: 'No',
+ homedesc: 'Blah Blah',
+ numadulta: 2, 
+ numchild: 1,
+ ages: 5,
+ numhoursperday: 3,
+ worktype: 'Away from home',
+ secondperson: 'Blah Blah',
+ allmembersagree: 'Yes',
+ bringcentre: 'Yes',
+ transportdesc: 'Boom Boom',
+ agreement: 'I agree',
+ volunteer_id: 2
+},{ 
+                             
+ ownhome: 'Yes', 
+ inspecting: 'No',
+ rooms: 'No', 
+ roomwarm: 'No', 
+ hutch: 'No',	
+ rabbithutch: 'No', 
+ aviary: 'No',
+ livestockfenced: 'No',
+ homedesc: 'Blah Blah',
+ numadulta: 2, 
+ numchild: 0,
+ ages: 0,
+ numhoursperday: 3,
+ worktype: 'Part time',
+ secondperson: 'Dum Dum',
+ allmembersagree: 'No',
+ bringcentre: 'No',
+ transportdesc: 'Boom Boom',
+ agreement: 'I agree',
+ volunteer_id: 3
 }])
 
-VolJobDay.create([
-  { volunteer_id: 1, jobdescription_id: 1, onday_id: 1, frequency_id: 1 },
-  { volunteer_id: 1, jobdescription_id: 1, onday_id: 2 },
-  { volunteer_id: 1, jobdescription_id: 1, onday_id: 3 },
-  { volunteer_id: 1, jobdescription_id: 1, onday_id: 4 },
-  { volunteer_id: 1, jobdescription_id: 2, onday_id: 5 },
-  { volunteer_id: 1, jobdescription_id: 1, onday_id: 6 },
-  { volunteer_id: 1, jobdescription_id: 1, onday_id: 7 },
-  { volunteer_id: 2, jobdescription_id: 1, onday_id: 1 },
-  { volunteer_id: 2, jobdescription_id: 1, onday_id: 2 },
-  { volunteer_id: 2, jobdescription_id: 1, onday_id: 3 },
-  { volunteer_id: 2, jobdescription_id: 1, onday_id: 4 },
-  { volunteer_id: 2, jobdescription_id: 3, onday_id: 5 },
-  { volunteer_id: 2, jobdescription_id: 1, onday_id: 6 },
-  { volunteer_id: 2, jobdescription_id: 1, onday_id: 7 },
-  { volunteer_id: 3, jobdescription_id: 1, onday_id: 1 },
-  { volunteer_id: 3, jobdescription_id: 3, onday_id: 2 },
-  { volunteer_id: 3, jobdescription_id: 1, onday_id: 3 },
-  { volunteer_id: 3, jobdescription_id: 1, onday_id: 4 },
-  { volunteer_id: 3, jobdescription_id: 1, onday_id: 5 },
-  { volunteer_id: 3, jobdescription_id: 1, onday_id: 6 },
-  { volunteer_id: 3, jobdescription_id: 1, onday_id: 7 },
-  { volunteer_id: 4, jobdescription_id: 1, onday_id: 1 },
-  { volunteer_id: 4, jobdescription_id: 4, onday_id: 2 },
-  { volunteer_id: 4, jobdescription_id: 1, onday_id: 3 },
-  { volunteer_id: 4, jobdescription_id: 1, onday_id: 4 },
-  { volunteer_id: 4, jobdescription_id: 1, onday_id: 5 },
-  { volunteer_id: 4, jobdescription_id: 3, onday_id: 6 },
-  { volunteer_id: 4, jobdescription_id: 3, onday_id: 7 },
-  { volunteer_id: 5, jobdescription_id: 1, onday_id: 1 },
-  { volunteer_id: 5, jobdescription_id: 5, onday_id: 2 },
-  { volunteer_id: 5, jobdescription_id: 6, onday_id: 3 },
-  { volunteer_id: 5, jobdescription_id: 7, onday_id: 4 },
-  { volunteer_id: 5, jobdescription_id: 1, onday_id: 5 },
-  { volunteer_id: 5, jobdescription_id: 1, onday_id: 6 },
-  { volunteer_id: 5, jobdescription_id: 1, onday_id: 7 },
-])
 
-#Dojob2.create([
-#  { name: 'none'},
-#  { name: 'Morning 8-12'},
-#  { name: 'Afternoon 1-5'},
-#  { name: 'Cat walking'},
-#  { name: 'Cat rescue'},
-#  { name: 'Cat hugging'},
-#  { name: 'Cat Admin'}
-#])
-
-Jobdescription.create([
-  { department_id: 1, name: 'none'},
-  { department_id: 1, name: 'Morning 8-12'},
-  { department_id: 1, name: 'Afternoon 1-5'},
-  { department_id: 1, name: 'Cat walking'},
-  { department_id: 1, name: 'Cat rescue'},
-  { department_id: 1, name: 'Cat hugging'},
-  { department_id: 1, name: 'Cat Admin'}
-])
-
-DepartmentJobdescription.create([
-  { department_id: 1, jobdescription_id: 1},
-  { department_id: 1, jobdescription_id: 2},
-  { department_id: 1, jobdescription_id: 3},
-  { department_id: 1, jobdescription_id: 4},
-  { department_id: 1, jobdescription_id: 5},
-  { department_id: 1, jobdescription_id: 6},
-  { department_id: 1, jobdescription_id: 7}
-])
-
-Onday.create([{name: 'Monday'}, {name: 'Tuesday'}, {name: 'Wednesday'}, {name: 'Thursday'}, {name: 'Friday'}, {name: 'Saturday'}, {name: 'Sunday'}])
-
-Absence.create([
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-])
+Orientation.create([{
+presenter: 'Matt',
+datetime: '2013-12-12-10-10'
+},{
+presenter: 'Hamid',
+datetime: '2014-02-02-05-11'
+}])
 

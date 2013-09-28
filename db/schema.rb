@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130926095908) do
+ActiveRecord::Schema.define(:version => 20130927051613) do
 
   create_table "absences", :force => true do |t|
     t.date     "day"
@@ -21,6 +21,20 @@ ActiveRecord::Schema.define(:version => 20130926095908) do
   end
 
   add_index "absences", ["day"], :name => "index_absences_on_day"
+
+  create_table "availabledays", :force => true do |t|
+    t.string   "day"
+    t.integer  "dayint"
+    t.integer  "volunteer_id"
+    t.integer  "schedulejobtype_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
+  create_table "data_files", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "department_jobdescriptions", :force => true do |t|
     t.integer  "department_id"
@@ -47,12 +61,6 @@ ActiveRecord::Schema.define(:version => 20130926095908) do
     t.datetime "updated_at",    :null => false
   end
 
-  create_table "dojobs", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
   create_table "fosterer2s", :force => true do |t|
     t.string   "ownhome"
     t.string   "inspecting"
@@ -73,6 +81,7 @@ ActiveRecord::Schema.define(:version => 20130926095908) do
     t.string   "bringcentre"
     t.text     "transportdesc"
     t.boolean  "agreement"
+    t.integer  "volunteer_id"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
@@ -117,6 +126,35 @@ ActiveRecord::Schema.define(:version => 20130926095908) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "orientations", :force => true do |t|
+    t.string   "presenter"
+    t.date     "date"
+    t.time     "time"
+    t.datetime "datetime"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "name"
+    t.date     "dob"
+    t.string   "email"
+    t.string   "homePhone"
+    t.string   "workPhone"
+    t.string   "mobile"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "encrypted_password"
+    t.string   "salt"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
+
   create_table "vol_job_days", :force => true do |t|
     t.integer  "volunteer_id"
     t.integer  "jobdescription_id"
@@ -153,8 +191,10 @@ ActiveRecord::Schema.define(:version => 20130926095908) do
     t.boolean  "befosterer"
     t.date     "break_from"
     t.date     "break_to"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "scheduledjobtype_id"
+    t.integer  "orientation_id"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
   add_index "volunteers", ["firstname"], :name => "index_volunteers_on_firstname"

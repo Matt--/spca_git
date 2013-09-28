@@ -21,12 +21,24 @@
       
       
       <td>
-        <%if !volunteer.fosterer.nil?%>
-	        <%= link_to 'Become fosterer', new_fosterer_path %>
-        <%else%>
-	        <%= link_to 'Details', fosterers_path %>
+        <p>
+         <%if !volunteer.fosterer.nil?%>
+           <%= link_to 'Edit 1st Form', {:controller => '/fosterers', 
+                :id => volunteer.fosterer.id, :action => 'edit', 
+                :volunteer_id => volunteer.id} %>
+        </p>
+           <%if !volunteer.fosterer2.nil?%>
+             <%= link_to 'Edit 2nd Form', {:controller => '/fosterer2s', 
+                :id => volunteer.fosterer2.id, :action => 'edit', 
+                :volunteer_id => volunteer.id} %>    
+          <%else%>
+             <%= link_to 'Fill 2nd Form', {:controller => '/fosterer2s', 
+                :action => 'new', :volunteer_id => volunteer.id} %>
+          <% end %>  
+        <% else %>
+	        <%= link_to 'Become a fosterer', {:controller => '/fosterers', 
+                :action => 'new', :volunteer_id => volunteer.id} %>
         <%end%>
-    
       </td>
     
       <%#if volunteer.befosterer==false%>
@@ -60,4 +72,3 @@ hello
 <br />
 
 <%= link_to 'New Volunteer', new_volunteer_path %>
-<%= link_to "Home", root_path %>

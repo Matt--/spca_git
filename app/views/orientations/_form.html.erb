@@ -1,0 +1,50 @@
+<%= form_for(@orientation) do |f| %>
+  <% if @orientation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@orientation.errors.count, "error") %> prohibited this orientation from being saved:</h2>
+
+      <ul>
+      <% @orientation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :presenter %><br />
+    <%= f.text_field :presenter %>
+  </div>
+  
+  
+  
+<!-- <div class="field">
+    <%#= f.label :date %><br />
+    <%#= f.date_select :date, :start_year => 2013, :end_year => 1999 %>
+  </div>
+  
+  
+  <div class="field">
+    <%#= f.label :time %><br />
+    <%#= f.time_select :time %>
+  </div>-->
+  
+  <div class="field">
+    <%= f.label :datetime %><br />
+    <%= f.datetime_select :datetime %>
+  </div>
+  
+  
+  
+  
+
+  
+<!--  <div class="field">
+    <%#= content_tag(:button, "Foo", :type=>'button')%>
+    <%#= button_tag "Foo"%> 
+  </div>-->
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
