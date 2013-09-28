@@ -1,6 +1,5 @@
 module VolunteersHelper
 
-
 # Given volunteer, the next time they are working is...
 # returns array [job.name, day.name, date]
 # ignores today, result is in range from tomorrow
@@ -15,7 +14,7 @@ module VolunteersHelper
       daynumber = (t.wday == 0) ? 7 : t.wday # weekday range 1..7 starting Mon
 
       vjd = volunteer.vol_job_day.where("onday_id = ?", daynumber)[0]
-#raise Time.new(2012,1,1).wday.inspect
+
       if (!vjd.nil?                 && 
           vjd.jobdescription.name != "none"  &&
           check_frequency?(vjd, t)       )
@@ -39,7 +38,6 @@ module VolunteersHelper
 
     dayno = (time.wday == 0) ? 7 : time.wday #mon => 1, sun => 7
     result = false
-#    if (vjd.onday_id == dayno)
       if   !vjd.volunteer.break_from.nil? &&            # volunteer is on a break
             vjd.volunteer.break_from <= time.to_date &&
             time.to_date <= vjd.volunteer.break_to
@@ -55,7 +53,6 @@ module VolunteersHelper
             nth_monday(vjd, time) && 
             vjd.onday_id == dayno
         result = true 
-#      end
     end
     return result
   end

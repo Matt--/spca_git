@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>Orientation Date:</b>
+<!--   Test -->
+  <% if (@volunteer.orientation_id.nil?)%>
+    No orientation selected
+   <% else %> 
+    <%= @volunteer.orientation.datetime%>
+  <% end %>
+</p>
+
+<p>
   <b>Title:</b>
   <%= @volunteer.title %>
 </p>
@@ -43,9 +53,7 @@
 <p>
 
   <b>Be a Fosterer:</b>
-
-<%########## commented out, revert to Hamids version on merge #####%>
-  <%#= @volunteer.befosterer %>
+  <%= @volunteer.befosterer %>
 
   <% job = next_working @volunteer %>
   <b>Next working:</b>
@@ -53,6 +61,7 @@
   <b>in job:</b>
 
   <%= (job[0].nil? or job[0] == "none") ? 'no' : job[0] %>
+
 </p>
 
 <p>

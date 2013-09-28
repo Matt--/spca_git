@@ -26,6 +26,17 @@ Data used for replying to new applications.
 
 <br />
 
+<<<<<<< HEAD
+=======
+<h1>Manage Volunteers</h1>
+<%= link_to "New applications", volcoordinator_newvolunteers_path %></br>
+<%= link_to "Awaiting orientation", volcoordinator_orientedvolunteers_path %></br>
+<%= link_to "To be entered into Shelterbuddy", volunteers_path %></br>
+<%= link_to "Rejected applications", volunteers_path %></br>
+
+<br/>
+
+>>>>>>> ea5ccd4aa10e03b1cd75badd0921e1e92c223c0f
 <h1>Notes from Volunteers</h1>
 
 <% @whiteboards.each do |whiteboard| %>
@@ -35,5 +46,9 @@ Data used for replying to new applications.
     <td><%= link_to 'Destroy', whiteboard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
+<<<<<<< HEAD
 
+=======
+<%= link_to "Orientation", orientations_path %><br/>
+>>>>>>> ea5ccd4aa10e03b1cd75badd0921e1e92c223c0f
 <%= link_to "Home", root_path %>

@@ -2,29 +2,22 @@
 
 <table>
   <tr>
-    <th>ownhome</th>
-    <th>inspecting</th>
-    
-    
+    <th>Fosterer Name</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
-<% @fosterer2s.each do |fosterer2| %>
+  <% @volunteers.each do |v| %>
   <tr>
-  
-  
-    <td><%= fosterer2.ownhome %></td>
-    <td><%= fosterer2.inspecting %></td>
-    
-    <td><%= link_to 'Show', fosterer2 %></td>
-    <td><%= link_to 'Edit', edit_fosterer2_path(fosterer2) %></td>
-    <td><%= link_to 'Destroy', fosterer2, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if !v.fosterer2.nil? %>  
+      <td><%= v.firstname %> <%= v.lastname %></td>
+      <td><%= link_to 'Show', v.fosterer2 %></td>
+      <td><%= link_to 'Edit', edit_fosterer2_path(v.fosterer2) %></td>
+      <td><%= link_to 'Destroy', v.fosterer2, method: :delete, 
+                                    data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
-<% end %>
+  <% end %>
 </table>
-
 <br />
-
-<%= link_to 'New Fosterer2', new_fosterer2_path %> <%= link_to "Home", root_path %>
+<%= link_to "Home", root_path %>

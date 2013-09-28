@@ -1,4 +1,5 @@
 class Jobdescription < ActiveRecord::Base
+
   attr_accessible :name, :id, :department_id
 
   has_one  :volscheduler

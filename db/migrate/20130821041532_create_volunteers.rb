@@ -13,6 +13,8 @@ class CreateVolunteers < ActiveRecord::Migration
       t.boolean :befosterer
       t.date    :break_from
       t.date    :break_to
+      t.integer :scheduledjobtype_id
+      t.references :orientation
 
       t.timestamps
     end

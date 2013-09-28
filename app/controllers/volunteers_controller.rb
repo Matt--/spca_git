@@ -1,4 +1,5 @@
 class VolunteersController < ApplicationController
+
   helper VolunteersHelper
 
   # GET /volunteers
@@ -40,6 +41,8 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.find(params[:id])
     @onday = @volunteer.ondays.build(params[:availableday])
     @jobdescription = Jobdescription.new
+#     @orientation = Orientation.new
+#     @orientation = @volunteer.datetime.build(params[:datetime])
 
   end
 
@@ -47,11 +50,16 @@ class VolunteersController < ApplicationController
   # POST /volunteers.json
   def create
     @volunteer = Volunteer.new(params[:volunteer])
+    #@volunteer.status = "New"
+#    @availableday = @volunteer.availabledays.build(params[:availableday])
 
     respond_to do |format|
       if @volunteer.save
-        format.html { redirect_to @volunteer, notice: 'Volunteer was successfully created.' }
-        format.json { render json: @volunteer, status: :created, location: @volunteer }
+        format.html { 
+              redirect_to @volunteer, 
+              notice: 'Volunteer was successfully created.' }
+        format.json { 
+              render json: @volunteer, status: :created, location: @volunteer }
       else
         format.html { render action: "new" }
         format.json { 
@@ -68,12 +76,13 @@ class VolunteersController < ApplicationController
     respond_to do |format|
       if @volunteer.update_attributes(params[:volunteer])
         format.html { 
-        redirect_to @volunteer, notice: 'Volunteer was successfully updated.' }
+              redirect_to @volunteer, 
+              notice: 'Volunteer was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
         format.json { 
-                render json: @volunteer.errors, status: :unprocessable_entity }
+              render json: @volunteer.errors, status: :unprocessable_entity }
       end
     end
   end

@@ -1,4 +1,5 @@
 class Onday < ActiveRecord::Base
+
   attr_accessible :id, :name
 
   has_many :vol_job_days

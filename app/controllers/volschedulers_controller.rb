@@ -32,7 +32,5 @@ class VolschedulersController < ApplicationController
       format.json { render json: @volschedulers }
     end
   end
-
-
 end
   

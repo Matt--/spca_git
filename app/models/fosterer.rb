@@ -5,5 +5,4 @@ class Fosterer < ActiveRecord::Base
 		:volunteer_id
       
   belongs_to :volunteer
-  has_one :fosterer2
 end
