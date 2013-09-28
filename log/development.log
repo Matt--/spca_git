@@ -38187,3 +38187,585 @@ Served asset /SPCA.jpg - 304 Not Modified (0ms)
 
 Started GET "/assets/banner.jpg" for 127.0.0.1 at 2013-09-27 15:07:21 +1200
 Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/volschedulers" for 127.0.0.1 at 2013-09-27 19:58:12 +1200
+Connecting to database specified by database.yml
+Processing by VolschedulersController#index as HTML
+  [1m[36mVolscheduler Load (1.0ms)[0m  [1mSELECT "volschedulers".* FROM "volschedulers" LIMIT 1[0m
+  [1m[35mVolunteer Load (1.0ms)[0m  SELECT "volunteers".* FROM "volunteers" 
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 3[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 4
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5[0m
+  [1m[35mVolJobDay Load (0.0ms)[0m  SELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1
+  [1m[36mJobdescription Load (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mJobdescription Load (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 2 LIMIT 1[0m
+  [1m[35mVolunteer Load (0.0ms)[0m  SELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1[0m
+  [1m[35mFrequency Load (1.0ms)[0m  SELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (1.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mJobdescription Load (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 3 LIMIT 1
+  [1m[36mVolunteer Load (0.0ms)[0m  [1mSELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 2 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2
+  [1m[36mFrequency Load (0.0ms)[0m  [1mSELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 12 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mVolJobDay Load (1.0ms)[0m  SELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 3
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 3 LIMIT 1
+  [1m[36mVolunteer Load (1.0ms)[0m  [1mSELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 3
+  [1m[36mFrequency Load (0.0ms)[0m  [1mSELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 16 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (0.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 4[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mJobdescription Load (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 4 LIMIT 1[0m
+  [1m[35mVolunteer Load (1.0ms)[0m  SELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 4[0m
+  [1m[35mFrequency Load (0.0ms)[0m  SELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 23 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 4
+  [1m[36mFrequency Load (0.0ms)[0m  [1mSELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 27 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 4
+  [1m[36mFrequency Load (0.0ms)[0m  [1mSELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 28 LIMIT 1[0m
+  [1m[35mVolJobDay Load (0.0ms)[0m  SELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mJobdescription Load (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 5 LIMIT 1
+  [1m[36mVolunteer Load (0.0ms)[0m  [1mSELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5
+  [1m[36mFrequency Load (1.0ms)[0m  [1mSELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 30 LIMIT 1[0m
+  [1m[35mJobdescription Load (1.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5
+  [1m[36mFrequency Load (0.0ms)[0m  [1mSELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 31 LIMIT 1[0m
+  [1m[35mJobdescription Load (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 7 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5
+  [1m[36mFrequency Load (0.0ms)[0m  [1mSELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 32 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mDepartment Load (0.0ms)[0m  [1mSELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1[0m
+  [1m[35mJobdescription Load (1.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."department_id" = 1
+  Rendered volschedulers/index.html.erb within layouts/application (391.0ms)
+Compiled application.js  (72ms)  (pid 5664)
+  Rendered layouts/_navigation.html.erb (3.0ms)
+Completed 200 OK in 1086ms (Views: 687.0ms | ActiveRecord: 29.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /application.css - 304 Not Modified (59ms)
+
+
+Started GET "/assets/deptsupervisors.css?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /deptsupervisors.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/fosterer2s.css?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /fosterer2s.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/fosterers.css?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /fosterers.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/help.css?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /help.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /home.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /scaffolds.css - 304 Not Modified (14ms)
+
+
+Started GET "/assets/volcoordinators.css?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /volcoordinators.css - 304 Not Modified (4ms)
+
+
+Started GET "/assets/volschedulers.css?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /volschedulers.css - 304 Not Modified (36ms)
+
+
+Started GET "/assets/whiteboards.css?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /whiteboards.css - 304 Not Modified (5ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /jquery.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/volunteers.css?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /volunteers.css - 304 Not Modified (37ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /jquery_ujs.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/volschedulers.js?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /volschedulers.js - 304 Not Modified (7ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /application.js - 304 Not Modified (64ms)
+
+
+Started GET "/assets/fosterer2s.js?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /fosterer2s.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/deptsupervisors.js?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /deptsupervisors.js - 304 Not Modified (3ms)
+
+
+Started GET "/assets/fosterers.js?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /fosterers.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /home.js - 304 Not Modified (8ms)
+
+
+Started GET "/assets/help.js?body=1" for 127.0.0.1 at 2013-09-27 19:58:15 +1200
+Served asset /help.js - 304 Not Modified (5ms)
+
+
+Started GET "/assets/volcoordinators.js?body=1" for 127.0.0.1 at 2013-09-27 19:58:16 +1200
+Served asset /volcoordinators.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/volunteers.js?body=1" for 127.0.0.1 at 2013-09-27 19:58:16 +1200
+Served asset /volunteers.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/whiteboards.js?body=1" for 127.0.0.1 at 2013-09-27 19:58:16 +1200
+Served asset /whiteboards.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/SPCA.jpg" for 127.0.0.1 at 2013-09-27 19:58:16 +1200
+Served asset /SPCA.jpg - 304 Not Modified (3ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2013-09-27 19:58:16 +1200
+Served asset /banner.jpg - 304 Not Modified (4ms)
+
+
+Started PUT "/volschedulers/1" for 127.0.0.1 at 2013-09-27 19:59:07 +1200
+Processing by VolschedulersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LkxWAd/O51/NTX/GqKXst8mPxIGKwQvgQt1pJzblJqc=", "date"=>"27/09/2013", "vol_1"=>"1", "vol_2"=>"1", "commit"=>"note absences", "id"=>"1"}
+  [1m[36mVolscheduler Load (1.0ms)[0m  [1mSELECT "volschedulers".* FROM "volschedulers" LIMIT 1[0m
+  [1m[35mVolunteer Load (1.0ms)[0m  SELECT "volunteers".* FROM "volunteers" 
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 3[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 4
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (28.0ms)[0m  [1mINSERT INTO "absences" ("created_at", "day", "updated_at", "volunteer_id") VALUES (?, ?, ?, ?)[0m  [["created_at", Fri, 27 Sep 2013 07:59:07 UTC +00:00], ["day", Fri, 27 Sep 2013], ["updated_at", Fri, 27 Sep 2013 07:59:07 UTC +00:00], ["volunteer_id", 1]]
+  [1m[35m (8.0ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  INSERT INTO "absences" ("created_at", "day", "updated_at", "volunteer_id") VALUES (?, ?, ?, ?)  [["created_at", Fri, 27 Sep 2013 07:59:07 UTC +00:00], ["day", Fri, 27 Sep 2013], ["updated_at", Fri, 27 Sep 2013 07:59:07 UTC +00:00], ["volunteer_id", 2]]
+  [1m[36m (9.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://127.0.0.1:3000/volschedulers
+Completed 302 Found in 101ms (ActiveRecord: 54.0ms)
+
+
+Started GET "/volschedulers" for 127.0.0.1 at 2013-09-27 19:59:07 +1200
+Processing by VolschedulersController#index as HTML
+  [1m[35mVolscheduler Load (1.0ms)[0m  SELECT "volschedulers".* FROM "volschedulers" LIMIT 1
+  [1m[36mVolunteer Load (0.0ms)[0m  [1mSELECT "volunteers".* FROM "volunteers" [0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 3
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 4[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5
+  [1m[36mVolJobDay Load (0.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1[0m
+  [1m[35mJobdescription Load (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mJobdescription Load (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 2 LIMIT 1
+  [1m[36mVolunteer Load (1.0ms)[0m  [1mSELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1
+  [1m[36mFrequency Load (0.0ms)[0m  [1mSELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mVolJobDay Load (1.0ms)[0m  SELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mJobdescription Load (1.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 3 LIMIT 1[0m
+  [1m[35mVolunteer Load (0.0ms)[0m  SELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2[0m
+  [1m[35mFrequency Load (0.0ms)[0m  SELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 12 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (1.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 3[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 3 LIMIT 1[0m
+  [1m[35mVolunteer Load (0.0ms)[0m  SELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 3 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 3[0m
+  [1m[35mFrequency Load (0.0ms)[0m  SELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 16 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mVolJobDay Load (0.0ms)[0m  SELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 4
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mJobdescription Load (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 4 LIMIT 1
+  [1m[36mVolunteer Load (1.0ms)[0m  [1mSELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 4 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 4
+  [1m[36mFrequency Load (0.0ms)[0m  [1mSELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 23 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 4[0m
+  [1m[35mFrequency Load (0.0ms)[0m  SELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 27 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 4[0m
+  [1m[35mFrequency Load (1.0ms)[0m  SELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 28 LIMIT 1
+  [1m[36mVolJobDay Load (0.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mJobdescription Load (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 5 LIMIT 1[0m
+  [1m[35mVolunteer Load (0.0ms)[0m  SELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5[0m
+  [1m[35mFrequency Load (0.0ms)[0m  SELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 30 LIMIT 1
+  [1m[36mJobdescription Load (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 6 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5[0m
+  [1m[35mFrequency Load (0.0ms)[0m  SELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 31 LIMIT 1
+  [1m[36mJobdescription Load (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 5 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5[0m
+  [1m[35mFrequency Load (0.0ms)[0m  SELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 32 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mDepartment Load (0.0ms)[0m  SELECT "departments".* FROM "departments" WHERE "departments"."id" = 1 LIMIT 1
+  [1m[36mJobdescription Load (1.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."department_id" = 1[0m
+  Rendered volschedulers/index.html.erb within layouts/application (200.0ms)
+  Rendered layouts/_navigation.html.erb (1.0ms)
+Completed 200 OK in 251ms (Views: 235.0ms | ActiveRecord: 9.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:07 +1200
+Served asset /application.css - 304 Not Modified (27ms)
+
+
+Started GET "/assets/deptsupervisors.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:07 +1200
+Served asset /deptsupervisors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fosterer2s.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:07 +1200
+Served asset /fosterer2s.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/fosterers.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:07 +1200
+Served asset /fosterers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/help.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:07 +1200
+Served asset /help.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /home.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/volunteers.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /volunteers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/whiteboards.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /whiteboards.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/deptsupervisors.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /deptsupervisors.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /scaffolds.css - 304 Not Modified (6ms)
+
+
+Started GET "/assets/volcoordinators.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /volcoordinators.css - 304 Not Modified (40ms)
+
+
+Started GET "/assets/volschedulers.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /volschedulers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/fosterer2s.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /fosterer2s.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fosterers.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /fosterers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/help.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /help.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /home.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/volcoordinators.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /volcoordinators.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/volunteers.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /volunteers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/volschedulers.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /volschedulers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/whiteboards.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /whiteboards.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /application.js - 304 Not Modified (6ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /banner.jpg - 304 Not Modified (0ms)
+
+
+Started GET "/assets/SPCA.jpg" for 127.0.0.1 at 2013-09-27 19:59:08 +1200
+Served asset /SPCA.jpg - 304 Not Modified (1ms)
+
+
+Started GET "/volunteers" for 127.0.0.1 at 2013-09-27 19:59:15 +1200
+Processing by VolunteersController#index as HTML
+  [1m[35mVolunteer Load (0.0ms)[0m  SELECT "volunteers".* FROM "volunteers" 
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1[0m
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 3[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 4
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5[0m
+  [1m[35mFosterer Load (1.0ms)[0m  SELECT "fosterers".* FROM "fosterers" WHERE "fosterers"."volunteer_id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (0.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1 AND (onday_id = 6)[0m
+  [1m[35mJobdescription Load (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (0.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1 AND (onday_id = 7)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (0.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1 AND (onday_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (1.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1 AND (onday_id = 2)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (0.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1 AND (onday_id = 3)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (0.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1 AND (onday_id = 4)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (0.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1 AND (onday_id = 5)[0m
+  [1m[35mJobdescription Load (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 2 LIMIT 1
+  [1m[36mVolunteer Load (0.0ms)[0m  [1mSELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 1 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 1
+  [1m[36mFrequency Load (1.0ms)[0m  [1mSELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 5 LIMIT 1[0m
+  [1m[35mOnday Load (0.0ms)[0m  SELECT "ondays".* FROM "ondays" WHERE "ondays"."id" = 5 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "absences" WHERE "absences"."volunteer_id" = 1[0m
+  [1m[35mAbsence Load (0.0ms)[0m  SELECT "absences".* FROM "absences" WHERE "absences"."volunteer_id" = 1 GROUP BY day
+  [1m[36mFosterer Load (1.0ms)[0m  [1mSELECT "fosterers".* FROM "fosterers" WHERE "fosterers"."volunteer_id" = 2 LIMIT 1[0m
+  [1m[35mVolJobDay Load (0.0ms)[0m  SELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2 AND (onday_id = 6)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mVolJobDay Load (0.0ms)[0m  SELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2 AND (onday_id = 7)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mVolJobDay Load (0.0ms)[0m  SELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2 AND (onday_id = 1)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mVolJobDay Load (0.0ms)[0m  SELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2 AND (onday_id = 2)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mVolJobDay Load (0.0ms)[0m  SELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2 AND (onday_id = 3)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mVolJobDay Load (0.0ms)[0m  SELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2 AND (onday_id = 4)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1[0m
+  [1m[35mVolJobDay Load (0.0ms)[0m  SELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2 AND (onday_id = 5)
+  [1m[36mJobdescription Load (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 3 LIMIT 1[0m
+  [1m[35mVolunteer Load (0.0ms)[0m  SELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 2 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 2[0m
+  [1m[35mFrequency Load (1.0ms)[0m  SELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 12 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "ondays".* FROM "ondays" WHERE "ondays"."id" = 5 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "absences" WHERE "absences"."volunteer_id" = 2
+  [1m[36mAbsence Load (0.0ms)[0m  [1mSELECT "absences".* FROM "absences" WHERE "absences"."volunteer_id" = 2 GROUP BY day[0m
+  [1m[35mFosterer Load (0.0ms)[0m  SELECT "fosterers".* FROM "fosterers" WHERE "fosterers"."volunteer_id" = 3 LIMIT 1
+  [1m[36mVolJobDay Load (0.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 3 AND (onday_id = 6)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (0.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 3 AND (onday_id = 7)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (0.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 3 AND (onday_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (1.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 3 AND (onday_id = 2)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 3 LIMIT 1
+  [1m[36mVolunteer Load (0.0ms)[0m  [1mSELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 3 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 3
+  [1m[36mFrequency Load (0.0ms)[0m  [1mSELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 16 LIMIT 1[0m
+  [1m[35mOnday Load (1.0ms)[0m  SELECT "ondays".* FROM "ondays" WHERE "ondays"."id" = 2 LIMIT 1
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "absences" WHERE "absences"."volunteer_id" = 3[0m
+  [1m[35mAbsence Load (0.0ms)[0m  SELECT "absences".* FROM "absences" WHERE "absences"."volunteer_id" = 3 GROUP BY day
+  [1m[36mFosterer Load (1.0ms)[0m  [1mSELECT "fosterers".* FROM "fosterers" WHERE "fosterers"."volunteer_id" = 4 LIMIT 1[0m
+  [1m[35mVolJobDay Load (0.0ms)[0m  SELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 4 AND (onday_id = 6)
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 3 LIMIT 1[0m
+  [1m[35mVolunteer Load (0.0ms)[0m  SELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 4 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 4[0m
+  [1m[35mFrequency Load (0.0ms)[0m  SELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 27 LIMIT 1
+  [1m[36mOnday Load (0.0ms)[0m  [1mSELECT "ondays".* FROM "ondays" WHERE "ondays"."id" = 6 LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "absences" WHERE "absences"."volunteer_id" = 4
+  [1m[36mAbsence Load (0.0ms)[0m  [1mSELECT "absences".* FROM "absences" WHERE "absences"."volunteer_id" = 4 GROUP BY day[0m
+  [1m[35mFosterer Load (0.0ms)[0m  SELECT "fosterers".* FROM "fosterers" WHERE "fosterers"."volunteer_id" = 5 LIMIT 1
+  [1m[36mVolJobDay Load (0.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5 AND (onday_id = 6)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (1.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5 AND (onday_id = 7)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (0.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5 AND (onday_id = 1)[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 1 LIMIT 1
+  [1m[36mVolJobDay Load (1.0ms)[0m  [1mSELECT "vol_job_days".* FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5 AND (onday_id = 2)[0m
+  [1m[35mJobdescription Load (0.0ms)[0m  SELECT "jobdescriptions".* FROM "jobdescriptions" WHERE "jobdescriptions"."id" = 5 LIMIT 1
+  [1m[36mVolunteer Load (1.0ms)[0m  [1mSELECT "volunteers".* FROM "volunteers" WHERE "volunteers"."id" = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) FROM "vol_job_days" WHERE "vol_job_days"."volunteer_id" = 5
+  [1m[36mFrequency Load (0.0ms)[0m  [1mSELECT "frequencies".* FROM "frequencies" WHERE "frequencies"."id" = 30 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "ondays".* FROM "ondays" WHERE "ondays"."id" = 2 LIMIT 1
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM "absences" WHERE "absences"."volunteer_id" = 5[0m
+  [1m[35mAbsence Load (0.0ms)[0m  SELECT "absences".* FROM "absences" WHERE "absences"."volunteer_id" = 5 GROUP BY day
+  Rendered volunteers/index.html.erb within layouts/application (243.0ms)
+  Rendered layouts/_navigation.html.erb (2.0ms)
+Completed 200 OK in 307ms (Views: 284.0ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /application.css - 304 Not Modified (34ms)
+
+
+Started GET "/assets/deptsupervisors.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /deptsupervisors.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/fosterer2s.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /fosterer2s.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/fosterers.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /fosterers.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/help.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /help.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/home.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /home.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/scaffolds.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /scaffolds.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/volcoordinators.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /volcoordinators.css - 304 Not Modified (2ms)
+
+
+Started GET "/assets/volschedulers.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /volschedulers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/volunteers.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /volunteers.css - 304 Not Modified (1ms)
+
+
+Started GET "/assets/whiteboards.css?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /whiteboards.css - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /jquery.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /jquery_ujs.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/volunteers.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /volunteers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/deptsupervisors.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /deptsupervisors.js - 304 Not Modified (9ms)
+
+
+Started GET "/assets/fosterer2s.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /fosterer2s.js - 304 Not Modified (4ms)
+
+
+Started GET "/assets/fosterers.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /fosterers.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/help.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /help.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/home.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /home.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/volschedulers.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /volschedulers.js - 304 Not Modified (1ms)
+
+
+Started GET "/assets/volcoordinators.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /volcoordinators.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/whiteboards.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /whiteboards.js - 304 Not Modified (0ms)
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /application.js - 304 Not Modified (34ms)
+
+
+Started GET "/assets/SPCA.jpg" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /SPCA.jpg - 304 Not Modified (3ms)
+
+
+Started GET "/assets/banner.jpg" for 127.0.0.1 at 2013-09-27 19:59:16 +1200
+Served asset /banner.jpg - 304 Not Modified (1ms)
