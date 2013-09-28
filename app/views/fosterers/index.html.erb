@@ -4,62 +4,32 @@
 <table>
   <tr>
     <th>Fosterer Name</th>
-<<<<<<< HEAD
-=======
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <th></th>
->>>>>>> ea5ccd4aa10e03b1cd75badd0921e1e92c223c0f
     <th></th>
     <th></th>
     <th></th>
   </tr>
-  
-  
 
 <% @volunteers.each do |v| %>
-<<<<<<< HEAD
-  <tr>
-    <% if !v.fosterer.nil? %>
-      <td><%= v.firstname %> <%= v.lastname %></td>
-      <td><%= link_to 'Show', fosterers_path %></td>
-      <td><%= link_to 'Edit', edit_fosterer_path(fosterers_path) %></td>
-      <td><%= link_to 'Destroy', fosterers_path, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-    
-   
-    
-  </tr>
-<% end %>
-</table>
-
-<br />
-
- <%= link_to "Home", root_path %>
-=======
-  
-    
   <% if !v.fosterer.nil? %>
-    
-      
+          
     <tr>
       <td><%= v.firstname %> <%= v.lastname %>&nbsp;&nbsp;&nbsp;&nbsp;</td>
       <td>
-	<%= link_to 'Second Page', {:controller => '/fosterer2s', :action => 'new', :volunteer_id => v.fosterer.id} %>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	      <%= link_to 'Second Page', 
+          {:controller => '/fosterer2s', :action => 'new', 
+                                            :volunteer_id => v.fosterer.id} %>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       </td>
       
       <td><%= link_to 'Show', v.fosterer %></td>
       <td><%= link_to 'Edit', edit_fosterer_path(v.fosterer) %></td>
-      <td><%= link_to 'Destroy', v.fosterer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Destroy', v.fosterer, method: :delete, 
+                                data: { confirm: 'Are you sure?' } %></td>
     </tr>
-    <% end %>
-   
-    
- 
+  <% end %> 
 <% end %>
 </table>
 
-
-
 <%= link_to "Home", root_path %>
->>>>>>> ea5ccd4aa10e03b1cd75badd0921e1e92c223c0f
