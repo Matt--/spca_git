@@ -36,16 +36,6 @@ ActiveRecord::Schema.define(:version => 20130927051613) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "department_jobdescriptions", :force => true do |t|
-    t.integer  "department_id"
-    t.integer  "jobdescription_id"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-  end
-
-  add_index "department_jobdescriptions", ["department_id"], :name => "index_department_jobdescriptions_on_department_id"
-  add_index "department_jobdescriptions", ["jobdescription_id"], :name => "index_department_jobdescriptions_on_jobdescription_id"
-
   create_table "departments", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false

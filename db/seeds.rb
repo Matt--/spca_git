@@ -137,16 +137,6 @@ Jobdescription.create([
   { department_id: 1, name: 'Cat Admin'}
 ])
 
-DepartmentJobdescription.create([
-  { department_id: 1, jobdescription_id: 1},
-  { department_id: 1, jobdescription_id: 2},
-  { department_id: 1, jobdescription_id: 3},
-  { department_id: 1, jobdescription_id: 4},
-  { department_id: 1, jobdescription_id: 5},
-  { department_id: 1, jobdescription_id: 6},
-  { department_id: 1, jobdescription_id: 7}
-])
-
 Onday.create([{name: 'Monday'}, {name: 'Tuesday'}, {name: 'Wednesday'}, {name: 'Thursday'}, {name: 'Friday'}, {name: 'Saturday'}, {name: 'Sunday'}])
 
 Absence.create([
