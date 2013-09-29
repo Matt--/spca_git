@@ -1,6 +1,36 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <b>First name:</b>
+  <%= @volunteer.firstname %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @volunteer.lastname %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @volunteer.address %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @volunteer.email %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%= @volunteer.moblie %>
+</p>
+
+<p>
+  <b>Home:</b>
+  <%= @volunteer.home %>
+</p>
+
+<p>
   <b>Orientation Date:</b>
 <!--   Test -->
   <% if (@volunteer.orientation_id.nil?)%>
@@ -21,53 +51,41 @@
 </p>
 
 <p>
-  <b>Firstname:</b>
-  <%= @volunteer.firstname %>
+  <b>Is a Fosterer:</b>
+  <%= @volunteer.befosterer.nil? ? "no" : "yes" %>
 </p>
-
 <p>
-  <b>Lastname:</b>
-  <%= @volunteer.lastname %>
-</p>
-
-<p>
-  <b>Address:</b>
-  <%= @volunteer.address %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @volunteer.email %>
-</p>
-
-<p>
-  <b>Moblie:</b>
-  <%= @volunteer.moblie %>
-</p>
-
-<p>
-  <b>Home:</b>
-  <%= @volunteer.home %>
-</p>
-
-<p>
-
-  <b>Be a Fosterer:</b>
-  <%= @volunteer.befosterer %>
-
   <% job = next_working @volunteer %>
   <b>Next working:</b>
-  <%= (job[0].nil? or job[0] == "none") ? 'no' : job[1] +job[2] %>
+    <%= (job[0].nil? or job[0] == "none") ? 'no' : job[1] +job[2] %>
   <b>in job:</b>
-
-  <%= (job[0].nil? or job[0] == "none") ? 'no' : job[0] %>
-
+    <%= (job[0].nil? or job[0] == "none") ? 'no' : job[0] %>
 </p>
 
 <p>
   <b>Background:</b>
   <%= @volunteer.background %>
 </p>
+
+<p><%############## Volunteer Absences ########### %>
+  <b>Noted absences, since 
+              <%= Time.now - @volcoordinator.absence_period.weeks %>:</b>
+  <% absent = @volunteer.absences.where( "day > ?", 
+              Time.now - @volcoordinator.absence_period.weeks) %>
+  <% if absent.empty? %>
+    none
+  <% else %>
+    <br/>&nbsp&nbsp
+    <% b = Array.new %>
+    <% absent.each do |a| %>
+      <% b << a.day.strftime("%a %d/%m/%Y") %>
+    <% end %>
+    <t id="warning">
+      <%= b.join(', ') %>
+    </t>
+  <% end %>
+</p>
+
 
 <h2>Notes</h2>
 <% @volunteer.whiteboards.each do |whiteboard| %>

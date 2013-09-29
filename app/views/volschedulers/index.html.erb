@@ -66,8 +66,10 @@
     <td>
       <% vol_array[c].each do |v2| %>
         <% v2.vol_job_day.each do |vjd2| %>
-          <% if vjd2.jobdescription.name == jd[i].name && check_frequency?(vjd2, t) %>
-            <%= v2.firstname %>
+          <% if vjd2.jobdescription.id == jd[i].id && check_frequency?(vjd2, t) %>
+            <a href= <%= volunteer_path(v2) %> >
+              <%= v2.firstname %>
+            </a>
           <% end %>
         <% end %>
       <% end %>
@@ -79,7 +81,7 @@
 </table>
 <br/><br/>
 <% ######## Exception Reporting, note the absences ###### %>
-<%= "TODO, restrict this part of the view to Department Supervisors" %><br/>
+<%= "TODO, noting absences restricted to Department Supervisors" %><br/>
 <%= "TODO, enable noting this for... say up to a week ago" %><br/><br/>
 
 <%# TODO "time" used here needs to relate to any day of interest #%>
@@ -95,7 +97,7 @@
   <% end %>
 
   <div class="actions">
-    <br/><%= submit_tag "note absences" %> ??? Raise an "are you sure?" notice?
+    <br/><%= submit_tag "note absences" %> ??? Raise an "are you sure?" notice? ???
   </div>
 <% end %>
 

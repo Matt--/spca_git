@@ -6,6 +6,7 @@ class VolunteersController < ApplicationController
   # GET /volunteers.json
   def index
     @volunteers = Volunteer.all
+    @volcoordinator = Volcoordinator.first
 
     respond_to do |format|
       format.html # index.html.erb
@@ -17,6 +18,7 @@ class VolunteersController < ApplicationController
   # GET /volunteers/1.json
   def show
     @volunteer = Volunteer.find(params[:id])
+    @volcoordinator = Volcoordinator.first
 
     respond_to do |format|
       format.html # show.html.erb

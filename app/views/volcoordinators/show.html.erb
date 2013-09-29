@@ -1,13 +1,44 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Email:</b>
-  <%= @volcoordinator.email %>
+  <h1>Volunteer Coordinator Settings</h1>
+</p>
+<p>
+  <b>Email reply-to:</b>
+  <%= @volcoordinator.email_replyto %>
 </p>
 
+<h3>Application Acknowledgement</h3>
 <p>
-  <b>Appemailacknowledgetext:</b>
-  <%= @volcoordinator.appEmailAcknowledgeText %>
+  <b>Header:</b>
+  <%= @volcoordinator.application_email_header %>
+</p>
+<p>
+  <b>Content:</b>
+  <%= @volcoordinator.application_email_content %>
+</p>
+
+<h3>Absence notice</h3>
+<p>
+  <b>Header:</b>
+  <%= @volcoordinator.absence_email_header %>
+</p>
+<p>
+  <b>content:</b>
+  <%= @volcoordinator.absence_email_content %>
+</p>
+
+<h3>Volunteer Absence tolerance</h3>
+<p>
+  These settings generate consequences.
+</p>
+<p>
+  <b>Over n weeks:</b>
+  <%= @volcoordinator.absence_period %>
+</p>
+<p>
+  <b>Tolerate n absences:</b>
+  <%= @volcoordinator.absence_tolerence %>
 </p>
 
 

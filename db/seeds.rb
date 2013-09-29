@@ -8,8 +8,12 @@
 
 Volcoordinator.create([{
   email_replyto: 'coordinator@test.com',
-  email_header: 'SPCA Application',
-  email_content: 'Thank you for your application to become an SPCA Volunteer. We value all our volunteers and appreciate the many ways you can help us out. Please bear with us while your application is processed and we will reply to you by email in approximately 10 working days.'
+  application_email_header: 'SPCA Application',
+  application_email_content: 'Thank you for your application to become an SPCA Volunteer. We value all our volunteers and appreciate the many ways you can help us out. Please bear with us while your application is processed and we will reply to you by email in approximately 10 working days.',
+  absence_tolerence: 3,
+  absence_period: 4,
+  absence_email_header: 'SPCA - you missed your roster', 
+  absence_email_content: 'Hi #{@volunteer.firstname}, you missed your roster today. If you cannot make it in, please just let us know in advance or adjust your preferred schedule online. We like having you here and we value the contribution you make. Please just keep us informed if you cannot come in.'
 }])
 
 Department.create([
@@ -25,17 +29,23 @@ DeptSupervisor.create([
     lastname: "Jones",
     title: "Sir",
     department_id: 1},
-  {firstname: "Angela",
-    lastname: "Martin",
+  {firstname: "Phil",
+    lastname: "Colins",
     title: "Dr",
     department_id: 2},
   {firstname: "Fred",
     lastname: "Dagg",
     title: "Mr",
+    department_id: 3},
+  {firstname: "Billy-Ray",
+    lastname: "Sirus",
+    title: "Mr",
+    department_id: 3},
+  {firstname: "Freddie",
+    lastname: "Mercury",
+    title: "Mr",
     department_id: 3}
 ])
-
-Frequency.create([{name: "monthly", week: 2}])
 
 Volunteer.create([
   {title: 'fosterer',
@@ -89,76 +99,107 @@ Volscheduler.create([{
   department_id: 1
 }])
 
+Frequency.create([
+  {name: "weekly", week: 1},
+  {name: "fortnightly", week: 1},
+  {name: "fortnightly", week: 2},
+  {name: "monthly", week: 1},
+  {name: "monthly", week: 2},
+  {name: "monthly", week: 3},
+  {name: "monthly", week: 4},
+  {name: "monthly", week: 5},
+])
+
 VolJobDay.create([
-  { volunteer_id: 1, jobdescription_id: 1, onday_id: 1, frequency_id: 1 },
-  { volunteer_id: 1, jobdescription_id: 1, onday_id: 2 },
-  { volunteer_id: 1, jobdescription_id: 1, onday_id: 3 },
-  { volunteer_id: 1, jobdescription_id: 1, onday_id: 4 },
-  { volunteer_id: 1, jobdescription_id: 2, onday_id: 5 },
-  { volunteer_id: 1, jobdescription_id: 1, onday_id: 6 },
-  { volunteer_id: 1, jobdescription_id: 1, onday_id: 7 },
-  { volunteer_id: 2, jobdescription_id: 1, onday_id: 1 },
-  { volunteer_id: 2, jobdescription_id: 1, onday_id: 2 },
-  { volunteer_id: 2, jobdescription_id: 1, onday_id: 3 },
-  { volunteer_id: 2, jobdescription_id: 1, onday_id: 4 },
-  { volunteer_id: 2, jobdescription_id: 3, onday_id: 5 },
-  { volunteer_id: 2, jobdescription_id: 1, onday_id: 6 },
-  { volunteer_id: 2, jobdescription_id: 1, onday_id: 7 },
-  { volunteer_id: 3, jobdescription_id: 1, onday_id: 1 },
-  { volunteer_id: 3, jobdescription_id: 3, onday_id: 2 },
-  { volunteer_id: 3, jobdescription_id: 1, onday_id: 3 },
-  { volunteer_id: 3, jobdescription_id: 1, onday_id: 4 },
-  { volunteer_id: 3, jobdescription_id: 1, onday_id: 5 },
-  { volunteer_id: 3, jobdescription_id: 1, onday_id: 6 },
-  { volunteer_id: 3, jobdescription_id: 1, onday_id: 7 },
-  { volunteer_id: 4, jobdescription_id: 1, onday_id: 1 },
-  { volunteer_id: 4, jobdescription_id: 4, onday_id: 2 },
-  { volunteer_id: 4, jobdescription_id: 1, onday_id: 3 },
-  { volunteer_id: 4, jobdescription_id: 1, onday_id: 4 },
-  { volunteer_id: 4, jobdescription_id: 1, onday_id: 5 },
-  { volunteer_id: 4, jobdescription_id: 3, onday_id: 6 },
-  { volunteer_id: 4, jobdescription_id: 3, onday_id: 7 },
-  { volunteer_id: 5, jobdescription_id: 1, onday_id: 1 },
-  { volunteer_id: 5, jobdescription_id: 5, onday_id: 2 },
-  { volunteer_id: 5, jobdescription_id: 6, onday_id: 3 },
-  { volunteer_id: 5, jobdescription_id: 7, onday_id: 4 },
-  { volunteer_id: 5, jobdescription_id: 1, onday_id: 5 },
-  { volunteer_id: 5, jobdescription_id: 1, onday_id: 6 },
-  { volunteer_id: 5, jobdescription_id: 1, onday_id: 7 },
+  { volunteer_id: 1, jobdescription_id: 2, onday_id: 1, frequency_id: 1 },
+  { volunteer_id: 1, jobdescription_id: 2, onday_id: 2, frequency_id: 1 },
+  { volunteer_id: 1, jobdescription_id: 2, onday_id: 3, frequency_id: 1 },
+  { volunteer_id: 1, jobdescription_id: 2, onday_id: 4, frequency_id: 1 },
+  { volunteer_id: 1, jobdescription_id: 2, onday_id: 5, frequency_id: 1 },
+  { volunteer_id: 1, jobdescription_id: 1, onday_id: 6, frequency_id: 1 },
+  { volunteer_id: 1, jobdescription_id: 1, onday_id: 7, frequency_id: 1 },
+  { volunteer_id: 2, jobdescription_id: 3, onday_id: 1, frequency_id: 2 },
+  { volunteer_id: 2, jobdescription_id: 3, onday_id: 2, frequency_id: 2 },
+  { volunteer_id: 2, jobdescription_id: 3, onday_id: 3, frequency_id: 2 },
+  { volunteer_id: 2, jobdescription_id: 1, onday_id: 4, frequency_id: 1 },
+  { volunteer_id: 2, jobdescription_id: 1, onday_id: 5, frequency_id: 1 },
+  { volunteer_id: 2, jobdescription_id: 1, onday_id: 6, frequency_id: 1 },
+  { volunteer_id: 2, jobdescription_id: 1, onday_id: 7, frequency_id: 1 },
+  { volunteer_id: 3, jobdescription_id: 1, onday_id: 1, frequency_id: 1 },
+  { volunteer_id: 3, jobdescription_id: 1, onday_id: 2, frequency_id: 1 },
+  { volunteer_id: 3, jobdescription_id: 1, onday_id: 3, frequency_id: 1 },
+  { volunteer_id: 3, jobdescription_id: 1, onday_id: 4, frequency_id: 1 },
+  { volunteer_id: 3, jobdescription_id: 1, onday_id: 5, frequency_id: 1 },
+  { volunteer_id: 3, jobdescription_id: 5, onday_id: 6, frequency_id: 4 },
+  { volunteer_id: 3, jobdescription_id: 5, onday_id: 7, frequency_id: 4 },
+  { volunteer_id: 4, jobdescription_id: 3, onday_id: 1, frequency_id: 3 },
+  { volunteer_id: 4, jobdescription_id: 3, onday_id: 2, frequency_id: 3 },
+  { volunteer_id: 4, jobdescription_id: 3, onday_id: 3, frequency_id: 3 },
+  { volunteer_id: 4, jobdescription_id: 1, onday_id: 4, frequency_id: 1 },
+  { volunteer_id: 4, jobdescription_id: 1, onday_id: 5, frequency_id: 1 },
+  { volunteer_id: 4, jobdescription_id: 6, onday_id: 6, frequency_id: 1 },
+  { volunteer_id: 4, jobdescription_id: 1, onday_id: 7, frequency_id: 1 },
+  { volunteer_id: 5, jobdescription_id: 4, onday_id: 1, frequency_id: 1 },
+  { volunteer_id: 5, jobdescription_id: 4, onday_id: 2, frequency_id: 1 },
+  { volunteer_id: 5, jobdescription_id: 4, onday_id: 3, frequency_id: 1 },
+  { volunteer_id: 5, jobdescription_id: 7, onday_id: 4, frequency_id: 1 },
+  { volunteer_id: 5, jobdescription_id: 1, onday_id: 5, frequency_id: 1 },
+  { volunteer_id: 5, jobdescription_id: 1, onday_id: 6, frequency_id: 1 },
+  { volunteer_id: 5, jobdescription_id: 1, onday_id: 7, frequency_id: 1 },
 ])
 
 Jobdescription.create([
   { department_id: 1, name: 'none'},
   { department_id: 1, name: 'Morning 8-12'},
+  { department_id: 1, name: 'Morning 8-12'},
+  { department_id: 1, name: 'Afternoon 1-5'},
   { department_id: 1, name: 'Afternoon 1-5'},
   { department_id: 1, name: 'Cat walking'},
   { department_id: 1, name: 'Cat rescue'},
   { department_id: 1, name: 'Cat hugging'},
-  { department_id: 1, name: 'Cat Admin'}
+  { department_id: 1, name: 'Cat Admin'},
 ])
-
-DepartmentJobdescription.create([
-  { department_id: 1, jobdescription_id: 1},
-  { department_id: 1, jobdescription_id: 2},
-  { department_id: 1, jobdescription_id: 3},
-  { department_id: 1, jobdescription_id: 4},
-  { department_id: 1, jobdescription_id: 5},
-  { department_id: 1, jobdescription_id: 6},
-  { department_id: 1, jobdescription_id: 7}
+=begin
+  { department_id: 2, name: 'none'},
+  { department_id: 2, name: 'Morning 8-12'},
+  { department_id: 2, name: 'Morning 8-12'},
+  { department_id: 2, name: 'Afternoon 1-5'},
+  { department_id: 2, name: 'Afternoon 1-5'},
+  { department_id: 3, name: 'none'},
+  { department_id: 3, name: 'Morning 8-12'},
+  { department_id: 3, name: 'Morning 8-12'},
+  { department_id: 3, name: 'Afternoon 1-5'},
+  { department_id: 3, name: 'Afternoon 1-5'},
+  { department_id: 4, name: 'none'},
+  { department_id: 4, name: 'Morning 8-12'},
+  { department_id: 4, name: 'Morning 8-12'},
+  { department_id: 4, name: 'Afternoon 1-5'},
+  { department_id: 4, name: 'Afternoon 1-5'},
+  { department_id: 5, name: 'none'},
+  { department_id: 5, name: 'Morning 8-12'},
+  { department_id: 5, name: 'Morning 8-12'},
+  { department_id: 5, name: 'Afternoon 1-5'},
+  { department_id: 5, name: 'Afternoon 1-5'},
 ])
+=end
 
 Onday.create([{name: 'Monday'}, {name: 'Tuesday'}, {name: 'Wednesday'}, {name: 'Thursday'}, {name: 'Friday'}, {name: 'Saturday'}, {name: 'Sunday'}])
 
 Absence.create([
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
-  {day: Date.parse("1-6-2013"), volunteer_id: 1},
+  {day: Date.parse("6-10-2013"), volunteer_id: 2},
+  {day: Date.parse("30-9-2013"), volunteer_id: 2},
+  {day: Date.parse("23-9-2013"), volunteer_id: 2},
+  {day: Date.parse("16-9-2013"), volunteer_id: 2},
+  {day: Date.parse("9-9-2013"), volunteer_id: 2},
+  {day: Date.parse("2-9-2013"), volunteer_id: 2},
+  {day: Date.parse("27-8-2013"), volunteer_id: 2},
+  {day: Date.parse("20-8-2013"), volunteer_id: 2},
+  {day: Date.parse("13-8-2013"), volunteer_id: 2},
+  {day: Date.parse("6-8-2013"), volunteer_id: 2},
+  {day: Date.parse("30-7-2013"), volunteer_id: 2},
+  {day: Date.parse("6-10-2013"), volunteer_id: 3},
+  {day: Date.parse("6-10-2013"), volunteer_id: 4},
+  {day: Date.parse("6-10-2013"), volunteer_id: 4},
 ])
 
 Fosterer.create([{ 

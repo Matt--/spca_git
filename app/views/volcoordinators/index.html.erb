@@ -4,22 +4,30 @@ Data used for replying to new applications.
 
 <table>
   <tr>
-    <th>Email_replyto</th>
-    <th>Header</th>
-    <th>Body</th>
-    <th></th>
-    <th></th>
+    <th>Email reply-to</th>
+    <th>Application Email Header</th>
+    <th>Application Email Content</th>
   </tr>
-<% @volcoordinators.each do |volcoordinator| %>
   <tr>
-    <td><%= volcoordinator.email_replyto %></td>
-    <td><%= volcoordinator.email_header %></td>
-    <td><%= volcoordinator.email_content %></td>
-    <td><%= link_to 'Show', volcoordinator %></td>
-    <td><%= link_to 'Edit', edit_volcoordinator_path(volcoordinator) %></td>
+    <td><%= @volcoordinator.email_replyto %></td>
+    <td><%= @volcoordinator.application_email_header %></td>
+    <td><%= @volcoordinator.application_email_content %></td>
   </tr>
-<% end %>
 </table>
+<table>
+  <tr>
+    <th>Email reply-to</th>
+    <th>Absence Email Header</th>
+    <th>Absence Email Content</th>
+  </tr>
+  <tr>
+    <td><%= @volcoordinator.email_replyto %></td>
+    <td><%= @volcoordinator.absence_email_header %></td>
+    <td><%= @volcoordinator.absence_email_content %></td>
+  </tr>
+</table>
+<%= link_to 'Show', @volcoordinator %>
+<%= link_to 'Edit', edit_volcoordinator_path(@volcoordinator) %>
 
 <br />
 
@@ -41,4 +49,3 @@ Data used for replying to new applications.
 <% end %>
 
 <%= link_to "Orientation", orientations_path %><br/>
-<%= link_to "Home", root_path %>

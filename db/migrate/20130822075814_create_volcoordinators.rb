@@ -1,9 +1,13 @@
 class CreateVolcoordinators < ActiveRecord::Migration
   def change
     create_table :volcoordinators do |t|
-      t.string :email_replyto
-      t.string :email_header
-      t.string :email_content
+      t.string  :email_replyto
+      t.string  :application_email_header
+      t.string  :application_email_content
+      t.integer :absence_tolerence
+      t.integer :absence_period
+      t.string  :absence_email_header
+      t.string  :absence_email_content
 
       t.timestamps
     end
