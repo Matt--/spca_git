@@ -73,47 +73,6 @@ class VolunteersController < ApplicationController
   def update
     @volunteer = Volunteer.find(params[:id])
 
-puts "########################## AAAAARGH !!!! ###############"
-puts params.inspect
-    d = Array.new
-    if !params[:id].nil?
-      d[0] = params[:volunteer][:vol_job_day_attributes]["0"][:frequency_attributes]
-      d[1] = params[:volunteer][:vol_job_day_attributes]["1"][:frequency_attributes]
-      d[2] = params[:volunteer][:vol_job_day_attributes]["2"][:frequency_attributes]
-      d[3] = params[:volunteer][:vol_job_day_attributes]["3"][:frequency_attributes]
-      d[4] = params[:volunteer][:vol_job_day_attributes]["4"][:frequency_attributes]
-      d[5] = params[:volunteer][:vol_job_day_attributes]["5"][:frequency_attributes]
-      d[6] = params[:volunteer][:vol_job_day_attributes]["6"][:frequency_attributes]
- #       if p1[0].to_s.match("volunteer")
-puts "########################## BBBAARGH !!!! ###############"
-puts d[0][:name]
-    
-      i = 0
-      @volunteer.frequencies.each do |freq|
-puts freq.name
-puts freq.week
-puts d[i][:name]
-puts d[i][:week]
-        if !(freq.name == d[i][:name] && freq.week == d[i][:week])
-          freq = Frequency.where(:name == d[i][:name], :week == d[i][:week])
-        end
-      i = i+1
-      end
-    end
-
-=begin
-match param with existing Frequency models and apply them to the volunteer
-
-        if p[0].to_s.match("frequency_attributes")
-puts p[0].inspect
-          id = p[0].to_s.slice(4..-1).to_i
-#         absent = Absence.new(day: Date.parse(params["date"]), volunteer_id: id)
-#          absent.save
-        end
-      end
-    end
-=end
-
     respond_to do |format|
       if @volunteer.update_attributes(params[:volunteer])
         format.html { 
