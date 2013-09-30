@@ -25,45 +25,42 @@
       <b>Participants:</b>
       
       <% vols = Volunteer.all %>
-      <% (0..vols.length-1).each do |p| %>
-<!-- 	<%#= if (!(vols[p].orientation.nil?))%> -->
-	 <% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id!=0)%>
-	      
-	      
-<!--     	  <%#= form_for(@orienatation) do |o| %> -->
-<!--     	   <div class="field"> -->
-    	  <table>
-   <%= form_tag "/orientations/#{vols[p].orientation_id}", method: "put", action: "update"  do %>
-     <td><%#= vols[p].orientation.nil? ? '' : vols[p].firstname%>  
-	
-	<%= check_box_tag "volz_#{vols[p].id}" %>
-	<%= label_tag("volz_#{vols[p].id}", vols[p].orientation.nil? ? '' : vols[p].firstname) %>
-	
-	
-	
-
-
-<!-- 	if checked then delete (change the orientation_id of volunteer to ZERO) -->
-
-	
-	
-	
-	
-     </td>
-    <td><%#= link_to 'Delete', Orientation, vols[p].orientation=nil, data: { confirm: 'Are you sure?' } %></td>
-	    
+	    <% (0..vols.length-1).each do |p| %>
+	    <% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id!=1)%>
+  
+	  <table>
+	      <%= form_tag "/orientations/#{vols[p].orientation_id}", method: "put", action: "update"  do %>
+	      <td>
+		<%= check_box_tag "volz_#{vols[p].id}" %>
+		<%= label_tag("volz_#{vols[p].id}", vols[p].orientation.nil? ? '' : vols[p].firstname) %>
+	       
+		<%= submit_tag 'Delete' %>
 	     
-     <div class="actions">
-	<%= submit_tag 'Submit' %>
-    </div>
-  <% end %>
- 
-   <% end %>
-
-  <% end %>
-  </table>
-     
-	         
+	      </td>
+	     
+	    
+	      <% end %>
+	  </table>
+	  <% end %>
+	  
+	    <% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id == 1)%>
+	    <%#= form_for(@volunteer) do |f| %>
+		<table>
+		    <%= form_tag "/orientations/#{vols[p].orientation_id}", method: "put", action: "update"  do %>
+		      <td>
+<!-- 		      <div class="actions"> -->
+			<%= label_tag("volz_#{vols[p].id}", vols[p].orientation.nil? ? '' : vols[p].firstname) %>
+			<%= collection_select(:orientation, :id, Orientation.all, :id, :datetime) %>
+			
+<!-- 			<%#= submit_tag 'Add' %> -->
+		      </div>
+		      </td> 
+		    <% end %>
+		 </table>
+	      <% #end %>
+	  <% end %>
+      <% end %>
+	          
   
 	 
     </p>

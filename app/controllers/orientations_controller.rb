@@ -74,6 +74,22 @@ class OrientationsController < ApplicationController
       end
     end
     
+    
+#      if params[:id].nil?
+#       params.each do |p|
+#         if p[0].to_s.match("volz_*")
+#           id = p[0].to_s.slice(5..-1).to_i
+#           volunteer = Volunteer.find(id)
+# 	  volunteer.orientation_id = 1
+# 	  selected = find_field('restrictions__rating_movies').find('option[selected]').text
+# 	  orien = nil
+# 	  for each Orientation do |o|
+# 	    if o.datetime == volunteer.or
+# 	  volunteer.save
+#         end
+#       end
+#     end
+    
     puts "testinggggggggggggggggggggggggggggggg"
     puts Volunteer.find(1).orientation_id
 
