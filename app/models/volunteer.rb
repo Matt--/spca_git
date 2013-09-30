@@ -94,9 +94,10 @@ class Volunteer < ActiveRecord::Base
     message = <<-MESSAGE_END
     From: #{defined?(vc.email_replyto).nil? ? 'test from' : vc.email_replyto }
     To: #{email.nil? ? 'test to' : email}
-    Subject: #{defined?(vc.email_header).nil? ? 'test header' : vc.email_header}
-
-    #{defined?(vc.email_content).nil? ? 'test content' : vc.email_content}
+    Subject: #{defined?(vc.application_email_header).nil? ? 
+                          'test header' : vc.application_email_header}
+    #{defined?(vc.application_email_content).nil? ? 
+                          'test content' : vc.application_email_content}
     
     MESSAGE_END
 

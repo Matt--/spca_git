@@ -1,5 +1,5 @@
 <h1>Listing volunteers</h1>
- 
+
 <table border=1>
   <tr>
     <th>Firstname</th>
@@ -7,7 +7,7 @@
     <th>Be a Fosterer</th>
     <th>Next Working</th>
     <th>in job</th>
-    <th>Recent<br/>absences</th>
+    <th class="ismeasure">Recent<br/>absences</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,24 +15,19 @@
 
   <% @volunteers.each do |volunteer| %>
     <tr>
-  
       <td><%= volunteer.firstname %></td>
       <td><%= volunteer.lastname %></td>
-      
-      
       <td>
-        <p>
-         <%if !volunteer.fosterer.nil?%>
-           <%= link_to 'Edit 1st Form', {:controller => '/fosterers', 
+        <%if !volunteer.fosterer.nil? %>
+          <%= link_to 'Edit 1st Form', {:controller => '/fosterers', 
                 :id => volunteer.fosterer.id, :action => 'edit', 
-                :volunteer_id => volunteer.id} %>
-        </p>
-           <%if !volunteer.fosterer2.nil?%>
-             <%= link_to 'Edit 2nd Form', {:controller => '/fosterer2s', 
+                :volunteer_id => volunteer.id} %>  
+          <%if !volunteer.fosterer2.nil? %>
+            <br/> <%= link_to 'Edit 2nd Form', {:controller => '/fosterer2s', 
                 :id => volunteer.fosterer2.id, :action => 'edit', 
                 :volunteer_id => volunteer.id} %>    
           <%else%>
-             <%= link_to 'Fill 2nd Form', {:controller => '/fosterer2s', 
+            <br/> <%= link_to 'Fill 2nd Form', {:controller => '/fosterer2s', 
                 :action => 'new', :volunteer_id => volunteer.id} %>
           <% end %>  
         <% else %>
@@ -40,32 +35,25 @@
                 :action => 'new', :volunteer_id => volunteer.id} %>
         <%end%>
       </td>
-    
-      <%#if volunteer.befosterer==false%>
-  <!--     <td><%#= link_to 'Wish be fosterer', volunteer %></td> -->
-      <%#end%>
    
       <% job = next_working volunteer %>
       <td><%= (job.nil? or job[0] == "none") ? 'no' : job[1] + job[2] %></td>
       <td><%= (job.nil? or job[0] == "none") ? 'no' : job[0] %></td>
-      <td><%= (job.nil? or job[0] == "none") ? 'no' : volunteer.absences.size %></td>
+      <% absent = volunteer.absences.where( "day > ?", 
+          Time.now - @volcoordinator.absence_period.weeks).count %>
+      <% lvl= @volcoordinator.absence_tolerence/3 %>
+      <td class=
+        <%= absent <   lvl ? "ismeasure" : 
+            absent < 2*lvl ? "islow" :
+            absent < 3*lvl ? "ismedium" : "ishigh" %>
+        >
+        <%= (job.nil? or job[0] == "none") ? 'no' : absent %></td>
 
       <td><%= link_to 'Show', volunteer %></td>
       <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %></td>
       <td><%= link_to 'Destroy', volunteer, method: :delete, 
                                     data: { confirm: 'Are you sure?' } %></td>
-    
-    
-      <%# if volunteer.befosterer==true %>
-  <!--         <td><%#= link_to 'Fosterer form', new_fosterer_path%></td> -->
-      <%# end %>
-    
     </tr>
-hello
-<% n = volunteer.absences.all(:group => :day) %>
-<%= n.inspect %>
-<%#= n[1] %>
-
   <% end %>
 </table>
 

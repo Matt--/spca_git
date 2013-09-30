@@ -156,10 +156,14 @@ ActiveRecord::Schema.define(:version => 20130927051613) do
 
   create_table "volcoordinators", :force => true do |t|
     t.string   "email_replyto"
-    t.string   "email_header"
-    t.string   "email_content"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.string   "application_email_header"
+    t.string   "application_email_content"
+    t.integer  "absence_tolerence"
+    t.integer  "absence_period"
+    t.string   "absence_email_header"
+    t.string   "absence_email_content"
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
   create_table "volschedulers", :force => true do |t|

@@ -1,32 +1,48 @@
 <%= form_for(@volcoordinator) do |f| %>
   <% if @volcoordinator.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@volcoordinator.errors.count, "error") %> prohibited this volcoordinator from being saved:</h2>
+      <h2><%= pluralize(@volcoordinator.errors.count, "error") %> 
+                          prohibited this volcoordinator from being saved:</h2>
 
       <ul>
-      <% @volcoordinator.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @volcoordinator.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
 
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
+    <%= f.label :email_replyto %><br />
+    <%= f.text_field :email_replyto %>
   </div>
   <div class="field">
-    <%= f.label :email_confirmation %><br />
-    <%= f.text_field :email_confirmation %>
+    <%= f.label :application_email_header %><br />
+    <%= f.text_field :application_email_header %>
   </div>
   <div class="field">
-    <%= f.label :email_header %><br />
-    <%= f.text_field :email_header %>
+    <%= f.label :application_email_content %><br />
+    <%= f.text_area :application_email_content %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Period absences are measured over, in weeks" %><br />
+    <%= f.text_field :absence_period %>
   </div>
   <div class="field">
-    <%= f.label :text_to_acknowledge_email %><br />
-    <%= f.text_area :appEmailAcknowledgeText %>
+    <%= f.label "Maximum absences in that period" %><br />
+    <%= f.text_field :absence_tolerence %>
   </div>
+
+  <div class="field">
+    <%= f.label :absence_email_header %><br />
+    <%= f.text_field :absence_email_header %>
+  </div>
+  <div class="field">
+    <%= f.label :absence_email_content %><br />
+    <%= f.text_area :absence_email_content %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
