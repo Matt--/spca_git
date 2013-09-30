@@ -73,6 +73,36 @@ class VolunteersController < ApplicationController
   def update
     @volunteer = Volunteer.find(params[:id])
 
+puts "########################## AAAAARGH !!!! ###############"
+puts params.inspect
+
+    if !params[:id].nil?
+      d1 = params[:volunteer][:vol_job_day_attributes]["0"][:frequency_attributes]
+      d2 = params[:volunteer][:vol_job_day_attributes]["1"][:frequency_attributes]
+      d3 = params[:volunteer][:vol_job_day_attributes]["2"][:frequency_attributes]
+      d4 = params[:volunteer][:vol_job_day_attributes]["3"][:frequency_attributes]
+      d5 = params[:volunteer][:vol_job_day_attributes]["4"][:frequency_attributes]
+      d6 = params[:volunteer][:vol_job_day_attributes]["5"][:frequency_attributes]
+      d7 = params[:volunteer][:vol_job_day_attributes]["6"][:frequency_attributes]
+ #       if p1[0].to_s.match("volunteer")
+puts "########################## BBBAARGH !!!! ###############"
+puts d1[:name]
+        
+    end
+
+=begin
+match param with existing Frequency models and apply them to the volunteer
+
+        if p[0].to_s.match("frequency_attributes")
+puts p[0].inspect
+          id = p[0].to_s.slice(4..-1).to_i
+#         absent = Absence.new(day: Date.parse(params["date"]), volunteer_id: id)
+#          absent.save
+        end
+      end
+    end
+=end
+
     respond_to do |format|
       if @volunteer.update_attributes(params[:volunteer])
         format.html { 

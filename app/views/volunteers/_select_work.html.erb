@@ -1,3 +1,7 @@
+
+<%= f.object.vol_job_day.all.inspect %>
+
+
 <table>
   <tr>
     <th><%= f.label :days_to_work %></th>
@@ -7,6 +11,7 @@
   </tr>
   <% row = 1 %>
   <%= f.fields_for :vol_job_day do |ff| %>
+<%= ff.object.inspect %>
     <tr>
       <td>
       <div class="field">
@@ -21,16 +26,19 @@
                          :id, :name) %>
         </div>
       </td>
-
+<br/>
+<%= ff.object.frequency.inspect %>
 <% if true %>
       <%= ff.fields_for :frequency do |fff| %>
         <td align='center'>    
           <div class="field">
+<%= fff.object.week.inspect %>
             <%= fff.select(:week, (1..5)) %>
           </div>
         </td>
         <td>    
           <div class="field">
+<%= fff.object.name.inspect %>
             <%= fff.select(:name, fff.object.names) %>
           </div>
         </td>
