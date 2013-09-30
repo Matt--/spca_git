@@ -75,19 +75,30 @@ class VolunteersController < ApplicationController
 
 puts "########################## AAAAARGH !!!! ###############"
 puts params.inspect
-
+    d = Array.new
     if !params[:id].nil?
-      d1 = params[:volunteer][:vol_job_day_attributes]["0"][:frequency_attributes]
-      d2 = params[:volunteer][:vol_job_day_attributes]["1"][:frequency_attributes]
-      d3 = params[:volunteer][:vol_job_day_attributes]["2"][:frequency_attributes]
-      d4 = params[:volunteer][:vol_job_day_attributes]["3"][:frequency_attributes]
-      d5 = params[:volunteer][:vol_job_day_attributes]["4"][:frequency_attributes]
-      d6 = params[:volunteer][:vol_job_day_attributes]["5"][:frequency_attributes]
-      d7 = params[:volunteer][:vol_job_day_attributes]["6"][:frequency_attributes]
+      d[0] = params[:volunteer][:vol_job_day_attributes]["0"][:frequency_attributes]
+      d[1] = params[:volunteer][:vol_job_day_attributes]["1"][:frequency_attributes]
+      d[2] = params[:volunteer][:vol_job_day_attributes]["2"][:frequency_attributes]
+      d[3] = params[:volunteer][:vol_job_day_attributes]["3"][:frequency_attributes]
+      d[4] = params[:volunteer][:vol_job_day_attributes]["4"][:frequency_attributes]
+      d[5] = params[:volunteer][:vol_job_day_attributes]["5"][:frequency_attributes]
+      d[6] = params[:volunteer][:vol_job_day_attributes]["6"][:frequency_attributes]
  #       if p1[0].to_s.match("volunteer")
 puts "########################## BBBAARGH !!!! ###############"
-puts d1[:name]
-        
+puts d[0][:name]
+    
+      i = 0
+      @volunteer.frequencies.each do |freq|
+puts freq.name
+puts freq.week
+puts d[i][:name]
+puts d[i][:week]
+        if !(freq.name == d[i][:name] && freq.week == d[i][:week])
+          freq = Frequency.where(:name == d[i][:name], :week == d[i][:week])
+        end
+      i = i+1
+      end
     end
 
 =begin
