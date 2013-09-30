@@ -18,8 +18,10 @@
     <td><%#= orientation.time %></td>
     <td><%= orientation.datetime %></td>
     <td><%= link_to 'Show', orientation %></td>
+    <% if orientation.id!=1 %>
     <td><%= link_to 'Edit', edit_orientation_path(orientation) %></td>
     <td><%= link_to 'Destroy', orientation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
