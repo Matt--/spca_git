@@ -67,7 +67,7 @@ module VolunteersHelper
     if 7 - week_one_size > day &&
        nth == time.week_of_month
         return true
-    elsif(nth == time.week_of_month-1)
+    elsif(nth == time.week_of_month)
         return true
     else
         return false

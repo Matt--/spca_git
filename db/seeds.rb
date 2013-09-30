@@ -187,7 +187,7 @@ Jobdescription.create([
 Onday.create([{name: 'Monday'}, {name: 'Tuesday'}, {name: 'Wednesday'}, {name: 'Thursday'}, {name: 'Friday'}, {name: 'Saturday'}, {name: 'Sunday'}])
 
 Absence.create([
-  {day: Date.parse("6-10-2013"), volunteer_id: 2},
+  {day: Date.parse("1-10-2013"), volunteer_id: 2},
   {day: Date.parse("30-9-2013"), volunteer_id: 2},
   {day: Date.parse("23-9-2013"), volunteer_id: 2},
   {day: Date.parse("16-9-2013"), volunteer_id: 2},
@@ -198,9 +198,9 @@ Absence.create([
   {day: Date.parse("13-8-2013"), volunteer_id: 2},
   {day: Date.parse("6-8-2013"), volunteer_id: 2},
   {day: Date.parse("30-7-2013"), volunteer_id: 2},
-  {day: Date.parse("6-10-2013"), volunteer_id: 3},
-  {day: Date.parse("6-10-2013"), volunteer_id: 4},
-  {day: Date.parse("6-10-2013"), volunteer_id: 4},
+  {day: Date.parse("1-10-2013"), volunteer_id: 3},
+  {day: Date.parse("1-10-2013"), volunteer_id: 4},
+  {day: Date.parse("1-10-2013"), volunteer_id: 4},
 ])
 
 Fosterer.create([{ 
