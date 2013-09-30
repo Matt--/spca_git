@@ -328,6 +328,9 @@ Fosterer2.create([{
 
 
 Orientation.create([{
+presenter: 'None',
+datetime: nil
+},{                     
 presenter: 'Matt',
 datetime: '2013-12-12-10-10'
 },{

@@ -62,21 +62,23 @@ class OrientationsController < ApplicationController
     puts "here instead"
     puts params.inspect
     
-    vols = Volunteer.all
-    (0..vols.length-1).each do |p|
-#       if(vols[p].orientation_id==@orientation.id)
-# 	  vols[p].orientation_id=0
-#       end
-      
-      
-#       if (vols[p].orientation_id==0)
-# 	puts "testeddddddddddddddddddddddddddddddddddddddddd"
-#       end
-
-      
-      
-   
+    
+    if !params[:id].nil?
+      params.each do |p|
+        if p[0].to_s.match("volz_*")
+          id = p[0].to_s.slice(5..-1).to_i
+          volunteer = Volunteer.find(id)
+	  volunteer.orientation_id = 1
+	  volunteer.save
+        end
+      end
     end
+    
+    puts "testinggggggggggggggggggggggggggggggg"
+    puts Volunteer.find(1).orientation_id
+
+   
+   
 #     @volunteer.Orientation.datetime=nil
       
     respond_to do |format|
