@@ -29,7 +29,6 @@
     <%= f.label :dob %><br />
     <%= f.date_select :dob, :start_year => 1930, :end_year => 1999 %>
   </div>
-
   <%= render "select_work", {:f => f} %>
   <%= render "select_break", {:f => f} %>
 
@@ -63,7 +62,7 @@
   <div>
   <% #if (@volunteer.orientation.datetime>Date.today)%>
      <h5><%= f.label "Your orientation date" %>
-     <%= f.collection_select(:orientation_id, Orientation.order('datetime ASC'), :id, :datetime, :prompt => 'None') %>
+     <%= f.collection_select(:orientation_id, Orientation.order('datetime ASC'), :id, :datetime, :prompt => 'Please select') %>
   <% #end %>
   </div>
   

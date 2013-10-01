@@ -19,17 +19,17 @@
       <td><%= volunteer.lastname %></td>
       <td>
         <%if !volunteer.fosterer.nil? %>
-          <%= link_to 'Edit 1st Form', {:controller => '/fosterers', 
+          <%= link_to 'Edit Fosterer Form', {:controller => '/fosterers', 
                 :id => volunteer.fosterer.id, :action => 'edit', 
                 :volunteer_id => volunteer.id} %>  
           <%if !volunteer.fosterer2.nil? %>
             <br/> <%= link_to 'Edit 2nd Form', {:controller => '/fosterer2s', 
                 :id => volunteer.fosterer2.id, :action => 'edit', 
                 :volunteer_id => volunteer.id} %>    
-          <%else%>
-            <br/> <%= link_to 'Fill 2nd Form', {:controller => '/fosterer2s', 
+          <%#else%>
+            <br/> <%#= link_to 'Fill 2nd Form', {:controller => '/fosterer2s', 
                 :action => 'new', :volunteer_id => volunteer.id} %>
-          <% end %>  
+          <% end %>
         <% else %>
 	        <%= link_to 'Become a fosterer', {:controller => '/fosterers', 
                 :action => 'new', :volunteer_id => volunteer.id} %>

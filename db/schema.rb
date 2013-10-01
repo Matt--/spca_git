@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130930041532) do
+ActiveRecord::Schema.define(:version => 20130926095908) do
 
   create_table "absences", :force => true do |t|
     t.date     "day"
@@ -121,17 +121,6 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.date     "date"
     t.time     "time"
     t.datetime "datetime"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "people", :force => true do |t|
-    t.string   "name"
-    t.date     "dob"
-    t.string   "email"
-    t.string   "homePhone"
-    t.string   "workPhone"
-    t.string   "mobile"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
