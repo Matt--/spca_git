@@ -52,7 +52,7 @@
 			<%= label_tag("volz_#{vols[p].id}", vols[p].orientation.nil? ? '' : vols[p].firstname) %>
 			<%= collection_select(:orientation, :id, Orientation.all, :id, :datetime) %>
 			
-<!-- 			<%#= submit_tag 'Add' %> -->
+			<%= submit_tag 'Add' %>
 		      </div>
 		      </td> 
 		    <% end %>
