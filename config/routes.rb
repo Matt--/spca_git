@@ -4,9 +4,6 @@ SPCA::Application.routes.draw do
   resources :departments
   resources :jobdescriptions
 
-  resources :people
-
-
   get "users/new"
 
   resources :orientations
