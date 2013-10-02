@@ -97,7 +97,7 @@ Volunteer.create([
 #   mobile: 02265,
     home: '0498999999',
     background: 'hate student layabouts',
-    status: 'New'}
+    status: 'Auto-Rejected'}
 ])
 
 Volscheduler.create([{
