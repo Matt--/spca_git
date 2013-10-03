@@ -162,6 +162,7 @@ ActiveRecord::Schema.define(:version => 20130926095908) do
   end
 
   create_table "volunteers", :force => true do |t|
+    t.string   "role"
     t.string   "title"
     t.date     "dob"
     t.string   "firstname"
