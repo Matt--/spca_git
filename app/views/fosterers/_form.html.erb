@@ -140,6 +140,156 @@
 </div>
 </div>
 
+
+
+
+
+
+<div id="PropertyBox" style="width:500px;float:right">
+  <div id="header2" style="background-color:#FFA500;height:30px;width:500px">
+      <h1 style="margin-bottom:0;">Property Details</h1></div>
+
+  <div id="menu2" style="background-color:#FFD700;height:900px;width:20px;float:left;">
+    <b></b><br>
+  </div>
+  
+  <div id="content2" style="background-color:#EEEEEE;height:900px;width:480px;float:left">
+  
+      <div class="field">
+	<h5>1. Do you have your own home?<br />(if renting you will need to provide written consent from your landlord to foster animals)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :ownhome, [['Yes','Yes'],['No','No']]%></h5>
+      </div>
+      
+      <div class="field">
+	<h5>2. Do you agree to an SPCA staff member inspecting your property prior to fostering?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :inspecting, [['Yes','Yes'],['No','No']]%></h5>
+      </div>
+      
+      <div class="field">
+	<h5>3. You must be able to provide the following which is applicable to the animals you wish to foster:</h5>
+      </div>
+      
+      <div class="field">
+	<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Separate room inside your house (cats, kittens, baby birds)&nbsp;<%= f.select :rooms, [['Yes','Yes'],['No','No']]%></h5>
+      </div>  
+    
+      <div class="field">
+	<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Separate room/warm garage & fenced property (dogs, pups)&nbsp;<%= f.select :roomwarm, [['Yes','Yes'],['No','No']]%></h5>
+      </div> 
+      
+      <div class="field">
+	<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hutch/fenced area with shelter (degenhogs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :hutch, [['Yes','Yes'],['No','No']]%></h5>
+      </div> 
+      
+      <div class="field">
+	<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hutch or separate room (rabbits)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :rabbithutch, [['Yes','Yes'],['No','No']]%></h5>
+      </div> 
+    
+      <div class="field">
+	<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aviary(adult birds)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :aviary, [['Yes','Yes'],['No','No']]%></h5>
+      </div> 
+      
+      <div class="field">
+	<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Livestock-fully fenced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :livestockfenced, [['Yes','Yes'],['No','No']]%></h5>
+      </div>
+  <br/>
+      <div class="field">
+	<h5>4. Please describe the area you plan to use for the animals<br/>
+	  Attach(via email) 5 photos of that area to your application:</h5>
+	<%= f.text_area :homedesc, :rows=>"10", :cols=>"45"%>
+      </div> 
+	<h5>5. How many people liv in your home/rented accomodation?</h5>
+      <div class="field">
+	<%= f.label :"Number of adults"%>
+	<%= f.number_field :numadulta, :size=>"5" %>
+      </div> 
+      <div class="field">
+	<%= f.label :"Number of children"%>
+	<%= f.number_field :numchild, :size=>"5" %>
+      </div> 
+      <div class="field">
+	<%= f.label :"Ages of children(eg: 5-8-12)"%>
+	<%= f.number_field :ages%>
+      </div>
+
+</div>
+</div>
+
+
+
+<div id="TimeCommitmentBox" style="width:500px;float:right">
+  <div id="header2" style="background-color:#FFA500;height:30px;width:500px">
+      <h1 style="margin-bottom:0;">Time Commitment</h1></div>
+
+  <div id="menu2" style="background-color:#FFD700;height:600px;width:20px;float:left;">
+    <b></b><br>
+  </div>
+  
+  <div id="content2" style="background-color:#EEEEEE;height:600px;width:480px;float:left">
+  
+  
+    <div class="field">
+      <h5>1. How many hours per day can you devote to fostering?</h5>
+	&nbsp;&nbsp;&nbsp;<%= f.number_field :numhoursperday, :size=>"5" %>
+    </div>       
+    <div class="field">
+      <h5>2. Do you work:&nbsp;&nbsp;&nbsp;<%= f.select :worktype, [['Full time','Full time'],['Part time','Part time'], ['At home','At home'], ['Away from home','Away from home'], ['Dont work','Dont work']]%></h5>
+    </div> 
+    <div class="field">
+      <h5>3. Who will care for the animals when you are away from home? </h5>
+      <%= f.text_area :secondperson, :rows=>"5", :cols=>"45"%>
+    </div> 
+    <div class="field">
+      <h5>4. Are all members of household in agreement to be part of the fostering family?<%= f.select :allmembersagree, [['Yes','Yes'],['No','No']]%></h5>
+    </div>
+    <div class="field">
+      <h5>5. Are you willing to bring the animals into the centre on a regular basis?<%= f.select :bringcentre, [['Yes','Yes'],['No','No']]%></h5>
+    </div>
+    <div class="field">
+      <h5>6. How will you transport the animals to and from Wellington SPCA(for checkups etc.) and to the Wellington After Hours Veterinary Clinic (for emergencies)? </h5>
+      <%= f.text_area :transportdesc, :rows=>"5", :cols=>"45"%>
+      </div> 
+  <br/>
+
+</div>
+</div>
+
+
+
+
+
+
+
+<div id="TermsAndConditionsBox" style="width:1000px;float:right">
+  <div id="header2" style="background-color:#FFA500;height:30px;width:920px">
+      <h1 style="margin-bottom:0;">Motivation</h1></div>
+
+
+  
+  <div id="content" style="background-color:#EEEEEE;height: 460px;width:920px;float:left">
+    <h5>
+      1. The animals being fostered remain the sole property of Wellington SPCA<br /><br />
+      2. I understand that Wellington SPCA will not reimburse me for any food, toys etc that I may purchase while fostering.<br /><br />
+      3. I understand that if I decide to adopt an animal I am fostering, the normal adoption conditions and fees apply.<br /><br />
+      4. I accept I have nor right to adopt my foster animals into new homes. If I know someone who wants to adopt any animal I am caring for,  I all refer them to the appropriate area of Wellington SPCA for adoption. Normal adoption criteria and fees apply.<br /><br />
+      5. Wellington SPCA bears no responsibility for any damage caused bye the animals being fostered, while they are in my care.<br /><br />
+      6. I understand if veterinary treatment is required for the foster for the animals, Wellington SPCA veterinarians must be used. In the case of emergencies after Wellington SPCA working hours, U will use the Wellington After Hours Veterinary Clinic and the costs if this will be met by Wellington SPCA.<br /><br />
+      7. I understand that insome cisrcumstances where veterinary treatment is required Wellington SPCA may decide that euthanasia is necessary, and I agree to abide by this decision.<br /><br />
+      8. I agree not to advertise the animal I am fostering in any way  without first speaking to Wellington SPCA's Animal Care and Adoptions Manager. This includes advertising on Trade me for speaking about them on community notice boards, sending out emails etc.
+    </h5>
+      <div class="field">
+        <h5><%= f.label "In order to be fosterer for Wellington SPCA, I Agrree to the above conditions" %>
+	<%= f.check_box :agreement, {checked_value: "I agree", unchecked_value: "Disagree"} %>
+	</h5>
+      </div>
+  
+
+  <br/>
+
+</div>
+</div>
+
+
+
+
 <div id="NextBox" style="width:500px;float:right">
   <div id="header2" style="background-color:#FFA500;height:30px;width:440px">
       <h1 style="margin-bottom:0;">Submission</h1></div>
@@ -150,9 +300,7 @@
   
   <div id="content2" style="background-color:#EEEEEE;height:70px;width:350px;float:left">
   
-    <!-- Contents must be here-->
-   
-  
+    
   <br />
 
   <div class="actions">
