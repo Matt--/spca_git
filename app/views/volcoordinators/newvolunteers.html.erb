@@ -11,13 +11,13 @@
   </tr>
 
 <% @volunteers.each do |volunteer| %>
-  <!--< if volunteer.firstname == "New" %> CHANGE TO .status-->
+  <% if volunteer.status == "New" %>
     <tr>
       <td><%= volunteer.firstname %></td>
       <td><%= volunteer.lastname %></td>
       <td><%= link_to "Review", :controller => "volcoordinators", :action => "review", :id => volunteer.id, :reviewtype => "newvolunteers" %></td>
     </tr>
-  <!--< end %>-->
+  <% end %>
 <% end %>
 </table>
 
@@ -34,7 +34,7 @@
   </tr>
 
 <% @volunteers.each do |volunteer| %>
-  <% if volunteer.firstname == "Auto-rejected" %> <!--CHANGE TO .status-->
+  <% if volunteer.status == "Auto-Rejected" %> <!--CHANGE TO .status-->
     <tr>
       <td><%= volunteer.firstname %></td>
       <td><%= volunteer.lastname %></td>

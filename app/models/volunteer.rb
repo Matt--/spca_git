@@ -3,7 +3,7 @@ require 'net/smtp'
 class Volunteer < ActiveRecord::Base
 
   attr_accessible :id, :address, :background, :dob, :email, :firstname, :home, 
-            :lastname, :moblie, :title, :orientation_id, :befosterer,
+            :lastname, :moblie, :title, :orientation_id, :befosterer, :status,
             :break_from, :break_to,  :vol_job_day_attributes,
             :ondays_attributes, :jobdescriptions_attributes, :role
 

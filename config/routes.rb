@@ -42,6 +42,8 @@ SPCA::Application.routes.draw do
   
   get "volcoordinator/newvolunteers", to: 'volcoordinators#newvolunteers'
   get "volcoordinator/orientedvolunteers", to: 'volcoordinators#orientedvolunteers'
+  get "volcoordinator/volunteersforshelterbuddy", to: 'volcoordinators#volunteersforshelterbuddy'
+  get "volcoordinator/rejectedvolunteers", to: 'volcoordinators#rejectedvolunteers'
   
   get "volcoordinator/:reviewtype/review/:id", to: 'volcoordinators#review'
   post "volcoordinator/:reviewtype/review/:id", to: 'volcoordinators#approve'

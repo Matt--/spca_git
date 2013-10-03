@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Rejected Applications</h1>
+
+<table border=1>
+
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+
+<% @volunteers.each do |volunteer| %>
+  <% if volunteer.status == "Rejected" %>
+    <tr>
+      <td><%= volunteer.firstname %></td>
+      <td><%= volunteer.lastname %></td>
+    </tr>
+  <% end %>
+<% end %>
+</table>
+
+<br>
+
+<%= link_to "Back", volcoordinators_path %> |
+<%= link_to "Home", root_path %>

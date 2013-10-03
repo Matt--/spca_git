@@ -57,7 +57,8 @@ Volunteer.create([
     email: 'andrew@gmail.com',
 #   mobile: 02265,
     home: 0447747,
-    background: 'blah blah'},
+    background: 'blah blah',
+    status: 'New'},
   {role: 'fosterer',
     title: 'cat walker',
     dob: '12-10-1991',
@@ -67,7 +68,8 @@ Volunteer.create([
     email: 'matt@something.com',
 #   mobile: 02265,
     home: 04123456,
-    background: 'like cats and walking'},
+    background: 'like cats and walking',
+    status: 'New'},
   {role: 'both',
     title: 'handyman',
     dob: '12-10-1991',
@@ -77,7 +79,8 @@ Volunteer.create([
     email: 'james@overhere.com',
 #   mobile: 02265,
     home: '0425469',
-    background: 'like afternoons, mornings are for hangover recovery'},
+    background: 'like afternoons, mornings are for hangover recovery',
+    status: 'New'},
   {role: 'fosterer',
     title: 'dude',
     dob: '12-10-1991',
@@ -87,7 +90,8 @@ Volunteer.create([
     email: 'hamid@doinstuff.com',
 #   mobile: 02265,
     home: '04985423',
-    background: 'hate paperwork'},
+    background: 'hate paperwork',
+   status: 'New'},
   {role: 'volunteer',
     title: 'newbie',
     dob: '12-10-1991',
@@ -97,7 +101,8 @@ Volunteer.create([
     email: 'mymom@givingmeshite.com',
 #   mobile: 02265,
     home: '0498999999',
-    background: 'hate student layabouts'}
+    background: 'hate student layabouts',
+    status: 'Auto-Rejected'}
 ])
 
 Volscheduler.create([{

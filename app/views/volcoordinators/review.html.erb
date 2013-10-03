@@ -77,4 +77,12 @@
 <br>
 
 <%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
-<%= link_to 'Back', volcoordinator_newvolunteers_path %>
+<% if @reviewtype == "newvolunteers" %>
+  <%= link_to 'Back', volcoordinator_newvolunteers_path %>
+<% elsif @reviewtype == "orientedvolunteers" %>
+  <%= link_to 'Back', volcoordinator_orientedvolunteers_path %>
+<% elsif @reviewtype == "volunteersforshelterbuddy" %>
+  <%= link_to 'Back', volcoordinator_volunteersforshelterbuddy_path %>
+<% elsif @reviewtype == "rejectedvolunteers" %>
+  <%= link_to 'Back', volcoordinator_rejectedvolunteers_path %>
+<% end %>
