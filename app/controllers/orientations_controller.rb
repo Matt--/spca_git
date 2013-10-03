@@ -58,15 +58,10 @@ class OrientationsController < ApplicationController
   def update
     @orientation = Orientation.find(params[:id])
     
-   puts "#################################"
-    puts "here instead"
-    puts params.inspect
-    
-    
     if !params[:id].nil?
       params.each do |p|
-        if p[0].to_s.match("volz_*")
-          id = p[0].to_s.slice(5..-1).to_i
+        if p[0].to_s.match("delOrien_*")
+          id = p[0].to_s.slice(9..-1).to_i
           volunteer = Volunteer.find(id)
 	  volunteer.orientation_id = 1
 	  volunteer.save
@@ -74,28 +69,16 @@ class OrientationsController < ApplicationController
       end
     end
     
-    
-#      if params[:id].nil?
-#       params.each do |p|
-#         if p[0].to_s.match("volz_*")
-#           id = p[0].to_s.slice(5..-1).to_i
-#           volunteer = Volunteer.find(id)
-# 	  volunteer.orientation_id = 1
-# 	  selected = find_field('restrictions__rating_movies').find('option[selected]').text
-# 	  orien = nil
-# 	  for each Orientation do |o|
-# 	    if o.datetime == volunteer.or
-# 	  volunteer.save
-#         end
-#       end
-#     end
-    
-    puts "testinggggggggggggggggggggggggggggggg"
-    puts Volunteer.find(1).orientation_id
-
-   
-   
-#     @volunteer.Orientation.datetime=nil
+    if !params[:id].nil?
+      params.each do |p|
+	if p[0].to_s.match("addOrien_*")
+	  id = p[0].to_s.slice(9..-1).to_i
+	  volunteer = Volunteer.find(id)
+	  volunteer.orientation_id = params[p[0]][:id]
+	  volunteer.save
+	end
+      end
+    end
       
     respond_to do |format|
       if @orientation.update_attributes(params[:orientation])
@@ -109,20 +92,7 @@ class OrientationsController < ApplicationController
   end
 
 
-  # Make orientation time to nil
-  def deleteOrienVol
-     puts "#############################################"
-#     @orientation = Orientation.find(params[:id])
-    @volunteer = Volunteer.find(params[:id])
-    if (@volunteer.Orientation.datetime != nil)
-	@volunteer.Orientation.datetime=nil
-     
-#       respond_to do |format|
-# 	format.html # show.html.erb
-# 	format.json { render json: @orientation }
-#       end
-    end
-  end
+
   
   
   # DELETE /orientations/1

@@ -12,6 +12,11 @@
       </ul>
     </div>
   <% end %>
+  
+  
+  <div class="field">
+    <h5>What do you want to be?<%= f.select :role, [['volunteer','volunteer'],['fosterer','fosterer'],['both','both']], :prompt => "Please select"%></h5>
+  </div>
 
   <div class="field">
     <%= f.label :firstname %><br />
