@@ -4,48 +4,38 @@
   <b>Orientation:</b>
 </p>
 
-
 <p>
   <b>Title:</b>
   <%= @volunteer.title %>
 </p>
-
 <p>
   <b>Dob:</b>
   <%= @volunteer.dob %>
 </p>
-
 <p>
   <b>Firstname:</b>
   <%= @volunteer.firstname %>
 </p>
-
 <p>
   <b>Lastname:</b>
   <%= @volunteer.lastname %>
 </p>
-
 <p>
   <b>Address:</b>
   <%= @volunteer.address %>
 </p>
-
 <p>
   <b>Email:</b>
   <%= @volunteer.email %>
 </p>
-
 <p>
   <b>Moblie:</b>
   <%= @volunteer.moblie %>
 </p>
-
 <p>
   <b>Home:</b>
   <%= @volunteer.home %>
 </p>
-
-
 <p>
   <b>Background:</b>
   <%= @volunteer.background %>
@@ -76,7 +66,7 @@
 
 <br>
 
-<%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
+<%= link_to 'Edit', :controller => "volcoordinators", :action => "editvolunteer", :id => @volunteer.id, :reviewtype => "newvolunteers" %> |
 <% if @reviewtype == "newvolunteers" %>
   <%= link_to 'Back', volcoordinator_newvolunteers_path %>
 <% elsif @reviewtype == "orientedvolunteers" %>

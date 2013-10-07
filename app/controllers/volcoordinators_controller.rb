@@ -67,6 +67,33 @@ class VolcoordinatorsController < ApplicationController
     end
   end
   
+  def editvolunteer
+    @volunteer  = Volunteer.find(params[:id])
+    @reviewtype = params[:reviewtype]
+    @onday = @volunteer.ondays.build(params[:availableday])
+    @jobdescription = Jobdescription.new
+    
+    respond_to do |format|
+      format.html 
+      format.json { render json: @volunteer }
+    end
+  end
+  
+  def editedvolunteer
+    @volunteer  = Volunteer.find(params[:id])
+    @reviewtype = params[:reviewtype]
+    
+    respond_to do |format|
+      if @volunteer.update_attributes(params[:volunteer])
+        format.html { redirect_to volcoordinator_newvolunteers_path,
+                      notice: "Volunteer was successfully updated." }
+        format.json { head :no_content }
+      else
+        format.html { render action: "editvolunteer" }
+      end
+    end
+  end
+  
   def approve
     @volunteers = Volunteer.all
     @volunteer = Volunteer.find(params[:id])
