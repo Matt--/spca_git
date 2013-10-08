@@ -3,9 +3,9 @@ require 'net/smtp'
 class Volunteer < ActiveRecord::Base
 
   attr_accessible :id, :address, :background, :dob, :email, :firstname, :home, 
-            :lastname, :moblie, :title, :orientation_id, :befosterer, :status,
+            :lastname, :mobile, :title, :orientation_id, :befosterer, :status,
             :break_from, :break_to,  :vol_job_day_attributes,
-            :ondays_attributes, :jobdescriptions_attributes, :role
+            :ondays_attributes, :jobdescriptions_attributes, :role, :orientation_id
 
   has_many :whiteboards
   has_one  :fosterer
@@ -42,10 +42,10 @@ class Volunteer < ActiveRecord::Base
 #  validates_associated :vol_job_days  
 
   #We want to only require one of these two
-  validates :moblie, :numericality => {:only_integer => true},
+  validates :mobile, :numericality => {:only_integer => true},
                      :presence => true, :if => "home.blank?"
   validates :home, :numericality => {:only_integer => true},
-                   :presence => true, :if => "moblie.blank?"
+                   :presence => true, :if => "mobile.blank?"
   #There is a bug atm - if one of them is there, it doesn't
   #check that the other one is numerical. Don't care atm!
   

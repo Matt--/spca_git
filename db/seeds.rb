@@ -58,7 +58,8 @@ Volunteer.create([
 #   mobile: 02265,
     home: 0447747,
     background: 'blah blah',
-    status: 'New'},
+    status: 'New',
+    orientation_id: 1},
   {role: 'fosterer',
     title: 'cat walker',
     dob: '12-10-1991',
@@ -69,7 +70,8 @@ Volunteer.create([
 #   mobile: 02265,
     home: 04123456,
     background: 'like cats and walking',
-    status: 'New'},
+    status: 'New',
+    orientation_id: 2},
   {role: 'both',
     title: 'handyman',
     dob: '12-10-1991',
@@ -80,7 +82,8 @@ Volunteer.create([
 #   mobile: 02265,
     home: '0425469',
     background: 'like afternoons, mornings are for hangover recovery',
-    status: 'New'},
+    status: 'New',
+    orientation_id: 2},
   {role: 'fosterer',
     title: 'dude',
     dob: '12-10-1991',
@@ -91,7 +94,8 @@ Volunteer.create([
 #   mobile: 02265,
     home: '04985423',
     background: 'hate paperwork',
-   status: 'New'},
+    status: 'New',
+    orientation_id: 3},
   {role: 'volunteer',
     title: 'newbie',
     dob: '12-10-1991',
@@ -102,7 +106,8 @@ Volunteer.create([
 #   mobile: 02265,
     home: '0498999999',
     background: 'hate student layabouts',
-    status: 'Auto-Rejected'}
+    status: 'Auto-Rejected',
+    orientation_id: 3}
 ])
 
 Volscheduler.create([{
