@@ -140,8 +140,10 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.date     "date"
     t.time     "time"
     t.datetime "datetime"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "participantMax"
+    t.integer  "numCurrParticipant"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "users", :force => true do |t|
