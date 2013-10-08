@@ -2,16 +2,16 @@ class VolcoordinatorsController < ApplicationController
   # GET /volcoordinators
   # GET /volcoordinators.json
   def index
-    if session[:user_id] #need to check this is the coordinator
+    #if session[:user_id] #need to check this is the coordinator
       @volcoordinator = Volcoordinator.first
       @whiteboards = Whiteboard.all
       respond_to do |format|
 	format.html # index.html.erb
 	format.json { render json: @volcoordinators }
       end
-    else
-      redirect_to home_block_path
-    end
+    #else
+    #  redirect_to home_block_path
+    #end
     
   end
 
@@ -69,33 +69,6 @@ class VolcoordinatorsController < ApplicationController
     respond_to do |format|
       format.html 
       format.json { render json: @volunteer }
-    end
-  end
-  
-  def editvolunteer
-    @volunteer  = Volunteer.find(params[:id])
-    @reviewtype = params[:reviewtype]
-    @onday = @volunteer.ondays.build(params[:availableday])
-    @jobdescription = Jobdescription.new
-    
-    respond_to do |format|
-      format.html 
-      format.json { render json: @volunteer }
-    end
-  end
-  
-  def editedvolunteer
-    @volunteer  = Volunteer.find(params[:id])
-    @reviewtype = params[:reviewtype]
-    
-    respond_to do |format|
-      if @volunteer.update_attributes(params[:volunteer])
-        format.html { redirect_to volcoordinator_newvolunteers_path,
-                      notice: "Volunteer was successfully updated." }
-        format.json { head :no_content }
-      else
-        format.html { render action: "editvolunteer" }
-      end
     end
   end
   

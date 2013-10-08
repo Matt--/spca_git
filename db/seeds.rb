@@ -403,10 +403,10 @@ Orientation.create([{
 presenter: 'None',
 datetime: nil
 },{                     
-presenter: 'Matt',
-datetime: '2013-12-12-10-10'
+presenter: 'Mr Cool',
+datetime: DateTime.new(2013, 12, 25, 5, 0, 0)
 },{
-presenter: 'Hamid',
-datetime: '2014-02-02-05-11'
+presenter: 'The Regular Person',
+datetime: DateTime.new(2013, 12, 31, 17, 0, 0)
 }])
 

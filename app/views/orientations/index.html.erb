@@ -3,9 +3,7 @@
 <table>
   <tr>
     <th>Presenter</th>
-    <!--<th>Date</th>
-    <th>Time</th>-->
-    <th>DateTime</th>
+    <th>Date and Time</th>
     <th></th>
     <th></th>
     <th></th>
@@ -14,16 +12,16 @@
 <% @orientations.each do |orientation| %>
   <tr>
     <td><%= orientation.presenter %></td>
-    <td><%#= orientation.date %></td>
-    <td><%#= orientation.time %></td>
-    <td><%= orientation.datetime %></td>
-    <% if orientation.id==1 %>
-     <td><%= link_to 'Without orientation', orientation %></td>
-     <% end %>
-    <% if orientation.id!=1 %>
-    <td><%= link_to 'Show', orientation %></td>
-    <td><%= link_to 'Edit', edit_orientation_path(orientation) %></td>
-    <td><%= link_to 'Destroy', orientation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if orientation.id == 1 %>
+      <td></td>
+      <td><%= link_to 'Without orientation', orientation %></td>
+      <td></td>
+      <td></td>
+    <% else %>
+      <td><%= orientation.datetime.to_formatted_s(:long_ordinal) %></td>
+      <td><%= link_to 'Show', orientation %></td>
+      <td><%= link_to 'Edit', edit_orientation_path(orientation) %></td>
+      <td><%= link_to 'Destroy', orientation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
   </tr>
 <% end %>

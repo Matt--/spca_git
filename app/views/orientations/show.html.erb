@@ -1,42 +1,49 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Presenter:</b>
-  <%= @orientation.presenter %>
-</p>
-
-<p>
-  <b>Datetime:</b>
-  <%= @orientation.datetime %>
-</p>
-
-<p>
-  <b>Participants:</b>
+<% if @orientation.id != 1 %>
+  <p>
+    <b>Presenter:</b>
+    <%= @orientation.presenter %>
+  </p>
   
-  <% @orientation.volunteers.each do |vol| %>
-    <% if @orientation.id != 1 %>
-      <table>
-        <%= form_tag "/orientations/#{vol.orientation_id}", method: "put", action: "update"  do %>
-          <td>
-            <%= check_box_tag "delOrien_#{vol.id}" %>
-            <%= label_tag("delOrien_#{vol.id}", vol.orientation.nil? ? '' : vol.firstname) %>
-            <%= submit_tag 'Delete' %>
-          </td>
-        <% end %>
-      </table>
-    <% else %>
-      <table>
-        <%= form_tag "/orientations/#{vol.orientation_id}", method: "put", action: "update" do %>
-          <td>
-            <%= label_tag("addOrien_#{vol.id}", vol.orientation.nil? ? '' : vol.firstname) %>
-            <%= collection_select("addOrien_#{vol.id}", :id, Orientation.all, :id, :datetime) %>
-            <%= submit_tag 'Add' %>
-          </td>
-        <% end %>
-      </table>
-    <% end %>
+  <p>
+    <b>Datetime:</b>
+    <%= @orientation.datetime %>
+  </p>
+  
+  <p>
+    <b>Participants:</b>
+  
+<% else %>
+  <p><b>Volunteers without an orientation time:</b>
+<% end %>
+
+<% @orientation.volunteers.each do |vol| %>
+  <% if @orientation.id != 1 %>
+    <table>
+      <%= form_tag "/orientations/#{vol.orientation_id}", method: "put", action: "update"  do %>
+        <td>
+          <%= check_box_tag "delOrien_#{vol.id}" %>
+          <%= label_tag("delOrien_#{vol.id}", vol.orientation.nil? ? '' : vol.firstname) %>
+          <%= submit_tag 'Delete' %>
+        </td>
+      <% end %>
+    </table>
+  <% else %>
+    <table>
+      <%= form_tag "/orientations/#{vol.orientation_id}", method: "put", action: "update" do %>
+        <td>
+          <%= label_tag("addOrien_#{vol.id}", vol.orientation.nil? ? '' : vol.firstname) %>
+          <%= collection_select("addOrien_#{vol.id}", :id, Orientation.all, :id, :datetime) %>
+          <%= submit_tag 'Add' %>
+        </td>
+      <% end %>
+    </table>
   <% end %>
+<% end %>
 </p>
 
-<%= link_to 'Edit', edit_orientation_path(@orientation) %> |
+<% if @orientation.id != 1 %>
+  <%= link_to 'Edit', edit_orientation_path(@orientation) %> |
+<% end %>
 <%= link_to 'Back', orientations_path %>
