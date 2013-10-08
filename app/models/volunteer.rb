@@ -11,6 +11,7 @@ class Volunteer < ActiveRecord::Base
   has_one  :fosterer
   has_one :fosterer2
   has_many :absences
+  has_one :user
   belongs_to :orientation
 
   has_many :vol_job_day
@@ -29,13 +30,13 @@ class Volunteer < ActiveRecord::Base
   has_many :frequencies,
            :through => :vol_job_day
   
-  validates :title, :presence => true #, :message => ""
+  #validates :title, :presence => true #, :message => ""
   validates :dob, :presence => true
   validates :firstname, :presence => true
   validates :lastname, :presence => true
   validates :address, :presence => true
   validates :email, :presence => true
-  validates :background, :presence => true
+  #validates :background, :presence => true
   validate  :breakdate_validator#, 
             #:unless => (:break_from.nil? && :break_to.nil?)
 #  validates_associated :vol_job_days  

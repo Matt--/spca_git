@@ -2,12 +2,17 @@ class VolcoordinatorsController < ApplicationController
   # GET /volcoordinators
   # GET /volcoordinators.json
   def index
-    @volcoordinator = Volcoordinator.first
-    @whiteboards = Whiteboard.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @volcoordinators }
+    if session[:user_id] #need to check this is the coordinator
+      @volcoordinator = Volcoordinator.first
+      @whiteboards = Whiteboard.all
+      respond_to do |format|
+	format.html # index.html.erb
+	format.json { render json: @volcoordinators }
+      end
+    else
+      redirect_to home_block_path
     end
+    
   end
 
   # GET /volcoordinators/1

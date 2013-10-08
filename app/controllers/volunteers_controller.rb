@@ -32,10 +32,10 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.new
 #    @onday = Onday.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @volunteer }
-    end
+ #   respond_to do |format|
+  #    format.html # new.html.erb
+   #   format.json { render json: @volunteer }
+  #  end
   end
 
   # GET /volunteers/1/edit
