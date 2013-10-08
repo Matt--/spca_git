@@ -5,7 +5,7 @@ class Volunteer < ActiveRecord::Base
   attr_accessible :id, :address, :background, :dob, :email, :firstname, :home, 
             :lastname, :moblie, :title, :orientation_id, :befosterer, :status,
             :break_from, :break_to,  :vol_job_day_attributes,
-            :ondays_attributes, :jobdescriptions_attributes
+            :ondays_attributes, :jobdescriptions_attributes, :role
 
   has_many :whiteboards
   has_one  :fosterer
@@ -30,7 +30,9 @@ class Volunteer < ActiveRecord::Base
   has_many :frequencies,
            :through => :vol_job_day
   
-  #validates :title, :presence => true #, :message => ""
+  validate  :role, :presence => true
+  validates :title, :presence => true #, :message => ""
+
   validates :dob, :presence => true
   validates :firstname, :presence => true
   validates :lastname, :presence => true

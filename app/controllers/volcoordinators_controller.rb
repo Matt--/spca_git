@@ -26,23 +26,6 @@ class VolcoordinatorsController < ApplicationController
     end
   end
   
-  def showvolunteers
-    @volunteers = Volunteer.all
-    
-    respond_to do |format|
-      if params[:reviewtype] == "newvolunteers"
-        format.html { redirect_to volcoordinator_path }
-        format.json { render json: @volunteers }
-      elsif params[:reviewtype] == "orientedvolunteers"
-        format.html { redirect_to volcoordinator_orientedvolunteers_path }
-        format.json { render json: @volunteers }
-      else
-        format.html # show.html.erb
-        format.json { render json: @volcoordinator }
-      end
-    end
-  end
-  
   def newvolunteers
     @volunteers = Volunteer.all
 
@@ -80,7 +63,8 @@ class VolcoordinatorsController < ApplicationController
   end
   
   def review
-    @volunteer = Volunteer.find(params[:id])
+    @volunteer  = Volunteer.find(params[:id])
+    @reviewtype = params[:reviewtype]
     
     respond_to do |format|
       format.html 

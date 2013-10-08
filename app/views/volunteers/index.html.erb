@@ -26,8 +26,8 @@
             <br/> <%= link_to 'Edit 2nd Form', {:controller => '/fosterer2s', 
                 :id => volunteer.fosterer2.id, :action => 'edit', 
                 :volunteer_id => volunteer.id} %>    
-          <%#else%>
-            <br/> <%#= link_to 'Fill 2nd Form', {:controller => '/fosterer2s', 
+          <%else%>
+            <br/> <%= link_to 'Fill 2nd Form', {:controller => '/fosterer2s', 
                 :action => 'new', :volunteer_id => volunteer.id} %>
           <% end %>
         <% else %>

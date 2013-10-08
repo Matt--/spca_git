@@ -16,3 +16,4 @@
 *~
 .kate-swp
 gems/*
+log/development.log

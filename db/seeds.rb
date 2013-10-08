@@ -48,7 +48,8 @@ DeptSupervisor.create([
 ])
 
 Volunteer.create([
-  {title: 'fosterer',
+  {role: 'volunteer',
+    title: 'fosterer',
     dob: '12-10-1991',
     firstname: 'Andrew',
     lastname: 'Blah blah',
@@ -58,7 +59,8 @@ Volunteer.create([
     home: 0447747,
     background: 'blah blah',
     status: 'New'},
-  {title: 'cat walker',
+  {role: 'fosterer',
+    title: 'cat walker',
     dob: '12-10-1991',
     firstname: 'Matt',
     lastname: 'Blah de blah blah',
@@ -68,7 +70,8 @@ Volunteer.create([
     home: 04123456,
     background: 'like cats and walking',
     status: 'New'},
-  {title: 'handyman',
+  {role: 'both',
+    title: 'handyman',
     dob: '12-10-1991',
     firstname: 'James',
     lastname: 'Whoop de whoop',
@@ -78,7 +81,8 @@ Volunteer.create([
     home: '0425469',
     background: 'like afternoons, mornings are for hangover recovery',
     status: 'New'},
-  {title: 'dude',
+  {role: 'fosterer',
+    title: 'dude',
     dob: '12-10-1991',
     firstname: 'Hamid',
     lastname: 'Dum de Dum',
@@ -87,8 +91,9 @@ Volunteer.create([
 #   mobile: 02265,
     home: '04985423',
     background: 'hate paperwork',
-    status: 'New'},
-  {title: 'newbie',
+   status: 'New'},
+  {role: 'volunteer',
+    title: 'newbie',
     dob: '12-10-1991',
     firstname: 'Mymom',
     lastname: 'Hey you',
@@ -97,7 +102,7 @@ Volunteer.create([
 #   mobile: 02265,
     home: '0498999999',
     background: 'hate student layabouts',
-    status: 'New'}
+    status: 'Auto-Rejected'}
 ])
 
 Volscheduler.create([{
@@ -225,6 +230,25 @@ Fosterer.create([{
  birdsinjured: false,
  birdstoung: false,
  livestock: false,
+ ownhome: 'Yes', 
+ inspecting: 'No',
+ rooms: 'Yes', 
+ roomwarm: 'No', 
+ hutch: 'No',	
+ rabbithutch: 'No', 
+ aviary: 'No',
+ livestockfenced: 'No',
+ homedesc: 'Blah Blah',
+ numadulta: 2, 
+ numchild: 1,
+ ages: 5,
+ numhoursperday: 3,
+ worktype: 'Full time',
+ secondperson: 'Blah Blah',
+ allmembersagree: 'Yes',
+ bringcentre: 'Yes',
+ transportdesc: 'Boom Boom',
+ agreement: 'I agree',
  volunteer_id: 1 
 }, { 
                              
@@ -243,7 +267,26 @@ Fosterer.create([{
  birdsinjured: false,
  birdstoung: false,
  livestock: false,
- volunteer_id: 2 
+ ownhome: 'Yes', 
+ inspecting: 'No',
+ rooms: 'Yes', 
+ roomwarm: 'No', 
+ hutch: 'No',	
+ rabbithutch: 'No', 
+ aviary: 'No',
+ livestockfenced: 'No',
+ homedesc: 'Blah Blah',
+ numadulta: 2, 
+ numchild: 1,
+ ages: 5,
+ numhoursperday: 3,
+ worktype: 'Away from home',
+ secondperson: 'Blah Blah',
+ allmembersagree: 'Yes',
+ bringcentre: 'Yes',
+ transportdesc: 'Boom Boom',
+ agreement: 'I agree',
+ volunteer_id: 2
 },{ 
                              
  motivation: 'I like to be a fosterer', 
@@ -261,7 +304,26 @@ Fosterer.create([{
  birdsinjured: false,
  birdstoung: false,
  livestock: false,
- volunteer_id: 3 
+ ownhome: 'Yes', 
+ inspecting: 'No',
+ rooms: 'No', 
+ roomwarm: 'No', 
+ hutch: 'No',	
+ rabbithutch: 'No', 
+ aviary: 'No',
+ livestockfenced: 'No',
+ homedesc: 'Blah Blah',
+ numadulta: 2, 
+ numchild: 0,
+ ages: 0,
+ numhoursperday: 3,
+ worktype: 'Part time',
+ secondperson: 'Dum Dum',
+ allmembersagree: 'No',
+ bringcentre: 'No',
+ transportdesc: 'Boom Boom',
+ agreement: 'I agree',
+ volunteer_id: 3
 }])
 
 Fosterer2.create([{
