@@ -44,19 +44,3 @@ body {
 .main_css {
   background-color: #999;
 }
-.ismeasure{
-  text-align: center;
-}
-.islow {
-  background-color: yellow;
-  text-align: center;
-}
-.ismedium {
-  background-color: orange;
-  text-align: center;
-}
-.ishigh {
-  background-color: red;
-  text-align: center;
-}
-  
