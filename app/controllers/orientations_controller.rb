@@ -99,6 +99,11 @@ class OrientationsController < ApplicationController
   # DELETE /orientations/1.json
   def destroy
     @orientation = Orientation.find(params[:id])
+    null = Orientation.find(1)
+    @orientation.volunteers.each do |v|
+      v.orientation = null
+      v.save
+    end
     @orientation.destroy
 
     respond_to do |format|

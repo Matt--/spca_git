@@ -13,39 +13,41 @@
 
     <p>
       <b>Participants:</b>
-      <% @orientation.numCurrParticipant = 0 %>
+      <%= @orientation.numCurrParticipant = @orientation.volunteers.length %>
+      
       <% vols = Volunteer.all %>
-<% (0..vols.length-1).each do |p| %>
-<% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id!=1)%>
-<table>
-<%= form_tag "/orientations/#{vols[p].orientation_id}", method: "put", action: "update" do %>
-<td>
-<%= check_box_tag "delOrien_#{vols[p].id}" %>
-<%= label_tag("delOrien_#{vols[p].id}", vols[p].orientation.nil? ? '' : vols[p].firstname) %>
-<% @orientation.numCurrParticipant = @orientation.numCurrParticipant+1 %>
-<%= submit_tag 'Delete' %>
-</td>
-<% end %>
-</table>
-<% end %>
-
-
-<% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id == 1)%>
-<%#= form_for(@volunteer) do |f| %>
-<table>
-<%= form_tag "/orientations/#{vols[p].orientation_id}", method: "put", action: "update" do %>
-<td>
-  <!-- <div class="actions"> -->
-<%= label_tag("addOrien_#{vols[p].id}", vols[p].orientation.nil? ? '' : vols[p].firstname) %>
-<%= collection_select("addOrien_#{vols[p].id}", :id, Orientation.all, :id, :datetime) %>
-<%= submit_tag 'Add' %>
-  <!-- </div> -->
-</td>
-<% end %>
-</table>
-<% end %>
+	<% (0..vols.length-1).each do |p| %>
+	  <% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id!=1)%>
+	    <table>
+	      <%= form_tag "/orientations/#{vols[p].orientation_id}", method: "put", action: "update"  do %>
+	      <td>
+		<%= check_box_tag "delOrien_#{vols[p].id}" %>
+		<%= label_tag("delOrien_#{vols[p].id}", vols[p].orientation.nil? ? '' : vols[p].firstname) %>
+		<%#= @volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant - 1 %>
+		<%= submit_tag 'Delete' %>
+	      </td>
+	      <% end %>
+	    </table>
+	  <% end %>
+	  
+	  
+	  <% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id == 1)%>
+	    <%#= form_for(@volunteer) do |f| %>
+	      <table>
+		<%= form_tag "/orientations/#{vols[p].orientation_id}", method: "put", action: "update"  do %>
+		  <td>
+  <!-- 		    <div class="actions"> -->
+		    <%= label_tag("addOrien_#{vols[p].id}", vols[p].orientation.nil? ? '' : vols[p].firstname) %>
+		    <%= collection_select("addOrien_#{vols[p].id}", :id, Orientation.all, :id, :datetime) %>
+		    <%= submit_tag 'Add' %>
+  <!-- 		    </div> -->
+		  </td> 
+		<% end %>
+	      </table>
+	  <% end %>
       <% end %>
-      <% puts @orientation.numCurrParticipant%>
+      <% puts "lenggthhhhhhhhhhhhhhhhhhhhh" %>
+      <% puts @orientation.volunteers.length%>
       <% @orientation.save %>
     </p>
     
