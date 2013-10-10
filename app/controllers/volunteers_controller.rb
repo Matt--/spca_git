@@ -54,8 +54,11 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.new(params[:volunteer])
     @volunteer.status = "New"
     
+    
     respond_to do |format|
       if @volunteer.save
+	@volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant + 1
+	@volunteer.orientation.save
         format.html { 
               redirect_to @volunteer, 
               notice: 'Volunteer was successfully created.' }
@@ -73,12 +76,19 @@ class VolunteersController < ApplicationController
   # PUT /volunteers/1.json
   def update
     @volunteer = Volunteer.find(params[:id])
-
+    puts "hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    puts @volunteer.orientation.numCurrParticipant
+    puts @volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant - 1
+    puts @volunteer.orientation.numCurrParticipant
+    
+    @volunteer.orientation.save
     respond_to do |format|
       if @volunteer.update_attributes(params[:volunteer])
+	@volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant + 1
+	@volunteer.orientation.save
         format.html { 
               redirect_to @volunteer, 
-              notice: 'Volunteer was successfully updated.' }
+              notice: "Volunteer was successfully updated." }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

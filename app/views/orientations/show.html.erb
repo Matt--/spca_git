@@ -13,7 +13,8 @@
 
     <p>
       <b>Participants:</b>
-      <% @orientation.numCurrParticipant = 0 %>
+      <%= @orientation.numCurrParticipant = @orientation.volunteers.length %>
+      
       <% vols = Volunteer.all %>
 	<% (0..vols.length-1).each do |p| %>
 	  <% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id!=1)%>
@@ -22,7 +23,7 @@
 	      <td>
 		<%= check_box_tag "delOrien_#{vols[p].id}" %>
 		<%= label_tag("delOrien_#{vols[p].id}", vols[p].orientation.nil? ? '' : vols[p].firstname) %>
-		<% @orientation.numCurrParticipant = @orientation.numCurrParticipant+1 %>
+		<%#= @volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant - 1 %>
 		<%= submit_tag 'Delete' %>
 	      </td>
 	      <% end %>
@@ -45,7 +46,8 @@
 	      </table>
 	  <% end %>
       <% end %>
-      <% puts @orientation.numCurrParticipant%>
+      <% puts "lenggthhhhhhhhhhhhhhhhhhhhh" %>
+      <% puts @orientation.volunteers.length%>
       <% @orientation.save %>
     </p>
     
