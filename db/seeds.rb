@@ -59,7 +59,7 @@ Volunteer.create([
     home: 0447747,
     background: 'blah blah',
     status: 'New',
-    orientation_id: 1},
+    orientation_id: 3},
   {role: 'fosterer',
     title: 'cat walker',
     dob: '12-10-1991',
