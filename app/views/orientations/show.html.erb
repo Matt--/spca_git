@@ -1,49 +1,65 @@
-<p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
 
-<% if @orientation.id != 1 %>
-  <p>
-    <b>Presenter:</b>
-    <%= @orientation.presenter %>
-  </p>
-  
-  <p>
-    <b>Datetime:</b>
-    <%= @orientation.datetime %>
-  </p>
-  
-  <p>
-    <b>Participants:</b>
-  
-<% else %>
-  <p><b>Volunteers without an orientation time:</b>
+    <p>
+      <b>Presenter:</b>
+      <%= @orientation.presenter %>
+    </p>
+
+    <p>
+      <b>Datetime:</b>
+      <%= @orientation.datetime %>
+    </p>
+
+
+    <p>
+      <b>Participants:</b>
+      <% @orientation.numCurrParticipant = 0 %>
+      <% vols = Volunteer.all %>
+<% (0..vols.length-1).each do |p| %>
+<% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id!=1)%>
+<table>
+<%= form_tag "/orientations/#{vols[p].orientation_id}", method: "put", action: "update" do %>
+<td>
+<%= check_box_tag "delOrien_#{vols[p].id}" %>
+<%= label_tag("delOrien_#{vols[p].id}", vols[p].orientation.nil? ? '' : vols[p].firstname) %>
+<% @orientation.numCurrParticipant = @orientation.numCurrParticipant+1 %>
+<%= submit_tag 'Delete' %>
+</td>
+<% end %>
+</table>
 <% end %>
 
-<% @orientation.volunteers.each do |vol| %>
-  <% if @orientation.id != 1 %>
-    <table>
-      <%= form_tag "/orientations/#{vol.orientation_id}", method: "put", action: "update"  do %>
-        <td>
-          <%= check_box_tag "delOrien_#{vol.id}" %>
-          <%= label_tag("delOrien_#{vol.id}", vol.orientation.nil? ? '' : vol.firstname) %>
-          <%= submit_tag 'Delete' %>
-        </td>
+
+<% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id == 1)%>
+<%#= form_for(@volunteer) do |f| %>
+<table>
+<%= form_tag "/orientations/#{vols[p].orientation_id}", method: "put", action: "update" do %>
+<td>
+  <!-- <div class="actions"> -->
+<%= label_tag("addOrien_#{vols[p].id}", vols[p].orientation.nil? ? '' : vols[p].firstname) %>
+<%= collection_select("addOrien_#{vols[p].id}", :id, Orientation.all, :id, :datetime) %>
+<%= submit_tag 'Add' %>
+  <!-- </div> -->
+</td>
+<% end %>
+</table>
+<% end %>
       <% end %>
-    </table>
-  <% else %>
-    <table>
-      <%= form_tag "/orientations/#{vol.orientation_id}", method: "put", action: "update" do %>
-        <td>
-          <%= label_tag("addOrien_#{vol.id}", vol.orientation.nil? ? '' : vol.firstname) %>
-          <%= collection_select("addOrien_#{vol.id}", :id, Orientation.all, :id, :datetime) %>
-          <%= submit_tag 'Add' %>
-        </td>
-      <% end %>
-    </table>
-  <% end %>
-<% end %>
-</p>
-
-<% if @orientation.id != 1 %>
-  <%= link_to 'Edit', edit_orientation_path(@orientation) %> |
-<% end %>
-<%= link_to 'Back', orientations_path %>
+      <% puts @orientation.numCurrParticipant%>
+      <% @orientation.save %>
+    </p>
+    
+    
+    <p>
+      <b>Number of maximum participants:</b>
+      <%= @orientation.participantMax %>
+    </p>
+    
+    
+    <p>
+      <b>Number of current participants:</b>
+      <%= @orientation.numCurrParticipant%>
+    </p>
+    
+    <%= link_to 'Edit', edit_orientation_path(@orientation) %> |
+    <%= link_to 'Back', orientations_path %>

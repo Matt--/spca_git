@@ -63,12 +63,17 @@
 
    <%= f.check_box :befosterer, {checked_value: "false", unchecked_value: "true"} %></h2>
   </div>
-    
+<!--     'datetime ASC' -->
   <div>
-  <% #if (@volunteer.orientation.datetime>Date.today)%>
+  <% #if (@volunteer.orientation.datetime > Date.today)%>
      <h5><%= f.label "Your orientation date" %>
-     <%= f.collection_select(:orientation_id, Orientation.order('datetime ASC'), :id, :datetime, :prompt => 'Please select') %>
-  <% #end %>
+     <%= f.collection_select(:orientation_id, Orientation.find(:all,'datetime ASC', :conditions=> "numCurrParticipant < participantMax"), :id, :datetime, :prompt => 'Please select') %>
+     <%#= Orientation.find(5).numCurrParticipant %>
+     <%#= Orientation.find(5).participantMax %>
+     <%#= Orientation.find(2).numCurrParticipant < Orientation.find(2).participantMax %>
+     <%#= Orientation.count(Orientation.find(3).numCurrParticipant, :distinct => true) %>
+     
+ <% #end %>
   </div>
   
   <div class="actions">

@@ -73,7 +73,7 @@ class VolunteersController < ApplicationController
   # PUT /volunteers/1.json
   def update
     @volunteer = Volunteer.find(params[:id])
-
+    
     respond_to do |format|
       if @volunteer.update_attributes(params[:volunteer])
         format.html { 

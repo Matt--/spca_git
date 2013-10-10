@@ -3,7 +3,6 @@
 <h1>Volunteers that have attended orientation</h1>
 
 <table border=1>
-
   <tr>
     <th>Orientation Date</th>
     <th>Firstname</th>
@@ -12,10 +11,11 @@
   </tr>
 
   <% Orientation.where(["id != 1"]).order("datetime").each do |o| %>
+    <% #Also filter out past orientations that are now empty (of New volunteers) %>
     <% if o.datetime >= DateTime.now %>
       <tr>
         <td><font color="blue"><b><%= o.datetime.to_formatted_s(:long_ordinal) %></font></b></td>
-        <td></td>
+        <td><%= o.volunteers.length %></td>
         <td></td>
         <td></td>
       </tr>

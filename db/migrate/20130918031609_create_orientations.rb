@@ -3,6 +3,8 @@ class CreateOrientations < ActiveRecord::Migration
     create_table :orientations do |t|
       t.string :presenter
       t.datetime :datetime
+      t.integer :participantMax
+      t.integer :numCurrParticipant
       
       t.timestamps
     end
