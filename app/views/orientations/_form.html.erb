@@ -16,7 +16,15 @@
     <%= f.text_field :presenter %>
   </div>
   
+  <div class="field">
+    <%= f.label :"Maximum number of participants"%>
+    <%= f.number_field :participantMax, :size=>"5" %>
+  </div> 
   
+  <div class="field">
+    <%= f.label :"Current number of participant "%>
+    <%= f.number_field :numCurrParticipant, :size=>"5" %>
+  </div> 
   
 <!-- <div class="field">
     <%#= f.label :date %><br />

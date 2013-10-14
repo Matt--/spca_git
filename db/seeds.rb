@@ -64,6 +64,7 @@ Volunteer.create([
     home: 0447747,
     background: 'blah blah',
     volscheduler_id: 1,
+    orientation_id: 1,
     status: 'New'
   },{
     role: 'fosterer',
@@ -77,6 +78,7 @@ Volunteer.create([
     home: 04123456,
     background: 'like cats and walking',
     volscheduler_id: 1,
+    orientation_id: 2,
     status: 'New'
   },{
     role: 'both',
@@ -90,6 +92,7 @@ Volunteer.create([
     home: '0425469',
     background: 'like afternoons, mornings are for hangover recovery',
     volscheduler_id: 1,
+   orientation_id: 2,
     status: 'New'
   },{
     role: 'fosterer',
@@ -103,6 +106,7 @@ Volunteer.create([
     home: '04985423',
     background: 'hate paperwork',
     volscheduler_id: 1,
+    orientation_id: 3,
     status: 'New'
   },{
     role: 'volunteer',
@@ -116,6 +120,7 @@ Volunteer.create([
     home: '0498999999',
     background: 'hate student layabouts',
     volscheduler_id: 1,
+    orientation_id: 1,
     status: 'Auto-Rejected'
   }
 ])
@@ -407,13 +412,19 @@ Fosterer2.create([{
 
 Orientation.create([{
 presenter: 'None',
-datetime: nil
+datetime: nil,
+participantMax: 1000000,
+numCurrParticipant:0
 },{                     
 presenter: 'Matt',
-datetime: '2013-12-12-10-10'
+datetime: '2013-12-12-10-10',
+participantMax: 2,
+numCurrParticipant: 0
 },{
 presenter: 'Hamid',
-datetime: '2014-02-02-05-11'
+datetime: '2014-02-02-05-11',
+participantMax: 5,
+numCurrParticipant: 0
 }])
 
 WorkHistory.create([
