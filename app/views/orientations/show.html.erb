@@ -10,15 +10,22 @@
       <%= @orientation.datetime %>
     </p>
 
-
-       <b>Number of maximum participants:</b>
-	<%= @orientation.participantMax %>
-      </p>
-      <p>
-	<b>Number of current participants:</b>
-	<%= @orientation.numCurrParticipant = @orientation.volunteers.length %>
-      </p>
-	
+      <% if @orientation.id != 1%>
+	<b>Number of maximum participants:</b>
+	  <%= @orientation.participantMax %>
+	</p>
+	<p>
+	  <b>Number of current participants:</b>
+	  <%= @orientation.numCurrParticipant = @orientation.volunteers.length %>
+	</p>
+      <% end %>
+      
+      <% if @orientation.id == 1%>
+	<p>
+	  <b>Number of participants without orientation:</b>
+	  <%= @orientation.numCurrParticipant = @orientation.volunteers.length %>
+	</p>
+      <% end %>
 	
 	
 
