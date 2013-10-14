@@ -11,9 +11,17 @@
     </p>
 
 
-    <p>
-      <b>Participants:</b>
-      <%= @orientation.numCurrParticipant = @orientation.volunteers.length %>
+       <b>Number of maximum participants:</b>
+	<%= @orientation.participantMax %>
+      </p>
+      <p>
+	<b>Number of current participants:</b>
+	<%= @orientation.numCurrParticipant = @orientation.volunteers.length %>
+      </p>
+	
+	
+	
+
       
       <% vols = Volunteer.all %>
 	<% (0..vols.length-1).each do |p| %>
@@ -28,40 +36,29 @@
 	      </td>
 	      <% end %>
 	    </table>
+	    
 	  <% end %>
-	  
 	  
 	  <% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id == 1)%>
 	    <%#= form_for(@volunteer) do |f| %>
 	      <table>
 		<%= form_tag "/orientations/#{vols[p].orientation_id}", method: "put", action: "update"  do %>
 		  <td>
-  <!-- 		    <div class="actions"> -->
 		    <%= label_tag("addOrien_#{vols[p].id}", vols[p].orientation.nil? ? '' : vols[p].firstname) %>
-		    <%= collection_select("addOrien_#{vols[p].id}", :id, Orientation.all, :id, :datetime) %>
+		    <%= collection_select("addOrien_#{vols[p].id}", :id, Orientation.find(:all, :conditions => ['numCurrParticipant < participantMax']), :id, :datetime) %>
 		    <%= submit_tag 'Add' %>
-  <!-- 		    </div> -->
 		  </td> 
 		<% end %>
 	      </table>
 	  <% end %>
       <% end %>
-      <% puts "lenggthhhhhhhhhhhhhhhhhhhhh" %>
-      <% puts @orientation.volunteers.length%>
       <% @orientation.save %>
     </p>
     
-    
-    <p>
-      <b>Number of maximum participants:</b>
-      <%= @orientation.participantMax %>
-    </p>
-    
-    
-    <p>
-      <b>Number of current participants:</b>
-      <%= @orientation.numCurrParticipant%>
-    </p>
+    <% #if @orientation.id != 1 %>
+   
+ 
+ 
     
     <%= link_to 'Edit', edit_orientation_path(@orientation) %> |
     <%= link_to 'Back', orientations_path %>

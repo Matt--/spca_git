@@ -76,7 +76,7 @@ class VolunteersController < ApplicationController
   # PUT /volunteers/1.json
   def update
     @volunteer = Volunteer.find(params[:id])
-    puts "hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee"
+    puts "testtttttttttttttttttt"
     puts @volunteer.orientation.numCurrParticipant
     puts @volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant - 1
     puts @volunteer.orientation.numCurrParticipant
