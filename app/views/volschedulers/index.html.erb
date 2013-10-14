@@ -36,15 +36,17 @@
   </tr>
 
 <% ########## create vol_array[day number] -> list of volunteers data ##### %>
-  <% vol_array = Array.new(32) %>
-  <% (0..31).each do |c| %>
+<% #### Days 0-6, relate to the last week ### %>
+  <% vol_array = Array.new(39) %>
+  <% (0..38).each do |c| %>
     <% vol_array[c] = Array.new %>
   <% end %>
+  <% vol_array = pop_with_last_7_days vol_array %>
 
   <% ####### slow nested algorythm, maybe improve later ##### %>
   <% @volunteers.each   do |v| %>
     <% v.vol_job_day.each do |vjd| %>
-      <% (0..31).each         do |c| %>
+      <% (7..38).each         do |c| %>
         <% t = time + (c * (60*60*24)) %>
         <% dayno = (t.wday == 0) ? 7 : t.wday %> <%# mon => 1, sun => 7 %>
 
@@ -61,7 +63,7 @@
   <% (1..jd.length-1).each do |i| %>
   <tr>
     <td><%= jd[i].name %></td>
-    <% (0..31).each do |c| %>
+    <% (7..38).each do |c| %>
       <% t = time + (c * (60*60*24)) %>
     <td>
       <% vol_array[c].each do |v2| %>
@@ -85,17 +87,55 @@
 <%= "TODO, enable noting this for... say up to a week ago" %><br/><br/>
 
 <%# TODO "time" used here needs to relate to any day of interest #%>
+
+<%# use work history to create last 7 days #%>
+
+<%# table, 8 wide, 2 deep #%>
+
 <h4><%= "Note absences for #{time}" %></h4>
+
 <%= form_tag "/volschedulers/1", method: "put" do %>
+<table id="absent_table">
+    <tr>
+      <% (0..8).each do |d| %>
+        <% t = time - (7-d) * (60*60*24) %>
+        <th><%= t.strftime("%a %-d/%-m") %></th>
+        <%= hidden_field_tag 'date', time %>
+      <% end %>
+<!--      <th>Yesterday</th>
+      <th>Today</th>
+      <th>Tomorrow</th>
+-->    </tr>
+    <tr>
+      <% (0..8).each do |d| %>
+        <% t = time - (7-d) * (60*60*24) %>
+        <% if d==8 %>
+          <td style='background-color:#BBB'>
+        <% else %>
+          <td>
+        <% end %>
+        <% vol_array[d].each do |v| %>
+          <% query = "volunteer_id = #{v.id} AND onday_id = \'"+ t.strftime("%u") +"\'" %>
 
-  <%= hidden_field_tag 'date', time %>
+          <% vjd = v.vol_job_day.where(query)[0] %>
+<% puts vjd.inspect %>
+          <%= hidden_field_tag 'job',        vjd.nil? ? "" : vjd.jobdescription.name %>
+          <%= hidden_field_tag 'department', v.department.name %>
+          <%= hidden_field_tag 'supervisor', 
+                        v.department.dept_supervisor.firstname + " " +
+                        v.department.dept_supervisor.lastname%>
+          
+          <% if d != 8 %>
+            <%= check_box_tag "vol_#{v.id}" %>
+          <% end %>
+          <%= label_tag "vol_#{v.id}", v.firstname %>
+          <br/>
+        <% end %>
+      </td>
+      <% end %>
 
-  <% vol_array[0].each do |v| %>
-    <%= check_box_tag "vol_#{v.id}" %>
-    <%= label_tag "vol_#{v.id}", v.firstname %>
-    <br/>
-  <% end %>
-
+    </tr>
+</table>
   <div class="actions">
     <br/><%= submit_tag "note absences" %> ??? Raise an "are you sure?" notice? ???
   </div>

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130930041532) do
+ActiveRecord::Schema.define(:version => 20131008045546) do
 
   create_table "absences", :force => true do |t|
     t.date     "day"
@@ -196,6 +196,7 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.date     "break_to"
     t.integer  "scheduledjobtype_id"
     t.integer  "orientation_id"
+    t.integer  "volscheduler_id"
     t.string   "status"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
@@ -212,5 +213,16 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
   end
 
   add_index "whiteboards", ["volunteer_id"], :name => "index_whiteboards_on_volunteer_id"
+
+  create_table "work_histories", :force => true do |t|
+    t.integer  "volunteer_id"
+    t.date     "workdate",                        :null => false
+    t.string   "job",                             :null => false
+    t.string   "department",                      :null => false
+    t.string   "supervisor",                      :null => false
+    t.boolean  "absent",       :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
 
 end

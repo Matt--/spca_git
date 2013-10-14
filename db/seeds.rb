@@ -47,8 +47,13 @@ DeptSupervisor.create([
     department_id: 3}
 ])
 
+Volscheduler.create([{
+  department_id: 1
+}])
+
 Volunteer.create([
-  {role: 'volunteer',
+  {
+    role: 'volunteer',
     title: 'fosterer',
     dob: '12-10-1991',
     firstname: 'Andrew',
@@ -58,8 +63,10 @@ Volunteer.create([
 #   mobile: 02265,
     home: 0447747,
     background: 'blah blah',
-    status: 'New'},
-  {role: 'fosterer',
+    volscheduler_id: 1,
+    status: 'New'
+  },{
+    role: 'fosterer',
     title: 'cat walker',
     dob: '12-10-1991',
     firstname: 'Matt',
@@ -69,8 +76,10 @@ Volunteer.create([
 #   mobile: 02265,
     home: 04123456,
     background: 'like cats and walking',
-    status: 'New'},
-  {role: 'both',
+    volscheduler_id: 1,
+    status: 'New'
+  },{
+    role: 'both',
     title: 'handyman',
     dob: '12-10-1991',
     firstname: 'James',
@@ -80,8 +89,10 @@ Volunteer.create([
 #   mobile: 02265,
     home: '0425469',
     background: 'like afternoons, mornings are for hangover recovery',
-    status: 'New'},
-  {role: 'fosterer',
+    volscheduler_id: 1,
+    status: 'New'
+  },{
+    role: 'fosterer',
     title: 'dude',
     dob: '12-10-1991',
     firstname: 'Hamid',
@@ -91,8 +102,10 @@ Volunteer.create([
 #   mobile: 02265,
     home: '04985423',
     background: 'hate paperwork',
-   status: 'New'},
-  {role: 'volunteer',
+    volscheduler_id: 1,
+    status: 'New'
+  },{
+    role: 'volunteer',
     title: 'newbie',
     dob: '12-10-1991',
     firstname: 'Mymom',
@@ -102,12 +115,10 @@ Volunteer.create([
 #   mobile: 02265,
     home: '0498999999',
     background: 'hate student layabouts',
-    status: 'Auto-Rejected'}
+    volscheduler_id: 1,
+    status: 'Auto-Rejected'
+  }
 ])
-
-Volscheduler.create([{
-  department_id: 1
-}])
 
 Frequency.create([
   {name: "weekly", week: 1},
@@ -404,4 +415,50 @@ datetime: '2013-12-12-10-10'
 presenter: 'Hamid',
 datetime: '2014-02-02-05-11'
 }])
+
+WorkHistory.create([
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "1-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "2-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "3-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "4-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "5-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "6-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "7-10-2013", absent: true },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "8-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "9-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "10-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "11-10-2013" },
+
+
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "1-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "2-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "3-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "4-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "5-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "6-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "7-10-2013", absent: true },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "8-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "9-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "10-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "11-10-2013" },
+
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "12-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "12-10-2013" },
+  { volunteer_id: 3, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "13-10-2013" },
+  { volunteer_id: 4, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "13-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "14-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "14-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "15-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "15-10-2013" },
+
+])
+
+
+
+
+
+
+
+
+
 
