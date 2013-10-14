@@ -3,5 +3,6 @@ class Volscheduler < ActiveRecord::Base
 
   has_many :dojobs
   belongs_to  :department
+  has_many :volunteers
 
 end

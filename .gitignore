@@ -12,6 +12,8 @@
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
-/tmp
+/tmp/*
 *~
 .kate-swp
+gems/*
+log/development.log

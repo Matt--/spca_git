@@ -5,13 +5,21 @@ class Volunteer < ActiveRecord::Base
   attr_accessible :id, :address, :background, :dob, :email, :firstname, :home, 
             :lastname, :moblie, :title, :orientation_id, :befosterer, :status,
             :break_from, :break_to,  :vol_job_day_attributes,
-            :ondays_attributes, :jobdescriptions_attributes, :role
+            :ondays_attributes, :jobdescriptions_attributes, :role,
+            :volscheduler_id
 
   has_many :whiteboards
   has_one  :fosterer
   has_one :fosterer2
   has_many :absences
+  has_one :user
   belongs_to :orientation
+  has_many :work_histories
+  belongs_to :volscheduler
+    accepts_nested_attributes_for :volscheduler
+
+  has_one  :department,
+           :through => :volscheduler
 
   has_many :vol_job_day
     accepts_nested_attributes_for :vol_job_day,
@@ -31,12 +39,13 @@ class Volunteer < ActiveRecord::Base
   
   validate  :role, :presence => true
   validates :title, :presence => true #, :message => ""
+
   validates :dob, :presence => true
   validates :firstname, :presence => true
   validates :lastname, :presence => true
   validates :address, :presence => true
   validates :email, :presence => true
-  validates :background, :presence => true
+  #validates :background, :presence => true
   validate  :breakdate_validator#, 
             #:unless => (:break_from.nil? && :break_to.nil?)
 #  validates_associated :vol_job_days  
