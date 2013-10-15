@@ -208,7 +208,6 @@ DEPENDENCIES
   capybara
   childprocess
   coffee-rails (~> 3.2.1)
-  god
   guard-rspec
   guard-spork
   jquery-rails
