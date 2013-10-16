@@ -403,16 +403,19 @@ Orientation.create([{
 presenter: 'None',
 datetime: nil,
 participantMax: 1000000,
-numCurrParticipant:0
+numCurrParticipant:0,
+duration:2                                        
 },{                     
 presenter: 'Matt',
 datetime: '2013-12-12-10-10',
 participantMax: 2,
-numCurrParticipant: 0
+numCurrParticipant: 0,
+duration:2
 },{
 presenter: 'Hamid',
 datetime: '2014-02-02-05-11',
 participantMax: 5,
-numCurrParticipant: 0
+numCurrParticipant: 0,
+duration:2
 }])
 

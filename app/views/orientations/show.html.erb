@@ -9,6 +9,11 @@
       <b>Datetime:</b>
       <%= @orientation.datetime %>
     </p>
+    
+      <p>
+      <b>Duration:</b>
+      <%= @orientation.duration %>
+    </p>
 
       <% if @orientation.id != 1%>
 	<b>Number of maximum participants:</b>
@@ -32,7 +37,7 @@
       
       <% vols = Volunteer.all %>
 	<% (0..vols.length-1).each do |p| %>
-	  <% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id!=1)%>
+	  <% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id != 1)%>
 	    <table>
 	      <%= form_tag "/orientations/#{vols[p].orientation_id}", method: "put", action: "update"  do %>
 	      <td>

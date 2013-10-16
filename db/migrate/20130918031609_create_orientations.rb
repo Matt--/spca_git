@@ -7,6 +7,7 @@ class CreateOrientations < ActiveRecord::Migration
       t.datetime :datetime
       t.integer :participantMax
       t.integer :numCurrParticipant
+      t.integer :duration
       
       t.timestamps
     end
