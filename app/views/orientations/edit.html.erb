@@ -1,6 +1,12 @@
-<h1>Editing orientation</h1>
+<% if @orientation.id != 1 %>
+  <h1>Editing orientation</h1>
+  
+  <%= render 'form' %>
+  
+  <%= link_to 'Show', @orientation %> |
+<% else %>
+  <h1>Please don't try to edit this Orientation!</h1>
+  <br>
+<% end %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @orientation %> |
 <%= link_to 'Back', orientations_path %>

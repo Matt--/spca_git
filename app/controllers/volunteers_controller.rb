@@ -54,14 +54,13 @@ class VolunteersController < ApplicationController
     @volunteer = Volunteer.new(params[:volunteer])
     @volunteer.status = "New"
     
-    
     respond_to do |format|
       if @volunteer.save
 	@volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant + 1
 	@volunteer.orientation.save
         format.html { 
               redirect_to @volunteer, 
-              notice: 'Volunteer was successfully created.' }
+              notice: "Volunteer was successfully created." }
         format.json { 
               render json: @volunteer, status: :created, location: @volunteer }
       else

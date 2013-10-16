@@ -51,6 +51,8 @@ class Volunteer < ActiveRecord::Base
   #There is a bug atm - if one of them is there, it doesn't
   #check that the other one is numerical. Don't care atm!
   
+  validate :orientation_selected
+  
   validate :over_18_validator
   
   after_find :enable_vol_job_day
@@ -61,6 +63,12 @@ class Volunteer < ActiveRecord::Base
   def over_18_validator
     if dob + 18.years >= Date.today
       errors.add(:dob, "can't be under 18")
+    end
+  end
+
+  def orientation_selected
+    if orientation_id == nil
+      errors.add(:orientation_id, "must be selected")
     end
   end
 
