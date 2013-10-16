@@ -10,12 +10,12 @@
     <th></th>
   </tr>
   
-  <% conds = "id != 1 and datetime <= \'" + DateTime.now.to_default_s + "\'" %>
-  <% #= raise conds %>
+  <% #conds = "id != 1 and datetime <= \'" + DateTime.now.to_default_s + "\'" %>
+  <% conds = "id != 1" %>
   <% allO = Orientation.where(conds) %>
   <% allO.order("datetime").each do |o| %>
     <% #Also filter out past orientations that are now empty (of New volunteers) %>
-    <% if o.datetime <= DateTime.now and o.volunteers.length > 0 %>
+    <% #if o.datetime <= DateTime.now and o.volunteers.length > 0 %>
       <tr>
         <td><font color="blue"><b>
           <%= o.datetime.to_formatted_s(:long_ordinal) %>
@@ -34,7 +34,7 @@
           </tr>
         <% end %>
       <% end %>
-    <% end %>
+    <% #end %>
   <% end %>
 </table>
 

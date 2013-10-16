@@ -69,11 +69,12 @@
      
      
      <h5><%= f.label "Your orientation date" %>
-     <% orients = Orientation.where(["id != 1 and numCurrParticipant < participantMax"]) %>
+     <% conds   = "id != 1 and numCurrParticipant < participantMax and datetime > \'" + DateTime.now.to_default_s + "\'" %>
+     <% orients = Orientation.where(conds) %>
      <% if @volunteer.orientation != nil and not orients.exists?(@volunteer.orientation) and @volunteer.orientation_id != 1 %>
         <% orients.push(@volunteer.orientation) %>
      <% end %>
-     <%= f.select :orientation_id, orients.map { |o| [o.datetime, o.id] }, :prompt => 'Please select' %>
+     <%= f.select :orientation_id, orients.order("datetime").map { |o| [o.datetime.to_formatted_s(:long_ordinal), o.id] }, :prompt => 'Please select' %>
      <%#= f.collection_select(:orientation_id, Orientation.find(:all,'datetime ASC', :conditions=> "id != 1 and numCurrParticipant < participantMax"), :id, :datetime, :prompt => 'Please select') %>
      <%#= Orientation.find(5).numCurrParticipant %>
      <%#= Orientation.find(5).participantMax %>

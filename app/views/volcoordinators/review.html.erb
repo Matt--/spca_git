@@ -54,17 +54,37 @@
 </div>
 <% end %>
 
-<%= form_tag(option: "Approve", id: @volunteer) do %>
-  <%= submit_tag("Approve Volunteer") %>
+<% if @volunteer.status != "Enter into ShelterBuddy" %>
+  <%= form_tag(option: "Approve", id: @volunteer) do %>
+    <%= submit_tag("Approve Volunteer") %>
+  <% end %>
+  
+  <br>
 <% end %>
 
-<br>
-
-<%= form_tag(option: "Reject", id: @volunteer) do %>
-  <%= submit_tag("Reject Volunteer") %>
+<% if @volunteer.status == "Awaiting Orientation" %>
+  <%= form_tag(option: "Did Not Show", id: @volunteer) do %>
+    <%= submit_tag("Did Not Show") %>
+  <% end %>
+  
+  <br>
 <% end %>
 
-<br>
+<% if @volunteer.status != "Enter into ShelterBuddy" %>
+  <%= form_tag(option: "Reject", id: @volunteer) do %>
+    <%= submit_tag("Reject Volunteer") %>
+  <% end %>
+  
+  <br>
+<% end %>
+
+<% if @volunteer.status == "Enter into ShelterBuddy" %>
+  <%= form_tag(option: "Done", id: @volunteer) do %>
+    <%= submit_tag("Done") %>
+  <% end %>
+  
+  <br>
+<% end %>
 
 <% if @reviewtype == "newvolunteers" %>
   <%= link_to 'Back', volcoordinator_newvolunteers_path %>

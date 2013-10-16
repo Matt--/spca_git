@@ -52,6 +52,7 @@ class Volunteer < ActiveRecord::Base
   #check that the other one is numerical. Don't care atm!
   
   validate :orientation_selected
+  validate :orientation_not_full
   
   validate :over_18_validator
   
@@ -69,6 +70,12 @@ class Volunteer < ActiveRecord::Base
   def orientation_selected
     if orientation_id == nil
       errors.add(:orientation_id, "must be selected")
+    end
+  end
+
+  def orientation_not_full
+    if orientation.numCurrParticipant >= orientation.participantMax
+      errors.add(:orientation, "is full")
     end
   end
 

@@ -41,7 +41,8 @@ class OrientationsController < ApplicationController
   # POST /orientations.json
   def create
     @orientation = Orientation.new(params[:orientation])
-
+    @orientation.numCurrParticipant = 0
+    
     respond_to do |format|
       if @orientation.save
         format.html { redirect_to @orientation, notice: 'Orientation was successfully created.' }
@@ -57,29 +58,67 @@ class OrientationsController < ApplicationController
   # PUT /orientations/1.json
   def update
     @orientation = Orientation.find(params[:id])
+    volunteer = nil
     
     if !params[:id].nil?
       params.each do |p|
         if p[0].to_s.match("delOrien_*")
           id = p[0].to_s.slice(9..-1).to_i
           volunteer = Volunteer.find(id)
+          
+          volunteer.orientation.numCurrParticipant = volunteer.orientation.numCurrParticipant - 1
+          volunteer.orientation.save
+          
 	  volunteer.orientation_id = 1
 	  volunteer.save
+          
+          #volunteer.orientation.numCurrParticipant = volunteer.orientation.numCurrParticipant + 1
+          #volunteer.orientation.save
+	elsif p[0].to_s.match("addOrien_*")
+	  id = p[0].to_s.slice(9..-1).to_i
+	  volunteer = Volunteer.find(id)
+          
+          #volunteer.orientation.numCurrParticipant = volunteer.orientation.numCurrParticipant - 1
+          #volunteer.orientation.save
+          
+	  volunteer.orientation_id = params[p[0]][:id]
+	  volunteer.save
+          
+          volunteer.orientation.numCurrParticipant = volunteer.orientation.numCurrParticipant + 1
+          volunteer.orientation.save
         end
       end
     end
+    #@orientation2 = Orientation.find(volunteer.orientation_id)
+    #@orientation2.numCurrParticipant = @orientation2.volunteers.length
+    #@orientation.save
+    #@orientation2.save
+#     volunteer = nil
+#     if !params[:id].nil?
+#       params.each do |p|
+	
+# 	if p[0].to_s.match("addOrien_*")
+# 	  id = p[0].to_s.slice(9..-1).to_i
+# 	  volunteer = Volunteer.find(id)
+# 	  volunteer.orientation_id = params[p[0]][:id]
+# 	  volunteer.save
+	  
+	   
+	  
+	  
+# 	  orient = Orientation.find(params[p[0]][:id])
+# 	  myid = orient.id
+# 	  puts "ORIENTATIONNNNNNNNNNNNNNNNNNNN"
+	 
+# 	  puts orient.numCurrParticipant
+# 	  orient.numCurrParticipant = orient.numCurrParticipant + 1
+# 	  puts orient.numCurrParticipant
+	  
+# 	  @orientation.save
+# 	end
+     
+#       end
     
-    if !params[:id].nil?
-      params.each do |p|
-	if p[0].to_s.match("addOrien_*")
-	  id = p[0].to_s.slice(9..-1).to_i
-	  volunteer = Volunteer.find(id)
-	  volunteer.orientation_id = params[p[0]][:id]
-	  volunteer.save
-	end
-      end
-    end
-      
     respond_to do |format|
       if @orientation.update_attributes(params[:orientation])
         format.html { redirect_to @orientation, notice: 'Orientation was successfully updated.' }
@@ -99,13 +138,15 @@ class OrientationsController < ApplicationController
   # DELETE /orientations/1.json
   def destroy
     @orientation = Orientation.find(params[:id])
-    null = Orientation.find(1)
     @orientation.volunteers.each do |v|
-      v.orientation = null
+      v.orientation_id = 1
       v.save
+      
+      #v.orientation.numCurrParticipant = v.orientation.numCurrParticipant + 1
+      #v.orientation.save
     end
     @orientation.destroy
-
+    
     respond_to do |format|
       format.html { redirect_to orientations_url }
       format.json { head :no_content }
