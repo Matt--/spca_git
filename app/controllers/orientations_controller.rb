@@ -93,6 +93,7 @@ class OrientationsController < ApplicationController
     #@orientation2.numCurrParticipant = @orientation2.volunteers.length
     #@orientation.save
     #@orientation2.save
+
 #     volunteer = nil
 #     if !params[:id].nil?
 #       params.each do |p|
