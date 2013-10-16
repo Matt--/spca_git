@@ -47,6 +47,26 @@ DeptSupervisor.create([
     department_id: 3}
 ])
 
+Orientation.create([{
+  presenter: 'None',
+  datetime: nil,
+  participantMax: 1000000,
+  numCurrParticipant: 0,
+  duration: 2
+},{
+  presenter: 'Mr Cool',
+  datetime: DateTime.new(2013, 12, 25, 5, 0, 0),
+  participantMax: 2,
+  numCurrParticipant: 2,
+  duration: 2
+},{
+  presenter: 'The Regular Person',
+  datetime: DateTime.new(2013, 12, 31, 17, 0, 0),
+  participantMax: 5,
+  numCurrParticipant: 3,
+  duration: 2
+}])
+
 Volunteer.create([
   {role: 'volunteer',
     title: 'fosterer',
@@ -397,25 +417,3 @@ Fosterer2.create([{
  agreement: 'I agree',
  volunteer_id: 3
 }])
-
-
-Orientation.create([{
-  presenter: 'None',
-  datetime: nil,
-  participantMax: 1000000,
-  numCurrParticipant: 0,
-  duration: 2
-},{
-  presenter: 'Mr Cool',
-  datetime: DateTime.new(2013, 12, 25, 5, 0, 0),
-  participantMax: 2,
-  numCurrParticipant: 0,
-  duration: 2
-},{
-  presenter: 'The Regular Person',
-  datetime: DateTime.new(2013, 12, 31, 17, 0, 0),
-  participantMax: 5,
-  numCurrParticipant: 0,
-  duration: 2
-}])
-
