@@ -35,7 +35,7 @@
           <% @orientation.volunteers.each do |vol| %>
             <tr>
               <td><%= check_box_tag "delOrien_#{vol.id}" %></td>
-              <td><%= label_tag("delOrien_#{vol.id}", vol.orientation.nil? ? '' : vol.firstname) %></td>
+              <td><%= label_tag("delOrien_#{vol.id}", vol.orientation.nil? ? '' : vol.firstname + " " + vol.lastname) %></td>
             </tr>
           <% end %>
         </table>
@@ -54,7 +54,7 @@
             <td>
               <% conds   = "id != 1 and numCurrParticipant < participantMax and datetime > \'" + DateTime.now.to_default_s + "\'" %>
               <% orients = Orientation.where(conds).order("datetime").map { |o| [o.datetime.to_formatted_s(:long_ordinal), o.id] } %>
-              <%= label_tag("addOrien_#{vol.id}", vol.orientation.nil? ? '' : vol.firstname) %>
+              <%= label_tag("addOrien_#{vol.id}", vol.orientation.nil? ? '' : vol.firstname + " " + vol.lastname) %>
             </td>
             <td><%= select("addOrien_#{vol.id}", :id, orients) %></td>
             <td><%= submit_tag 'Add' %></td>

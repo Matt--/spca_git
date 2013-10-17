@@ -120,7 +120,7 @@ class VolcoordinatorsController < ApplicationController
 	if params[:option] == "Done"
           @volunteer.status = "In ShelterBuddy"
 	  @volunteer.save
-          notice = "#{@volunteer.firstname} #{@volunteer.lastname} is now is ShelterBuddy."
+          notice = "#{@volunteer.firstname} #{@volunteer.lastname} should now be in ShelterBuddy."
 	end
         
         format.html { redirect_to volcoordinator_volunteersforshelterbuddy_path, notice: notice }
