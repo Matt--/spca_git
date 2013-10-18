@@ -46,17 +46,12 @@ class Volunteer < ActiveRecord::Base
 #  validates_associated :vol_job_days  
 
   #We want to only require one of these two
-<<<<<<< HEAD
+
  ## validates :moblie, :numericality => {:only_integer => true},
  ##                    :presence => true, :if => "home.blank?"
  ## validates :home, :numericality => {:only_integer => true},
   ##                 :presence => true, :if => "moblie.blank?"
-=======
-  validates :mobile, :numericality => {:only_integer => true},
-                     :presence => true, :if => "home.blank?"
-  validates :home, :numericality => {:only_integer => true},
-                   :presence => true, :if => "mobile.blank?"
->>>>>>> 95433ad04baa54a7174286ccce5b2629b8300b83
+
   #There is a bug atm - if one of them is there, it doesn't
   #check that the other one is numerical. Don't care atm!
   
