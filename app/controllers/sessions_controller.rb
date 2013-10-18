@@ -8,11 +8,11 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       #session[:user_id] = 1
       if user.volcoordinator != nil
-	redirect_to volcoordinators_path
+        redirect_to volcoordinators_path
       elsif user.deptSupervisor != nil
-	volschedulers_path
+        redirect_to volschedulers_path
       else
-	redirect_to volunteers_path
+        redirect_to volunteers_path
       end
     else
       flash.now.alert = "Invalid email or password"
