@@ -5,24 +5,28 @@ class VolunteersController < ApplicationController
   # GET /volunteers
   # GET /volunteers.json
   def index
-    @volunteers = Volunteer.all
     @volcoordinator = Volcoordinator.first
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @volunteers }
+    if(current_user == nil)
+      redirect_to home_block_path
+    end
+    if(current_user.volcoordinator != nil)
+      redirect_to volcoordinator_path
     end
   end
 
   # GET /volunteers/1
   # GET /volunteers/1.json
   def show
-    @volunteer = Volunteer.find(params[:id])
-    @volcoordinator = Volcoordinator.first
+    if(current_user == nil)
+      redirect_to home_block_path
+    else
+      @volunteer = Volunteer.find(params[:id])
+      @volcoordinator = Volcoordinator.first
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @volunteer }
+      respond_to do |format|
+	format.html # show.html.erb
+	format.json { render json: @volunteer }
+      end
     end
   end
 
@@ -73,17 +77,21 @@ class VolunteersController < ApplicationController
   # PUT /volunteers/1.json
   def update
     @volunteer = Volunteer.find(params[:id])
-
+    @user = User.find()
+    @user.email = params[:email]
+    #update emil here
     respond_to do |format|
-      if @volunteer.update_attributes(params[:volunteer])
-        format.html { 
-              redirect_to @volunteer, 
-              notice: 'Volunteer was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { 
-              render json: @volunteer.errors, status: :unprocessable_entity }
+      if @user.save
+	if @volunteer.update_attributes(params[:volunteer])
+	  format.html { 
+		redirect_to @volunteer, 
+		notice: 'Volunteer was successfully updated.' }
+	  format.json { head :no_content }
+	else
+	  format.html { render action: "edit" }
+	  format.json { 
+		render json: @volunteer.errors, status: :unprocessable_entity }
+	end
       end
     end
   end

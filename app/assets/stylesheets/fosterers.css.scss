@@ -2,57 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#left
+{
+  width: 400px;
+  float: left;
+}
 
- 
- /*
-  Flowing boxes in the middle of page
-  */
-  #main-container{
-    position: absolute;
-    top: 0%;
-    left: 20%;
-  }
-  #FosterBox{
-    position: absolute;
-    top: 450px;
-    left: 00px;
-  }
-  #MotivationBox{
-    position: absolute;
-    top: 450px;
-    left: 505px;
-  }
-  
-  
-  #PropertyBox{
-    position :absolute;
-    top: 900px;
-    left: 505px;  
-  }
-  
-  
-  #TimeCommitmentBox{
-    position :absolute;
-    top: 1300px;
-    left: 00px;  
-  }
-  
-  
-  
-  #TermsAndConditionsBox{
-    position :absolute;
-    top: 2000px;
-    left: 100px;  
-  }
-  
-  
-  #NextBox{
-    position: absolute;
-    top: 2500px;
-    left: 250px;
-  }
-  
-  /*
-   Non resizeable textarea
-   */
-  textarea { resize: none; }
+#right
+{
+  margin-left: 400px; /* Change this to whatever the width of your left column is*/
+}
+
+.clear
+{
+  clear: both;
+}

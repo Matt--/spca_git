@@ -148,6 +148,7 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.string   "email"
     t.string   "encrypted_password"
     t.string   "salt"
+    t.string   "role"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
   end
@@ -169,6 +170,7 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.integer  "absence_period"
     t.string   "absence_email_header"
     t.string   "absence_email_content"
+    t.integer  "user_id"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end
@@ -195,6 +197,7 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.date     "break_to"
     t.integer  "scheduledjobtype_id"
     t.integer  "orientation_id"
+    t.integer  "user_id"
     t.string   "status"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false

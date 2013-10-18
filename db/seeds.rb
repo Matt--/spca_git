@@ -6,6 +6,14 @@
 # cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 # Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create([{
+  id: 1,
+  email: 'andrew',
+  password: 'aaa',
+  password_confirmation: 'aaa',
+  role: 'both'
+}])
+
 Volcoordinator.create([{
   email_replyto: 'coordinator@test.com',
   application_email_header: 'SPCA Application',
@@ -13,7 +21,8 @@ Volcoordinator.create([{
   absence_tolerence: 3,
   absence_period: 4,
   absence_email_header: 'SPCA - you missed your roster', 
-  absence_email_content: 'Hi #{@volunteer.firstname}, you missed your roster today. If you cannot make it in, please just let us know in advance or adjust your preferred schedule online. We like having you here and we value the contribution you make. Please just keep us informed if you cannot come in.'
+  absence_email_content: 'Hi #{@volunteer.firstname}, you missed your roster today. If you cannot make it in, please just let us know in advance or adjust your preferred schedule online. We like having you here and we value the contribution you make. Please just keep us informed if you cannot come in.',
+  user_id: 1
 }])
 
 Department.create([

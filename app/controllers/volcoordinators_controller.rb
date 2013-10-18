@@ -2,12 +2,17 @@ class VolcoordinatorsController < ApplicationController
   # GET /volcoordinators
   # GET /volcoordinators.json
   def index
-    if session[:user_id] #need to check this is the coordinator
-      @volcoordinator = Volcoordinator.first
-      @whiteboards = Whiteboard.all
-      respond_to do |format|
-	format.html # index.html.erb
-	format.json { render json: @volcoordinators }
+    if current_user != nil #need to check this is the coordinator
+      if(current_user.volcoordinator != nil)
+	@volunteers = Volunteer.all
+	@volcoordinator = Volcoordinator.first
+	@whiteboards = Whiteboard.all
+	respond_to do |format|
+	  format.html # index.html.erb
+	  format.json { render json: @volcoordinators }
+	end
+      else
+	redirect_to home_block_path
       end
     else
       redirect_to home_block_path
@@ -18,11 +23,15 @@ class VolcoordinatorsController < ApplicationController
   # GET /volcoordinators/1
   # GET /volcoordinators/1.json
   def show
-    @volcoordinator = Volcoordinator.find(params[:id])
+    if current_user != nil
+      @volcoordinator = Volcoordinator.find(params[:id])
 
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @volcoordinator }
+      respond_to do |format|
+	format.html # show.html.erb
+	format.json { render json: @volcoordinator }
+      end
+    else
+      redirect_to home_block_path
     end
   end
   

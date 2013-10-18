@@ -112,6 +112,9 @@ SPCA::Application.routes.draw do
   # just remember to delete public/index.html.
   root :to => 'home#index'
   get "home/block"
+  get "password" => "users#password", :as => "password"
+  put "change_password" => "users#change_password", :as => "change_password"
+  #get "users/edit"
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.

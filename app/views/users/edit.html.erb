@@ -1,0 +1,9 @@
+<center><%= link_to "Home", volunteers_path %>
+  | <%= link_to 'Edit Personal Details', edit_user_path(current_user) %> 
+<% if current_user.volunteer.fosterer != nil %>
+  | <%= link_to 'Edit Fostering Details', edit_fosterer_path(current_user.volunteer.fosterer) %>
+<% end %>
+  | <%= link_to "Log out", log_out_path %></center>
+<h1>Editing Details</h1>
+<% @n = false %>
+<%= render 'form' %>
