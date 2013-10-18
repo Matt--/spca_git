@@ -1,10 +1,4 @@
-<div class='nav_bar' align='center'>
-  <%= link_to "Home", volcoordinators_path %>
-  | <%= link_to 'Edit Personal Details', edit_user_path(current_user) %> 
-  | <%= link_to "Change Password", password_path %>
-  | <%= link_to "Log out", log_out_path %>
-</div>
-
+<%= render "volcoordinators/coordinatorNav" %>
 <h1>Volunteer Coordinators</h1>
 
 Data used for replying to new applications.

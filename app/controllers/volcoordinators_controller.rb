@@ -187,7 +187,7 @@ class VolcoordinatorsController < ApplicationController
       end
     end
   end
-
+end
   # DELETE /volcoordinators/1
   # DELETE /volcoordinators/1.json
   def destroy
@@ -198,5 +198,23 @@ class VolcoordinatorsController < ApplicationController
       format.html { redirect_to volcoordinators_url }
       format.json { head :no_content }
     end
+  end
+  def newSupervisor
+    @user = User.new
+    @user.deptSupervisor = DeptSupervisor.new
+  end
+  def createSupervisor
+    @user = User.new(params[:user])
+    @user.deptSupervisor = DeptSupervisor.new(params[:deptsupervisor])
+    if @user.save
+      redirect_to volcoordinators_url
+    else
+      render "newSupervisor"
+    end
+  end
+  
+  def departments
+    @departments = Department.all
+    @dept_supervisors = DeptSupervisor.all
   end
 end

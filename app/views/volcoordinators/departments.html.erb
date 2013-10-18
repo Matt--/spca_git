@@ -1,0 +1,52 @@
+<%= render "volcoordinators/coordinatorNav" %>
+<h1>Departments</h1>
+<table>
+  <tr>
+    <th>Department</th>
+    <th>Jobs</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @departments.each do |department| %>
+  <tr>
+    <td><%= department.name %></td>
+    <td><select><% department.jobdescriptions.each do |job| %>
+          <% job.name == "none" ? next : '' %>
+           <option><%= job.name %></option>
+        <% end %></select></td>
+    <td><%= link_to 'Show', department %></td>
+    <td><%= link_to 'Edit', edit_department_path(department) %></td>
+    <td><%= link_to 'Destroy', department, method: :delete, 
+                                  data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<h1>Department Supervisors</h1>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Department</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @dept_supervisors.each do |dept_supervisor| %>
+  <tr>
+    <td><%= dept_supervisor.title %></td>
+    <td><%= dept_supervisor.firstname %></td>
+    <td><%= dept_supervisor.lastname %></td>
+    <td><%= dept_supervisor.department.name %></td>
+    <td><%= link_to 'Show', dept_supervisor %></td>
+    <td><%= link_to 'Edit', edit_dept_supervisor_path(dept_supervisor) %></td>
+    <td><%= link_to 'Destroy', dept_supervisor, method: :delete, 
+                                  data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+<%= link_to 'New Dept Supervisor', volcoordinator_newsupervisor_path %>  <%= link_to 'New Department', new_department_path %>

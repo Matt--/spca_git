@@ -70,4 +70,13 @@ class UsersController < ApplicationController
       end
     end
   end
+  
+  def newSupervisor
+    @user = User.new
+    @user.deptSupervisor = DeptSupervisor.new
+  end
+  def createSupervisor
+    
+  end
+  
 end
