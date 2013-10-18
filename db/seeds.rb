@@ -56,6 +56,26 @@ DeptSupervisor.create([
     department_id: 3}
 ])
 
+Orientation.create([{
+  presenter: 'None',
+  datetime: nil,
+  participantMax: 1000000,
+  numCurrParticipant: 0,
+  duration: 2
+},{
+  presenter: 'Mr Cool',
+  datetime: DateTime.new(2013, 12, 25, 5, 0, 0),
+  participantMax: 2,
+  numCurrParticipant: 2,
+  duration: 2
+},{
+  presenter: 'The Regular Person',
+  datetime: DateTime.new(2013, 12, 31, 17, 0, 0),
+  participantMax: 5,
+  numCurrParticipant: 3,
+  duration: 2
+}])
+
 Volunteer.create([
   {role: 'volunteer',
     title: 'fosterer',
@@ -67,7 +87,8 @@ Volunteer.create([
 #   mobile: 02265,
     home: 0447747,
     background: 'blah blah',
-    status: 'New'},
+    status: 'New',
+    orientation_id: 3},
   {role: 'fosterer',
     title: 'cat walker',
     dob: '12-10-1991',
@@ -78,7 +99,8 @@ Volunteer.create([
 #   mobile: 02265,
     home: 04123456,
     background: 'like cats and walking',
-    status: 'New'},
+    status: 'New',
+    orientation_id: 2},
   {role: 'both',
     title: 'handyman',
     dob: '12-10-1991',
@@ -89,7 +111,8 @@ Volunteer.create([
 #   mobile: 02265,
     home: '0425469',
     background: 'like afternoons, mornings are for hangover recovery',
-    status: 'New'},
+    status: 'New',
+    orientation_id: 2},
   {role: 'fosterer',
     title: 'dude',
     dob: '12-10-1991',
@@ -100,7 +123,8 @@ Volunteer.create([
 #   mobile: 02265,
     home: '04985423',
     background: 'hate paperwork',
-   status: 'New'},
+    status: 'New',
+    orientation_id: 3},
   {role: 'volunteer',
     title: 'newbie',
     dob: '12-10-1991',
@@ -111,7 +135,8 @@ Volunteer.create([
 #   mobile: 02265,
     home: '0498999999',
     background: 'hate student layabouts',
-    status: 'Auto-Rejected'}
+    status: 'Auto-Rejected',
+    orientation_id: 3}
 ])
 
 Volscheduler.create([{
@@ -401,16 +426,3 @@ Fosterer2.create([{
  agreement: 'I agree',
  volunteer_id: 3
 }])
-
-
-Orientation.create([{
-presenter: 'None',
-datetime: nil
-},{                     
-presenter: 'Matt',
-datetime: '2013-12-12-10-10'
-},{
-presenter: 'Hamid',
-datetime: '2014-02-02-05-11'
-}])
-

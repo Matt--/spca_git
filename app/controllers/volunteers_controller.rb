@@ -60,9 +60,11 @@ class VolunteersController < ApplicationController
     
     respond_to do |format|
       if @volunteer.save
+        @volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant + 1
+	@volunteer.orientation.save
         format.html { 
               redirect_to @volunteer, 
-              notice: 'Volunteer was successfully created.' }
+              notice: "Volunteer was successfully created." }
         format.json { 
               render json: @volunteer, status: :created, location: @volunteer }
       else
@@ -80,9 +82,16 @@ class VolunteersController < ApplicationController
     @user = User.find()
     @user.email = params[:email]
     #update emil here
+    old = @volunteer.orientation
     respond_to do |format|
       if @user.save
 	if @volunteer.update_attributes(params[:volunteer])
+	  if old != @volunteer.orientation
+	    old.numCurrParticipant = old.numCurrParticipant - 1
+	    old.save
+	    @volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant + 1
+	    @volunteer.orientation.save
+	  end
 	  format.html { 
 		redirect_to @volunteer, 
 		notice: 'Volunteer was successfully updated.' }

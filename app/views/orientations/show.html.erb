@@ -1,50 +1,71 @@
-    <p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-    <p>
-      <b>Presenter:</b>
-      <%= @orientation.presenter %>
-    </p>
+<% if @orientation.id != 1 %>
+  <p>
+    <b>Presenter:</b>
+    <%= @orientation.presenter %>
+  </p>
+  
+  <p>
+    <b>Datetime:</b>
+    <%= @orientation.datetime.to_formatted_s(:long_ordinal) %>
+  </p>
+  
+  <p>
+    <b>Duration:</b>
+    <%= @orientation.duration %>
+  </p>
+  
+  <p>
+    <b>Number of current participants:</b>
+    <%= @orientation.numCurrParticipant %>
+  </p>
+  
+  <p>
+    <b>Number of maximum participants:</b>
+    <%= @orientation.participantMax %>
+  </p>
 
-    <p>
-      <b>Datetime:</b>
-      <%= @orientation.datetime %>
-    </p>
-
-
+  <% if @orientation.numCurrParticipant > 0 %>
     <p>
       <b>Participants:</b>
       
-      <% vols = Volunteer.all %>
-	<% (0..vols.length-1).each do |p| %>
-	  <% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id!=1)%>
-	    <table>
-	      <%= form_tag "/orientations/#{vols[p].orientation_id}", method: "put", action: "update"  do %>
-	      <td>
-		<%= check_box_tag "delOrien_#{vols[p].id}" %>
-		<%= label_tag("delOrien_#{vols[p].id}", vols[p].orientation.nil? ? '' : vols[p].firstname) %>
-		<%= submit_tag 'Delete' %>
-	      </td>
-	      <% end %>
-	    </table>
-	  <% end %>
-	  
-	  <% if (vols[p].orientation_id == @orientation.id and vols[p].orientation_id == 1)%>
-	    <%#= form_for(@volunteer) do |f| %>
-	      <table>
-		<%= form_tag "/orientations/#{vols[p].orientation_id}", method: "put", action: "update"  do %>
-		  <td>
-  <!-- 		    <div class="actions"> -->
-		    <%= label_tag("addOrien_#{vols[p].id}", vols[p].orientation.nil? ? '' : vols[p].firstname) %>
-		    <%= collection_select("addOrien_#{vols[p].id}", :id, Orientation.all, :id, :datetime) %>
-		    <%= submit_tag 'Add' %>
-  <!-- 		    </div> -->
-		  </td> 
-		<% end %>
-	      </table>
-	  <% end %>
+      <%= form_tag "/orientations/#{@orientation.id}", method: "put", action: "update" do %>
+        <table>
+          <% @orientation.volunteers.each do |vol| %>
+            <tr>
+              <td><%= check_box_tag "delOrien_#{vol.id}" %></td>
+              <td><%= label_tag("delOrien_#{vol.id}", vol.orientation.nil? ? '' : vol.firstname + " " + vol.lastname) %></td>
+            </tr>
+          <% end %>
+        </table>
+        <%= submit_tag 'Remove from Orientation' %>
       <% end %>
     </p>
-    
-    
-    <%= link_to 'Edit', edit_orientation_path(@orientation) %> |
-    <%= link_to 'Back', orientations_path %>
+  <% end %>
+  
+<% else %>
+  <p>
+    <b>Volunteers without an orientation time:</b>
+    <table>
+      <% @orientation.volunteers.each do |vol| %>
+        <%= form_tag "/orientations/#{@orientation.id}", method: "put", action: "update" do %>
+          <tr>
+            <td>
+              <% conds   = "id != 1 and numCurrParticipant < participantMax and datetime > \'" + DateTime.now.to_default_s + "\'" %>
+              <% orients = Orientation.where(conds).order("datetime").map { |o| [o.datetime.to_formatted_s(:long_ordinal), o.id] } %>
+              <%= label_tag("addOrien_#{vol.id}", vol.orientation.nil? ? '' : vol.firstname + " " + vol.lastname) %>
+            </td>
+            <td><%= select("addOrien_#{vol.id}", :id, orients) %></td>
+            <td><%= submit_tag 'Add' %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </p>
+<% end %>
+
+<% if @orientation.id != 1 %>
+  <%= link_to 'Edit', edit_orientation_path(@orientation) %> |
+<% end %>
+<%= link_to 'Back', orientations_path %>

@@ -14,9 +14,9 @@ class VolcoordinatorsController < ApplicationController
       else
 	redirect_to home_block_path
       end
-    else
-      redirect_to home_block_path
-    end
+    #else
+    #  redirect_to home_block_path
+    #end
     
   end
 
@@ -91,49 +91,49 @@ class VolcoordinatorsController < ApplicationController
         if params[:option] == "Approve"
           @volunteer.status = "Awaiting Orientation"
 	  @volunteer.save
-          format.html { redirect_to volcoordinator_newvolunteers_path,
-	                notice: "Approved #{@volunteer.firstname} #{@volunteer.lastname} as a volunteer. They are now: #{}" }
-          format.json { render json: @volunteers }
-          #format.json { render json: @volunteer, status: :created, location: @volunteer }
+          notice = "Approved #{@volunteer.firstname} #{@volunteer.lastname}'s volunteer application. They are now awaiting their orientation."
         elsif params[:option] == "Reject"
           @volunteer.status = "Rejected"
+          @volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant - 1
+          @volunteer.orientation.save
+          @volunteer.orientation_id = 1
+          #@volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant + 1
 	  @volunteer.save
-	  format.html { redirect_to volcoordinator_newvolunteers_path,
-	                notice: "Rejected #{@volunteer.firstname} #{@volunteer.lastname} as a volunteer." }
-          format.json { render json: @volunteers }
+          notice = "Rejected #{@volunteer.firstname} #{@volunteer.lastname}'s volunteer application."
         end
+        
+        format.html { redirect_to volcoordinator_newvolunteers_path, notice: notice }
+        format.json { render json: @volunteers }
       #Attended Orientation
       elsif params[:reviewtype] == "orientedvolunteers"
 	if params[:option] == "Approve"
           @volunteer.status = "Enter into ShelterBuddy"
 	  @volunteer.save
-          format.html { redirect_to volcoordinator_orientedvolunteers_path,
-	                notice: "Approved #{@volunteer.firstname} #{@volunteer.lastname} as a volunteer. They are now: #{}" }
-          format.json { render json: @volunteers }
-          #format.json { render json: @volunteer, status: :created, location: @volunteer }
+          notice = "Approved #{@volunteer.firstname} #{@volunteer.lastname} as a volunteer. They now need to be entered into ShelterBuddy"
+	elsif params[:option] == "Did Not Show"
+          @volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant - 1
+          @volunteer.orientation.save
+          @volunteer.orientation_id = 1
+	  @volunteer.save
+          notice = "Marked #{@volunteer.firstname} #{@volunteer.lastname} as not attending orientation. They will be emailed and told to select another orientation"
 	elsif params[:option] == "Reject"
           @volunteer.status = "Rejected"
 	  @volunteer.save
-	  format.html { redirect_to volcoordinator_orientedvolunteers_path,
-	                notice: "Rejected #{@volunteer.firstname} #{@volunteer.lastname} as a volunteer." }
-          format.json { render json: @volunteers }
+          notice = "Rejected #{@volunteer.firstname} #{@volunteer.lastname}'s volunteer application."
 	end
+        
+        format.html { redirect_to volcoordinator_orientedvolunteers_path, notice: notice }
+        format.json { render json: @volunteers }
       #Enter into ShelterBuddy
       elsif params[:reviewtype] == "volunteersforshelterbuddy"
-	if params[:option] == "Approve"
+	if params[:option] == "Done"
           @volunteer.status = "In ShelterBuddy"
 	  @volunteer.save
-          format.html { redirect_to volcoordinator_orientedvolunteers_path,
-	                notice: "Approved #{@volunteer.firstname} #{@volunteer.lastname} as a volunteer. They are now: #{}" }
-          format.json { render json: @volunteers }
-          #format.json { render json: @volunteer, status: :created, location: @volunteer }
-	elsif params[:option] == "Reject"
-          @volunteer.status = "Rejected"
-	  @volunteer.save
-	  format.html { redirect_to volcoordinator_orientedvolunteers_path,
-	                notice: "Rejected #{@volunteer.firstname} #{@volunteer.lastname} as a volunteer." }
-          format.json { render json: @volunteers }
+          notice = "#{@volunteer.firstname} #{@volunteer.lastname} should now be in ShelterBuddy."
 	end
+        
+        format.html { redirect_to volcoordinator_volunteersforshelterbuddy_path, notice: notice }
+        format.json { render json: @volunteers }
       end
     end
   end
