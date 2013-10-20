@@ -24,7 +24,11 @@ class UsersController < ApplicationController
     @user.volunteer.status = "New"
     #@user.volunteer.save
     @user.role = "volunteer"
+    
+    #I think you need to first check that @user.volunteer will save?
     if @user.save
+      @user.volunteer.orientation.numCurrParticipant = @user.volunteer.orientation.numCurrParticipant + 1
+      @user.volunteer.orientation.save
       #@user2 = User.find(session[:user_id])
       session[:user_id] = @user.id
       if (@user.volunteer.role == "both" || @user.volunteer.role == "fosterer")
@@ -41,7 +45,16 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user = current_user
+    old = @user.volunteer.orientation
+    
     if @user.update_attributes(params[:user])
+      if old != @user.volunteer.orientation
+        old.numCurrParticipant = old.numCurrParticipant - 1
+        old.save
+        @user.volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant + 1
+        @user.volunteer.orientation.save
+      end
+      
       params[:volunteer][:email] = @user.email
       @user.volunteer.update_attributes(params[:volunteer])
       redirect_to volunteers_path
