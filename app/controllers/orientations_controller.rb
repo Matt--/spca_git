@@ -64,21 +64,25 @@ class OrientationsController < ApplicationController
         if p[0].to_s.match("delOrien_*")
           id = p[0].to_s.slice(9..-1).to_i
           volunteer = Volunteer.find(id)
-	  volunteer.orientation_id = 1
-	  volunteer.save
+	        volunteer.orientation_id = 1
+	        volunteer.save
 	  
-	else if p[0].to_s.match("addOrien_*")
-	  id = p[0].to_s.slice(9..-1).to_i
-	  volunteer = Volunteer.find(id)
-	  volunteer.orientation_id = params[p[0]][:id]
-	  volunteer.save
+	      else if p[0].to_s.match("addOrien_*")
+	        id = p[0].to_s.slice(9..-1).to_i
+	        volunteer = Volunteer.find(id)
+          if !volunteer.nil?	        
+            volunteer.orientation_id = params[p[0]][:id]
+	          volunteer.save
+          end
         end
       end
     end
-    @orientation2 = Orientation.find(volunteer.orientation_id)
-    @orientation2.numCurrParticipant = @orientation2.volunteers.length
+    if !volunteer.nil?	
+      @orientation2 = Orientation.find(volunteer.orientation_id)
+      @orientation2.numCurrParticipant = @orientation2.volunteers.length
+      @orientation2.save
+    end
     @orientation.save
-    @orientation2.save
 #     volunteer = nil
 #     if !params[:id].nil?
 #       params.each do |p|

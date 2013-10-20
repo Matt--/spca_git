@@ -24,7 +24,7 @@ Department.create([
   {name: "Admin Department"}
 ])
 
-DeptSupervisor.create([
+RosterCoordinator.create([
   {firstname: "Bob",
     lastname: "Jones",
     title: "Sir",

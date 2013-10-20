@@ -31,7 +31,7 @@ describe "Volcoordinators" do
 
     it { should have_title('SPCA') }
 
-    it { should have_content('applications') }
+    it { should have_content('Coordinators') }
 
   end
 end

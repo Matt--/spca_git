@@ -42,15 +42,6 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "dept_supervisors", :force => true do |t|
-    t.string   "firstname"
-    t.string   "lastname"
-    t.string   "title"
-    t.integer  "department_id"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
-  end
-
   create_table "fosterer2s", :force => true do |t|
     t.string   "ownhome"
     t.string   "inspecting"
@@ -144,6 +135,15 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.integer  "numCurrParticipant"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
+  end
+
+  create_table "roster_coordinators", :force => true do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "title"
+    t.integer  "department_id"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "users", :force => true do |t|

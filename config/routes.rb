@@ -11,7 +11,7 @@ SPCA::Application.routes.draw do
   
   
   
-  resources :dept_supervisors
+  resources :roster_coordinators
   resources :departments
   resources :jobdescriptions
 

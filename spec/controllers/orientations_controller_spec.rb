@@ -23,7 +23,7 @@ describe OrientationsController do
   # This should return the minimal set of attributes required to create a valid
   # Orientation. As you add validations to Orientation, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { "presenter" => "MyString" } }
+  let(:valid_attributes) { { "presenter" => "Matt" } }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -98,6 +98,7 @@ describe OrientationsController do
     end
   end
 
+#  let(:update_attributes) => { { "participantMax" => "4" } }
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested orientation" do
@@ -106,6 +107,7 @@ describe OrientationsController do
         # specifies that the Orientation created on the previous line
         # receives the :update_attributes message with whatever params are
         # submitted in the request.
+
         Orientation.any_instance.should_receive(:update_attributes).with({ "presenter" => "MyString" })
         put :update, {:id => orientation.to_param, :orientation => { "presenter" => "MyString" }}, valid_session
       end
