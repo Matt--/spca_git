@@ -1,0 +1,49 @@
+<%= render "volcoordinators/coordinatorNav" %>
+<%= form_for (@user), :url => volcoordinator_createsupervisor_path, :html => {:method => :put}  do |f| %>
+  <% if @user.errors.any? || @user.deptSupervisor.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= f.label :email %><br />
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
+  </p>
+  <%= fields_for (@user.deptSupervisor) do |ff| %>
+      <div class="field">
+      <%= ff.label :firstname %><br />
+      <%= ff.text_field :firstname %>
+    </div>
+    <div class="field">
+      <%= ff.label :lastname %><br />
+      <%= ff.text_field :lastname %>
+    </div>
+    <div class="field">
+      <%= ff.label :title %><br />
+      <%= ff.text_field :title %>
+    </div>
+    <div class="field">
+      <%= ff.label :department_id %><br />
+      <%= ff.collection_select(:department_id, Department.all, :id, :name) %>
+    </div>
+
+
+
+  <% end %>
+
+  <p class="button"><%= f.submit "Create Supervisor" %></p>
+
+<% end %>

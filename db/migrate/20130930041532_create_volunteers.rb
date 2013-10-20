@@ -8,7 +8,7 @@ class CreateVolunteers < ActiveRecord::Migration
       t.string  :lastname
       t.text    :address
       t.string  :email
-      t.string  :moblie
+      t.string  :mobile
       t.string  :home
       t.text    :background
       t.boolean :befosterer
@@ -16,10 +16,13 @@ class CreateVolunteers < ActiveRecord::Migration
       t.date    :break_to
       t.integer :scheduledjobtype_id
       t.references :orientation
+      t.references :user
       t.string  :status
 
       t.timestamps
     end
+    
     add_index :volunteers, :firstname
+    add_index :volunteers, :orientation_id
   end
 end

@@ -44,3 +44,18 @@ body {
 .main_css {
   background-color: #999;
 }
+#rangaFooter {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #ffffff;
+}
+#rangaFooter a {
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+#rangaFooter a:hover {
+  color: #FFFFFF;
+  text-decoration: none;
+  background-color: #007ac3;
+}

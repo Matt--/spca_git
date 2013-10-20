@@ -4,48 +4,38 @@
   <b>Orientation:</b>
 </p>
 
-
 <p>
   <b>Title:</b>
   <%= @volunteer.title %>
 </p>
-
 <p>
   <b>Dob:</b>
   <%= @volunteer.dob %>
 </p>
-
 <p>
   <b>Firstname:</b>
   <%= @volunteer.firstname %>
 </p>
-
 <p>
   <b>Lastname:</b>
   <%= @volunteer.lastname %>
 </p>
-
 <p>
   <b>Address:</b>
   <%= @volunteer.address %>
 </p>
-
 <p>
   <b>Email:</b>
   <%= @volunteer.email %>
 </p>
-
 <p>
-  <b>Moblie:</b>
-  <%= @volunteer.moblie %>
+  <b>Mobile:</b>
+  <%= @volunteer.mobile %>
 </p>
-
 <p>
   <b>Home:</b>
   <%= @volunteer.home %>
 </p>
-
-
 <p>
   <b>Background:</b>
   <%= @volunteer.background %>
@@ -64,19 +54,38 @@
 </div>
 <% end %>
 
-<%= form_tag(option: "Approve", id: @volunteer) do %>
-  <%= submit_tag("Approve Volunteer") %>
+<% if @volunteer.status != "Enter into ShelterBuddy" %>
+  <%= form_tag(option: "Approve", id: @volunteer) do %>
+    <%= submit_tag("Approve Volunteer") %>
+  <% end %>
+  
+  <br>
 <% end %>
 
-<br>
-
-<%= form_tag(option: "Reject", id: @volunteer) do %>
-  <%= submit_tag("Reject Volunteer") %>
+<% if @volunteer.status == "Awaiting Orientation" %>
+  <%= form_tag(option: "Did Not Show", id: @volunteer) do %>
+    <%= submit_tag("Did Not Show") %>
+  <% end %>
+  
+  <br>
 <% end %>
 
-<br>
+<% if @volunteer.status != "Enter into ShelterBuddy" %>
+  <%= form_tag(option: "Reject", id: @volunteer) do %>
+    <%= submit_tag("Reject Volunteer") %>
+  <% end %>
+  
+  <br>
+<% end %>
 
-<%= link_to 'Edit', edit_volunteer_path(@volunteer) %> |
+<% if @volunteer.status == "Enter into ShelterBuddy" %>
+  <%= form_tag(option: "Done", id: @volunteer) do %>
+    <%= submit_tag("Done") %>
+  <% end %>
+  
+  <br>
+<% end %>
+
 <% if @reviewtype == "newvolunteers" %>
   <%= link_to 'Back', volcoordinator_newvolunteers_path %>
 <% elsif @reviewtype == "orientedvolunteers" %>

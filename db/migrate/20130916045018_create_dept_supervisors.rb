@@ -5,7 +5,7 @@ class CreateDeptSupervisors < ActiveRecord::Migration
       t.string :lastname
       t.string :title
       t.integer :department_id
-
+      t.references :user
       t.timestamps
     end
   end

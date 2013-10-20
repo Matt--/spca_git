@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= render "volcoordinators/coordinatorNav" %>
 <p>
   <b>Department:</b>
   <%= @department.name %>
@@ -12,4 +12,4 @@
 </p>
 
 <%= link_to 'Edit', edit_department_path(@department) %> |
-<%= link_to 'Back', departments_path %>
+<%= link_to 'Back', volcoordinator_departments_path %>

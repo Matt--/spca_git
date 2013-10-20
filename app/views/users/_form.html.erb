@@ -1,0 +1,89 @@
+<%= form_for (@user) do |f| %>
+    <% if @user.errors.any? || @user.volunteer.errors.any? %>
+        <div class="error_messages">
+          <h2>Form is invalid</h2>
+          <ul>
+            <% for message in @user.errors.full_messages %>
+                <li><%= message %></li>
+            <% end %>
+          </ul>
+        </div>
+    <% end %>
+    <p>
+      <b>Required</b> <%= f.label :email %> (or username)<br/>
+      <%= f.text_field :email %>
+    </p>
+    <% if @n == true %>
+        <p>
+          <b>Required</b> <%= f.label :password %><br/>
+          <%= f.password_field :password %>
+        </p>
+        <p>
+          <b>Required</b> <%= f.label :password_confirmation %><br/>
+          <%= f.password_field :password_confirmation %>
+        </p>
+    <% end %>
+    <%= fields_for (@user.volunteer) do |ff| %>
+        <div class="field">
+          <i>Optional</i> <%= ff.label :title %>
+          <br/>
+          <%= ff.select :title, [['Mr', 'Mr'], ['Mrs', 'Mrs'], ['Ms', 'Ms'], ['Miss', 'Miss'], ['Master', 'Master'], ['Dr', 'Dr'], ['Capt', 'Capt'], ['Dame', 'Dame'], ['Hon', 'Hon'], ['Judge', 'Judge'], ['Lady', 'Lady'], ['Lord', 'Lord'], ['Prof', 'Prof'], ['Sir', 'Sir'], ['Sister', 'Sister']], :prompt => "Please select" %>
+          <%#= ff.text_field :title %>
+        </div>
+        <div class="field">
+          <b>Required</b> <%= ff.label :firstname %>
+          <br/>
+          <%= ff.text_field :firstname %>
+        </div>
+        <div class="field">
+          <b>Required</b> <%= ff.label :lastname %>
+          <br/>
+          <%= ff.text_field :lastname %>
+        </div>
+        <div class="field">
+          <b>Required</b> <%= ff.label :dob %>
+          <br/>
+          <%= ff.date_select :dob, :start_year => 1930, :end_year => 2020 %>
+        </div>
+        <div class="field">
+          <b>Required</b> <%= ff.label :address %>
+          <br/>
+          <%= ff.text_area :address %>
+        </div>
+        <div class="field">
+          <i>Optional</i> <%= ff.label :mobile %>
+          <br/>
+          <%= ff.text_field :mobile %>
+        </div>
+        <div class="field">
+          <i>Optional</i> <%= ff.label :home %>
+          <br/>
+          <%= ff.text_field :home %>
+        </div>
+        <div class="field">
+          Tell us about yourself:<br/>
+          <%= ff.label :background %>
+          <br/>
+          <%= ff.text_area :background %>
+        </div>
+
+        <div class="field">
+          <h5>What do you want to
+            be? <%= ff.select :role, [['Volunteer', 'volunteer'], ['Fosterer', 'fosterer'], ['Both', 'both']], :prompt => "Please select" %></h5>
+          <i>If you wish to be a fosterer there will be another form to fill out</i>
+        </div>
+
+        <h5><%= ff.label "Your orientation date" %>
+          <% conds = "id != 1 and numCurrParticipant < participantMax and datetime > \'" + DateTime.now.to_default_s + "\'" %>
+          <% orients = Orientation.where(conds) %>
+          <% if @user.volunteer.orientation != nil and not orients.exists?(@user.volunteer.orientation) and @user.volunteer.orientation_id != 1 %>
+              <% orients.push(@user.volunteer.orientation) %>
+          <% end %>
+          <%= ff.select :orientation_id, orients.order("datetime").map { |o| [o.datetime.to_formatted_s(:long_ordinal), o.id] } %>
+    <% end %>
+    <% if @n == true %>
+        <p class="button"><%= f.submit "Signup" %></p>
+    <% else %>
+        <p class="button"><%= f.submit "Save" %></p>
+    <% end %>
+<% end %>

@@ -69,6 +69,7 @@ class OrientationsController < ApplicationController
           volunteer.orientation.numCurrParticipant = volunteer.orientation.numCurrParticipant - 1
           volunteer.orientation.save
           
+
          volunteer.orientation_id = 1
          volunteer.save
           
@@ -77,12 +78,14 @@ class OrientationsController < ApplicationController
         elsif p[0].to_s.match("addOrien_*")
          id = p[0].to_s.slice(9..-1).to_i
          volunteer = Volunteer.find(id)
+
           
           #volunteer.orientation.numCurrParticipant = volunteer.orientation.numCurrParticipant - 1
           #volunteer.orientation.save
           
-         volunteer.orientation_id = params[p[0]][:id]
-         volunteer.save
+
+	  volunteer.orientation_id = params[p[0]][:id]
+	  volunteer.save
           
           volunteer.orientation.numCurrParticipant = volunteer.orientation.numCurrParticipant + 1
           volunteer.orientation.save
@@ -93,6 +96,7 @@ class OrientationsController < ApplicationController
     #@orientation2.numCurrParticipant = @orientation2.volunteers.length
     #@orientation.save
     #@orientation2.save
+
 
 # volunteer = nil
 # if !params[:id].nil?
@@ -119,6 +123,7 @@ class OrientationsController < ApplicationController
 #         end
      
 # end
+
     
     respond_to do |format|
       if @orientation.update_attributes(params[:orientation])

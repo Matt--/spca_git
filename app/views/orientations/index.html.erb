@@ -3,32 +3,57 @@
 <table>
   <tr>
     <th>Presenter</th>
-    <!--<th>Date</th>
-    <th>Time</th>-->
-    <th>DateTime</th>
+    <th>Date and Time</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
-<% @orientations.each do |orientation| %>
-  <tr>
-    <td><%= orientation.presenter %></td>
-    <td><%#= orientation.date %></td>
-    <td><%#= orientation.time %></td>
-    <td><%= orientation.datetime %></td>
-    <% if orientation.id==1 %>
-     <td><%= link_to 'Without orientation', orientation %></td>
-     <% end %>
-    <% if orientation.id!=1 %>
-    <td><%= link_to 'Show', orientation %></td>
-    <td><%= link_to 'Edit', edit_orientation_path(orientation) %></td>
-    <td><%= link_to 'Destroy', orientation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  
+  <% Orientation.order("datetime").each do |orientation| %>
+    <% if orientation.id == 1 %>
+      <tr>
+        <td><%= orientation.presenter %></td>
+        <td></td>
+        <td><%= link_to 'Without orientation', orientation %></td>
+        <td></td>
+        <td></td>
+      </tr>
+    <% elsif orientation.datetime > DateTime.now %>
+      <tr>
+        <td><%= orientation.presenter %></td>
+        <td><%= orientation.datetime.to_formatted_s(:long_ordinal) %></td>
+        <td><%= link_to 'Show', orientation %></td>
+        <td><%= link_to 'Edit', edit_orientation_path(orientation) %></td>
+        <td><%= link_to 'Destroy', orientation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
     <% end %>
-  </tr>
-<% end %>
+  <% end %>
 </table>
 
-<br />
+<br>
 
 <%= link_to 'New Orientation', new_orientation_path %>
+
+<br>
+
+<h1>Past orientations</h1>
+
+<table>
+  <tr>
+    <th>Presenter</th>
+    <th>Date and Time</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+  
+  <% Orientation.where("id != 1 and datetime < \'" + DateTime.now.to_default_s + "\'").order("datetime").each do |orientation| %>
+    <tr>
+      <td><%= orientation.presenter %></td>
+      <td><%= orientation.datetime.to_formatted_s(:long_ordinal) %></td>
+      <td><%= link_to 'Show', orientation %></td>
+      <td><%= link_to 'Edit', edit_orientation_path(orientation) %></td>
+      <td><%= link_to 'Destroy', orientation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

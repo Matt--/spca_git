@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.string   "lastname"
     t.string   "title"
     t.integer  "department_id"
+    t.integer  "user_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -137,8 +138,6 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
 
   create_table "orientations", :force => true do |t|
     t.string   "presenter"
-    t.date     "date"
-    t.time     "time"
     t.datetime "datetime"
     t.integer  "participantMax"
     t.integer  "numCurrParticipant"
@@ -151,7 +150,6 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.string   "email"
     t.string   "encrypted_password"
     t.string   "salt"
-    t.integer  "volunteer_id"
     t.string   "role"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
@@ -174,6 +172,7 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.integer  "absence_period"
     t.string   "absence_email_header"
     t.string   "absence_email_content"
+    t.integer  "user_id"
     t.datetime "created_at",                :null => false
     t.datetime "updated_at",                :null => false
   end
@@ -192,7 +191,7 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.string   "lastname"
     t.text     "address"
     t.string   "email"
-    t.string   "moblie"
+    t.string   "mobile"
     t.string   "home"
     t.text     "background"
     t.boolean  "befosterer"
@@ -200,12 +199,14 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.date     "break_to"
     t.integer  "scheduledjobtype_id"
     t.integer  "orientation_id"
+    t.integer  "user_id"
     t.string   "status"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
   end
 
   add_index "volunteers", ["firstname"], :name => "index_volunteers_on_firstname"
+  add_index "volunteers", ["orientation_id"], :name => "index_volunteers_on_orientation_id"
 
   create_table "whiteboards", :force => true do |t|
     t.string   "title"
