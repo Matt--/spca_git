@@ -44,6 +44,7 @@ class VolunteersController < ApplicationController
   # GET /volunteers/1/edit
   def edit
     @volunteer = Volunteer.find(params[:id])
+    
     @onday = @volunteer.ondays.build(params[:availableday])
     @jobdescription = Jobdescription.new
 #     @orientation = Orientation.new
@@ -78,12 +79,17 @@ class VolunteersController < ApplicationController
   # PUT /volunteers/1.json
   def update
     @volunteer = Volunteer.find(params[:id])
-    @user = User.find()
-    @user.email = params[:email]
+#     puts "TESTTTTTTTTTTTTTTTTTTTTT"
+#     puts @volunteer.inspect
+#     puts params.inspect
+    @user = @volunteer.user
+#     puts "EMAILLLLLLLLLLLLLLL"
+#     puts @user.inspect
+    
     #update emil here
     old = @volunteer.orientation
     respond_to do |format|
-      if @user.save
+#       if @user.save
 	if @volunteer.update_attributes(params[:volunteer])
 	  if old != @volunteer.orientation
 	    old.numCurrParticipant = old.numCurrParticipant - 1
@@ -91,6 +97,8 @@ class VolunteersController < ApplicationController
 	    @volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant + 1
 	    @volunteer.orientation.save
 	  end
+	  @user.email = @volunteer.email
+	  @user.save
 	  format.html { 
 		redirect_to @volunteer, 
 		notice: 'Volunteer was successfully updated.' }
@@ -101,7 +109,7 @@ class VolunteersController < ApplicationController
 		render json: @volunteer.errors, status: :unprocessable_entity }
 	end
       end
-    end
+#     end
   end
 
   # DELETE /volunteers/1

@@ -52,6 +52,31 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.datetime "updated_at",    :null => false
   end
 
+  create_table "fosterer2s", :force => true do |t|
+    t.string   "ownhome"
+    t.string   "inspecting"
+    t.string   "rooms"
+    t.string   "roomwarm"
+    t.string   "hutch"
+    t.string   "rabbithutch"
+    t.string   "aviary"
+    t.string   "livestockfenced"
+    t.text     "homedesc"
+    t.integer  "numadulta"
+    t.integer  "numchild"
+    t.string   "ages"
+    t.integer  "numhoursperday"
+    t.string   "worktype"
+    t.text     "secondperson"
+    t.string   "allmembersagree"
+    t.string   "bringcentre"
+    t.text     "transportdesc"
+    t.boolean  "agreement"
+    t.integer  "volunteer_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "fosterers", :force => true do |t|
     t.string   "motivation"
     t.boolean  "catnursing"
