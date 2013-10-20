@@ -80,26 +80,6 @@
 
 </table>
 <br/><br/>
-<% ######## Exception Reporting, note the absences ###### %>
-<%= "TODO, noting absences restricted to Department Supervisors" %><br/>
-<%= "TODO, enable noting this for... say up to a week ago" %><br/><br/>
-
-<%# TODO "time" used here needs to relate to any day of interest #%>
-<h4><%= "Note absences for #{time}" %></h4>
-<%= form_tag "/volschedulers/1", method: "put" do %>
-
-  <%= hidden_field_tag 'date', time %>
-
-  <% vol_array[0].each do |v| %>
-    <%= check_box_tag "vol_#{v.id}" %>
-    <%= label_tag "vol_#{v.id}", v.firstname %>
-    <br/>
-  <% end %>
-
-  <div class="actions">
-    <br/><%= submit_tag "note absences" %> ??? Raise an "are you sure?" notice? ???
-  </div>
-<% end %>
 
 <p id="notice"><%= notice %></p>
 <br/><br/><br/><br/><br/>

@@ -18,13 +18,16 @@ class UsersController < ApplicationController
 
   def create
     puts params.inspect
-    @user = User.new(params[:user])
-    @user.volunteer = Volunteer.new(params[:volunteer])
-    @user.volunteer.email = @user.email
-    @user.volunteer.status = "New"
+    transaction do
+      @user = User.new(params[:user])
+      @user.volunteer = Volunteer.new(params[:volunteer])
+      @user.volunteer.email = @user.email
+      @user.volunteer.status = "New"
+      user_saved_ok = @user.save
+    end
     #@user.volunteer.save
     @user.role = "volunteer"
-    if @user.save
+    if user_saved_ok
       #@user2 = User.find(session[:user_id])
       session[:user_id] = @user.id
       if (@user.volunteer.role == "both" || @user.volunteer.role == "fosterer")
