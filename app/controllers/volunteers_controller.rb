@@ -5,13 +5,12 @@ class VolunteersController < ApplicationController
   # GET /volunteers
   # GET /volunteers.json
   def index
-    @volcoordinator = Volcoordinator.first
     if(current_user == nil)
       redirect_to home_block_path
-    end
-    if(current_user.volcoordinator != nil)
+    elsif(current_user.volcoordinator != nil)
       redirect_to volcoordinator_path
     end
+    @volcoordinator = Volcoordinator.first
   end
 
   # GET /volunteers/1
