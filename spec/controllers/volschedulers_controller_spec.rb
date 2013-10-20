@@ -14,7 +14,7 @@ describe VolschedulersController do
 
   describe "GET index" do
     it "assigns all volschedulers as @volschedulers" do
-      volscheduler = Volscheduler.create! valid_attributes
+      volscheduler = Volscheduler.create! :department_id => 1
       get :index, {}, valid_session
       assigns(:volscheduler).should eq(volscheduler)
     end

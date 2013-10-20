@@ -16,6 +16,9 @@ class VolschedulersController < ApplicationController
     @volunteers = Volunteer.all
     @absence = Absence.new
 
+puts ########## testing ###############################
+@volunteers.inspect
+
     if !params[:id].nil?
       params.each do |p|
         if p[0].to_s.match("vol_*")

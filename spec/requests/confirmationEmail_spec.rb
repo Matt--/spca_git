@@ -27,12 +27,13 @@ describe 'Volunteer' do
       test = 
           "    From: test from\n"+
           "    To: test to\n"+
-          "    Subject: test header\n\n"+
+          "    Subject: test header\n"+
           "    test content\n    \n"
 
       it 'should pass' do
         assert message[0..-1] == test[0..-1],
-         "failed- message is...\n" + message + test.length.to_s()
+         "failed- message is length (" + message.length.to_s + ")...\n" + message + 
+            "test is length (" + test.length.to_s() + ")...\n" + test
       end
     end
   end
