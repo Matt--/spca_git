@@ -44,6 +44,7 @@ class VolunteersController < ApplicationController
   # GET /volunteers/1/edit
   def edit
     @volunteer = Volunteer.find(params[:id])
+    
     @onday = @volunteer.ondays.build(params[:availableday])
     @jobdescription = Jobdescription.new
 #     @orientation = Orientation.new
@@ -104,7 +105,7 @@ class VolunteersController < ApplicationController
 	format.json { 
 	      render json: @volunteer.errors, status: :unprocessable_entity }
       end
-    end
+#     end
   end
 
   # DELETE /volunteers/1
