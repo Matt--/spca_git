@@ -3,17 +3,18 @@ require 'net/smtp'
 class Volunteer < ActiveRecord::Base
 
   attr_accessible :id, :address, :background, :dob, :email, :firstname, :home, 
-            :lastname, :moblie, :title, :orientation_id, :befosterer, :status,
+            :lastname, :mobile, :title, :orientation_id, :befosterer, :status,
             :break_from, :break_to,  :vol_job_day_attributes,
-            :ondays_attributes, :jobdescriptions_attributes, :role
+            :ondays_attributes, :jobdescriptions_attributes, :role, :user_id, :orientation_id
 
   has_many :whiteboards
   has_one  :fosterer
   has_one :fosterer2
   has_many :absences
-  has_one :user
+  belongs_to :user
+    accepts_nested_attributes_for :user
   belongs_to :orientation
-
+  
   has_many :vol_job_day
     accepts_nested_attributes_for :vol_job_day,
        #    :reject_if => :all_blank,
@@ -30,26 +31,32 @@ class Volunteer < ActiveRecord::Base
   has_many :frequencies,
            :through => :vol_job_day
   
-  validate  :role, :presence => true
-  validates :title, :presence => true #, :message => ""
+  validates  :role, :presence => true
+  #validates :title, :presence => true #, :message => ""
 
   validates :dob, :presence => true
   validates :firstname, :presence => true
   validates :lastname, :presence => true
   validates :address, :presence => true
   validates :email, :presence => true
+  validates :status, :presence => true
   #validates :background, :presence => true
-  validate  :breakdate_validator#, 
+ ## validate  :breakdate_validator#, 
             #:unless => (:break_from.nil? && :break_to.nil?)
 #  validates_associated :vol_job_days  
 
   #We want to only require one of these two
-  validates :moblie, :numericality => {:only_integer => true},
-                     :presence => true, :if => "home.blank?"
-  validates :home, :numericality => {:only_integer => true},
-                   :presence => true, :if => "moblie.blank?"
+
+ ## validates :moblie, :numericality => {:only_integer => true},
+ ##                    :presence => true, :if => "home.blank?"
+ ## validates :home, :numericality => {:only_integer => true},
+  ##                 :presence => true, :if => "moblie.blank?"
+
   #There is a bug atm - if one of them is there, it doesn't
   #check that the other one is numerical. Don't care atm!
+  
+  validate :orientation_selected
+  validate :orientation_not_full
   
   validate :over_18_validator
   
@@ -61,6 +68,18 @@ class Volunteer < ActiveRecord::Base
   def over_18_validator
     if dob + 18.years >= Date.today
       errors.add(:dob, "can't be under 18")
+    end
+  end
+
+  def orientation_selected
+    if orientation_id == nil
+      errors.add(:orientation_id, "must be selected")
+    end
+  end
+
+  def orientation_not_full
+    if orientation.numCurrParticipant >= orientation.participantMax
+      errors.add(:orientation, "is full")
     end
   end
 

@@ -1,62 +1,94 @@
-<h1>Listing volunteers</h1>
+<div class='nav_bar' align='center'>
+  <%= link_to "Home", volunteers_path %>
+  | <%= link_to 'Edit Personal Details', edit_user_path(current_user) %> 
+<% if current_user.volunteer.fosterer != nil %>
+  | <%= link_to 'Edit Fostering Details', edit_fosterer_path(current_user.volunteer.fosterer) %>
+<% end %>
+  | <%= link_to "Change Password", password_path %>
+  | <%= link_to "Log out", log_out_path %>
+</div>
+<center><h1>Welcome 
+<% if(current_user.volunteer.title != nil) %>
+  <%= current_user.volunteer.title %>
+<% end %>
+<%= current_user.volunteer.firstname %></h1></center>
 
-<table border=1>
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Be a Fosterer</th>
-    <th>Next Working</th>
-    <th>in job</th>
-    <th class="ismeasure">Recent<br/>absences</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<% if current_user.volunteer.status == "New" %>
+  <p>Your application has been recived. Please bear with us while your application is processed</p>
+<% end %>
 
-  <% @volunteers.each do |volunteer| %>
-    <tr>
-      <td><%= volunteer.firstname %></td>
-      <td><%= volunteer.lastname %></td>
-      <td>
-        <%if !volunteer.fosterer.nil? %>
-          <%= link_to 'Edit Fosterer Form', {:controller => '/fosterers', 
-                :id => volunteer.fosterer.id, :action => 'edit', 
-                :volunteer_id => volunteer.id} %>  
-          <%if !volunteer.fosterer2.nil? %>
-            <br/> <%= link_to 'Edit 2nd Form', {:controller => '/fosterer2s', 
-                :id => volunteer.fosterer2.id, :action => 'edit', 
-                :volunteer_id => volunteer.id} %>    
-          <%else%>
-            <br/> <%= link_to 'Fill 2nd Form', {:controller => '/fosterer2s', 
-                :action => 'new', :volunteer_id => volunteer.id} %>
-          <% end %>
-        <% else %>
-	        <%= link_to 'Become a fosterer', {:controller => '/fosterers', 
-                :action => 'new', :volunteer_id => volunteer.id} %>
-        <%end%>
-      </td>
-   
-      <% job = next_working volunteer %>
-      <td><%= (job.nil? or job[0] == "none") ? 'no' : job[1] + job[2] %></td>
-      <td><%= (job.nil? or job[0] == "none") ? 'no' : job[0] %></td>
-      <% absent = volunteer.absences.where( "day > ?", 
-          Time.now - @volcoordinator.absence_period.weeks).count %>
-      <% lvl= @volcoordinator.absence_tolerence/3 %>
-      <td class=
-        <%= absent <   lvl ? "ismeasure" : 
-            absent < 2*lvl ? "islow" :
-            absent < 3*lvl ? "ismedium" : "ishigh" %>
-        >
-        <%= (job.nil? or job[0] == "none") ? 'no' : absent %></td>
+<% if current_user.volunteer.status == "Awaiting Orientation" %>
+  <p>Your application has been accepted. You are scheduled to attend the ?? orientation</p>
+<% elsif current_user.volunteer.status == "Rejected" %>
+  <p>Unfortunatly your application has been rejected. We will keep your details on record and contact you if another position opens.</p>
+<% 
 
-      <td><%= link_to 'Show', volunteer %></td>
-      <td><%= link_to 'Edit', edit_volunteer_path(volunteer) %></td>
-      <td><%= link_to 'Destroy', volunteer, method: :delete, 
-                                    data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+
+else
+
+
+
+
+
+ %>
+  <p>You are next rostered on at ?? <br />
+
+
+
+
+  <b>Noted absences, since 
+              <%= Time.now - @volcoordinator.absence_period.weeks %>:</b>
+  <% absent = current_user.volunteer.absences.where( "day > ?", 
+              Time.now - @volcoordinator.absence_period.weeks) %>
+  <% if absent.empty? %>
+    none
+  <% else %>
+    <br/>
+    <% b = Array.new %>
+    <% absent.each do |a| %>
+      <% b << a.day.strftime("%a %d/%m/%Y") %>
+    <% end %>
+    <p id="warning">
+      <%= b.join(', ') %>
+    </p>
   <% end %>
-</table>
 
-<br />
 
-<%= link_to 'New Volunteer', new_volunteer_path %>
+
+
+
+  <h2>Notes</h2>
+  <% current_user.volunteer.whiteboards.each do |whiteboard| %>
+  <div class="note">
+  <span class="note-title">
+      <%= whiteboard.title %>
+  </span>
+  <span class="note-body">
+      <%= whiteboard.body %>
+  </span>
+  </div>
+  <% end %>
+<% if current_user.volunteer.whiteboards.empty? %>
+No Notes
+<% end %>
+
+
+
+
+
+<h2>Add a note:</h2>
+<%= form_for([current_user.volunteer, current_user.volunteer.whiteboards.build]) do |f| %>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<% end %>

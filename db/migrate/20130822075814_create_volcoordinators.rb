@@ -8,7 +8,7 @@ class CreateVolcoordinators < ActiveRecord::Migration
       t.integer :absence_period
       t.string  :absence_email_header
       t.string  :absence_email_content
-
+      t.references :user
       t.timestamps
     end
   end

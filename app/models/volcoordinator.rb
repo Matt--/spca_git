@@ -7,8 +7,11 @@ class Volcoordinator < ActiveRecord::Base
   attr_accessible :email_replyto, 
         :application_email_header, :application_email_content,
         :absence_tolerence, :absence_period,
-        :absence_email_header, :absence_email_content
+        :absence_email_header, :absence_email_content, :user_id
 
+    belongs_to :user
+    accepts_nested_attributes_for :user
+  
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   validates :email_replyto, presence: true, 

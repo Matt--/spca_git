@@ -34,8 +34,8 @@
     <%= f.label :dob %><br />
     <%= f.date_select :dob, :start_year => 1930, :end_year => 1999 %>
   </div>
-  <%= render "select_work", {:f => f} %>
-  <%= render "select_break", {:f => f} %>
+  <!--<%= render "select_work", {:f => f} %>
+  <%= render "select_break", {:f => f} %>-->
 
   <div class="field">
     <%= f.label :address %><br />
@@ -46,8 +46,8 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :moblie %><br />
-    <%= f.text_field :moblie %>
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
   </div>
   <div class="field">
     <%= f.label :home %><br />
@@ -65,23 +65,25 @@
   </div>
 <!--     'datetime ASC' -->
   <div>
-  <% #if (@volunteer.orientation.datetime > Date.today)%>
+  <% #if (@volunteer.orientation.datetime > Date.today)
+%>
      
      
      <h5><%= f.label "Your orientation date" %>
-     <% orients = Orientation.where(["id != 1 and numCurrParticipant < participantMax"]) %>
-     <% if not orients.exists?(@volunteer.orientation) and @volunteer.orientation_id != 1 %>
+     <% conds   = "id != 1 and numCurrParticipant < participantMax and datetime > \'" + DateTime.now.to_default_s + "\'" %>
+     <% orients = Orientation.where(conds) %>
+     <% if @volunteer.orientation != nil and not orients.exists?(@volunteer.orientation) and @volunteer.orientation_id != 1 %>
         <% orients.push(@volunteer.orientation) %>
      <% end %>
-     <% o_that_works = orients.map { |o| [o.datetime, o.id] } %>
-     <%= f.select :orientation_id, o_that_works, :prompt => 'Please select' %>
+     <%= f.select :orientation_id, orients.order("datetime").map { |o| [o.datetime.to_formatted_s(:long_ordinal), o.id] }, :prompt => 'Please select' %>
      <%#= f.collection_select(:orientation_id, Orientation.find(:all,'datetime ASC', :conditions=> "id != 1 and numCurrParticipant < participantMax"), :id, :datetime, :prompt => 'Please select') %>
      <%#= Orientation.find(5).numCurrParticipant %>
      <%#= Orientation.find(5).participantMax %>
      <%#= Orientation.find(2).numCurrParticipant < Orientation.find(2).participantMax %>
      <%#= Orientation.count(Orientation.find(3).numCurrParticipant, :distinct => true) %>
      
- <% #end %>
+ <% #end 
+%>
   </div>
   
   <div class="actions">

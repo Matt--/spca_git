@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation, :volunteer_id, :volunteer_attributes
+  attr_accessible :email, :password, :password_confirmation, :volunteer, :role, :deptSupervisor
   
   attr_accessor :password
   before_save :encrypt_password
@@ -9,9 +9,9 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_uniqueness_of :email
   
-  belongs_to :volunteer
-  accepts_nested_attributes_for :volunteer
-  
+  has_one :volunteer
+  has_one :deptSupervisor
+  has_one :volcoordinator
   
   
   def self.authenticate(email, password)

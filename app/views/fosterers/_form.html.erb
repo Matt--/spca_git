@@ -1,313 +1,175 @@
-<link rel='stylesheet' href='/u/students/maddahhami/rails3/SPCA/app/assets/stylesheets/fosterers.css.scss'>
-
 <% volunteer = Volunteer.find(@fosterer.volunteer_id) %>
-
 <%= form_for(@fosterer) do |f| %>
-
-  <%= f.hidden_field :volunteer_id, :value => @fosterer.volunteer_id %>
-
-  <% if @fosterer.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@fosterer.errors.count, "error") %> 
-                               prohibited this fosterer from being saved:</h2>
-      <ul>
-        <% @fosterer.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-  <div id="main-container" style="width: 960px; float:center; margin: 0px;" >
-  
-  <div id="FosterBox" style="width:500px;float:right" >
-    <div id="header2" style="background-color:#FFA500;height:30px;width:440px">
-      <h1 style="margin-bottom:0;">Foster Animals</h1></div>
-
-
-
-    <div id="menu2" style="background-color:#FFD700;height:800px;width:90px;float:left;">
-    </div>
-  
-    <div id="content2" style="background-color:#EEEEEE;height:800px;width:350px;float:left">
-  
-    <!-- Contents must be here-->
-  
-  <h2>Cats and kittens</h2>   
-  
-    <div class="field">
-   <h5><%= f.label "Nursing cats with kittens" %>
-   <%= f.check_box :catnursing, {checked_value: "true", unchecked_value: "false"} %></h2>
-  </div>
-  
-   <div class="field">
-   <h5><%= f.label "Cats and kittens-self feeding" %>
-   <%= f.check_box :catfeeding, {checked_value: "true", unchecked_value: "false"} %></h2>
-  </div>
-  
-  <div class="field">
-   <h5><%= f.label "Bottle feeding kittens(Note: may require 2 hourly feeding throughout the night)" %>
-   <%= f.check_box :catbottlefeed, {checked_value: "true", unchecked_value: "false"} %></h2>
-  </div>
-  
-  <div class="field">
-   <h5><%= f.label "Injured or sick cats and kittens" %>
-   <%= f.check_box :catinjured, {checked_value: "true", unchecked_value: "false"} %></h2> 
-  </div>
-  
-  <br />
-   <h2>Dogs and Puppies</h2>
-  
-  <div class="field">
-   <h5><%= f.label "Nursing dogs with puppies" %>
-   <%= f.check_box :dognursing, {checked_value: "true", unchecked_value: "false"} %></h2>
-  </div>
-  
-    <div class="field">
-   <h5><%= f.label "self-feeding puppies" %>
-   <%= f.check_box :dogfeeding, {checked_value: "true", unchecked_value: "false"} %></h2>
-  </div>
-  
-   <div class="field">
-   <h5><%= f.label "Bottle feeding puppies(Note: may require 2 hourly feeding throughout the night)" %>
-   <%= f.check_box :dogbottlefeed, {checked_value: "true", unchecked_value: "false"} %></h2>
-  </div>
-  
-   <div class="field">
-   <h5><%= f.label "Injured or sick dogs and puppies" %>
-   <%= f.check_box :doginjured, {checked_value: "true", unchecked_value: "false"} %></h2>
-  </div>
-  
-
-  
-  <br />
-  
-  <h2>Wildlife & Other Animals</h2>
-  <div class="field">
-   <h5><%= f.label "Rabbits & guinea" %>
-   <%= f.check_box :rabgui, {checked_value: "true", unchecked_value: "false"} %></h2>
-  </div>
-
-   <div class="field">
-   <h5><%= f.label "Hedgehogs-sick or injured young" %>
-   <%= f.check_box :hedgehoginjured, {checked_value: "true", unchecked_value: "false"} %></h2>
-  </div>
-  
-  
-  
-  <div class="field">
-   <h5><%= f.label "Hedgehogs-bottle feeding(Note: may require 2 hourly feeding throughout the night)" %>
-   <%= f.check_box :hedgehogbottle, {checked_value: "true", unchecked_value: "false"} %></h2>
-  </div>
-  
-  
-  
-  <div class="field">
-   <h5><%= f.label "Birds-adults or injured" %>
-   <%= f.check_box :birdsinjured, {checked_value: "true", unchecked_value: "false"} %></h2>
-  </div>
-  
-  
-  <div class="field">
-   <h5><%= f.label "Birds-young(Note: you may require hourly feeding during dayligh hours)" %>
-   <%= f.check_box :birdstoung, {checked_value: "true", unchecked_value: "false"} %></h2>
-  </div>
-  
-  
-  <div class="field">
-   <h5><%= f.label "Livestock-how many hectares do you have?" %>
-   <%= f.check_box :livestock, {checked_value: "true", unchecked_value: "false"} %></h2>
-  </div>
+<%= f.hidden_field :volunteer_id, :value => @fosterer.volunteer_id %>
+<% if @fosterer.errors.any? %>
+<div id="error_explanation">
+   <h2><%= pluralize(@fosterer.errors.count, "error") %> 
+      prohibited this fosterer from being saved:
+   </h2>
+   <ul>
+      <% @fosterer.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+   </ul>
 </div>
-</div>
-
-<div id="MotivationBox" style="width:500px;float:right">
-  <div id="header2" style="background-color:#FFA500;height:30px;width:440px">
-      <h1 style="margin-bottom:0;">Motivation</h1></div>
-
-  <div id="menu2" style="background-color:#FFD700;height:250px;width:90px;float:left;">
-    <b></b><br>
-  </div>
-  
-  <div id="content2" style="background-color:#EEEEEE;height:250px;width:350px;float:left">
-  
-  <div class="field">
-      <h5> Why do you want to foster animals?</h5>
-    <%= f.text_area :motivation,:rows=>"10", :cols=>"45" %>
+<% end %>
+<div id="left">
+   <h2>Foster Animals</h2>
+   <h3>Cats and kittens</h3>
+   <div class="field">
+      <%= f.label "Nursing cats with kittens" %>
+      <%= f.check_box :catnursing, {checked_value: "true", unchecked_value: "false"} %>
    </div>
-  <br/>
-
+   <div class="field">
+      <%= f.label "Cats and kittens-self feeding" %>
+      <%= f.check_box :catfeeding, {checked_value: "true", unchecked_value: "false"} %>
+   </div>
+   <div class="field">
+      <h5>
+      <%= f.label "Bottle feeding kittens(Note: may require 2 hourly feeding throughout the night)" %>
+      <%= f.check_box :catbottlefeed, {checked_value: "true", unchecked_value: "false"} %>
+   </div>
+   <div class="field">
+      <%= f.label "Injured or sick cats and kittens" %>
+      <%= f.check_box :catinjured, {checked_value: "true", unchecked_value: "false"} %>
+   </div>
+   <br />
+   <h3>Dogs and Puppies</h3>
+   <div class="field">
+      <%= f.label "Nursing dogs with puppies" %>
+      <%= f.check_box :dognursing, {checked_value: "true", unchecked_value: "false"} %>
+   </div>
+   <div class="field">
+      <%= f.label "self-feeding puppies" %>
+      <%= f.check_box :dogfeeding, {checked_value: "true", unchecked_value: "false"} %>
+   </div>
+   <div class="field">
+      <%= f.label "Bottle feeding puppies(Note: may require 2 hourly feeding throughout the night)" %>
+      <%= f.check_box :dogbottlefeed, {checked_value: "true", unchecked_value: "false"} %>
+   </div>
+   <div class="field">
+      <%= f.label "Injured or sick dogs and puppies" %>
+      <%= f.check_box :doginjured, {checked_value: "true", unchecked_value: "false"} %>
+   </div>
+   <h3>Wildlife & Other Animals</h3>
+   <div class="field">
+      <%= f.label "Rabbits & guinea" %>
+      <%= f.check_box :rabgui, {checked_value: "true", unchecked_value: "false"} %>
+   </div>
+   <div class="field">
+      <%= f.label "Hedgehogs-sick or injured young" %>
+      <%= f.check_box :hedgehoginjured, {checked_value: "true", unchecked_value: "false"} %>
+   </div>
+   <div class="field">
+      <%= f.label "Hedgehogs-bottle feeding(Note: may require 2 hourly feeding throughout the night)" %>
+      <%= f.check_box :hedgehogbottle, {checked_value: "true", unchecked_value: "false"} %>
+   </div>
+   <div class="field">
+      <%= f.label "Birds-adults or injured" %>
+      <%= f.check_box :birdsinjured, {checked_value: "true", unchecked_value: "false"} %>
+   </div>
+   <div class="field">
+      <%= f.label "Birds-young(Note: you may require hourly feeding during dayligh hours)" %>
+      <%= f.check_box :birdstoung, {checked_value: "true", unchecked_value: "false"} %>
+   </div>
+   <div class="field">
+      <%= f.label "Livestock-how many hectares do you have?" %>
+      <%= f.check_box :livestock, {checked_value: "true", unchecked_value: "false"} %>
+   </div>
 </div>
+<div id="right">
+   <h2>Property Details</h2>
+   <div class="field">
+      Do you have your own home? (if renting you will need to provide written consent from your landlord to foster animals) <%= f.select :ownhome, [['Yes','Yes'],['No','No']]%>
+   </div>
+   <div class="field">
+      Do you agree to an SPCA staff member inspecting your property prior to fostering? <%= f.select :inspecting, [['Yes','Yes'],['No','No']]%>
+   </div>
+   <div class="field">
+      You must be able to provide the following which is applicable to the animals you wish to foster:
+   </div>
+   <div class="field">
+      Separate room inside your house (cats, kittens, baby birds) <%= f.select :rooms, [['Yes','Yes'],['No','No']]%>
+   </div>
+   <div class="field">
+      Separate room/warm garage & fenced property (dogs, pups) <%= f.select :roomwarm, [['Yes','Yes'],['No','No']]%>
+   </div>
+   <div class="field">
+      Hutch/fenced area with shelter (degenhogs) <%= f.select :hutch, [['Yes','Yes'],['No','No']]%>
+   </div>
+   <div class="field">
+      Hutch or separate room (rabbits) <%= f.select :rabbithutch, [['Yes','Yes'],['No','No']]%>
+   </div>
+   <div class="field">
+      <%= f.select :aviary, [['Yes','Yes'],['No','No']]%>
+   </div>
+   <div class="field">
+     Livestock-fully fenced <%= f.select :livestockfenced, [['Yes','Yes'],['No','No']]%>
+   </div>
+   <br/>
+   <div class="field">
+      Please describe the area you plan to use for the animals Attach(via email) 5 photos of that area to your application:
+      <%= f.text_area :homedesc, :rows=>"10", :cols=>"45"%>
+   </div>
+   How many people liv in your home/rented accomodation?
+   <div class="field">
+      <%= f.label :"Number of adults"%>
+      <%= f.number_field :numadulta, :size=>"5" %>
+   </div>
+   <div class="field">
+      <%= f.label :"Number of children"%>
+      <%= f.number_field :numchild, :size=>"5" %>
+   </div>
+   <div class="field">
+      <%= f.label :"Ages of children(eg: 5-8-12)"%>
+      <%= f.number_field :ages%>
+   </div>
 </div>
-
-
-
-
-
-
-<div id="PropertyBox" style="width:500px;float:right">
-  <div id="header2" style="background-color:#FFA500;height:30px;width:500px">
-      <h1 style="margin-bottom:0;">Property Details</h1></div>
-
-  <div id="menu2" style="background-color:#FFD700;height:900px;width:20px;float:left;">
-    <b></b><br>
-  </div>
-  
-  <div id="content2" style="background-color:#EEEEEE;height:900px;width:480px;float:left">
-  
-      <div class="field">
-	<h5>1. Do you have your own home?<br />(if renting you will need to provide written consent from your landlord to foster animals)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :ownhome, [['Yes','Yes'],['No','No']]%></h5>
-      </div>
-      
-      <div class="field">
-	<h5>2. Do you agree to an SPCA staff member inspecting your property prior to fostering?&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :inspecting, [['Yes','Yes'],['No','No']]%></h5>
-      </div>
-      
-      <div class="field">
-	<h5>3. You must be able to provide the following which is applicable to the animals you wish to foster:</h5>
-      </div>
-      
-      <div class="field">
-	<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Separate room inside your house (cats, kittens, baby birds)&nbsp;<%= f.select :rooms, [['Yes','Yes'],['No','No']]%></h5>
-      </div>  
-    
-      <div class="field">
-	<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Separate room/warm garage & fenced property (dogs, pups)&nbsp;<%= f.select :roomwarm, [['Yes','Yes'],['No','No']]%></h5>
-      </div> 
-      
-      <div class="field">
-	<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hutch/fenced area with shelter (degenhogs)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :hutch, [['Yes','Yes'],['No','No']]%></h5>
-      </div> 
-      
-      <div class="field">
-	<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Hutch or separate room (rabbits)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :rabbithutch, [['Yes','Yes'],['No','No']]%></h5>
-      </div> 
-    
-      <div class="field">
-	<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Aviary(adult birds)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :aviary, [['Yes','Yes'],['No','No']]%></h5>
-      </div> 
-      
-      <div class="field">
-	<h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Livestock-fully fenced&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= f.select :livestockfenced, [['Yes','Yes'],['No','No']]%></h5>
-      </div>
-  <br/>
-      <div class="field">
-	<h5>4. Please describe the area you plan to use for the animals<br/>
-	  Attach(via email) 5 photos of that area to your application:</h5>
-	<%= f.text_area :homedesc, :rows=>"10", :cols=>"45"%>
-      </div> 
-	<h5>5. How many people liv in your home/rented accomodation?</h5>
-      <div class="field">
-	<%= f.label :"Number of adults"%>
-	<%= f.number_field :numadulta, :size=>"5" %>
-      </div> 
-      <div class="field">
-	<%= f.label :"Number of children"%>
-	<%= f.number_field :numchild, :size=>"5" %>
-      </div> 
-      <div class="field">
-	<%= f.label :"Ages of children(eg: 5-8-12)"%>
-	<%= f.number_field :ages%>
-      </div>
-
+<div class="clear"></div>
+<h2>Time Commitment</h2>
+<div class="field">
+   <h5>1. How many hours per day can you devote to fostering?</h5>
+   &nbsp;&nbsp;&nbsp;<%= f.number_field :numhoursperday, :size=>"5" %>
 </div>
+<div class="field">
+   <h5>2. Do you work:&nbsp;&nbsp;&nbsp;<%= f.select :worktype, [['Full time','Full time'],['Part time','Part time'], ['At home','At home'], ['Away from home','Away from home'], ['Dont work','Dont work']]%></h5>
 </div>
-
-
-
-<div id="TimeCommitmentBox" style="width:500px;float:right">
-  <div id="header2" style="background-color:#FFA500;height:30px;width:500px">
-      <h1 style="margin-bottom:0;">Time Commitment</h1></div>
-
-  <div id="menu2" style="background-color:#FFD700;height:600px;width:20px;float:left;">
-    <b></b><br>
-  </div>
-  
-  <div id="content2" style="background-color:#EEEEEE;height:600px;width:480px;float:left">
-  
-  
-    <div class="field">
-      <h5>1. How many hours per day can you devote to fostering?</h5>
-	&nbsp;&nbsp;&nbsp;<%= f.number_field :numhoursperday, :size=>"5" %>
-    </div>       
-    <div class="field">
-      <h5>2. Do you work:&nbsp;&nbsp;&nbsp;<%= f.select :worktype, [['Full time','Full time'],['Part time','Part time'], ['At home','At home'], ['Away from home','Away from home'], ['Dont work','Dont work']]%></h5>
-    </div> 
-    <div class="field">
-      <h5>3. Who will care for the animals when you are away from home? </h5>
-      <%= f.text_area :secondperson, :rows=>"5", :cols=>"45"%>
-    </div> 
-    <div class="field">
-      <h5>4. Are all members of household in agreement to be part of the fostering family?<%= f.select :allmembersagree, [['Yes','Yes'],['No','No']]%></h5>
-    </div>
-    <div class="field">
-      <h5>5. Are you willing to bring the animals into the centre on a regular basis?<%= f.select :bringcentre, [['Yes','Yes'],['No','No']]%></h5>
-    </div>
-    <div class="field">
-      <h5>6. How will you transport the animals to and from Wellington SPCA(for checkups etc.) and to the Wellington After Hours Veterinary Clinic (for emergencies)? </h5>
-      <%= f.text_area :transportdesc, :rows=>"5", :cols=>"45"%>
-      </div> 
-  <br/>
-
+<div class="field">
+   <h5>3. Who will care for the animals when you are away from home? </h5>
+   <%= f.text_area :secondperson, :rows=>"5", :cols=>"45"%>
 </div>
+<div class="field">
+   <h5>4. Are all members of household in agreement to be part of the fostering family?<%= f.select :allmembersagree, [['Yes','Yes'],['No','No']]%></h5>
 </div>
-
-
-
-
-
-
-
-<div id="TermsAndConditionsBox" style="width:1000px;float:right">
-  <div id="header2" style="background-color:#FFA500;height:30px;width:920px">
-      <h1 style="margin-bottom:0;">Motivation</h1></div>
-
-
-  
-  <div id="content" style="background-color:#EEEEEE;height: 460px;width:920px;float:left">
-    <h5>
-      1. The animals being fostered remain the sole property of Wellington SPCA<br /><br />
-      2. I understand that Wellington SPCA will not reimburse me for any food, toys etc that I may purchase while fostering.<br /><br />
-      3. I understand that if I decide to adopt an animal I am fostering, the normal adoption conditions and fees apply.<br /><br />
-      4. I accept I have nor right to adopt my foster animals into new homes. If I know someone who wants to adopt any animal I am caring for,  I all refer them to the appropriate area of Wellington SPCA for adoption. Normal adoption criteria and fees apply.<br /><br />
-      5. Wellington SPCA bears no responsibility for any damage caused bye the animals being fostered, while they are in my care.<br /><br />
-      6. I understand if veterinary treatment is required for the foster for the animals, Wellington SPCA veterinarians must be used. In the case of emergencies after Wellington SPCA working hours, U will use the Wellington After Hours Veterinary Clinic and the costs if this will be met by Wellington SPCA.<br /><br />
-      7. I understand that insome cisrcumstances where veterinary treatment is required Wellington SPCA may decide that euthanasia is necessary, and I agree to abide by this decision.<br /><br />
-      8. I agree not to advertise the animal I am fostering in any way  without first speaking to Wellington SPCA's Animal Care and Adoptions Manager. This includes advertising on Trade me for speaking about them on community notice boards, sending out emails etc.
-    </h5>
-      <div class="field">
-        <h5><%= f.label "In order to be fosterer for Wellington SPCA, I Agrree to the above conditions" %>
-	<%= f.check_box :agreement, {checked_value: "I agree", unchecked_value: "Disagree"} %>
-	</h5>
-      </div>
-  
-
-  <br/>
-
+<div class="field">
+   <h5>5. Are you willing to bring the animals into the centre on a regular basis?<%= f.select :bringcentre, [['Yes','Yes'],['No','No']]%></h5>
 </div>
+<div class="field">
+   <h5>6. How will you transport the animals to and from Wellington SPCA(for checkups etc.) and to the Wellington After Hours Veterinary Clinic (for emergencies)? </h5>
+   <%= f.text_area :transportdesc, :rows=>"5", :cols=>"45"%>
 </div>
-
-
-
-
-<div id="NextBox" style="width:500px;float:right">
-  <div id="header2" style="background-color:#FFA500;height:30px;width:440px">
-      <h1 style="margin-bottom:0;">Submission</h1></div>
-
-  <div id="menu2" style="background-color:#FFD700;height:70px;width:90px;float:left;">
-    <b></b><br>
-  </div>
-  
-  <div id="content2" style="background-color:#EEEEEE;height:70px;width:350px;float:left">
-  
-    
-  <br />
-
-  <div class="actions">
-	    <%= f.submit "Submit"%>
-	  </div>
-
+<h2>Motivation</h2>
+<div class="field">
+   <h5> Why do you want to foster animals?</h5>
+   <%= f.text_area :motivation,:rows=>"10", :cols=>"45" %>
 </div>
+<h2>Terms and Conditions</h2>
+<ol>
+   <li>The animals being fostered remain the sole property of Wellington SPCA</li>
+   <li>I understand that Wellington SPCA will not reimburse me for any food, toys etc that I may purchase while fostering.</li>
+   <li>I understand that if I decide to adopt an animal I am fostering, the normal adoption conditions and fees apply.</li>
+   <li>I accept I have nor right to adopt my foster animals into new homes. If I know someone who wants to adopt any animal I am caring for,  I all refer them to the appropriate area of Wellington SPCA for adoption. Normal adoption criteria and fees apply.</li>
+   <li>Wellington SPCA bears no responsibility for any damage caused bye the animals being fostered, while they are in my care.</li>
+   <li>I understand if veterinary treatment is required for the foster for the animals, Wellington SPCA veterinarians must be used. In the case of emergencies after Wellington SPCA working hours, U will use the Wellington After Hours Veterinary Clinic and the costs if this will be met by Wellington SPCA.</li>
+   <li>I understand that insome cisrcumstances where veterinary treatment is required Wellington SPCA may decide that euthanasia is necessary, and I agree to abide by this decision.</li>
+   <li>I agree not to advertise the animal I am fostering in any way  without first speaking to Wellington SPCA's Animal Care and Adoptions Manager. This includes advertising on Trade me for speaking about them on community notice boards, sending out emails etc.</li>
+</ol>
+<div class="field">
+   <h5><%= f.label "In order to be fosterer for Wellington SPCA, I Agrree to the above conditions" %>
+      <%= f.check_box :agreement, {checked_value: "I agree", unchecked_value: "Disagree"} %>
+   </h5>
 </div>
+<div class="actions">
+   <%= f.submit "Submit"%>
 </div>
 <% end %>

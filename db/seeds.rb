@@ -6,6 +6,14 @@
 # cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 # Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create([{
+  id: 1,
+  email: 'andrew',
+  password: 'aaa',
+  password_confirmation: 'aaa',
+  role: 'both'
+}])
+
 Volcoordinator.create([{
   email_replyto: 'coordinator@test.com',
   application_email_header: 'SPCA Application',
@@ -13,7 +21,8 @@ Volcoordinator.create([{
   absence_tolerence: 3,
   absence_period: 4,
   absence_email_header: 'SPCA - you missed your roster', 
-  absence_email_content: 'Hi #{@volunteer.firstname}, you missed your roster today. If you cannot make it in, please just let us know in advance or adjust your preferred schedule online. We like having you here and we value the contribution you make. Please just keep us informed if you cannot come in.'
+  absence_email_content: 'Hi #{@volunteer.firstname}, you missed your roster today. If you cannot make it in, please just let us know in advance or adjust your preferred schedule online. We like having you here and we value the contribution you make. Please just keep us informed if you cannot come in.',
+  user_id: 1
 }])
 
 Department.create([
@@ -47,6 +56,26 @@ RosterCoordinator.create([
     department_id: 3}
 ])
 
+Orientation.create([{
+  presenter: 'None',
+  datetime: nil,
+  participantMax: 1000000,
+  numCurrParticipant: 0,
+  duration: 2
+},{
+  presenter: 'Mr Cool',
+  datetime: DateTime.new(2013, 12, 25, 5, 0, 0),
+  participantMax: 2,
+  numCurrParticipant: 2,
+  duration: 2
+},{
+  presenter: 'The Regular Person',
+  datetime: DateTime.new(2013, 12, 31, 17, 0, 0),
+  participantMax: 5,
+  numCurrParticipant: 3,
+  duration: 2
+}])
+
 Volunteer.create([
   {role: 'volunteer',
     title: 'fosterer',
@@ -59,7 +88,7 @@ Volunteer.create([
     home: 0447747,
     background: 'blah blah',
     status: 'New',
-    orientation_id: 1},
+    orientation_id: 3},
   {role: 'fosterer',
     title: 'cat walker',
     dob: '12-10-1991',
@@ -83,7 +112,7 @@ Volunteer.create([
     home: '0425469',
     background: 'like afternoons, mornings are for hangover recovery',
     status: 'New',
-   orientation_id: 2},
+    orientation_id: 2},
   {role: 'fosterer',
     title: 'dude',
     dob: '12-10-1991',
@@ -107,7 +136,7 @@ Volunteer.create([
     home: '0498999999',
     background: 'hate student layabouts',
     status: 'Auto-Rejected',
-    orientation_id: 1}
+    orientation_id: 3}
 ])
 
 Volscheduler.create([{
@@ -397,22 +426,3 @@ Fosterer2.create([{
  agreement: 'I agree',
  volunteer_id: 3
 }])
-
-
-Orientation.create([{
-presenter: 'None',
-datetime: nil,
-participantMax: 1000000,
-numCurrParticipant:0
-},{                     
-presenter: 'Matt',
-datetime: '2013-12-12-10-10',
-participantMax: 2,
-numCurrParticipant: 0
-},{
-presenter: 'Hamid',
-datetime: '2014-02-02-05-11',
-participantMax: 5,
-numCurrParticipant: 0
-}])
-
