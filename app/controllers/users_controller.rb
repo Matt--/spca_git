@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
-    #volunteer = @user.volunteer.new
-    #@volunteer = Volunteer.new
-    @user.volunteer = Volunteer.new
+    ActiveRecord::Base.transaction do
+      @user = User.new
+      #volunteer = @user.volunteer.new
+      #@volunteer = Volunteer.new
+      @user.volunteer = Volunteer.new
+    end
   end
 
   def edit
@@ -18,15 +20,16 @@ class UsersController < ApplicationController
 
   def create
     puts params.inspect
-    transaction do
+    user_saved_ok = false
+    ActiveRecord::Base.transaction do
       @user = User.new(params[:user])
       @user.volunteer = Volunteer.new(params[:volunteer])
       @user.volunteer.email = @user.email
       @user.volunteer.status = "New"
+      #@user.volunteer.save
+      @user.role = "volunteer"
       user_saved_ok = @user.save
     end
-    #@user.volunteer.save
-    @user.role = "volunteer"
     if user_saved_ok
       #@user2 = User.find(session[:user_id])
       session[:user_id] = @user.id
@@ -44,7 +47,16 @@ class UsersController < ApplicationController
   def update
     @user = current_user
     @user = current_user
+    old = @user.volunteer.orientation
+    
     if @user.update_attributes(params[:user])
+      if old != @user.volunteer.orientation
+        old.numCurrParticipant = old.numCurrParticipant - 1
+        old.save
+        @user.volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant + 1
+        @user.volunteer.orientation.save
+      end
+      
       params[:volunteer][:email] = @user.email
       @user.volunteer.update_attributes(params[:volunteer])
       redirect_to volunteers_path

@@ -143,13 +143,15 @@ class Volunteer < ActiveRecord::Base
 
   private
   def enable_vol_job_day
-    if( vol_job_day.empty? )
-      (1..7).each do |n|
-        v = VolJobDay.new
-        v.volunteer_id = self.id
-        v.jobdescription_id = 1
-        v.onday_id = n
-        v.save
+    ActiveRecord::Base.transaction do
+      if( vol_job_day.empty? )
+        (1..7).each do |n|
+          v = VolJobDay.new
+          v.volunteer_id = self.id
+          v.jobdescription_id = 1
+          v.onday_id = n
+          v.save
+        end
       end
     end
   end

@@ -8,9 +8,12 @@ class VolcoordinatorsController < ApplicationController
     if current_user != nil #need to check this is the coordinator
       if (current_user.volcoordinator != nil)
         puts "iuegiueqgeoiugbouboutbgoiugboutegbouegbgbouegbouebhouebagoub"
-        @volunteers = Volunteer.all
-        @volcoordinator = Volcoordinator.first
-        @whiteboards = Whiteboard.all
+	
+	ActiveRecord::Base.transaction do
+	    @volunteers = Volunteer.all
+	    @volcoordinator = Volcoordinator.first
+	    @whiteboards = Whiteboard.all
+	end
         respond_to do |format|
           format.html # index.html.erb
           format.json { render json: @volcoordinators }

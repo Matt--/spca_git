@@ -9,8 +9,8 @@ class Orientation < ActiveRecord::Base
   
   
 #   def valid_date
-#     if datetime + 1.days <= Date.today
-#       errors.add(:datetime, "The orientation time must be at least 24 hours after current time")
+#     if datetime   <= DateTime.now  #- 1.day
+#       errors.add(:datetime, "must not be in the past")
 #     end
 #   end
   
