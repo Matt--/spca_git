@@ -79,35 +79,31 @@ class VolunteersController < ApplicationController
   # PUT /volunteers/1.json
   def update
     @volunteer = Volunteer.find(params[:id])
-#     puts "TESTTTTTTTTTTTTTTTTTTTTT"
-#     puts @volunteer.inspect
-#     puts params.inspect
-    @user = @volunteer.user
-#     puts "EMAILLLLLLLLLLLLLLL"
-#     puts @user.inspect
-    
+    #@user = @volunteer.user
+    #@user.email = params[:email]
     #update emil here
     old = @volunteer.orientation
+    
     respond_to do |format|
-#       if @user.save
-	if @volunteer.update_attributes(params[:volunteer])
-	  if old != @volunteer.orientation
-	    old.numCurrParticipant = old.numCurrParticipant - 1
-	    old.save
-	    @volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant + 1
-	    @volunteer.orientation.save
-	  end
-	  @user.email = @volunteer.email
-	  @user.save
-	  format.html { 
-		redirect_to @volunteer, 
-		notice: 'Volunteer was successfully updated.' }
-	  format.json { head :no_content }
-	else
-	  format.html { render action: "edit" }
-	  format.json { 
-		render json: @volunteer.errors, status: :unprocessable_entity }
+      if @volunteer.update_attributes(params[:volunteer])
+	if old != @volunteer.orientation
+	  old.numCurrParticipant = old.numCurrParticipant - 1
+	  old.save
+	  @volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant + 1
+	  @volunteer.orientation.save
 	end
+        
+        @volunteer.user.email = @volunteer.email
+        @volunteer.user.save
+        
+	format.html { 
+	      redirect_to @volunteer, 
+	      notice: 'Volunteer was successfully updated.' }
+	format.json { head :no_content }
+      else
+	format.html { render action: "edit" }
+	format.json { 
+	      render json: @volunteer.errors, status: :unprocessable_entity }
       end
 #     end
   end
