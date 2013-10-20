@@ -8,7 +8,7 @@
 
 User.create([{
   id: 1,
-  email: 'andrew',
+  email: 'Rose',
   password: 'aaa',
   password_confirmation: 'aaa',
   role: 'both'
@@ -81,7 +81,7 @@ Volunteer.create([
     title: 'fosterer',
     dob: '12-10-1991',
     firstname: 'Andrew',
-    lastname: 'Blah blah',
+    lastname: 'Davies',
     address: '3/1 Braithwaite st, karori, wellington',
     email: 'andrew@gmail.com',
 #   mobile: 02265,
@@ -94,7 +94,7 @@ Volunteer.create([
     title: 'cat walker',
     dob: '12-10-1991',
     firstname: 'Matt',
-    lastname: 'Blah de blah blah',
+    lastname: 'Stevens',
     address: '4 CamelCase st, karori, wellington',
     email: 'matt@something.com',
 #   mobile: 02265,
@@ -106,7 +106,7 @@ Volunteer.create([
     title: 'handyman',
     dob: '12-10-1991',
     firstname: 'James',
-    lastname: 'Whoop de whoop',
+    lastname: 'McCreanor',
     address: '5 snakeCase st, karori, wellington',
     email: 'james@overhere.com',
 #   mobile: 02265,
@@ -118,7 +118,7 @@ Volunteer.create([
     title: 'dude',
     dob: '12-10-1991',
     firstname: 'Hamid',
-    lastname: 'Dum de Dum',
+    lastname: 'Maddah',
     address: '6 lowercase st, karori, wellington',
     email: 'hamid@doinstuff.com',
 #   mobile: 02265,
@@ -129,8 +129,8 @@ Volunteer.create([
   {role: 'volunteer',
     title: 'newbie',
     dob: '12-10-1991',
-    firstname: 'Mymom',
-    lastname: 'Hey you',
+    firstname: 'Brad',
+    lastname: 'Personson',
     address: '6 UPPERCASE st, karori, wellington',
     email: 'mymom@givingmeshite.com',
 #   mobile: 02265,
@@ -195,14 +195,14 @@ VolJobDay.create([
 
 Jobdescription.create([
   { department_id: 1, name: 'none'},
-  { department_id: 1, name: 'Morning 8-12'},
-  { department_id: 1, name: 'Morning 8-12'},
-  { department_id: 1, name: 'Afternoon 1-5'},
-  { department_id: 1, name: 'Afternoon 1-5'},
-  { department_id: 1, name: 'Cat walking'},
-  { department_id: 1, name: 'Cat rescue'},
-  { department_id: 1, name: 'Cat hugging'},
-  { department_id: 1, name: 'Cat Admin'},
+  { department_id: 1, name: 'Dog Walking'},
+  { department_id: 1, name: 'Puppies'},
+  { department_id: 1, name: 'Adult Dogs'},
+  { department_id: 1, name: 'Felines'},
+  { department_id: 1, name: 'Small Animals'},
+  { department_id: 1, name: 'Community Adoptions'},
+  { department_id: 1, name: 'Vetcare'},
+  { department_id: 1, name: 'Animal and Customer Care'}
 ])
 
 =begin
