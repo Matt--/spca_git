@@ -18,7 +18,14 @@
 <% end %>
 
 <% if current_user.volunteer.status == "Awaiting Orientation" %>
-  <p>Your application has been accepted. You are scheduled to attend the ?? orientation</p>
+  <p>
+    <% if current_user.volunteer.orientation_id != 1 %>
+      Your application has been accepted. You are scheduled to attend your orientation on 
+      <%= current_user.volunteer.orientation.datetime.to_formatted_s(:long_ordinal) %>
+    <% else %>
+      You did not show up to your orientation. Please select a new one and make sure you attend this time!
+    <% end %>
+  </p>
 <% elsif current_user.volunteer.status == "Rejected" %>
   <p>Unfortunatly your application has been rejected. We will keep your details on record and contact you if another position opens.</p>
 <% 
