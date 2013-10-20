@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   def new
-    @user = User.new
-    #volunteer = @user.volunteer.new
-    #@volunteer = Volunteer.new
-    @user.volunteer = Volunteer.new
+    ActiveRecord::Base.transaction do
+      @user = User.new
+      #volunteer = @user.volunteer.new
+      #@volunteer = Volunteer.new
+      @user.volunteer = Volunteer.new
+    end
   end
 
   def edit
@@ -18,13 +20,17 @@ class UsersController < ApplicationController
 
   def create
     puts params.inspect
-    @user = User.new(params[:user])
-    @user.volunteer = Volunteer.new(params[:volunteer])
-    @user.volunteer.email = @user.email
-    @user.volunteer.status = "New"
-    #@user.volunteer.save
-    @user.role = "volunteer"
-    if @user.save
+    user_saved_ok = false
+    ActiveRecord::Base.transaction do
+      @user = User.new(params[:user])
+      @user.volunteer = Volunteer.new(params[:volunteer])
+      @user.volunteer.email = @user.email
+      @user.volunteer.status = "New"
+      #@user.volunteer.save
+      @user.role = "volunteer"
+      user_saved_ok = @user.save
+    end
+    if user_saved_ok
       #@user2 = User.find(session[:user_id])
       session[:user_id] = @user.id
       if (@user.volunteer.role == "both" || @user.volunteer.role == "fosterer")
