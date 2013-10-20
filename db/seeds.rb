@@ -60,19 +60,19 @@ Orientation.create([{
   presenter: 'None',
   datetime: nil,
   participantMax: 1000000,
-  numCurrParticipant: 0,
+  numCurrParticipant: 1,
   duration: 2
 },{
   presenter: 'Mr Cool',
   datetime: DateTime.new(2013, 12, 25, 5, 0, 0),
   participantMax: 2,
-  numCurrParticipant: 2,
+  numCurrParticipant: 0,
   duration: 2
 },{
   presenter: 'The Regular Person',
   datetime: DateTime.new(2013, 12, 31, 17, 0, 0),
   participantMax: 5,
-  numCurrParticipant: 3,
+  numCurrParticipant: 4,
   duration: 2
 }])
 
@@ -88,7 +88,7 @@ Volunteer.create([
     home: 0447747,
     background: 'blah blah',
     status: 'New',
-    orientation_id: 3},
+    orientation_id: 1},
   {role: 'fosterer',
     title: 'cat walker',
     dob: '12-10-1991',
@@ -100,7 +100,7 @@ Volunteer.create([
     home: 04123456,
     background: 'like cats and walking',
     status: 'New',
-    orientation_id: 2},
+    orientation_id: 3},
   {role: 'both',
     title: 'handyman',
     dob: '12-10-1991',
@@ -112,7 +112,7 @@ Volunteer.create([
     home: '0425469',
     background: 'like afternoons, mornings are for hangover recovery',
     status: 'New',
-    orientation_id: 2},
+    orientation_id: 3},
   {role: 'fosterer',
     title: 'dude',
     dob: '12-10-1991',
