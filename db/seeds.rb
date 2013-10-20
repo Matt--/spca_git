@@ -8,7 +8,7 @@
 
 User.create([{
   id: 1,
-  email: 'andrew',
+  email: 'Rose',
   password: 'aaa',
   password_confirmation: 'aaa',
   role: 'both'

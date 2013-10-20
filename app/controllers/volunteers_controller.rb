@@ -105,7 +105,7 @@ class VolunteersController < ApplicationController
 	format.json { 
 	      render json: @volunteer.errors, status: :unprocessable_entity }
       end
-#     end
+    end
   end
 
   # DELETE /volunteers/1
