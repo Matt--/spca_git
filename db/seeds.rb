@@ -111,7 +111,8 @@ Volunteer.create([
     background: 'blah blah',
     orientation_id: 1,
     status: 'New',
-    user_id: 1
+    user_id: 1,
+    volscheduler_id: 1
   },{
     role: 'fosterer',
     title: 'Mr',
@@ -125,7 +126,8 @@ Volunteer.create([
     background: 'like cats and walking',
     orientation_id: 2,
     status: 'New',
-    user_id: 2
+    user_id: 2,
+    volscheduler_id: 1
   },{
     role: 'both',
     title: 'Mr',
@@ -139,7 +141,8 @@ Volunteer.create([
     background: 'like afternoons, mornings are for hangover recovery',
    orientation_id: 2,
     status: 'New',
-    user_id: 1
+    user_id: 1,
+    volscheduler_id: 1
   },{
     role: 'fosterer',
     title: 'Mr',
@@ -153,7 +156,8 @@ Volunteer.create([
     background: 'hate paperwork',
     orientation_id: 3,
     status: 'New',
-    user_id: 1
+    user_id: 1,
+    volscheduler_id: 1
   },{
     role: 'volunteer',
     title: 'Mrs',
@@ -167,7 +171,8 @@ Volunteer.create([
     background: 'hate student layabouts',
     orientation_id: 1,
     status: 'Auto-Rejected',
-    user_id: 1
+    user_id: 1,
+    volscheduler_id: 1
   }
 ])
 

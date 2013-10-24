@@ -5,7 +5,7 @@ class Volunteer < ActiveRecord::Base
   attr_accessible :id, :address, :background, :dob, :email, :firstname, :home, 
             :lastname, :mobile, :title, :orientation_id, :befosterer, :status,
             :break_from, :break_to,  :vol_job_day_attributes,
-            :ondays_attributes, :jobdescriptions_attributes, :role, :user_id, :orientation_id
+            :ondays_attributes, :jobdescriptions_attributes, :role, :user_id, :orientation_id,
             :volscheduler_id
 
   has_many :whiteboards
@@ -19,6 +19,7 @@ class Volunteer < ActiveRecord::Base
   belongs_to :volscheduler
     accepts_nested_attributes_for :volscheduler
 
+  # TODO swap this so volunteer has a department and accesses volscheduler through the department
   has_one  :department,
            :through => :volscheduler
 

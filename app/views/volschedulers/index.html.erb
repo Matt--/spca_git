@@ -115,14 +115,18 @@
         <% else %>
           <td>
         <% end %>
+
+
         <% vol_array[d].each do |v| %>
           <% query = "volunteer_id = #{v.id} AND onday_id = \'"+ t.strftime("%u") +"\'" %>
 
           <% vjd = v.vol_job_day.where(query)[0] %>
-<% puts vjd.inspect %>
+<% puts "#################### test ######################################" %>
+<% puts d.inspect %>
+<% puts v.inspect %>
           <%= hidden_field_tag 'job', vjd.nil? ? "" : vjd.jobdescription.name %>
-          <%#= hidden_field_tag 'department', v.department.name %>
-          <%#= hidden_field_tag 'supervisor',
+          <%= hidden_field_tag 'department', v.department.name %>
+          <%= hidden_field_tag 'supervisor',
                         v.department.roster_coordinator.firstname + " " +
                         v.department.roster_coordinator.lastname%>
           
