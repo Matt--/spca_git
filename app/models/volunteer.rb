@@ -6,6 +6,7 @@ class Volunteer < ActiveRecord::Base
             :lastname, :mobile, :title, :orientation_id, :befosterer, :status,
             :break_from, :break_to,  :vol_job_day_attributes,
             :ondays_attributes, :jobdescriptions_attributes, :role, :user_id, :orientation_id
+            :volscheduler_id
 
   has_many :whiteboards
   has_one  :fosterer
@@ -14,7 +15,13 @@ class Volunteer < ActiveRecord::Base
   belongs_to :user
     accepts_nested_attributes_for :user
   belongs_to :orientation
-  
+  has_many :work_histories
+  belongs_to :volscheduler
+    accepts_nested_attributes_for :volscheduler
+
+  has_one  :department,
+           :through => :volscheduler
+
   has_many :vol_job_day
     accepts_nested_attributes_for :vol_job_day,
        #    :reject_if => :all_blank,

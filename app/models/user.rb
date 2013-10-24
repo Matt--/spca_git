@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation, :volunteer, :role, :deptSupervisor
+  attr_accessible :email, :password, :password_confirmation, :volunteer, :role, :roster_coordinator
   
   attr_accessor :password
   before_save :encrypt_password
@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :email
   
   has_one :volunteer
-  has_one :deptSupervisor
+  has_one :roster_coordinator
   has_one :volcoordinator
   
   

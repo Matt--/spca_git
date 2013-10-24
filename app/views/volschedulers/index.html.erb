@@ -36,15 +36,17 @@
   </tr>
 
 <% ########## create vol_array[day number] -> list of volunteers data ##### %>
-  <% vol_array = Array.new(32) %>
-  <% (0..31).each do |c| %>
+<% #### Days 0-6, relate to the last week ### %>
+  <% vol_array = Array.new(39) %>
+  <% (0..38).each do |c| %>
     <% vol_array[c] = Array.new %>
   <% end %>
+  <% vol_array = pop_with_last_7_days vol_array %>
 
   <% ####### slow nested algorythm, maybe improve later ##### %>
   <% @volunteers.each   do |v| %>
     <% v.vol_job_day.each do |vjd| %>
-      <% (0..31).each         do |c| %>
+      <% (7..38).each         do |c| %>
         <% t = time + (c * (60*60*24)) %>
         <% dayno = (t.wday == 0) ? 7 : t.wday %> <%# mon => 1, sun => 7 %>
 
@@ -61,7 +63,7 @@
   <% (1..jd.length-1).each do |i| %>
   <tr>
     <td><%= jd[i].name %></td>
-    <% (0..31).each do |c| %>
+    <% (7..38).each do |c| %>
       <% t = time + (c * (60*60*24)) %>
     <td>
       <% vol_array[c].each do |v2| %>

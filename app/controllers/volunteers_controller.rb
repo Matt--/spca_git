@@ -8,7 +8,7 @@ class VolunteersController < ApplicationController
     if(current_user == nil)
       redirect_to home_block_path
     elsif(current_user.volcoordinator != nil)
-      redirect_to volcoordinator_path
+      redirect_to volcoordinator_path 1  #TODO id = 1 is a hack, remove
     end
     @volcoordinator = Volcoordinator.first
   end
@@ -23,8 +23,8 @@ class VolunteersController < ApplicationController
       @volcoordinator = Volcoordinator.first
 
       respond_to do |format|
-	format.html # show.html.erb
-	format.json { render json: @volunteer }
+	      format.html # show.html.erb
+	      format.json { render json: @volunteer }
       end
     end
   end
@@ -86,26 +86,26 @@ class VolunteersController < ApplicationController
     
     respond_to do |format|
       if @volunteer.update_attributes(params[:volunteer])
-	if old != @volunteer.orientation
-	  old.numCurrParticipant = old.numCurrParticipant - 1
-	  old.save
-	  @volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant + 1
-	  @volunteer.orientation.save
-	end
+	      if old != @volunteer.orientation
+	        old.numCurrParticipant = old.numCurrParticipant - 1
+	        old.save
+	        @volunteer.orientation.numCurrParticipant = @volunteer.orientation.numCurrParticipant + 1
+	        @volunteer.orientation.save
+	      end
         
         @volunteer.user.email = @volunteer.email
         @volunteer.user.save
         
-	format.html { 
-	      redirect_to @volunteer, 
-	      notice: 'Volunteer was successfully updated.' }
-	format.json { head :no_content }
+	      format.html { 
+	            redirect_to @volunteer, 
+	            notice: 'Volunteer was successfully updated.' }
+	      format.json { head :no_content }
       else
-	format.html { render action: "edit" }
-	format.json { 
-	      render json: @volunteer.errors, status: :unprocessable_entity }
+	      format.html { render action: "edit" }
+	      format.json { 
+	            render json: @volunteer.errors, status: :unprocessable_entity }
       end
-#     end
+    end
   end
 
   # DELETE /volunteers/1

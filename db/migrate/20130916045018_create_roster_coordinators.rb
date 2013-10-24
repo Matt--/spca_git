@@ -4,7 +4,8 @@ class CreateRosterCoordinators < ActiveRecord::Migration
       t.string :firstname
       t.string :lastname
       t.string :title
-      t.integer :department_id
+      t.references :department
+      t.references :user
 
       t.timestamps
     end

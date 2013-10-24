@@ -17,6 +17,7 @@ class CreateVolunteers < ActiveRecord::Migration
       t.integer :scheduledjobtype_id
       t.references :orientation
       t.references :user
+      t.references :volscheduler
       t.string  :status
 
       t.timestamps

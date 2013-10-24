@@ -10,6 +10,7 @@
   </tr>
   
   <% Orientation.order("datetime").each do |orientation| %>
+    <% if orientation.datetime == nil then next end%>
     <% if orientation.id == 1 %>
       <tr>
         <td><%= orientation.presenter %></td>

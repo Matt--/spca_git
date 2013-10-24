@@ -1,6 +1,10 @@
 <div class='nav_bar' align='center'>
-  <%= link_to "Home", volunteers_path %>
-  | <%= link_to 'Edit Personal Details', edit_user_path(current_user) %> 
+
+<%= link_to "Home", volunteers_path %>
+      | <%= link_to 'Edit Personal Details', edit_user_path(current_user) %> 
+
+<%# raise current_user.volunteer.inspect %>
+
 <% if current_user.volunteer.fosterer != nil %>
   | <%= link_to 'Edit Fostering Details', edit_fosterer_path(current_user.volunteer.fosterer) %>
 <% end %>
@@ -11,7 +15,7 @@
 <% if(current_user.volunteer.title != nil) %>
   <%= current_user.volunteer.title %>
 <% end %>
-<%= current_user.volunteer.firstname %></h1></center>
+<%= current_user.volunteer.lastname %></h1></center>
 
 <% if current_user.volunteer.status == "New" %>
   <p>Your application has been recived. Please bear with us while your application is processed</p>

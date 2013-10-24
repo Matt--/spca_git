@@ -7,11 +7,17 @@
 # Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.create([{
-  id: 1,
-  email: 'andrew',
-  password: 'aaa',
-  password_confirmation: 'aaa',
-  role: 'both'
+    id: 1,
+    email: 'andrew',
+    password: 'aaa',
+    password_confirmation: 'aaa',
+    role: 'both'
+  },{
+    id: 2,
+    email: 'rc',
+    password: 'aaa',
+    password_confirmation: 'aaa',
+    role: 'both'
 }])
 
 Volcoordinator.create([{
@@ -33,28 +39,38 @@ Department.create([
   {name: "Admin Department"}
 ])
 
-RosterCoordinator.create([
-  {firstname: "Bob",
+# TODO change to give unique user_ids
+RosterCoordinator.create([{
+    firstname: "Bob",
     lastname: "Jones",
     title: "Sir",
-    department_id: 1},
-  {firstname: "Phil",
+    department_id: 1,
+    user_id: 2
+  },{
+    firstname: "Phil",
     lastname: "Colins",
     title: "Dr",
-    department_id: 2},
-  {firstname: "Fred",
+    department_id: 2,
+    user_id: 2
+  },{
+    firstname: "Fred",
     lastname: "Dagg",
     title: "Mr",
-    department_id: 3},
-  {firstname: "Billy-Ray",
+    department_id: 3,
+    user_id: 2
+  },{
+    firstname: "Billy-Ray",
     lastname: "Sirus",
     title: "Mr",
-    department_id: 3},
-  {firstname: "Freddie",
+    department_id: 3,
+    user_id: 2
+  },{
+    firstname: "Freddie",
     lastname: "Mercury",
     title: "Mr",
-    department_id: 3}
-])
+    department_id: 3,
+    user_id: 2
+}])
 
 Orientation.create([{
   presenter: 'None',
@@ -76,58 +92,68 @@ Orientation.create([{
   duration: 2
 }])
 
+# TODO change to give unique user_ids (Matt.user_id = 2 is a hack)
+# TODO is moblie problem fixed?
 Volunteer.create([
-  {role: 'volunteer',
-    title: 'fosterer',
+  {
+    role: 'volunteer',
+    title: 'Mr',
     dob: '12-10-1991',
     firstname: 'Andrew',
-    lastname: 'Blah blah',
+    lastname: 'Davies',
     address: '3/1 Braithwaite st, karori, wellington',
     email: 'andrew@gmail.com',
 #   mobile: 02265,
     home: 0447747,
     background: 'blah blah',
-    status: 'New',
     orientation_id: 1,
-    user_id: 1},
-  {role: 'fosterer',
-    title: 'cat walker',
+    status: 'New',
+    user_id: 1
+  },{
+    role: 'fosterer',
+    title: 'Mr',
     dob: '12-10-1991',
     firstname: 'Matt',
-    lastname: 'Blah de blah blah',
+    lastname: 'Stevens',
     address: '4 CamelCase st, karori, wellington',
     email: 'matt@something.com',
 #   mobile: 02265,
     home: 04123456,
     background: 'like cats and walking',
+    orientation_id: 2,
     status: 'New',
-    orientation_id: 3},
-  {role: 'both',
-    title: 'handyman',
+    user_id: 2
+  },{
+    role: 'both',
+    title: 'Mr',
     dob: '12-10-1991',
     firstname: 'James',
-    lastname: 'Whoop de whoop',
+    lastname: 'McCreanor',
     address: '5 snakeCase st, karori, wellington',
     email: 'james@overhere.com',
 #   mobile: 02265,
     home: '0425469',
     background: 'like afternoons, mornings are for hangover recovery',
+   orientation_id: 2,
     status: 'New',
-    orientation_id: 3},
-  {role: 'fosterer',
-    title: 'dude',
+    user_id: 1
+  },{
+    role: 'fosterer',
+    title: 'Mr',
     dob: '12-10-1991',
     firstname: 'Hamid',
-    lastname: 'Dum de Dum',
+    lastname: 'Madah',
     address: '6 lowercase st, karori, wellington',
     email: 'hamid@doinstuff.com',
 #   mobile: 02265,
     home: '04985423',
     background: 'hate paperwork',
+    orientation_id: 3,
     status: 'New',
-    orientation_id: 3},
-  {role: 'volunteer',
-    title: 'newbie',
+    user_id: 1
+  },{
+    role: 'volunteer',
+    title: 'Mrs',
     dob: '12-10-1991',
     firstname: 'Mymom',
     lastname: 'Hey you',
@@ -136,8 +162,10 @@ Volunteer.create([
 #   mobile: 02265,
     home: '0498999999',
     background: 'hate student layabouts',
+    orientation_id: 1,
     status: 'Auto-Rejected',
-    orientation_id: 3}
+    user_id: 1
+  }
 ])
 
 Volscheduler.create([{
@@ -360,3 +388,126 @@ Fosterer.create([{
  agreement: 'I agree',
  volunteer_id: 3
 }])
+
+Fosterer2.create([{
+ ownhome: 'Yes', 
+ inspecting: 'No',
+ rooms: 'Yes', 
+ roomwarm: 'No', 
+ hutch: 'No',	
+ rabbithutch: 'No', 
+ aviary: 'No',
+ livestockfenced: 'No',
+ homedesc: 'Blah Blah',
+ numadulta: 2, 
+ numchild: 1,
+ ages: 5,
+ numhoursperday: 3,
+ worktype: 'Full time',
+ secondperson: 'Blah Blah',
+ allmembersagree: 'Yes',
+ bringcentre: 'Yes',
+ transportdesc: 'Boom Boom',
+ agreement: 'I agree',
+ volunteer_id: 1
+}, { 
+                             
+ ownhome: 'Yes', 
+ inspecting: 'No',
+ rooms: 'Yes', 
+ roomwarm: 'No', 
+ hutch: 'No',	
+ rabbithutch: 'No', 
+ aviary: 'No',
+ livestockfenced: 'No',
+ homedesc: 'Blah Blah',
+ numadulta: 2, 
+ numchild: 1,
+ ages: 5,
+ numhoursperday: 3,
+ worktype: 'Away from home',
+ secondperson: 'Blah Blah',
+ allmembersagree: 'Yes',
+ bringcentre: 'Yes',
+ transportdesc: 'Boom Boom',
+ agreement: 'I agree',
+ volunteer_id: 2
+},{ 
+                             
+ ownhome: 'Yes', 
+ inspecting: 'No',
+ rooms: 'No', 
+ roomwarm: 'No', 
+ hutch: 'No',	
+ rabbithutch: 'No', 
+ aviary: 'No',
+ livestockfenced: 'No',
+ homedesc: 'Blah Blah',
+ numadulta: 2, 
+ numchild: 0,
+ ages: 0,
+ numhoursperday: 3,
+ worktype: 'Part time',
+ secondperson: 'Dum Dum',
+ allmembersagree: 'No',
+ bringcentre: 'No',
+ transportdesc: 'Boom Boom',
+ agreement: 'I agree',
+ volunteer_id: 3
+}])
+
+
+Orientation.create([{
+presenter: 'None',
+datetime: nil,
+participantMax: 1000000,
+numCurrParticipant:0
+},{                     
+presenter: 'Matt',
+datetime: '2013-12-12-10-10',
+participantMax: 2,
+numCurrParticipant: 0
+},{
+presenter: 'Hamid',
+datetime: '2014-02-02-05-11',
+participantMax: 5,
+numCurrParticipant: 0
+}])
+
+WorkHistory.create([
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "1-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "2-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "3-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "4-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "5-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "6-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "7-10-2013", absent: true },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "8-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "9-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "10-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "11-10-2013" },
+
+
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "1-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "2-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "3-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "4-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "5-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "6-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "7-10-2013", absent: true },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "8-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "9-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "10-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "11-10-2013" },
+
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "12-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "12-10-2013" },
+  { volunteer_id: 3, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "13-10-2013" },
+  { volunteer_id: 4, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "13-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "14-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "14-10-2013" },
+  { volunteer_id: 1, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "15-10-2013" },
+  { volunteer_id: 2, job: "feed cats", department: "cat department", supervisor: "Bob Jones", workdate: "15-10-2013" },
+
+])
+

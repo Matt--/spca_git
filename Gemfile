@@ -19,6 +19,9 @@ gem 'childprocess'
 # Helpers
 gem 'week_of_month'
 
+# Server Monitoring
+# gem 'god'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

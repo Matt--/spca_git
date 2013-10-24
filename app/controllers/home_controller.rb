@@ -3,7 +3,7 @@ class HomeController < ApplicationController
     if current_user
       if current_user.volcoordinator != nil
 	redirect_to volcoordinators_path
-      elsif current_user.deptSupervisor != nil
+      elsif current_user.roster_coordinator != nil
 	redirect_to volschedulers_path
       else
 	redirect_to volunteers_path

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130930041532) do
+ActiveRecord::Schema.define(:version => 20131008045546) do
 
   create_table "absences", :force => true do |t|
     t.date     "day"
@@ -40,31 +40,6 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "fosterer2s", :force => true do |t|
-    t.string   "ownhome"
-    t.string   "inspecting"
-    t.string   "rooms"
-    t.string   "roomwarm"
-    t.string   "hutch"
-    t.string   "rabbithutch"
-    t.string   "aviary"
-    t.string   "livestockfenced"
-    t.text     "homedesc"
-    t.integer  "numadulta"
-    t.integer  "numchild"
-    t.string   "ages"
-    t.integer  "numhoursperday"
-    t.string   "worktype"
-    t.text     "secondperson"
-    t.string   "allmembersagree"
-    t.string   "bringcentre"
-    t.text     "transportdesc"
-    t.boolean  "agreement"
-    t.integer  "volunteer_id"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
   end
 
   create_table "fosterer2s", :force => true do |t|
@@ -166,6 +141,7 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.string   "lastname"
     t.string   "title"
     t.integer  "department_id"
+    t.integer  "user_id"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
@@ -224,6 +200,7 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
     t.integer  "scheduledjobtype_id"
     t.integer  "orientation_id"
     t.integer  "user_id"
+    t.integer  "volscheduler_id"
     t.string   "status"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
@@ -241,5 +218,16 @@ ActiveRecord::Schema.define(:version => 20130930041532) do
   end
 
   add_index "whiteboards", ["volunteer_id"], :name => "index_whiteboards_on_volunteer_id"
+
+  create_table "work_histories", :force => true do |t|
+    t.integer  "volunteer_id"
+    t.date     "workdate",                        :null => false
+    t.string   "job",                             :null => false
+    t.string   "department",                      :null => false
+    t.string   "supervisor",                      :null => false
+    t.boolean  "absent",       :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
 
 end
