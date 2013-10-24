@@ -47,7 +47,7 @@
   <% @volunteers.each   do |v| %>
     <% v.vol_job_day.each do |vjd| %>
       <% (7..38).each         do |c| %>
-        <% t = time + (c * (60*60*24)) %>
+        <% t = time + ((c-7) * (60*60*24)) %>
         <% dayno = (t.wday == 0) ? 7 : t.wday %> <%# mon => 1, sun => 7 %>
 
         <% if check_frequency?(vjd, t) %>

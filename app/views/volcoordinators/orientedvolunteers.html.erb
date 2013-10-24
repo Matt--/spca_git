@@ -12,19 +12,21 @@
   
   <% #conds = "id != 1 and datetime <= \'" + DateTime.now.to_default_s + "\'" %>
   <% conds = "id != 1" %>
-  <% allO = Orientation.where(conds) %>
-  <% allO.order("datetime").each do |o| %>
+  <% orientations = Orientation.where(conds) %>
+<%#= raise orientations.inspect %>
+  <% orientations.order("datetime").each do |orientation| %>
+    <% if orientation.presenter == "None" then next end %>
     <% #Also filter out past orientations that are now empty (of New volunteers) %>
-    <% #if o.datetime <= DateTime.now and o.volunteers.length > 0 %>
+    <% #if orientation.datetime <= DateTime.now and orientation.volunteers.length > 0 %>
       <tr>
         <td><font color="blue"><b>
-          <%= o.datetime.to_formatted_s(:long_ordinal) %>
+          <%= orientation.datetime.to_formatted_s(:long_ordinal) %>
         </font></b></td>
         <td></td>
         <td></td>
         <td></td>
       </tr>
-      <% o.volunteers.each do |volunteer| %>
+      <% orientation.volunteers.each do |volunteer| %>
         <% if volunteer.status == "Awaiting Orientation" %>
           <tr>
             <td></td>
